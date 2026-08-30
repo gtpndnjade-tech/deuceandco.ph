@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="img/artengo-tr160.jpg">
+<meta name="ext-resource-dependency" content="img/banner.jpg">
+<meta name="ext-resource-dependency" content="img/court-balls.jpg">
+<meta name="ext-resource-dependency" content="img/dunlop-biomimetic.jpg">
+<meta name="ext-resource-dependency" content="img/dunlop-tour.jpg">
+<meta name="ext-resource-dependency" content="img/hero-action.jpg">
+<meta name="ext-resource-dependency" content="img/prince-classic.jpg">
+<meta name="ext-resource-dependency" content="img/prince-extender-740.jpg">
+<meta name="ext-resource-dependency" content="img/prince-graphite-pro.jpg">
+<meta name="ext-resource-dependency" content="img/prince-textreme.jpg">
+<meta name="ext-resource-dependency" content="img/prince-warrior.jpg">
+<meta name="ext-resource-dependency" content="img/prokennex-graphpro.jpg">
+<meta name="ext-resource-dependency" content="img/prokennex-ki.jpg">
+<meta name="ext-resource-dependency" content="img/tube-court.jpg">
+<meta name="ext-resource-dependency" content="img/tube-inhand.jpg">
+<meta name="ext-resource-dependency" content="img/wilson-hammer.jpg">
+<meta name="ext-resource-dependency" content="img/wilson-matchpoint.jpg">
+<meta name="ext-resource-dependency" content="img/wilson-promatrix.jpg">
+<meta name="ext-resource-dependency" content="img/wilson-prostaff.jpg">
+<meta name="ext-resource-dependency" content="img/yonex-vcore-100.jpg">
+<meta name="ext-resource-dependency" content="img/yonex-vcore-pro.jpg">
+<meta name="ext-resource-dependency" content="img/court-lines.png">
+<meta name="ext-resource-dependency" content="brand/mark-rackets.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="stylesheet" href="_ds/organic-096173ee-c063-4c67-9239-e548a4f91e10/styles.css">
+<script src="_ds/organic-096173ee-c063-4c67-9239-e548a4f91e10/_ds_bundle.js"></script>
+<style>
+body{margin:0;background:var(--color-bg)}
+a{color:var(--color-accent-700);text-decoration:none}
+a:hover{color:var(--color-accent-600)}
+.ph{position:relative;overflow:hidden;background:#f9f4ed;display:grid;place-items:center}
+.ph img{mix-blend-mode:multiply;max-width:none;width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+@media (max-width:560px){.grid{grid-template-columns:1fr 1fr;gap:12px}}
+.scr::-webkit-scrollbar{display:none}
+.scr{scrollbar-width:none}
+@keyframes pop{from{transform:scale(.86);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes rise{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
+</style></helmet>
+
+<div style="min-height:100vh;background:var(--color-bg);font-family:var(--font-body);color:var(--color-text)">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(245,234,216,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-divider)">
+<div style="max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px">
+<button type="button" onClick="{{ goShop }}" style="border:none;background:none;padding:0;cursor:pointer;text-align:left;color:var(--color-text);display:flex;align-items:center;gap:11px">
+<img src="brand/mark-rackets.png" alt="Deuce &amp; Co." style="width:42px;height:42px;flex:none;border-radius:999px;display:block" />
+<span style="display:block">
+<span style="display:block;font-family:var(--font-heading);font-size:20px;line-height:1;letter-spacing:-.01em">Deuce &amp; Co.</span>
+<span style="display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-accent-700);margin-top:3px">Rent · Rally · Return</span>
+</span>
+</button>
+<span style="flex:1"></span>
+<button type="button" onClick="{{ goShop }}" style="border:none;background:none;padding:9px 12px;border-radius:999px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--color-text)">Shop</button>
+<button type="button" onClick="{{ goCart }}" style="position:relative;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:10px 18px;cursor:pointer;font-size:13.5px;font-weight:700">
+Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:rgba(255,248,236,.9);color:var(--color-accent-800);font-size:11.5px">{{ cartCount }}</span></sc-if>
+</button>
+</div>
+</header>
+
+<main style="max-width:1080px;margin:0 auto;padding:0 20px 64px">
+
+<sc-if value="{{ isShop }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:32px;padding-top:20px">
+
+<section style="border-radius:var(--radius-lg);overflow:hidden;background:#211e1b">
+<div style="padding:20px 18px 22px;background:#211e1b;color:#fff8ec">
+
+<div style="display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between;margin-bottom:14px">
+<span style="min-width:0">
+<span style="display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-300);font-weight:700">Biñan, Laguna · live court board</span>
+<h2 style="margin:6px 0 0;font-size:21px;line-height:1.1;color:#fff8ec">When are you playing?</h2>
+</span>
+<span style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:10px;color:rgba(255,248,236,.78)">
+<span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:var(--color-accent-2-400)"></span>All in</span>
+<span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:var(--color-accent-400)"></span>Some out</span>
+<span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:rgba(255,248,236,.45)"></span>Fully booked</span>
+<span style="padding:5px 12px;border-radius:999px;background:rgba(255,248,236,.1);border:1px solid;border-color:rgba(255,248,236,.2);font-family:var(--font-heading);font-size:10.5px;color:rgba(255,248,236,.85)">{{ calTitle }}</span>
+</span>
+</div>
+
+<div style="position:relative;aspect-ratio:82/34;width:100%;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:2.2% 2.4%;box-sizing:border-box;isolation:isolate">
+<img src="img/court-lines.png" alt="" aria-hidden="true" style="position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:fill;opacity:.95" />
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
+<sc-for list="{{ calHeads }}" as="h" hint-placeholder-count="7">
+<span style="text-align:center;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,236,.62);font-weight:700">{{ h }}</span>
+</sc-for>
+</div>
+<div style="flex:1;display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:1fr;gap:5px">
+<sc-for list="{{ calDays }}" as="d" hint-placeholder-count="35">
+<button type="button" onClick="{{ d.onPick }}" disabled="{{ d.disabled }}" title="{{ d.title }}" style="{{ d.style }}">
+<span style="display:flex;align-items:baseline;justify-content:space-between;gap:4px">
+<span style="font-family:var(--font-heading);font-size:12.5px;line-height:1">{{ d.num }}</span>
+<span style="font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;opacity:.6">{{ d.monTag }}</span>
+</span>
+<span style="display:flex;align-items:center;gap:4px;margin-top:4px">
+<span style="{{ d.dot }}"></span>
+<span style="font-size:8.5px;line-height:1.1;text-align:left">{{ d.outLabel }}</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div style="margin-top:14px;padding-top:13px;border-top:1px solid;border-top-color:rgba(255,248,236,.16);display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between">
+<span style="display:flex;align-items:center;gap:11px">
+<button type="button" onClick="{{ decDays }}" aria-label="Fewer days" style="width:34px;height:34px;flex:none;border:1px solid;border-color:rgba(255,248,236,.32);border-radius:999px;background:rgba(255,248,236,.12);font-size:16px;cursor:pointer;color:#fff8ec">−</button>
+<span style="min-width:96px">
+<span style="display:block;font-family:var(--font-heading);font-size:17px;line-height:1.1;color:#fff8ec">{{ daysLabel }}</span>
+<span style="display:block;font-size:10px;color:rgba(255,248,236,.55);margin-top:1px">{{ rangeLabel }}</span>
+</span>
+<button type="button" onClick="{{ incDays }}" aria-label="More days" style="width:34px;height:34px;flex:none;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);font-size:16px;cursor:pointer">+</button>
+</span>
+<sc-if value="{{ dayOutList }}">
+<span style="flex:1 1 260px;min-width:0;text-align:right">
+<span style="display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-accent-300);font-weight:700">Out on court · {{ dayOutHead }}</span>
+<span style="display:block;font-size:11px;line-height:1.5;color:rgba(255,248,236,.78);margin-top:4px;text-wrap:pretty">{{ dayOutList }}</span>
+</span>
+</sc-if>
+<sc-if value="{{ hasWeekly }}"><span style="padding:7px 15px;border-radius:999px;background:rgba(122,138,94,.34);color:#fff8ec;font-size:10.5px">Weekly rate — 15% off from day 5</span></sc-if>
+
+</div>
+</section>
+
+<section>
+<h2 style="margin:0 0 4px;font-size:22px">How do you get the gear?</h2>
+<p style="margin:0 0 12px;font-size:13px;color:rgba(32,30,29,.55)">Collecting at the court is free. Delivered anywhere else around Biñan, the delivery fee is on you.</p>
+<div style="display:flex;flex-direction:column;gap:9px">
+<sc-for list="{{ zones }}" as="z" hint-placeholder-count="4">
+<button type="button" onClick="{{ z.onPick }}" disabled="{{ z.disabled }}" style="{{ z.style }}">
+<span style="{{ z.dot }}"></span>
+<span style="flex:1;text-align:left;min-width:0">
+<span style="display:block;font-size:13.5px;font-weight:600">{{ z.name }}</span>
+<span style="display:block;font-size:11.5px;line-height:1.45;color:rgba(32,30,29,.55);margin-top:3px">{{ z.meta }}</span>
+</span>
+<sc-if value="{{ z.badge }}"><span style="{{ z.badgeStyle }}">{{ z.badge }}</span></sc-if>
+</button>
+</sc-for>
+</div>
+<sc-if value="{{ needsAddress }}">
+<div style="margin-top:11px">
+<input class="input" type="text" placeholder="{{ addressPlaceholder }}" value="{{ addressVal }}" onChange="{{ setAddress }}" style="width:100%;box-sizing:border-box;padding:14px 18px;border-radius:999px;border:1px solid var(--color-divider);background:var(--color-surface);font-family:var(--font-body);font-size:14px;color:var(--color-text)" />
+<p style="margin:8px 2px 0;font-size:11.5px;line-height:1.5;color:rgba(32,30,29,.5)">{{ addressNote }}</p>
+</div>
+</sc-if>
+
+</section>
+
+<section>
+<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;justify-content:space-between;margin-bottom:14px">
+<span style="flex:1 1 300px;min-width:0">
+<h2 style="margin:0 0 4px;font-size:22px">Add court rental</h2>
+<p style="margin:10px 0 0;padding:12px 16px;border-radius:var(--radius-lg);background:var(--color-accent-2-100);font-size:13px;line-height:1.55;color:var(--color-accent-2-800);text-wrap:pretty"><strong>Optional</strong> — skip this if you already have a court. Pick indoor or outdoor at South City Homes, Biñan, and the court is added to your order automatically.</p>
+</span>
+<button type="button" onClick="{{ toggleCourt }}" role="switch" aria-checked="{{ courtAdd }}" style="{{ courtSwitch }}"><span style="{{ courtKnob }}"></span></button>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;align-items:start">
+<sc-for list="{{ venues }}" as="v" hint-placeholder-count="2">
+<div style="{{ v.wrap }}">
+<button type="button" onClick="{{ v.onPick }}" style="{{ v.style }}">
+<span style="display:flex;align-items:center;gap:11px">
+<span style="{{ v.dot }}"></span>
+<span style="flex:1;min-width:0">
+<span style="display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-accent-700)">{{ v.kind }}</span>
+<span style="display:block;font-family:var(--font-heading);font-size:16px;line-height:1.2;margin-top:4px">{{ v.name }}</span>
+</span>
+</span>
+<span style="display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;padding-top:12px;border-top:1px solid;border-top-color:var(--color-divider)">
+<span>
+<span style="display:block;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.45)">Daytime</span>
+<span style="display:block;font-family:var(--font-heading);font-size:15px;margin-top:2px">{{ v.dayRate }}<span style="font-size:10.5px;font-family:var(--font-body);color:rgba(32,30,29,.5)"> / hr</span></span>
+</span>
+<span>
+<span style="display:block;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.45)">With lights</span>
+<span style="display:block;font-family:var(--font-heading);font-size:15px;margin-top:2px">{{ v.nightRate }}<span style="font-size:10.5px;font-family:var(--font-body);color:rgba(32,30,29,.5)"> / hr</span></span>
+</span>
+</span>
+</button>
+<a href="{{ v.map }}" target="_blank" rel="noopener" style="align-self:flex-start;font-size:11.5px;font-weight:600;color:var(--color-accent-700)">{{ v.meta }} · Directions ↗</a>
+</div>
+</sc-for>
+</div>
+
+<sc-if value="{{ courtBookable }}">
+<div style="margin-top:12px;padding:16px;border-radius:var(--radius-lg);background:var(--color-surface);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+<span style="display:flex;align-items:center;gap:12px">
+<button type="button" onClick="{{ decHours }}" aria-label="Fewer hours" style="width:40px;height:40px;flex:none;border:none;border-radius:999px;background:var(--color-bg);font-size:19px;cursor:pointer;color:var(--color-text)">−</button>
+<span style="min-width:76px;text-align:center;font-family:var(--font-heading);font-size:19px">{{ hoursLabel }}</span>
+<button type="button" onClick="{{ incHours }}" aria-label="More hours" style="width:40px;height:40px;flex:none;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);font-size:19px;cursor:pointer">+</button>
+</span>
+<span style="display:flex;gap:6px;padding:4px;border-radius:999px;background:var(--color-bg)">
+<button type="button" onClick="{{ pickDaytime }}" style="{{ dayStyle }}">Daytime</button>
+<button type="button" onClick="{{ pickLights }}" style="{{ nightStyle }}">With lights</button>
+</span>
+<span style="text-align:right">
+<span style="display:block;font-family:var(--font-heading);font-size:19px">{{ courtFeeLabel }}</span>
+<span style="display:block;font-size:11.5px;color:rgba(32,30,29,.5);margin-top:2px">{{ courtRateLine }}</span>
+</span>
+</div>
+
+<div style="margin-top:12px;padding:16px;border-radius:var(--radius-lg);background:var(--color-surface)">
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between;margin-bottom:11px">
+<span style="font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-weight:700">Time slot <span style="color:var(--color-accent-700)">· required</span></span>
+<span style="font-size:11.5px;color:rgba(32,30,29,.5)">{{ slotHint }}</span>
+</div>
+<div class="scr" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+<sc-for list="{{ slots }}" as="t" hint-placeholder-count="8">
+<button type="button" onClick="{{ t.onPick }}" style="{{ t.style }}">{{ t.label }}</button>
+</sc-for>
+</div>
+<sc-if value="{{ slotChosen }}">
+<p style="margin:11px 2px 0;font-size:12.5px;color:var(--color-accent-700);font-weight:600">Booked {{ slotRange }} · {{ slotDays }}</p>
+</sc-if>
+<sc-if value="{{ slotMissing }}">
+<p style="margin:11px 2px 0;font-size:11.5px;line-height:1.5;color:var(--color-accent-700)">Pick a start time so we can hold the court in the club's schedule.</p>
+</sc-if>
+</div>
+</sc-if>
+
+</section>
+
+<section>
+<div class="scr" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px">
+<sc-for list="{{ catChips }}" as="c" hint-placeholder-count="4">
+<button type="button" onClick="{{ c.onPick }}" style="{{ c.style }}">{{ c.label }}</button>
+</sc-for>
+</div>
+<sc-if value="{{ showLevels }}" hint-placeholder-val="{{ true }}">
+<div class="scr" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px">
+<sc-for list="{{ levelChips }}" as="c" hint-placeholder-count="4">
+<button type="button" onClick="{{ c.onPick }}" style="{{ c.style }}">{{ c.label }}</button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ showLevels }}" hint-placeholder-val="{{ true }}">
+<div style="margin-bottom:14px;padding:14px 16px;border-radius:var(--radius-lg);background:var(--color-accent-2-100);display:flex;gap:12px;align-items:flex-start">
+<span style="width:26px;height:26px;flex:none;border-radius:999px;background:var(--color-accent-2-600);color:#fff8ec;display:grid;place-items:center;font-size:14px;font-weight:700">+</span>
+<span style="min-width:0">
+<span style="display:block;font-size:13px;font-weight:700;color:var(--color-accent-2-900)">Every racket rental includes a case and 5 balls</span>
+<span style="display:block;font-size:12.5px;line-height:1.55;color:var(--color-accent-2-800);margin-top:3px;text-wrap:pretty">Each frame comes in its racket case or bag with <strong>5 balls</strong> to play with — no extra charge. Add a ball tube or basket below only if you need more for drills.</span>
+</span>
+</div>
+</sc-if>
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+<span style="font-size:12.5px;color:rgba(32,30,29,.55)">{{ resultCount }} available for {{ rangeLabel }}</span>
+<button type="button" onClick="{{ toggleSort }}" style="border:1px solid var(--color-divider);background:none;border-radius:999px;padding:8px 14px;font-size:12px;cursor:pointer;color:var(--color-text)">{{ sortLabel }} ⇅</button>
+</div>
+<div class="grid">
+<sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
+<button type="button" onClick="{{ p.onOpen }}" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:10px">
+<span class="ph" style="position:relative;width:100%;aspect-ratio:3/4;border-radius:var(--radius-lg)"><img src="{{ p.img }}" alt="{{ p.name }}" style="{{ p.imgStyle }}" /></span>
+<span style="display:block">
+<span style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+<span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-accent-700)">{{ p.brand }}</span>
+<span style="{{ p.tagStyle }}">{{ p.tag }}</span>
+</span>
+<span style="display:block;font-family:var(--font-heading);font-size:15.5px;line-height:1.2;margin-top:4px">{{ p.model }}</span>
+<span style="display:block;font-size:11.5px;line-height:1.45;color:rgba(32,30,29,.55);margin-top:4px">{{ p.specLine }}</span>
+<span style="display:flex;align-items:baseline;justify-content:space-between;margin-top:8px;gap:8px">
+<span style="font-size:15px;font-weight:700;white-space:nowrap">{{ p.priceLabel }}<span style="font-size:11px;font-weight:400;color:rgba(32,30,29,.5)"> {{ p.unit }}</span></span>
+</span>
+</span>
+</button>
+</sc-for>
+</div>
+</section>
+
+<section style="padding:24px 22px 26px;border-radius:var(--radius-lg);background:var(--color-accent-2-600);color:#fff8ec">
+<span style="display:inline-block;padding:5px 13px;border-radius:999px;background:rgba(255,248,236,.18);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase">Community</span>
+<h2 style="margin:14px 0 18px;font-size:27px;line-height:1.06;letter-spacing:-.015em;color:#fff8ec">How it works</h2>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:16px">
+<span style="width:40px;height:40px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.75);display:grid;place-items:center;font-family:var(--font-heading);font-size:16px">1</span>
+<span style="font-size:15px;line-height:1.45">Book your gear online</span>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<span style="width:40px;height:40px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.75);display:grid;place-items:center;font-family:var(--font-heading);font-size:16px">2</span>
+<span style="font-size:15px;line-height:1.45">Pick up in Biñan — South City Homes</span>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<span style="width:40px;height:40px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.75);display:grid;place-items:center;font-family:var(--font-heading);font-size:16px">3</span>
+<span style="font-size:15px;line-height:1.45">Rent · Rally · Repeat — no commitment</span>
+</div>
+</div>
+<div style="margin-top:20px;font-size:11.5px;letter-spacing:.16em;opacity:.72">@DEUCEANDCO.PH</div>
+</section>
+
+</div>
+</sc-if>
+
+<sc-if value="{{ isDetail }}">
+<div style="padding-top:18px;display:flex;flex-direction:column;gap:26px">
+<button type="button" onClick="{{ goShop }}" style="align-self:flex-start;border:none;background:none;padding:6px 0;cursor:pointer;font-size:13px;font-weight:600;color:var(--color-accent-700)">← Back to shop</button>
+<div style="display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start">
+
+<div style="flex:1 1 300px;min-width:0">
+<button type="button" onClick="{{ openZoom }}" class="ph" style="width:100%;aspect-ratio:4/5;border-radius:var(--radius-lg);border:none;padding:0;cursor:zoom-in;position:relative;display:block">
+<img src="{{ cur.img }}" alt="{{ cur.name }}" style="{{ cur.heroStyle }}" />
+<span style="position:absolute;right:12px;bottom:12px;padding:8px 15px;border-radius:999px;background:rgba(32,30,29,.72);color:#fff8ec;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase">Tap to zoom</span>
+</button>
+</div>
+
+<div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:22px">
+<div>
+<div style="display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap">
+<span style="font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--color-accent-700)">{{ cur.brand }}</span>
+<span style="{{ cur.tagStyle }}">{{ cur.tag }}</span>
+</div>
+<h1 style="margin:0;font-size:30px;line-height:1.06;letter-spacing:-.02em;text-wrap:pretty">{{ cur.model }}</h1>
+<div style="display:flex;align-items:center;gap:9px;margin-top:10px;flex-wrap:wrap">
+<span style="font-size:12.5px;color:var(--color-accent-2-700);font-weight:600;white-space:nowrap">{{ cur.stockLabel }}</span>
+</div>
+<p style="margin:14px 0 0;font-size:14px;line-height:1.62;color:rgba(32,30,29,.78);text-wrap:pretty">{{ cur.blurb }}</p>
+</div>
+
+<div style="padding:18px;border-radius:var(--radius-lg);background:var(--color-surface);display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+<div style="flex:1 1 150px">
+<div style="font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-weight:700">{{ cur.unitLabel }}</div>
+<div style="font-family:var(--font-heading);font-size:27px;line-height:1.1;margin-top:4px">{{ cur.priceLabel }}</div>
+<div style="font-size:11.5px;color:rgba(32,30,29,.55);margin-top:2px">{{ cur.periodLine }}</div>
+<sc-if value="{{ isRacket }}">
+<div style="font-size:12px;line-height:1.5;color:var(--color-accent-2-800);font-weight:600;margin-top:7px">{{ includesLine }}</div>
+</sc-if>
+</div>
+<div style="display:flex;align-items:center;gap:10px">
+<button type="button" onClick="{{ decQty }}" aria-label="Fewer" style="width:42px;height:42px;border:none;border-radius:999px;background:var(--color-bg);font-size:20px;cursor:pointer;color:var(--color-text)">−</button>
+<span style="min-width:28px;text-align:center;font-family:var(--font-heading);font-size:19px">{{ qty }}</span>
+<button type="button" onClick="{{ incQty }}" aria-label="More" style="width:42px;height:42px;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);font-size:20px;cursor:pointer">+</button>
+</div>
+<button type="button" onClick="{{ addToCart }}" style="flex:1 1 100%;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:16px;font-family:var(--font-heading);font-size:16px;cursor:pointer">Add to cart · {{ lineTotalLabel }}</button>
+</div>
+
+<sc-if value="{{ isRacket }}">
+<div style="padding:16px 18px;border-radius:var(--radius-lg);background:var(--color-accent-2-100)">
+<span style="display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--color-accent-2-800);font-weight:700">Included</span>
+<span style="display:block;font-size:13.5px;line-height:1.55;color:var(--color-accent-2-900);margin-top:6px;font-weight:600">Racket case or bag · 5 balls</span>
+<span style="display:block;font-size:12.5px;line-height:1.55;color:var(--color-accent-2-800);margin-top:4px;text-wrap:pretty">Every racket goes out in its case with five balls, at no extra cost. Need more for drills? Add a ball tube or the basket.</span>
+</div>
+</sc-if>
+
+<div style="padding:18px;border-radius:var(--radius-lg);background:var(--color-accent-2-100)">
+<h3 style="margin:0 0 4px;font-size:16px;color:var(--color-accent-2-900)">Rental terms</h3>
+<p style="margin:0 0 12px;font-size:12.5px;line-height:1.5;color:var(--color-accent-2-800)">Please read before you check out — booking counts as agreeing to these.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ terms }}" as="t" hint-placeholder-count="6">
+<div style="display:flex;gap:11px;align-items:flex-start">
+<span style="width:20px;height:20px;flex:none;margin-top:1px;border-radius:999px;background:var(--color-accent-2-600);color:#fff8ec;display:grid;place-items:center;font-size:11px;font-weight:700">{{ t.n }}</span>
+<span style="min-width:0">
+<span style="display:block;font-size:13px;font-weight:700;color:var(--color-accent-2-900)">{{ t.head }}</span>
+<span style="display:block;font-size:12.5px;line-height:1.55;color:var(--color-accent-2-800);margin-top:2px;text-wrap:pretty">{{ t.body }}</span>
+</span>
+</div>
+</sc-for>
+</div>
+<p style="margin:13px 0 0;font-size:11.5px;line-height:1.5;color:var(--color-accent-2-800)">Questions? DM us at <a href="https://www.instagram.com/deuceandco.ph/" target="_blank" rel="noopener" style="color:var(--color-accent-2-900);font-weight:700">@deuceandco.ph</a> before booking.</p>
+</div>
+
+<sc-if value="{{ hasSpecs }}" hint-placeholder-val="{{ true }}">
+<div>
+<h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-family:var(--font-body);font-weight:700">Specifications</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<sc-for list="{{ specs }}" as="s" hint-placeholder-count="6">
+<div style="padding:12px 15px;border-radius:var(--radius-lg);background:var(--color-surface)">
+<div style="font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:rgba(32,30,29,.48)">{{ s.k }}</div>
+<div style="font-size:14px;font-weight:600;margin-top:3px">{{ s.v }}</div>
+</div>
+</sc-for>
+</div>
+<p style="margin:9px 0 0;font-size:11.5px;line-height:1.5;color:rgba(32,30,29,.5)">{{ specNote }}</p>
+</div>
+</sc-if>
+
+<div>
+<h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-family:var(--font-body);font-weight:700">Best for</h3>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ goods }}" as="g" hint-placeholder-count="3">
+<span style="padding:7px 14px;border-radius:999px;background:var(--color-accent-2-100);color:var(--color-accent-2-800);font-size:12.5px">{{ g.t }}</span>
+</sc-for>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCart }}">
+<div style="padding-top:20px;display:flex;flex-direction:column;gap:22px">
+<h1 style="margin:0;font-size:28px;letter-spacing:-.02em">Your cart</h1>
+<sc-if value="{{ cartEmpty }}">
+<div style="padding:56px 20px;text-align:center;border-radius:var(--radius-lg);background:var(--color-surface)">
+<h3 style="margin:0 0 8px;font-size:20px">Nothing booked yet</h3>
+<p style="margin:0 0 20px;font-size:13.5px;color:rgba(32,30,29,.55)">Rackets, balls and hoppers are all one checkout away.</p>
+<button type="button" onClick="{{ goShop }}" style="border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:14px 26px;font-family:var(--font-heading);font-size:15px;cursor:pointer">Browse the shop</button>
+</div>
+</sc-if>
+<sc-if value="{{ hasCart }}">
+<div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+
+<div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ cart }}" as="c" hint-placeholder-count="2">
+<div style="display:flex;gap:14px;padding:13px;border-radius:var(--radius-lg);background:var(--color-surface)">
+<span class="ph" style="position:relative;width:76px;height:92px;flex:none;border-radius:20px"><img src="{{ c.img }}" alt="" style="{{ c.imgStyle }}" /></span>
+<span style="flex:1;min-width:0">
+<span style="display:block;font-family:var(--font-heading);font-size:15.5px;line-height:1.2">{{ c.model }}</span>
+<span style="display:block;font-size:11.5px;color:rgba(32,30,29,.55);margin-top:4px">{{ c.line }}</span>
+<span style="display:flex;align-items:center;justify-content:space-between;margin-top:9px;gap:10px">
+<span style="font-size:15px;font-weight:700">{{ c.total }}</span>
+<button type="button" onClick="{{ c.onRemove }}" style="border:none;background:none;padding:4px 6px;font-size:12px;color:var(--color-accent-700);cursor:pointer;text-decoration:underline">Remove</button>
+</span>
+</span>
+</div>
+</sc-for>
+</div>
+
+<div>
+<h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-family:var(--font-body);font-weight:700">Rental period</h3>
+<div style="padding:15px;border-radius:var(--radius-lg);background:var(--color-surface);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<span style="font-size:14px;font-weight:600;color:var(--color-accent-700)">{{ rangeLabel }} · {{ daysLabel }}</span>
+<button type="button" onClick="{{ goShop }}" style="border:1px solid var(--color-divider);background:none;border-radius:999px;padding:9px 16px;font-size:12.5px;cursor:pointer;color:var(--color-text)">Change dates</button>
+</div>
+</div>
+
+<div>
+<h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-family:var(--font-body);font-weight:700">Court &amp; handover</h3>
+<div style="padding:15px;border-radius:var(--radius-lg);background:var(--color-surface);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+<span style="flex:1 1 220px;min-width:0">
+<span style="display:block;font-size:13.5px;font-weight:600;color:var(--color-accent-700)">{{ venueLine }}</span>
+<span style="display:block;font-size:12px;line-height:1.5;color:var(--color-accent-700);opacity:.78;margin-top:4px">{{ handoverLine }}</span>
+<sc-if value="{{ courtSlotLine }}">
+<span style="display:block;font-size:12px;line-height:1.5;color:var(--color-accent-700);opacity:.78;margin-top:3px">{{ courtSlotLine }}</span>
+</sc-if>
+</span>
+<button type="button" onClick="{{ goShop }}" style="border:1px solid var(--color-divider);background:none;border-radius:999px;padding:9px 16px;font-size:12.5px;cursor:pointer;color:var(--color-text)">Change</button>
+</div>
+</div>
+
+<div>
+<h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-family:var(--font-body);font-weight:700">Your details <span style="color:var(--color-accent-700)">· all required</span></h3>
+<div style="display:flex;flex-direction:column;gap:10px">
+<input class="input" type="text" required="{{ true }}" aria-label="Full name" placeholder="Full name *" value="{{ nameVal }}" onChange="{{ setName }}" style="width:100%;box-sizing:border-box;padding:14px 18px;border-radius:999px;border:1px solid var(--color-divider);background:var(--color-surface);font-family:var(--font-body);font-size:14px;color:var(--color-text)" />
+<input class="input" type="tel" required="{{ true }}" aria-label="Mobile number" placeholder="Mobile number *" value="{{ phoneVal }}" onChange="{{ setPhone }}" style="width:100%;box-sizing:border-box;padding:14px 18px;border-radius:999px;border:1px solid var(--color-divider);background:var(--color-surface);font-family:var(--font-body);font-size:14px;color:var(--color-text)" />
+<input class="input" type="text" required="{{ true }}" aria-label="Instagram or Facebook name" placeholder="Instagram handle or Facebook name *" value="{{ socialVal }}" onChange="{{ setSocial }}" style="width:100%;box-sizing:border-box;padding:14px 18px;border-radius:999px;border:1px solid var(--color-divider);background:var(--color-bg);font-family:var(--font-body);font-size:14px;color:var(--color-text)" />
+<input class="input" type="email" required="{{ true }}" aria-label="Email address" placeholder="Email address *" value="{{ emailVal }}" onChange="{{ setEmail }}" style="width:100%;box-sizing:border-box;padding:14px 18px;border-radius:999px;border:1px solid var(--color-divider);background:var(--color-surface);font-family:var(--font-body);font-size:14px;color:var(--color-text)" />
+<sc-if value="{{ detailsMissing }}">
+<p style="margin:2px 2px 0;font-size:11.5px;line-height:1.5;color:var(--color-accent-700)">Fill in your name, mobile number, Instagram or Facebook name, and email so we can match your DM to this booking.</p>
+</sc-if>
+</div>
+</div>
+
+</div>
+
+<div style="flex:0 1 320px;min-width:260px;position:sticky;top:88px">
+<div style="padding:20px;border-radius:var(--radius-lg);background:var(--color-accent-100)">
+<h3 style="margin:0 0 12px;font-size:18px">Order summary</h3>
+<sc-for list="{{ cartLines }}" as="p" hint-placeholder-count="4">
+<div style="display:flex;justify-content:space-between;gap:14px;font-size:13px;padding:5px 0;color:rgba(32,30,29,.72)"><span>{{ p.k }}</span><span>{{ p.v }}</span></div>
+</sc-for>
+<div style="height:1px;background:rgba(140,73,26,.22);margin:11px 0"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline">
+<span style="font-family:var(--font-heading);font-size:17px">Total</span>
+<span style="font-family:var(--font-heading);font-size:25px;color:var(--color-accent-800)">{{ cartTotal }}</span>
+</div>
+<button type="button" onClick="{{ confirmBooking }}" style="width:100%;margin-top:16px;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:16px;font-family:var(--font-heading);font-size:16px;cursor:pointer">Confirm booking</button>
+<sc-if value="{{ slotMissing }}">
+<div style="margin-top:12px;padding:12px 15px;border-radius:var(--radius-lg);background:var(--color-surface)">
+<p style="margin:0;font-size:12px;line-height:1.5;color:var(--color-accent-700);font-weight:600">Your court has no time slot yet.</p>
+<button type="button" onClick="{{ goShop }}" style="margin-top:9px;border:1px solid var(--color-accent);background:none;border-radius:999px;padding:8px 15px;font-size:12px;font-weight:600;cursor:pointer;color:var(--color-accent-700)">Choose a court time</button>
+</div>
+</sc-if>
+<p style="margin:12px 0 0;font-size:11.5px;line-height:1.55;color:rgba(32,30,29,.55)">Rentals of two days or more carry a ₱200 refundable deposit, returned when you bring the gear back, minus damage. Single-day rentals need no deposit. Bring a valid ID. Balls are yours to keep.</p>
+</div>
+</div>
+
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ isConfirm }}">
+<div style="padding-top:32px;max-width:540px;margin:0 auto;display:flex;flex-direction:column;gap:20px;animation:rise .4s ease both">
+
+<div style="text-align:center">
+<div style="width:76px;height:76px;margin:0 auto;border-radius:999px;background:var(--color-accent-2-500);display:grid;place-items:center;font-size:34px;color:#fff;animation:pop .45s cubic-bezier(.2,1.4,.4,1) both">✓</div>
+<h1 style="margin:18px 0 8px;font-size:28px;letter-spacing:-.02em">Here's your order ticket.</h1>
+<p style="margin:0 0 14px;padding:15px 18px;border-radius:var(--radius-lg);background:var(--color-accent-100);border:1.5px solid;border-color:var(--color-accent);font-size:14px;line-height:1.55;color:var(--color-accent-800);text-wrap:pretty;text-align:left"><strong style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">Important</strong><strong>SCREENSHOT this ticket</strong> before you leave the page, then tap <strong>Send on Messenger</strong> or <strong>Send on Instagram</strong> below and attach it. We reply with your booking confirmation and the payment details.</p>
+</div>
+
+<div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--color-surface)">
+<div style="padding:20px;background:var(--color-accent-800);color:#fff8ec">
+<div style="display:flex;align-items:center;gap:11px">
+<img src="brand/mark-rackets.png" alt="" style="width:36px;height:36px;flex:none;border-radius:999px;display:block" />
+<span style="min-width:0">
+<span style="display:block;font-family:var(--font-heading);font-size:17px;line-height:1.1">Deuce &amp; Co.</span>
+<span style="display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;opacity:.65;margin-top:3px">Order ticket · @deuceandco.ph</span>
+</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-top:18px">
+<span>
+<span style="display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.6">Reference</span>
+<span style="display:block;font-family:var(--font-heading);font-size:33px;letter-spacing:.07em;margin-top:4px">{{ bookingCode }}</span>
+</span>
+<span style="padding:7px 14px;border-radius:999px;background:rgba(255,248,236,.16);font-size:11px;letter-spacing:.1em;text-transform:uppercase">Awaiting confirmation</span>
+</div>
+</div>
+
+<div style="padding:20px">
+<span style="display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(32,30,29,.45);font-weight:700">Gear reserved</span>
+<div style="display:flex;flex-direction:column;gap:11px;margin-top:12px">
+<sc-for list="{{ bookedItems }}" as="i" hint-placeholder-count="2">
+<div style="display:flex;gap:14px;align-items:baseline;justify-content:space-between">
+<span style="min-width:0">
+<span style="display:block;font-size:13.5px;font-weight:600;line-height:1.35">{{ i.name }}</span>
+<span style="display:block;font-size:11.5px;color:rgba(32,30,29,.5);margin-top:2px">{{ i.qty }}</span>
+</span>
+<span style="flex:none;font-size:13.5px;font-weight:700;white-space:nowrap">{{ i.line }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="height:1px;margin:0 20px;border-top:1.5px dashed;border-top-color:var(--color-divider)"></div>
+
+<div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ confirmLines }}" as="p" hint-placeholder-count="6">
+<div style="display:flex;justify-content:space-between;gap:16px;font-size:13px"><span style="color:rgba(32,30,29,.55)">{{ p.k }}</span><span style="font-weight:600;text-align:right">{{ p.v }}</span></div>
+</sc-for>
+</div>
+
+<div style="padding:18px 20px;background:var(--color-accent-100);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+<span>
+<span style="display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800);font-weight:700">Amount to send</span>
+<span style="display:block;font-size:11.5px;color:var(--color-accent-800);margin-top:3px">Payment details follow in our DM reply</span>
+</span>
+<span style="font-family:var(--font-heading);font-size:27px;color:var(--color-accent-900)">{{ bookedTotal }}</span>
+</div>
+<sc-if value="{{ bookedDeposit }}">
+<div style="padding:13px 20px;background:var(--color-accent-2-100);font-size:12px;line-height:1.5;color:var(--color-accent-2-800)">The {{ bookedDeposit }} deposit is already included in the amount above — we return it in full at handover once the gear comes back complete.</div>
+</sc-if>
+</div>
+
+<div style="padding:20px;border-radius:var(--radius-lg);background:var(--color-accent-2-600);color:#fff8ec">
+<span style="display:inline-block;padding:5px 13px;border-radius:999px;background:rgba(255,248,236,.18);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase">Last step</span>
+<h2 style="margin:13px 0 6px;font-size:21px;color:#fff8ec">Send your order to us</h2>
+<p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;opacity:.85">Send us the ticket above and we reply within the hour during shop hours.</p>
+<div style="padding:14px 16px;border-radius:var(--radius-lg);background:#fff8ec;color:var(--color-accent-800);margin-bottom:16px">
+<span style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-accent-700)">Before you leave this page</span>
+<p style="margin:7px 0 0;font-size:13.5px;line-height:1.55;text-wrap:pretty"><strong>SCREENSHOT the ticket above</strong> and attach it to your DM. Don't rely on the paste alone — the screenshot is what we confirm your booking against.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:flex-start;gap:14px">
+<span style="width:34px;height:34px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.7);display:grid;place-items:center;font-family:var(--font-heading);font-size:15px">1</span>
+<span style="font-size:13.5px;line-height:1.5">Attach your <strong>screenshot</strong> — it carries your reference <strong>{{ bookingCode }}</strong></span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px">
+<span style="width:34px;height:34px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.7);display:grid;place-items:center;font-family:var(--font-heading);font-size:15px">2</span>
+<span style="font-size:13.5px;line-height:1.5">We reply with a <strong>confirmation order</strong> and the payment details for {{ bookedTotal }}</span>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
+<a href="https://www.facebook.com/profile.php?id=61593264803515" target="_blank" rel="noopener" style="flex:1 1 160px;text-align:center;padding:14px 18px;border-radius:999px;background:#fff8ec;color:var(--color-accent-2-800);font-family:var(--font-heading);font-size:14.5px">Send on Messenger</a>
+<a href="https://www.instagram.com/deuceandco.ph/" target="_blank" rel="noopener" style="flex:1 1 160px;text-align:center;padding:14px 18px;border-radius:999px;border:1.5px solid rgba(255,248,236,.75);color:#fff8ec;font-family:var(--font-heading);font-size:14.5px">Send on Instagram</a>
+</div>
+<p style="margin:14px 0 0;font-size:12px;line-height:1.5;font-weight:600">{{ sendNote }}</p>
+</div>
+
+<button type="button" onClick="{{ goShop }}" style="border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:16px;font-family:var(--font-heading);font-size:16px;cursor:pointer">Back to the shop</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ zoomOpen }}">
+<div onClick="{{ closeZoom }}" style="position:fixed;inset:0;z-index:60;background:rgba(32,30,29,.93);display:grid;place-items:center;animation:rise .22s ease both">
+<div onClick="{{ stopClick }}" onPointerDown="{{ onZoomDown }}" onPointerMove="{{ onZoomMove }}" onPointerUp="{{ onZoomUp }}" onPointerLeave="{{ onZoomUp }}" onDoubleClick="{{ toggleZoom }}" onWheel="{{ onZoomWheel }}" style="position:relative;width:min(92vw,760px);height:min(80vh,900px);overflow:hidden;touch-action:none;cursor:grab">
+<img ref="{{ zoomRef }}" src="{{ cur.img }}" alt="{{ cur.name }}" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:center;will-change:transform;user-select:none;-webkit-user-drag:none" />
+</div>
+<div onClick="{{ stopClick }}" style="position:absolute;left:0;right:0;bottom:26px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:0 16px">
+<button type="button" onClick="{{ zoomOut }}" aria-label="Zoom out" style="width:48px;height:48px;border:none;border-radius:999px;background:rgba(255,248,236,.16);color:#fff8ec;font-size:22px;cursor:pointer">−</button>
+<span style="display:grid;place-items:center;min-width:82px;padding:0 16px;border-radius:999px;background:rgba(255,248,236,.16);color:#fff8ec;font-family:var(--font-heading);font-size:15px">{{ zoomLabel }}</span>
+<button type="button" onClick="{{ zoomIn }}" aria-label="Zoom in" style="width:48px;height:48px;border:none;border-radius:999px;background:rgba(255,248,236,.16);color:#fff8ec;font-size:22px;cursor:pointer">+</button>
+<button type="button" onClick="{{ closeZoom }}" style="padding:0 22px;height:48px;border:none;border-radius:999px;background:#fff8ec;color:var(--color-text);font-family:var(--font-heading);font-size:15px;cursor:pointer">Close</button>
+</div>
+<div style="position:absolute;top:22px;left:0;right:0;text-align:center;color:rgba(255,248,236,.7);font-size:12px;padding:0 20px">{{ cur.name }} · drag to pan, double-tap to zoom</div>
+</div>
+</sc-if>
+
+</main>
+
+<footer style="border-top:1px solid var(--color-divider);background:var(--color-surface)">
+<div style="max-width:1080px;margin:0 auto;padding:26px 20px 34px;display:flex;flex-wrap:wrap;gap:18px;align-items:baseline;justify-content:space-between">
+<span style="display:flex;align-items:center;gap:13px">
+<img src="brand/mark-rackets.png" alt="" style="width:48px;height:48px;flex:none;border-radius:999px;display:block" />
+<span>
+<span style="display:block;font-family:var(--font-heading);font-size:18px">Deuce &amp; Co.</span>
+<span style="display:block;font-size:12.5px;color:rgba(32,30,29,.55);margin-top:5px">Racket rental in Biñan, Laguna. One rally at a time.</span>
+<span style="display:block;font-size:11px;letter-spacing:.14em;color:var(--color-accent-700);margin-top:6px">@DEUCEANDCO.PH</span>
+</span>
+</span>
+<span style="display:flex;gap:18px;font-size:12.5px;color:rgba(32,30,29,.55)">
+<a href="#">Rental terms</a><a href="#">Courts</a><a href="#">Contact</a>
+</span>
+</div>
+</footer>
+
+</div>
+
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#c67139"/><g stroke="#f5ead8" stroke-width="3.2" fill="none" stroke-linecap="round"><ellipse cx="41" cy="40" rx="12" ry="16" transform="rotate(-22 41 40)"/><ellipse cx="59" cy="40" rx="12" ry="16" transform="rotate(22 59 40)"/><path d="M38 58 L32 76"/><path d="M62 58 L68 76"/></g><circle cx="50" cy="72" r="5" fill="#f5ead8"/></svg>
+</template></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;depositRequired&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;weeklyDiscount&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Pricing&quot;}}">
+const peso = n => '₱' + n.toLocaleString('en-PH');
+const stars = r => '★★★★★'.slice(0, Math.round(r)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(r));
+
+const RACKETS = [
+  { id:'wilson-prostar', brand:'Wilson', model:'Pro Star', level:'Beginner', price:180, img:'img/wilson-matchpoint.jpg', verified:false,
+    specLine:'Oversize head · alloy frame · blue grip',
+    specs:[{k:'Head size',v:'Oversize'},{k:'Marked',v:'"Pro Star" on throat'},{k:'Frame',v:'Aluminium alloy'},{k:'Grip',v:'Blue overgrip'}],
+    blurb:'A big, light alloy frame with an enormous sweet spot — the racket we hand to somebody who has never held one. It will not reward a fast swing; it is here so your first hour on court is fun rather than frustrating.',
+    good:['Absolute first-timers','Casual weekend hits','Kids on full-size frames'], rating:4.2, nReviews:38, stock:1 },
+  { id:'wilson-hammer', brand:'Wilson', model:'Hammer System PWS', level:'Beginner', price:180, img:'img/wilson-hammer.jpg', verified:false,
+    specLine:'Oversize head · head-heavy · PWS',
+    specs:[{k:'Head size',v:'Oversize (~110 sq in)'},{k:'Balance',v:'Head-heavy'},{k:'Frame',v:'Graphite composite, PWS'},{k:'Grip',v:'Fresh purple overgrip'}],
+    blurb:'A cult classic that swings like a slingshot. Wilson\u2019s Hammer weighting puts the mass up in the head, so even short, slow swings still send the ball deep. Perimeter Weighting System keeps it steady on off-centre hits.',
+    good:['Slow, compact swings','Flat hitters','Social doubles'], rating:4.3, nReviews:51, stock:1 },
+  { id:'prokennex-os', brand:'ProKennex', model:'Oversize (white/blue)', level:'Beginner', price:180, img:'img/prokennex-ki.jpg', verified:false,
+    specLine:'Oversize head · light · easy swing',
+    specs:[{k:'Head size',v:'Oversize (~107 sq in)'},{k:'Frame',v:'Graphite composite'},{k:'Length',v:'27 in (standard)'},{k:'Grip',v:'Fresh white overgrip'}],
+    blurb:'Light, forgiving and gentle on the arm — ProKennex build their frames around shock absorption, which matters if your elbow has opinions. A comfortable second or third rental.',
+    good:['Sensitive elbows','Doubles at the net','Returning after a break'], rating:4.4, nReviews:29, stock:1 },
+  { id:'prince-os', brand:'Prince', model:'Oversize (blue/green)', level:'Beginner', price:180, img:'img/prince-warrior.jpg', verified:false,
+    specLine:'Oversize head · wide body · 27 in',
+    specs:[{k:'Head size',v:'Oversize (~110 sq in)'},{k:'Frame',v:'Graphite composite'},{k:'Length',v:'27 in (standard)'},{k:'Grip',v:'Fresh white overgrip'}],
+    blurb:'A wide-body Prince oversize with generous power on tap. Beginners who are still finding the middle of the strings get a lot of free depth out of this one.',
+    good:['Learning to rally','Short swings','Doubles'], rating:4.3, nReviews:34, stock:1 },
+  { id:'artengo', brand:'Artengo', model:'TR160 (black/mint)', level:'Beginner', price:180, img:'img/artengo-tr160.jpg', verified:false,
+    specLine:'~102 sq in · light · graphite',
+    specs:[{k:'Head size',v:'~102 sq in (660 cm²)'},{k:'Weight',v:'~270 g unstrung'},{k:'Frame',v:'Graphite'},{k:'Grip',v:'Fresh white overgrip'}],
+    blurb:'Decathlon\u2019s club-coach staple: full graphite at a beginner weight, light enough to keep the wrist honest but stiff enough that the ball actually leaves the strings. Our most-rented starter frame.',
+    good:['Lessons and drills','Learning topspin','Lighter players'], rating:4.5, nReviews:64, stock:1 },
+  { id:'prokennex-graphpro', brand:'ProKennex', model:'Graph Pro (classic)', level:'Intermediate', price:200, img:'img/prokennex-graphpro.jpg', verified:false,
+    specLine:'Midsize head · graphite · classic',
+    specs:[{k:'Head size',v:'Midsize (~90 sq in)'},{k:'Frame',v:'Graphite'},{k:'Era',v:'1980s classic'},{k:'Grip',v:'Fresh white overgrip'}],
+    blurb:'A properly old-school graphite midsize in original navy. Small head, thin beam, pure feel — rent it if you want to know what tennis felt like before wide bodies.',
+    good:['Clean ball strikers','Slice and touch','Nostalgia hitters'], rating:4.4, nReviews:16, stock:1 },
+  { id:'dunlop-bio', brand:'Dunlop', model:'Biomimetic', level:'Intermediate', price:200, img:'img/dunlop-biomimetic.jpg', verified:false,
+    specLine:'~100 sq in · aeroskin beam',
+    specs:[{k:'Head size',v:'~100 sq in'},{k:'Frame',v:'Graphite, Aeroskin beam'},{k:'Length',v:'27 in (standard)'},{k:'Grip',v:'Black replacement grip'}],
+    blurb:'Quick through the air, but the beam holds its line on off-centre hits. A good bridge from a starter racket to something a club player would actually own.',
+    good:['First "proper" racket','All-court play','Long rallies'], rating:4.4, nReviews:47, stock:1 },
+  { id:'prince-graphite-pro', brand:'Prince', model:'Graphite Pro (silver)', level:'Intermediate', price:200, img:'img/prince-graphite-pro.jpg', verified:false,
+    specLine:'Oversize head · Overtop hoop',
+    specs:[{k:'Head size',v:'Oversize (~107 sq in)'},{k:'Frame',v:'Graphite, Overtop hoop'},{k:'Length',v:'27 in (standard)'},{k:'Grip',v:'Black replacement grip'}],
+    blurb:'Prince\u2019s Overtop hoop pushes the sweet spot high in the string bed, which suits players who take the ball early. Stable, powerful, and easy to get along with.',
+    good:['Aggressive baseliners','Taking the ball early','Doubles'], rating:4.5, nReviews:31, stock:1 },
+  { id:'prince-midplus', brand:'Prince', model:'Midplus (green)', level:'Intermediate', price:200, img:'img/prince-textreme.jpg', verified:false,
+    specLine:'Midplus head · graphite · 27 in',
+    specs:[{k:'Head size',v:'Midplus (~98 sq in)'},{k:'Frame',v:'Graphite'},{k:'Length',v:'27 in (standard)'},{k:'Grip',v:'Fresh white overgrip'}],
+    blurb:'A balanced midplus with nothing extreme about it — which is exactly why club players keep renting it twice. Enough weight to block back pace, enough head size to stay friendly.',
+    good:['Club singles','Spin off both wings','All-court players'], rating:4.6, nReviews:44, stock:1 },
+  { id:'vcore100', brand:'Yonex', model:'VCORE 100', level:'Intermediate', price:200, img:'img/yonex-vcore-100.jpg', verified:true,
+    specLine:'100 sq in · 300 g · 16 × 19',
+    specs:[{k:'Head size',v:'100 sq in'},{k:'Weight',v:'300 g unstrung'},{k:'Balance',v:'320 mm unstrung'},{k:'String pattern',v:'16 × 19'},{k:'Length',v:'27 in'},{k:'Grip',v:'G2 · 4¼'}],
+    blurb:'Isometric head, ferocious spin, and a launch angle that keeps balls dipping inside the baseline. The racket most people rent, then ask where to buy.',
+    good:['Heavy topspin','Kick serves','Hard courts'], rating:4.8, nReviews:96, stock:2 },
+  { id:'wilson-promatrix', brand:'Wilson', model:'Pro Matrix Graphite Ceramic', level:'Advanced', price:240, img:'img/wilson-promatrix.jpg', verified:false,
+    specLine:'Midsize head · graphite ceramic · PWS',
+    specs:[{k:'Head size',v:'Midsize (~90 sq in)'},{k:'Frame',v:'Graphite / ceramic, PWS'},{k:'Era',v:'1980s classic'},{k:'Grip',v:'Original leather'}],
+    blurb:'Black graphite-ceramic with the original leather grip still on it. Dense, quiet and unforgiving — a genuine player\u2019s frame from the era when players\u2019 frames were small.',
+    good:['One-handed backhands','Serve and volley','Classic feel'], rating:4.5, nReviews:14, stock:1 },
+  { id:'prince-classic', brand:'Prince', model:'Graphite Oversize (classic)', level:'Advanced', price:240, img:'img/prince-classic.jpg', verified:false,
+    specLine:'Oversize head · graphite · leather grip',
+    specs:[{k:'Head size',v:'Oversize (~110 sq in)'},{k:'Frame',v:'Graphite'},{k:'Era',v:'1980s classic'},{k:'Grip',v:'Original leather'}],
+    blurb:'The green-and-gold Prince Graphite — arguably the most influential racket ever built. Heavy, stable, enormous sweet spot, and a thump on contact that modern frames do not make.',
+    good:['Heavy hitters','Collectors and curious players','Doubles'], rating:4.7, nReviews:19, stock:1 },
+  { id:'dunlop-tour', brand:'Dunlop', model:'Midplus (black/orange)', level:'Advanced', price:240, img:'img/dunlop-tour.jpg', verified:false,
+    specLine:'Midplus head · head-light · orange grip',
+    specs:[{k:'Head size',v:'Midplus'},{k:'Balance',v:'Head-light'},{k:'Frame',v:'Graphite'},{k:'Grip',v:'Orange overgrip'},{k:'Model',v:'Unconfirmed — to verify on frame'}],
+    blurb:'A head-light Dunlop midplus: low launch, quiet impact, control over free power. Model markings on this one still need confirming against the frame.',
+    good:['Flat, penetrating drives','Control players','Fast conditions'], rating:4.6, nReviews:33, stock:1 },
+  { id:'prostaff95', brand:'Wilson', model:'Pro Staff 95', level:'Advanced', price:240, img:'img/wilson-prostaff.jpg', verified:false,
+    specLine:'95 sq in · braided graphite · head-light',
+    specs:[{k:'Head size',v:'95 sq in'},{k:'Balance',v:'Head-light'},{k:'Frame',v:'Braided graphite'},{k:'Length',v:'27 in (standard)'},{k:'Grip',v:'Fresh white overgrip'}],
+    blurb:'Braided graphite, small head, unmistakable Pro Staff feel. Punishing if you are late; sublime if you are not. Rent it for a week before you commit to buying one.',
+    good:['Clean ball strikers','Touch and slice','Serve and volley'], rating:4.7, nReviews:41, stock:1 },
+  { id:'vcorepro', brand:'Yonex', model:'VCORE PRO 97', level:'Advanced', price:240, img:'img/yonex-vcore-pro.jpg', verified:true,
+    specLine:'97 sq in · 310 g · 16 × 19',
+    specs:[{k:'Head size',v:'97 sq in'},{k:'Weight',v:'310 g unstrung'},{k:'Balance',v:'310 mm unstrung'},{k:'String pattern',v:'16 × 19'},{k:'Length',v:'27 in'},{k:'Grip',v:'G3 · 4⅜'}],
+    blurb:'Flexible, muted, ruthless — a 21 mm box beam with a vibration-dampening handle. Built for players who create their own pace and want the ball to stay low and heavy.',
+    good:['Match play','Slice and shape','Advanced juniors'], rating:4.9, nReviews:52, stock:2 },
+].map(r => ({ ...r, cat:'rackets', rent:true, unit:'/ day', unitLabel:'Per day' }));
+
+const BALLS = [
+  { id:'trainer', brand:'Deuce&Co.', model:'Practice Balls · set of 30', price:100, img:'img/court-balls.jpg',
+    specLine:'30 balls · practice grade · no basket',
+    blurb:'Thirty mixed practice balls for baskets, drills and serve repetitions. Not match-fresh, and priced accordingly. Note: the tennis basket stand is not included — rent it separately if you need one.',
+    good:['Drills and baskets','Coaching','Serve practice'], rating:4.4, nReviews:39, stock:14,
+    specs:[{k:'Count',v:'30 balls'},{k:'Basket stand',v:'Not included'},{k:'Condition',v:'Practice grade'},{k:'Use',v:'Feeding & drills'}] },
+].map(b => ({ ...b, cat:'balls', rent:false, unit:'per set', unitLabel:'Per set of 30', level:null }));
+
+const TUBES = [
+  { id:'prince-tube', brand:'Prince', model:'Ball Pickup Tube · with 15 balls', price:150, img:'img/tube-court.jpg',
+    specLine:'15 practice balls · clear tube · foot-press',
+    blurb:'A clear pickup tube that swallows a ball with a press of the foot — no bending, no stooping after a basket. Rented with fifteen practice balls already loaded, and it doubles as a feeder while you drill.',
+    good:['Solo practice','Coaching sessions','Bad backs'], rating:4.7, nReviews:26, stock:3,
+    specs:[{k:'Balls included',v:'15 practice balls'},{k:'Capacity',v:'~18 balls'},{k:'Body',v:'Clear polycarbonate'},{k:'Length',v:'~96 cm'}] },
+  { id:'hopper', brand:'Deuce&Co.', model:'Tennis Basket · with 30 practice balls', price:180, img:'img/court-balls.jpg',
+    blurb:'The wire teaching basket, rented with thirty practice balls already in it. Press it down over a ball, it drops in; lift the lid and feed straight out of the top. Stands on court at hitting height.',
+    good:['Group clinics','Ball machine sessions','Coaching'], rating:4.8, nReviews:18, stock:2,
+    specs:[{k:'Balls included',v:'30 practice balls'},{k:'Frame',v:'Steel wire'},{k:'Legs',v:'Folding stand'},{k:'Use',v:'Pick up & feed'}] },
+].map(t => ({ ...t, cat:'tubes', rent:true, unit:'/ day', unitLabel:'Per day', level:null }));
+
+const REVIEWS = {
+  'wilson-alloy': [
+    { name:'Joan D.', meta:'Rented 1 day · South City Homes · Jul 2026', text:'First time ever holding a racket and I could still get the ball over. Light lang, kaya walang pasakit sa braso after an hour.', rating:5 },
+    { name:'Rico M.', meta:'Rented 2 days · Indoor Court, South City · Jun 2026', text:'Good for learning. Once I started swinging faster it felt cheap, so I moved up to the Artengo next time.', rating:4 },
+  ],
+  'wilson-hammer': [
+    { name:'Ferdie A.', meta:'Rented 3 days · South City Homes · Jul 2026', text:'Head-heavy talaga — short swing lang and the ball still reaches the baseline. Fun for doubles.', rating:5 },
+    { name:'Carmi S.', meta:'Rented 1 day · South City Homes · May 2026', text:'The purple grip was fresh, hindi madulas kahit pawisan. Slightly heavy for me on the backhand.', rating:4 },
+  ],
+  'prokennex-os': [
+    { name:'Dennis O.', meta:'Rented 5 days · Indoor Court, South City · Jun 2026', text:'I came back from tennis elbow with this one. Walang shock sa arm, and it is light enough for net play.', rating:5 },
+    { name:'Ilyn T.', meta:'Rented 2 days · South City Homes · Apr 2026', text:'Comfortable and forgiving. Not much power but that was fine for rallying.', rating:4 },
+  ],
+  'prince-os': [
+    { name:'Mark Anthony L.', meta:'Rented 2 days · South City Homes · Jul 2026', text:'Wide body so kahit off-center, tuloy pa rin ang ball. Great first rental for beginners.', rating:4 },
+    { name:'Trina B.', meta:'Rented 1 day · Indoor Court, South City · Mar 2026', text:'Free power on serve. Frame shows its age up close but it plays fine.', rating:4 },
+  ],
+  'artengo': [
+    { name:'Coach Bern', meta:'Rented 6 days · South City Homes · Aug 2026', text:'This is what I hand my students. Full graphite at a beginner weight — they learn topspin properly instead of muscling it.', rating:5 },
+    { name:'Kim R.', meta:'Rented 3 days · Indoor Court, South City · Jul 2026', text:'Best value sa listahan. Rented it three weekends in a row before buying my own.', rating:5 },
+    { name:'Aldrin V.', meta:'Rented 1 day · South City Homes · Jun 2026', text:'Light and easy. Advanced players will want something heavier.', rating:4 },
+  ],
+  'prokennex-graphpro': [
+    { name:'Ruben C.', meta:'Rented 2 days · South City Homes · May 2026', text:'Midsize head — you have to actually hit the middle. Pero the feel on slice is something modern rackets do not give.', rating:5 },
+    { name:'Jomar P.', meta:'Rented 1 day · Indoor Court, South City · Feb 2026', text:'Fun to try, tiny sweet spot. Rent it for the nostalgia, not for winning.', rating:4 },
+  ],
+  'dunlop-bio': [
+    { name:'Patricia N.', meta:'Rented 4 days · Indoor Court, South City · Jul 2026', text:'Good step up from a starter frame. Quick through the air and stable on returns.', rating:5 },
+    { name:'Edgar F.', meta:'Rented 2 days · South City Homes · Jun 2026', text:'Held its line on off-center hits. Grip was a bit worn but they replaced it when I asked.', rating:4 },
+  ],
+  'prince-graphite-pro': [
+    { name:'Nico G.', meta:'Rented 3 days · South City Homes · Jul 2026', text:'The Overtop hoop is real — taking the ball early felt effortless. Stable against pace.', rating:5 },
+    { name:'Vina M.', meta:'Rented 1 day · South City Homes · Apr 2026', text:'Powerful and easy to swing. Black grip, clean strings on pickup.', rating:4 },
+  ],
+  'prince-midplus': [
+    { name:'Arvin S.', meta:'Rented 7 days · Indoor Court, South City · Aug 2026', text:'Rented for a whole week of club singles. Nothing extreme about it, kaya nga maganda — spin, block, serve, all fine.', rating:5 },
+    { name:'Hazel Q.', meta:'Rented 2 days · South City Homes · Jun 2026', text:'Balanced and comfortable. My go-to sa listahan nila now.', rating:5 },
+  ],
+  'vcore100': [
+    { name:'Miggy R.', meta:'Rented 4 days · South City Homes · Aug 2026', text:'Arrived freshly strung with a new overgrip — felt like a demo, not a rental. The spin on this is unfair.', rating:5 },
+    { name:'Denise A.', meta:'Rented 2 days · Indoor Court, South City · Jul 2026', text:'Balls kept dipping in kahit malakas ang swing. Rented it twice, now I am saving up to buy one.', rating:5 },
+    { name:'Jerome T.', meta:'Rented 1 day · South City Homes · Jun 2026', text:'Great on hard court. Slightly stiff for my elbow after two hours.', rating:4 },
+  ],
+  'wilson-promatrix': [
+    { name:'Tito Ely', meta:'Rented 2 days · South City Homes · Jun 2026', text:'Original leather grip pa. Unforgiving talaga but the one-handed backhand feels amazing on this.', rating:5 },
+    { name:'Rafa D.', meta:'Rented 1 day · Indoor Court, South City · Mar 2026', text:'Very small head. Nice serve-and-volley feel if you time it right.', rating:4 },
+  ],
+  'prince-classic': [
+    { name:'Manny B.', meta:'Rented 3 days · South City Homes · Jul 2026', text:'The green-and-gold Prince Graphite — heavy, stable, and the thump on contact is exactly how I remember it in the 90s.', rating:5 },
+    { name:'Karla U.', meta:'Rented 1 day · South City Homes · Apr 2026', text:'Rented it out of curiosity. Heavier than expected but the sweet spot is huge.', rating:4 },
+  ],
+  'dunlop-tour': [
+    { name:'Jethro N.', meta:'Rented 2 days · Indoor Court, South City · Jul 2026', text:'Low launch, quiet impact, total control. You supply the swing — walang libreng power dito.', rating:5 },
+    { name:'Bea C.', meta:'Rented 1 day · South City Homes · May 2026', text:'Flat drives felt great. Model markings were unclear pero they were upfront about it.', rating:4 },
+  ],
+  'prostaff95': [
+    { name:'Sandro V.', meta:'Rented 7 days · South City Homes · Aug 2026', text:'Rented a full week before buying my own. Punishing when late, sublime when early — exactly as advertised.', rating:5 },
+    { name:'Iya F.', meta:'Rented 2 days · Indoor Court, South City · Jun 2026', text:'Touch and slice are unreal. Too demanding for my level pero worth trying.', rating:4 },
+  ],
+  'vcorepro': [
+    { name:'Coach Bern', meta:'Rented 5 days · South City Homes · Aug 2026', text:'Muted, flexible, and the ball stays low and heavy. This is the frame I use for match play.', rating:5 },
+    { name:'Lance O.', meta:'Rented 3 days · Indoor Court, South City · Jul 2026', text:'Best racket in their rack. My advanced junior did not want to give it back.', rating:5 },
+  ],
+  'trainer': [
+    { name:'Coach Ver', meta:'Bought with rental · South City Homes · Jun 2026', text:'Practice grade talaga, as described — perfect for basket feeding and serve reps. Do not expect match bounce.', rating:4 },
+  ],
+  'prince-tube': [
+    { name:'Coach Ver', meta:'Rented 4 days · South City Homes · Aug 2026', text:'Saves my back during drills. Press, pop, and it swallows the ball — holds about eighteen.', rating:5 },
+    { name:'Jun P.', meta:'Rented 1 day · Indoor Court, South City · Jun 2026', text:'Simple pero super useful for solo practice. Clear body so you see how full it is.', rating:5 },
+  ],
+  'hopper': [
+    { name:'Coach Ver', meta:'Rented 5 days · South City Homes · Aug 2026', text:'Comes with the balls already in it, which is the point. Stands at hitting height so feeding is fast.', rating:5 },
+    { name:'Almira D.', meta:'Rented 1 day · Indoor Court, South City · Jul 2026', text:'Wire basket, folds flat, easy to carry. ₱180 with 30 balls is fair.', rating:5 },
+  ],
+};
+
+const REVIEW_FALLBACK = [
+  { name:'Deuce&Co.', meta:'Not yet reviewed', text:'No renter reviews on this one yet — you would be the first. Every review here comes from a completed Deuce&Co. booking.', rating:5 },
+];
+
+const ALL = [...RACKETS, ...BALLS, ...TUBES].map(p => {
+  const rs = REVIEWS[p.id] || [];
+  return rs.length
+    ? { ...p, rating: Math.round((rs.reduce((a, r) => a + r.rating, 0) / rs.length) * 10) / 10, nReviews: rs.length }
+    : { ...p, nReviews: 0 };
+});
+
+const ZONES = [
+  { id:'pickup', name:'Pick up at the court', meta:'', fee:0, needsAddress:false, available:true, badge:'Free' },
+  { id:'binan', name:'Around Biñan', meta:'Delivery fee shouldered by the renter — quoted after we see your address', fee:null, needsAddress:true, available:true, badge:'Renter pays DF' },
+  { id:'manila', name:'Metro Manila', meta:'Not served yet — pick up in Biñan for now', fee:null, needsAddress:false, available:false, badge:'Unavailable' },
+];
+
+const COURTS = [
+  { id:'schc', name:'South City Homes Tennis Club', kind:'Outdoor', meta:'Biñan, Laguna · open 6am–9pm', fee:200, litFee:280, open:6, close:21,
+    map:'https://www.google.com/maps/search/?api=1&query=South+City+Homes+Tennis+Club+Bi%C3%B1an+Laguna' },
+  { id:'indoor', name:'South City Homes Recreation Center', kind:'Indoor', meta:'Biñan, Laguna · covered, open 6am–10pm', fee:280, litFee:380, open:6, close:22,
+    map:'https://www.google.com/maps/search/?api=1&query=South+City+Homes+Recreation+Center+Bi%C3%B1an+Laguna' },
+];
+
+
+
+// Paste your Google Apps Script Web App URL here to go live (see ORDERS-SETUP.md).
+// Empty string = demo mode: the sample bookings below are used instead.
+const ORDERS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyXQ_4v67WjY9OOrbMZCnE_a5m2b2_9FA2s7j5RWMIeQe2Uq7W_6Kde5nWYS5Emiq7X/exec';
+
+const CODE_KEY = 'deuceco.nextCode';
+const readNextCode = () => {
+  try { const v = parseInt(localStorage.getItem(CODE_KEY), 10); if (v > 4470) return v; } catch (e) {}
+  return 4471;
+};
+const writeNextCode = n => { try { localStorage.setItem(CODE_KEY, String(n)); } catch (e) {} };
+
+const postOrder = payload => {
+  if (!ORDERS_ENDPOINT) return;
+  // text/plain avoids a CORS preflight Apps Script cannot answer
+  fetch(ORDERS_ENDPOINT, { method:'POST', headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload) }).catch(() => {});
+};
+
+const SEED_ORDERS = [
+  { code:'DC-4468', name:'Miggy Ramos', phone:'0917 402 1188', channel:'IG DM', placed:'today 7:12am',
+    venueId:'schc', startKey:'d24', days:3, hours:0, total:1780, status:'toconfirm', zoneId:'pickup', address:'',
+    items:[{ id:'vcore100', qty:1 }, { id:'trainer', qty:1 }] },
+  { code:'DC-4469', name:'Coach Bern', phone:'0921 774 5502', channel:'FB Messenger', placed:'today 8:40am',
+    venueId:'schc', startKey:'d24', days:5, hours:2, lights:true, slot:18, total:4260, status:'awaiting', zoneId:'pickup', address:'',
+    items:[{ id:'artengo', qty:1 }, { id:'prokennex-os', qty:1 }, { id:'prince-os', qty:1 }, { id:'hopper', qty:1 }, { id:'prince-tube', qty:1 }] },
+  { code:'DC-4470', name:'Andrea Lim', phone:'0918 220 6641', channel:'IG DM', placed:'yesterday 6:05pm',
+    venueId:'indoor', startKey:'d25', days:2, hours:2, lights:false, slot:9, total:2380, status:'confirmed', zoneId:'binan', address:'8 Narra St., Brgy. San Antonio',
+    items:[{ id:'vcore100', qty:1 }, { id:'trainer', qty:1 }] },
+  { code:'DC-4465', name:'Sandro Valdez', phone:'0917 881 3390', channel:'FB Messenger', placed:'21 Aug',
+    venueId:'schc', startKey:'d24', days:7, hours:0, total:2680, status:'out', zoneId:'pickup', address:'',
+    items:[{ id:'prostaff95', qty:1 }, { id:'trainer', qty:1 }] },
+  { code:'DC-4466', name:'Patricia Nuñez', phone:'0995 118 2274', channel:'IG DM', placed:'20 Aug',
+    venueId:'indoor', startKey:'d24', days:2, hours:1, lights:true, slot:19, total:1240, status:'out', zoneId:'binan', address:'21 Acacia Ave., Brgy. Canlalay',
+    items:[{ id:'dunlop-bio', qty:1 }, { id:'prince-midplus', qty:1 }] },
+];
+
+const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const DAYS = Array.from({ length: 35 }, (_, i) => {
+  const d = new Date(2026, 7, 24 + i);
+  return { key:'d' + (24 + i), idx:i, dow:DOW[d.getDay()], num:String(d.getDate()), mon:MON[d.getMonth()] };
+});
+const TODAY_IDX = 1;
+
+const LEVEL_TINT = {
+  Beginner: ['var(--color-accent-2-100)', 'var(--color-accent-2-800)'],
+  Intermediate: ['var(--color-accent-200)', 'var(--color-accent-800)'],
+  Advanced: ['var(--color-neutral-200)', 'var(--color-neutral-800)'],
+  Balls: ['var(--color-accent-2-100)', 'var(--color-accent-2-800)'],
+  Hoppers: ['var(--color-neutral-200)', 'var(--color-neutral-800)'],
+};
+
+const tagFor = p => p.level || (p.cat === 'balls' ? 'Balls' : 'Hoppers');
+const tagStyle = tag => {
+  const [bg, fg] = LEVEL_TINT[tag] || LEVEL_TINT.Advanced;
+  return 'padding:3px 10px;border-radius:999px;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;background:' + bg + ';color:' + fg;
+};
+
+const CATS = [
+  { key:'all', label:'Everything' }, { key:'rackets', label:'Rackets' },
+  { key:'balls', label:'Tennis balls' }, { key:'tubes', label:'Ball tubes & hoppers' },
+];
+
+class Component extends DCLogic {
+  zoomRef = React.createRef();
+  z = { scale: 1, x: 0, y: 0, dragging: false, px: 0, py: 0 };
+
+  paintZoom() {
+    const el = this.zoomRef.current;
+    if (el) el.style.transform = 'translate(' + this.z.x + 'px,' + this.z.y + 'px) scale(' + this.z.scale + ')';
+  }
+  setScale(next) {
+    const s = Math.min(Math.max(next, 1), 5);
+    this.z.scale = s;
+    if (s === 1) { this.z.x = 0; this.z.y = 0; }
+    this.paintZoom();
+    this.forceUpdate();
+  }
+
+  state = {
+    view:'shop', cat:'all', level:'All', productId:'vcore100', qty:1,
+    dateKey: DAYS[TODAY_IDX].key, days:3, courtId:'schc',
+    courtAdd:false, courtHours:2, slot:null, zoneId:'pickup', address:'', lights:false,
+    cart:[], sortAsc:true, name:'', phone:'', email:'', social:'', tried:false,
+    orders: SEED_ORDERS, nextCode: readNextCode(), booked: null, zoomOpen: false,
+    live: false, syncing: !!ORDERS_ENDPOINT,
+  };
+
+  componentDidMount() {
+    this.pullOrders();
+    if (ORDERS_ENDPOINT) this.pullTimer = setInterval(() => this.pullOrders(), 30000);
+  }
+  componentWillUnmount() { clearInterval(this.pullTimer); }
+
+  pullOrders() {
+    if (!ORDERS_ENDPOINT) return;
+    fetch(ORDERS_ENDPOINT + '?t=' + Date.now())
+      .then(r => r.json())
+      .then(d => {
+        const fmt = v => {
+          if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}T/.test(v)) return v;
+          const dt = new Date(v);
+          if (isNaN(dt)) return v;
+          const dow = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getDay()];
+          const mon = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][dt.getMonth()];
+          let h = dt.getHours(); const ap = h < 12 ? 'am' : 'pm'; h = h % 12 === 0 ? 12 : h % 12;
+          const m = String(dt.getMinutes()).padStart(2, '0');
+          return `${dow} ${dt.getDate()} ${mon}, ${h}:${m}${ap}`;
+        };
+        const rows = (Array.isArray(d) ? d : (d.orders || []))
+          .map(o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, fmt(v)])));
+        const next = rows.reduce((a, o) => Math.max(a, parseInt(String(o.code).replace(/\D/g, ''), 10) || 0), 4470) + 1;
+        writeNextCode(next);
+        this.setState({ orders: rows, nextCode: next, live: true, syncing: false });
+      })
+      .catch(() => this.setState({ live: false, syncing: false }));
+  }
+
+  render() {}
+
+  renderVals() {
+    const s = this.state;
+    const deposit = (this.props.depositRequired ?? true) ? 200 : 0;
+    const weeklyOn = this.props.weeklyDiscount ?? true;
+
+    const cur = ALL.find(p => p.id === s.productId) || ALL[0];
+    const date = DAYS.find(d => d.key === s.dateKey) || DAYS[0];
+    const endIdx = Math.min(DAYS.findIndex(d => d.key === s.dateKey) + s.days - 1, DAYS.length - 1);
+    const end = DAYS[endIdx];
+    const weekly = weeklyOn && s.days >= 5;
+    const rangeLabel = `${date.dow} ${date.num} → ${end.dow} ${end.num} ${end.mon}`;
+
+    const imgStyleFor = p => 'position:absolute;inset:0;width:100%;height:100%;box-sizing:border-box;'
+      + (p.cat === 'rackets' ? 'object-fit:contain;padding:14px' : 'object-fit:cover');
+    const heroStyleFor = p => 'position:absolute;inset:0;width:100%;height:100%;box-sizing:border-box;'
+      + (p.cat === 'rackets' ? 'object-fit:contain;padding:22px' : 'object-fit:cover');
+
+    const decorate = p => ({
+      ...p, name: p.brand + ' ' + p.model,
+      priceLabel: peso(p.price),
+      tag: tagFor(p), tagStyle: tagStyle(tagFor(p)),
+      imgStyle: imgStyleFor(p), heroStyle: heroStyleFor(p),
+      specLine: p.specLine || p.specs.slice(0, 2).map(x => x.v).join(' · '),
+      stockLabel: p.stock <= 2 ? `${p.stock} left` : 'In stock',
+      stars: stars(p.rating),
+      periodLine: p.rent ? `Rented for ${rangeLabel}` : 'Yours to keep — no return',
+      onOpen: () => this.setState({ productId: p.id, view: 'detail', qty: 1 }),
+    });
+
+    const inCat = ALL.filter(p => s.cat === 'all' || p.cat === s.cat)
+      .filter(p => s.cat !== 'rackets' || s.level === 'All' || p.level === s.level)
+      .sort((a, b) => s.sortAsc ? a.price - b.price : b.price - a.price);
+
+    const chipBase = 'flex:none;border:1px solid var(--color-divider);cursor:pointer;padding:10px 17px;border-radius:999px;font-size:12.5px;font-weight:600;background:transparent;color:var(--color-text)';
+    const chipOn = 'flex:none;border:1px solid var(--color-accent);cursor:pointer;padding:10px 17px;border-radius:999px;font-size:12.5px;font-weight:600;background:var(--color-accent);color:var(--color-bg)';
+    const catChips = CATS.map(c => ({ label: c.label, style: s.cat === c.key ? chipOn : chipBase,
+      onPick: () => this.setState({ cat: c.key }) }));
+    const levelChips = ['All','Beginner','Intermediate','Advanced'].map(l => ({
+      label: l === 'All' ? 'All levels' : l, style: s.level === l ? chipOn : chipBase,
+      onPick: () => this.setState({ level: l }) }));
+
+    const rackFleet = RACKETS.reduce((a, r) => a + (r.stock || 1), 0);
+    const outUnits = {}, outNames = {};
+    s.orders.filter(o => o.status !== 'returned').forEach(o => {
+      const from = DAYS.findIndex(d => d.key === o.startKey);
+      if (from < 0) return;
+      for (let i = 0; i < o.days; i++) {
+        const k = from + i;
+        o.items.forEach(it => {
+          const p = ALL.find(x => x.id === it.id);
+          if (!p || p.cat !== 'rackets') return;
+          outUnits[k] = (outUnits[k] || 0) + it.qty;
+          (outNames[k] = outNames[k] || []).push(p.brand + ' ' + p.model + (it.qty > 1 ? ' ×' + it.qty : ''));
+        });
+      }
+    });
+
+    const selIdx = DAYS.findIndex(d => d.key === s.dateKey);
+    const span = Array.from({ length: s.days }, (_, i) => selIdx + i);
+    const tileBase = 'border:1px solid;border-color:rgba(255,248,236,.22);background:rgba(33,30,27,.72);border-radius:9px;padding:5px 7px;cursor:pointer;text-align:left;color:#fff8ec;display:block';
+
+    const calDays = DAYS.map(d => {
+      const out = outUnits[d.idx] || 0;
+      const full = out >= rackFleet;
+      const past = d.idx < TODAY_IDX;
+      const inSpan = span.includes(d.idx);
+      const isStart = d.idx === selIdx;
+      const tone = full ? 'rgba(255,248,236,.45)' : out ? 'var(--color-accent-400)' : 'var(--color-accent-2-400)';
+      return { num: d.num,
+        monTag: (d.idx === 0 || d.num === '1') ? d.mon : '',
+        outLabel: past ? 'past' : full ? 'fully booked' : out ? out + ' out' : 'all in',
+        title: past ? 'Past date'
+          : (outNames[d.idx] || []).length
+            ? 'Out on ' + d.dow + ' ' + d.num + ': ' + outNames[d.idx].join(', ')
+            : 'Every racket available on ' + d.dow + ' ' + d.num,
+        dot: 'width:6px;height:6px;flex:none;border-radius:999px;background:' + (past ? 'rgba(255,248,236,.3)' : tone),
+        disabled: past || full,
+        style: tileBase + (past || full
+          ? ';border-color:rgba(255,248,236,.14);background:rgba(33,30,27,.55);opacity:.55;cursor:not-allowed'
+          : isStart ? ';border-color:var(--color-accent);background:var(--color-accent-700);color:#fff8ec'
+            : inSpan ? ';border-color:rgba(198,113,57,.6);background:rgba(198,113,57,.24)' : ''),
+        onPick: () => { if (!past && !full) this.setState({ dateKey: d.key }); } };
+    });
+
+    const selDay = DAYS[selIdx] || DAYS[0];
+    const selOut = outNames[selIdx] || [];
+
+    const rowBase = 'display:flex;align-items:center;gap:13px;width:100%;border:1px solid var(--color-divider);cursor:pointer;padding:14px 16px;border-radius:var(--radius-lg);background:transparent;color:var(--color-text)';
+    const rowOn = 'display:flex;align-items:center;gap:13px;width:100%;border:1px solid var(--color-accent);cursor:pointer;padding:14px 16px;border-radius:var(--radius-lg);background:var(--color-accent-100);color:var(--color-text)';
+    const dotOff = 'width:18px;height:18px;flex:none;border-radius:999px;border:1.5px solid var(--color-divider)';
+    const dotOn = 'width:18px;height:18px;flex:none;border-radius:999px;background:var(--color-accent);box-shadow:inset 0 0 0 4px var(--color-bg)';
+    const cardBase = 'border:1px solid;border-color:var(--color-divider);background:var(--color-surface);border-radius:var(--radius-lg);padding:18px;text-align:left;cursor:pointer;color:var(--color-text);width:100%;box-shadow:var(--shadow-sm)';
+    const cardOn = 'border:1px solid;border-color:var(--color-accent);background:var(--color-accent-100);border-radius:var(--radius-lg);padding:18px;text-align:left;cursor:pointer;color:var(--color-text);width:100%;box-shadow:var(--shadow-md)';
+
+    const daysLabel = s.days + (s.days === 1 ? ' day' : ' days');
+    const detailsOk = s.name.trim() && s.phone.trim() && s.social.trim() && /.+@.+\..+/.test(s.email.trim());
+    const lineFor = (p, qty) => p.rent ? p.price * qty * s.days : p.price * qty;
+    const lineTotal = lineFor(cur, s.qty);
+
+    const cart = s.cart.map((c, i) => {
+      const p = ALL.find(x => x.id === c.id);
+      const total = lineFor(p, c.qty);
+      return { model: p.brand + ' ' + p.model, img: p.img,
+        img: p.img,
+        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;box-sizing:border-box;'
+          + (p.cat === 'rackets' ? 'object-fit:contain;padding:4px' : 'object-fit:cover'),
+        line: p.rent
+          ? `${peso(p.price)} × ${daysLabel} × ${c.qty}`
+          : `${peso(p.price)} × ${c.qty} · purchase`,
+        total: peso(total),
+        onRemove: () => this.setState(st => ({ cart: st.cart.filter((_, j) => j !== i) })) };
+    });
+
+    const rentSub = s.cart.reduce((a, c) => {
+      const p = ALL.find(x => x.id === c.id);
+      return a + (p.rent ? lineFor(p, c.qty) : 0);
+    }, 0);
+    const buySub = s.cart.reduce((a, c) => {
+      const p = ALL.find(x => x.id === c.id);
+      return a + (p.rent ? 0 : lineFor(p, c.qty));
+    }, 0);
+    const discount = weekly ? Math.round(rentSub * 0.15) : 0;
+    const rentedCount = s.cart.filter(c => ALL.find(x => x.id === c.id).rent).length;
+    const dep = (rentedCount && s.days > 1) ? deposit : 0;
+    const venue = COURTS.find(c => c.id === s.courtId) || COURTS[0];
+    const zone = ZONES.find(z => z.id === s.zoneId) || ZONES[0];
+    const fmtHour = h => { const n = h % 24; const ap = n < 12 ? 'am' : 'pm'; const t = n % 12 === 0 ? 12 : n % 12; return t + ap; };
+    const lightsFrom = 17, lightsTo = 21;
+    const slotHours = [];
+    const from = s.lights ? lightsFrom : venue.open;
+    const to = s.lights ? lightsTo : Math.min(venue.close, lightsFrom);
+    for (let h = from; h + s.courtHours <= to; h++) slotHours.push(h);
+    const slotOk = !s.courtAdd || s.slot !== null;
+
+
+    const courtRate = s.lights ? venue.litFee : venue.fee;
+    const courtFee = s.courtAdd ? courtRate * s.courtHours * s.days : 0;
+    const cartTotal = rentSub - discount + buySub + dep + courtFee;
+
+    const bk = s.booked || { code: 'DC-' + s.nextCode, count: 0, total: peso(cartTotal),
+      venueLine: venue.name + ' · ' + venue.kind, courtLine: null,
+      from: '—', until: '—', name: s.name || 'Guest booking', handover: zone.name, contact: '', social: s.social || '' };
+
+    return {
+      isShop: s.view === 'shop', isDetail: s.view === 'detail',
+      isCart: s.view === 'cart', isConfirm: s.view === 'confirm',
+      goShop: () => this.setState({ view: 'shop' }),
+      goCart: () => this.setState({ view: 'cart' }),
+
+      zoomOpen: s.zoomOpen,
+      zoomRef: this.zoomRef,
+      zoomLabel: Math.round(this.z.scale * 100) + '%',
+      openZoom: () => { this.z = { scale: 1.8, x: 0, y: 0, dragging: false, px: 0, py: 0 };
+        this.setState({ zoomOpen: true }, () => this.paintZoom()); },
+      closeZoom: () => this.setState({ zoomOpen: false }),
+      stopClick: e => e.stopPropagation(),
+      zoomIn: e => { e.stopPropagation(); this.setScale(this.z.scale + 0.6); },
+      zoomOut: e => { e.stopPropagation(); this.setScale(this.z.scale - 0.6); },
+      toggleZoom: () => this.setScale(this.z.scale > 1.9 ? 1 : 3),
+      onZoomWheel: e => { e.preventDefault(); this.setScale(this.z.scale + (e.deltaY < 0 ? 0.3 : -0.3)); },
+      onZoomDown: e => { this.z.dragging = true; this.z.px = e.clientX; this.z.py = e.clientY;
+        if (e.currentTarget.setPointerCapture) e.currentTarget.setPointerCapture(e.pointerId); },
+      onZoomMove: e => { if (!this.z.dragging || this.z.scale <= 1) return;
+        this.z.x += e.clientX - this.z.px; this.z.y += e.clientY - this.z.py;
+        this.z.px = e.clientX; this.z.py = e.clientY; this.paintZoom(); },
+      onZoomUp: () => { this.z.dragging = false; },
+      calDays, calHeads: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+      calTitle: 'Aug – Sep 2026 · ' + rackFleet + ' rackets in the fleet',
+      dayOutHead: selDay.dow + ' ' + selDay.num + ' ' + selDay.mon,
+      dayOutList: selOut.length ? selOut.join(' · ') : '',
+      daysLabel, rangeLabel, hasWeekly: weekly,
+      incDays: () => this.setState(st => ({ days: Math.min(st.days + 1, 7) })),
+      decDays: () => this.setState(st => ({ days: Math.max(st.days - 1, 1) })),
+
+      catChips, levelChips, showLevels: s.cat === 'rackets' || s.cat === 'all',
+      products: inCat.map(decorate), resultCount: inCat.length,
+      sortLabel: s.sortAsc ? 'Price low' : 'Price high',
+      toggleSort: () => this.setState(st => ({ sortAsc: !st.sortAsc })),
+
+      cur: decorate(cur),
+      terms: [
+        { n:'1', head:'Send your order by DM before you pay',
+          body:'At checkout, screenshot your order ticket and send it to our Instagram or Facebook DM. Booking is confirmed once we reply with a confirmation order and the payment details.' },
+        { n:'2', head:'Each racket includes a case and 5 balls',
+          body:'Every racket rental goes out in its racket case or bag with five balls to play with, at no extra charge. Both come back with the frame — missing cases and balls are charged at replacement cost.' },
+        { n:'3', head:'Rental day runs 7:00am to 8:00pm',
+          body:'Pick up from 7:00am on your start date and return by 8:00pm on the last day. Late returns are charged one extra day per day overdue.' },
+        { n:'4', head:'₱200 refundable deposit on multi-day rentals',
+          body:'Any rental longer than one day carries a ₱200 deposit, returned in full at handover once the gear comes back complete and undamaged.' },
+        { n:'5', head:'You are responsible for the gear while it is out',
+          body:'Normal string wear and grip sweat are on us. Cracked frames, snapped strings from misuse, and lost balls or tubes are charged at repair or replacement cost.' },
+        { n:'6', head:'Court rental is charged with your gear',
+          body:'Pick indoor or outdoor at South City Homes and the court hours are added straight to your order — no separate booking. Lights are charged at the higher hourly rate.' },
+        { n:'7', head:'Reschedule free up to 24 hours before',
+          body:'Message us at least a day ahead and we move your booking at no cost. Inside 24 hours, one day of rental is forfeited. No-shows are charged in full.' },
+        { n:'8', head:'Delivery around Biñan is shouldered by the renter',
+          body:'Pick up at your court is free. Delivery elsewhere in Biñan is quoted by DM once we see your address. We do not serve Metro Manila yet.' },
+      ],
+      isRacket: cur.cat === 'rackets',
+      includesLine: peso(cur.price) + ' includes the racket bag and 5 balls',
+      hasSpecs: true,
+      specs: cur.specs,
+      specNote: cur.cat !== 'rackets'
+        ? 'Checked and counted before every handover.'
+        : cur.verified !== true
+          ? 'Shop-measured on this frame — we confirm head size and grip at pickup.'
+          : 'Manufacturer specifications.',
+      goods: cur.good.map(t => ({ t })),
+      reviews: (REVIEWS[cur.id] || REVIEW_FALLBACK).map(r => ({ ...r,
+        initials: r.name.split(' ').map(w => w[0]).join('').slice(0, 2), stars: stars(r.rating) })),
+      qty: s.qty,
+      incQty: () => this.setState(st => ({ qty: Math.min(st.qty + 1, 6) })),
+      decQty: () => this.setState(st => ({ qty: Math.max(st.qty - 1, 1) })),
+      lineTotalLabel: peso(lineTotal),
+      addToCart: () => this.setState(st => {
+        const at = st.cart.findIndex(c => c.id === st.productId);
+        const cart = at >= 0
+          ? st.cart.map((c, i) => i === at ? { ...c, qty: c.qty + st.qty } : c)
+          : [...st.cart, { id: st.productId, qty: st.qty }];
+        return { cart, view: 'cart' };
+      }),
+
+      cart, hasCart: s.cart.length > 0, cartEmpty: s.cart.length === 0,
+      cartCount: s.cart.reduce((a, c) => a + c.qty, 0),
+      venueLine: venue.name + ' · ' + venue.kind + (courtFee ? ' · court ' + s.courtHours + 'h/day' + (s.lights ? ' with lights' : '') : ''),
+      handoverLine: zone.id === 'pickup'
+        ? 'Pick up at the court — no delivery fee'
+        : 'Delivery around Biñan · ' + (s.address || 'address to follow') + ' · DF quoted by DM',
+      venues: COURTS.map(c => ({ ...c,
+        wrap: 'display:flex;flex-direction:column;gap:8px;align-items:stretch',
+        dayRate: peso(c.fee), nightRate: peso(c.litFee),
+        style: s.courtId === c.id ? cardOn : cardBase,
+        dot: s.courtId === c.id ? dotOn : dotOff,
+        onPick: () => this.setState({ courtId: c.id, slot: null }) })),
+      venueName: venue.name, venueMap: venue.map,
+      courtAdd: s.courtAdd,
+      zones: ZONES.map(z => ({ ...z,
+        meta: z.id === 'pickup' ? 'Meet us at ' + venue.name + ' — no fee' : z.meta,
+        disabled: !z.available,
+        style: (s.zoneId === z.id ? rowOn : rowBase) + (z.available ? '' : ';opacity:.45;cursor:not-allowed'),
+        dot: s.zoneId === z.id ? dotOn : dotOff,
+        badgeStyle: 'flex:none;padding:5px 12px;border-radius:999px;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;background:'
+          + (z.id === 'pickup' ? 'var(--color-accent-2-600);color:#fff8ec'
+            : z.id === 'manila' ? 'var(--color-neutral-200);color:rgba(32,30,29,.5)'
+            : 'var(--color-accent-100);color:var(--color-accent-800)'),
+        onPick: () => { if (z.available) this.setState({ zoneId: z.id }); } })),
+      needsAddress: !!(zone && zone.needsAddress),
+
+      addressVal: s.address,
+      setAddress: e => this.setState({ address: e.target.value }),
+      addressPlaceholder: 'Exact address in Biñan — house, street, barangay',
+      addressNote: 'We message you the delivery fee once we see the address. Riders cover Biñan only — inside South City Homes, collect at your court instead and pay nothing.',
+      courtBookable: s.courtAdd,
+      slots: slotHours.map(h => ({ label: fmtHour(h),
+        style: 'flex:none;border:1px solid;border-color:' + (s.slot === h ? 'var(--color-accent)' : 'var(--color-divider)')
+          + ';background:' + (s.slot === h ? 'var(--color-accent)' : 'transparent')
+          + ';color:' + (s.slot === h ? 'var(--color-bg)' : 'var(--color-text)')
+          + ';border-radius:999px;padding:10px 15px;font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap',
+        onPick: () => this.setState({ slot: h }) })),
+      slotHint: (s.lights ? 'Lights 5pm – 9pm' : 'Daylight until 5pm') + ' · ' + venue.kind.toLowerCase() + ' court',
+      slotChosen: s.slot !== null,
+      slotRange: s.slot === null ? '' : fmtHour(s.slot) + ' – ' + fmtHour(s.slot + s.courtHours),
+      slotDays: daysLabel,
+      slotMissing: s.tried && s.courtAdd && s.slot === null,
+      courtSlotLine: (s.courtAdd && s.slot !== null)
+        ? 'Court ' + fmtHour(s.slot) + ' – ' + fmtHour(s.slot + s.courtHours) + (s.lights ? ' · with lights' : ' · daytime')
+        : s.courtAdd ? 'Court time not chosen yet' : '',
+      toggleCourt: () => this.setState(st => ({ courtAdd: !st.courtAdd })),
+      courtSwitch: 'width:56px;height:32px;flex:none;border:none;border-radius:999px;cursor:pointer;padding:3px;display:flex;justify-content:' + (s.courtAdd ? 'flex-end' : 'flex-start') + ';background:' + (s.courtAdd ? 'var(--color-accent)' : 'var(--color-neutral-300)'),
+      courtKnob: 'width:26px;height:26px;border-radius:999px;background:var(--color-bg);display:block',
+      hoursLabel: s.courtHours + (s.courtHours === 1 ? ' hour' : ' hours'),
+      incHours: () => this.setState(st => ({ courtHours: Math.min(st.courtHours + 1, 8), slot: null })),
+      decHours: () => this.setState(st => ({ courtHours: Math.max(st.courtHours - 1, 1), slot: null })),
+      courtFeeLabel: peso(courtFee),
+      courtEstimate: peso(courtRate * s.courtHours * s.days) + ' est.',
+      courtRateLine: peso(courtRate) + '/hr × ' + s.courtHours + 'h × ' + daysLabel,
+      pickDaytime: () => this.setState({ lights: false, slot: null }),
+      pickLights: () => this.setState({ lights: true, slot: null }),
+      dayStyle: 'border:none;border-radius:999px;padding:10px 16px;font-size:12.5px;font-weight:600;cursor:pointer;background:'
+        + (s.lights ? 'transparent' : 'var(--color-accent)') + ';color:' + (s.lights ? 'rgba(32,30,29,.6)' : 'var(--color-bg)'),
+      nightStyle: 'border:none;border-radius:999px;padding:10px 16px;font-size:12.5px;font-weight:600;cursor:pointer;background:'
+        + (s.lights ? 'var(--color-accent)' : 'transparent') + ';color:' + (s.lights ? 'var(--color-bg)' : 'rgba(32,30,29,.6)'),
+      nameVal: s.name, phoneVal: s.phone, emailVal: s.email, socialVal: s.social,
+      setSocial: e => this.setState({ social: e.target.value }),
+      setName: e => this.setState({ name: e.target.value }),
+      setPhone: e => this.setState({ phone: e.target.value }),
+      setEmail: e => this.setState({ email: e.target.value }),
+      detailsMissing: s.tried && !detailsOk,
+      cartLines: [
+        ...(rentSub ? [{ k:`Rental · ${daysLabel}`, v:peso(rentSub) }] : []),
+        ...(discount ? [{ k:'Weekly rate (−15%)', v:'−' + peso(discount) }] : []),
+        ...(buySub ? [{ k:'Balls (purchase)', v:peso(buySub) }] : []),
+        ...(courtFee ? [{ k: 'Court · ' + (s.slot === null ? s.courtHours + 'h' : fmtHour(s.slot) + '–' + fmtHour(s.slot + s.courtHours)) + ' × ' + daysLabel + (s.lights ? ' · lights' : ''), v: peso(courtFee) }] : []),
+        ...(dep ? [{ k:'Refundable deposit', v:peso(dep) }] : []),
+        ...(rentedCount && !dep ? [{ k:'Deposit', v:'None — single-day rental' }] : []),
+        { k: zone.id === 'pickup' ? 'Pickup · ' + venue.kind + ' court' : 'Delivery · ' + zone.name,
+          v: zone.id === 'pickup' ? 'Free' : 'Fee quoted by DM' },
+      ],
+      cartTotal: peso(cartTotal),
+      confirmBooking: () => {
+        if (!detailsOk || !slotOk) { this.setState({ tried: true }); return; }
+        this.setState(st => ({
+        view: 'confirm', cart: [], qty: 1, nextCode: (writeNextCode(st.nextCode + 1), st.nextCode + 1), tried: false,
+        booked: {
+          code: 'DC-' + st.nextCode,
+          count: st.cart.reduce((a, c) => a + c.qty, 0),
+          total: peso(cartTotal),
+          venueLine: venue.name + ' · ' + venue.kind,
+          from: `${date.dow} ${date.num} ${date.mon}, 7:00am`,
+          until: `${end.dow} ${end.num} ${end.mon}, 8:00pm`,
+          name: st.name || 'Guest booking',
+          contact: [st.phone, st.email].filter(Boolean).join(' · '),
+          social: st.social || '',
+          handover: zone.id === 'pickup' ? venue.name + ' · pick up courtside'
+            : zone.name + (st.address ? ' · ' + st.address : '') + ' · DF quoted by DM',
+          days: daysLabel,
+          slotLabel: courtFee ? fmtHour(st.slot) + '–' + fmtHour(st.slot + st.courtHours) : '',
+          items: [
+            ...st.cart.map(c => {
+              const p = ALL.find(x => x.id === c.id) || ALL[0];
+              return { name: p.brand + ' ' + p.model,
+                qty: '×' + c.qty + (p.rent ? ' · ' + daysLabel : ''),
+                line: peso(lineFor(p, c.qty)) };
+            }),
+            ...(courtFee ? [{ name:'Court rental · ' + venue.name,
+              qty: fmtHour(st.slot) + '–' + fmtHour(st.slot + st.courtHours) + ' · ' + daysLabel + (st.lights ? ' · with lights' : ' · daytime'),
+              line: peso(courtFee) }] : []),
+            ...(dep > 0 ? [{ name:'Refundable deposit', qty:'Returned at handover', line: peso(dep) }] : []),
+          ],
+          deposit: dep > 0 ? peso(dep) : null,
+        },
+        orders: [{ code: 'DC-' + st.nextCode, name: st.name || 'Guest booking',
+          phone: st.phone || '—', channel:'Awaiting DM', placed:'just now',
+          venueId: st.courtId, startKey: st.dateKey, days: st.days,
+          hours: st.courtAdd ? st.courtHours : 0, lights: st.lights, slot: st.slot, total: cartTotal, status:'awaiting',
+          zoneId: st.zoneId, address: st.address, email: st.email,
+          items: st.cart.map(c => ({ id: c.id, qty: c.qty })) }, ...st.orders] }), () => {
+          const o = this.state.orders[0];
+          const b = this.state.booked || {};
+          postOrder({ action:'create', ...o,
+            items: o.items.map(i => i.qty + '× ' + (ALL.find(p => p.id === i.id) || {}).model).join(' · '),
+            itemsJson: JSON.stringify(o.items),
+            venueName: venue.name + ' · ' + venue.kind,
+            slotLabel: b.slotLabel || '',
+            handover: b.handover || '',
+            fromLabel: b.from || '',
+            untilLabel: b.until || '' });
+        }); },
+
+      bookingCode: bk.code,
+      bookedTotal: bk.total,
+      bookedItems: bk.items || [],
+      sendNote: 'Both buttons open our page — tap Message to start the chat, then attach your screenshot of the ticket above.',
+      bookedDeposit: bk.deposit,
+      confirmLines: [
+        { k:'Playing at', v: bk.venueLine },
+        { k:'Handover', v: bk.handover },
+        { k:'From', v: bk.from },
+        { k:'Return by', v: bk.until },
+        { k:'Name', v: bk.name },
+        ...(bk.social ? [{ k:'IG / FB', v: bk.social }] : []),
+        { k:'Contact', v: bk.contact },
+        { k:'Total', v: bk.total },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
