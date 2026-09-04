@@ -1320,6 +1320,7 @@ class Component extends DCLogic {
       cartTotal: peso(cartTotal),
       confirmBooking: () => {
         if (!detailsOk || !slotOk || !s.termsChecked) { this.setState({ tried: true }); return; }
+        window.scrollTo(0, 0);
         this.setState(st => ({
         view: 'confirm', cart: [], qty: 1, nextCode: (writeNextCode(st.nextCode + 1), st.nextCode + 1), tried: false,
         booked: {
