@@ -89,21 +89,21 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 
 <div style="position:relative;aspect-ratio:82/30;width:100%;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:3% 2.4%;box-sizing:border-box;isolation:isolate">
 <img src="img/court-lines.png" alt="" aria-hidden="true" style="position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:fill;opacity:.95" />
-<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;min-width:0">
 <sc-for list="{{ calHeads }}" as="h" hint-placeholder-count="7">
 <span style="text-align:center;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fff8ec;font-weight:700">{{ h }}</span>
 </sc-for>
 </div>
-<div style="flex:1;display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:1fr;gap:5px">
+<div style="flex:1;display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:1fr;gap:5px;min-width:0">
 <sc-for list="{{ calDays }}" as="d" hint-placeholder-count="35">
 <button type="button" onClick="{{ d.onPick }}" disabled="{{ d.disabled }}" title="{{ d.title }}" style="{{ d.style }}">
 <span style="display:flex;align-items:baseline;justify-content:space-between;gap:4px">
-<span style="font-family:var(--font-heading);font-size:15px;line-height:1">{{ d.num }}</span>
-<span style="font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;opacity:.6">{{ d.monTag }}</span>
+<span style="font-family:var(--font-heading);font-size:13px;line-height:1;min-width:0;overflow:hidden;text-overflow:ellipsis">{{ d.num }}</span>
+<span style="font-size:7.5px;letter-spacing:.03em;text-transform:uppercase;opacity:.6;flex:none">{{ d.monTag }}</span>
 </span>
 <span style="display:flex;align-items:center;gap:4px;margin-top:4px">
 <span style="{{ d.dot }}"></span>
-<span style="font-size:9.5px;line-height:1.1;text-align:left">{{ d.outLabel }}</span>
+<span style="font-size:8px;line-height:1.1;text-align:left;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ d.outLabel }}</span>
 </span>
 </button>
 </sc-for>
@@ -1071,7 +1071,7 @@ class Component extends DCLogic {
 
     const selIdx = DAYS.findIndex(d => d.key === s.dateKey);
     const span = Array.from({ length: s.days }, (_, i) => selIdx + i);
-    const tileBase = 'border:1px solid;border-color:rgba(255,248,236,.22);background:rgba(33,30,27,.72);border-radius:11px;padding:7px 9px;cursor:pointer;text-align:left;color:#fff8ec;display:block';
+    const tileBase = 'border:1px solid;border-color:rgba(255,248,236,.22);background:rgba(33,30,27,.72);border-radius:11px;padding:5px 4px;cursor:pointer;text-align:left;color:#fff8ec;display:block;min-width:0;box-sizing:border-box;overflow:hidden';
 
     const calDays = DAYS.map(d => {
       const out = outUnits[d.idx] || 0;
@@ -1161,7 +1161,7 @@ class Component extends DCLogic {
       isShop: s.view === 'shop', isDetail: s.view === 'detail',
       isCart: s.view === 'cart', isConfirm: s.view === 'confirm',
       goShop: () => this.setState({ view: 'shop' }),
-      goCart: () => this.setState({ view: 'cart' }),
+      goCart: () => { window.scrollTo(0, 0); this.setState({ view: 'cart' }); },
 
       zoomOpen: s.zoomOpen,
       zoomRef: this.zoomRef,
@@ -1234,6 +1234,7 @@ class Component extends DCLogic {
         const cart = at >= 0
           ? st.cart.map((c, i) => i === at ? { ...c, qty: c.qty + st.qty } : c)
           : [...st.cart, { id: st.productId, qty: st.qty }];
+        window.scrollTo(0, 0);
         return { cart, view: 'cart' };
       }),
 
