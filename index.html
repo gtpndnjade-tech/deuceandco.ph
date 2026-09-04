@@ -80,35 +80,36 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 <h2 style="margin:6px 0 0;font-size:21px;line-height:1.1;color:#fff8ec">When are you playing?</h2>
 </span>
 <span style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:10px;color:rgba(255,248,236,.78)">
-<span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:var(--color-accent-2-400)"></span>All in</span>
-<span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:var(--color-accent-400)"></span>Some out</span>
+<span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:var(--color-accent-2-400)"></span>All rackets available</span>
+<span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:var(--color-accent-400)"></span>Some out on rental</span>
 <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:999px;background:rgba(255,248,236,.45)"></span>Fully booked</span>
-<span style="padding:5px 12px;border-radius:999px;background:rgba(255,248,236,.1);border:1px solid;border-color:rgba(255,248,236,.2);font-family:var(--font-heading);font-size:10.5px;color:rgba(255,248,236,.85)">{{ calTitle }}</span>
+
 </span>
 </div>
 
-<div style="position:relative;aspect-ratio:82/34;width:100%;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:2.2% 2.4%;box-sizing:border-box;isolation:isolate">
+<div style="position:relative;aspect-ratio:82/30;width:100%;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:3% 2.4%;box-sizing:border-box;isolation:isolate">
 <img src="img/court-lines.png" alt="" aria-hidden="true" style="position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:fill;opacity:.95" />
 <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
 <sc-for list="{{ calHeads }}" as="h" hint-placeholder-count="7">
-<span style="text-align:center;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,236,.62);font-weight:700">{{ h }}</span>
+<span style="text-align:center;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fff8ec;font-weight:700">{{ h }}</span>
 </sc-for>
 </div>
 <div style="flex:1;display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:1fr;gap:5px">
 <sc-for list="{{ calDays }}" as="d" hint-placeholder-count="35">
 <button type="button" onClick="{{ d.onPick }}" disabled="{{ d.disabled }}" title="{{ d.title }}" style="{{ d.style }}">
 <span style="display:flex;align-items:baseline;justify-content:space-between;gap:4px">
-<span style="font-family:var(--font-heading);font-size:12.5px;line-height:1">{{ d.num }}</span>
+<span style="font-family:var(--font-heading);font-size:15px;line-height:1">{{ d.num }}</span>
 <span style="font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;opacity:.6">{{ d.monTag }}</span>
 </span>
 <span style="display:flex;align-items:center;gap:4px;margin-top:4px">
 <span style="{{ d.dot }}"></span>
-<span style="font-size:8.5px;line-height:1.1;text-align:left">{{ d.outLabel }}</span>
+<span style="font-size:9.5px;line-height:1.1;text-align:left">{{ d.outLabel }}</span>
 </span>
 </button>
 </sc-for>
 </div>
 </div>
+<p style="margin:12px 2px 0;font-size:11px;line-height:1.5;color:rgba(255,248,236,.62)">Rentals of 2 days or more carry a ₱200 refundable deposit per racket, returned in full when the gear comes back complete.</p>
 
 <div style="margin-top:14px;padding-top:13px;border-top:1px solid;border-top-color:rgba(255,248,236,.16);display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between">
 <span style="display:flex;align-items:center;gap:11px">
@@ -184,7 +185,10 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 </span>
 </span>
 </button>
-<a href="{{ v.map }}" target="_blank" rel="noopener" style="align-self:flex-start;font-size:11.5px;font-weight:600;color:var(--color-accent-700)">{{ v.meta }} · Directions ↗</a>
+<a href="{{ v.map }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:10px 16px;border-radius:999px;border:1px solid var(--color-divider);background:var(--color-surface);font-size:12px;font-weight:600;color:var(--color-accent-700);line-height:1.35">
+<span style="min-width:0">{{ v.meta }}</span>
+<span style="flex:none;white-space:nowrap">Google Maps ↗</span>
+</a>
 </div>
 </sc-for>
 </div>
@@ -228,12 +232,17 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 </section>
 
 <section>
+<h2 style="margin:0 0 14px;font-size:22px">Gear rental</h2>
 <div class="scr" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px">
 <sc-for list="{{ catChips }}" as="c" hint-placeholder-count="4">
 <button type="button" onClick="{{ c.onPick }}" style="{{ c.style }}">{{ c.label }}</button>
 </sc-for>
 </div>
 <sc-if value="{{ showLevels }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;margin-bottom:9px">
+<span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(32,30,29,.5);font-weight:700">Racket level</span>
+<span style="font-size:11.5px;line-height:1.5;color:rgba(32,30,29,.5)">Beginner ₱180 · Intermediate ₱200 · Advanced ₱240 per day</span>
+</div>
 <div class="scr" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px">
 <sc-for list="{{ levelChips }}" as="c" hint-placeholder-count="4">
 <button type="button" onClick="{{ c.onPick }}" style="{{ c.style }}">{{ c.label }}</button>
@@ -346,23 +355,6 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 </div>
 </sc-if>
 
-<div style="padding:18px;border-radius:var(--radius-lg);background:var(--color-accent-2-100)">
-<h3 style="margin:0 0 4px;font-size:16px;color:var(--color-accent-2-900)">Rental terms</h3>
-<p style="margin:0 0 12px;font-size:12.5px;line-height:1.5;color:var(--color-accent-2-800)">Please read before you check out — booking counts as agreeing to these.</p>
-<div style="display:flex;flex-direction:column;gap:10px">
-<sc-for list="{{ terms }}" as="t" hint-placeholder-count="6">
-<div style="display:flex;gap:11px;align-items:flex-start">
-<span style="width:20px;height:20px;flex:none;margin-top:1px;border-radius:999px;background:var(--color-accent-2-600);color:#fff8ec;display:grid;place-items:center;font-size:11px;font-weight:700">{{ t.n }}</span>
-<span style="min-width:0">
-<span style="display:block;font-size:13px;font-weight:700;color:var(--color-accent-2-900)">{{ t.head }}</span>
-<span style="display:block;font-size:12.5px;line-height:1.55;color:var(--color-accent-2-800);margin-top:2px;text-wrap:pretty">{{ t.body }}</span>
-</span>
-</div>
-</sc-for>
-</div>
-<p style="margin:13px 0 0;font-size:11.5px;line-height:1.5;color:var(--color-accent-2-800)">Questions? DM us at <a href="https://www.instagram.com/deuceandco.ph/" target="_blank" rel="noopener" style="color:var(--color-accent-2-900);font-weight:700">@deuceandco.ph</a> before booking.</p>
-</div>
-
 <sc-if value="{{ hasSpecs }}" hint-placeholder-val="{{ true }}">
 <div>
 <h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(32,30,29,.5);font-family:var(--font-body);font-weight:700">Specifications</h3>
@@ -470,14 +462,35 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 <span style="font-family:var(--font-heading);font-size:17px">Total</span>
 <span style="font-family:var(--font-heading);font-size:25px;color:var(--color-accent-800)">{{ cartTotal }}</span>
 </div>
-<button type="button" onClick="{{ confirmBooking }}" style="width:100%;margin-top:16px;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:16px;font-family:var(--font-heading);font-size:16px;cursor:pointer">Confirm booking</button>
+<details style="margin-top:14px;padding:14px 16px;border-radius:var(--radius-lg);background:var(--color-accent-2-100)">
+<summary style="cursor:pointer;font-size:13px;font-weight:700;color:var(--color-accent-2-900)">Know before you go — tap to read our Rental Terms</summary>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:13px">
+<sc-for list="{{ terms }}" as="t" hint-placeholder-count="7">
+<div style="display:flex;gap:11px;align-items:flex-start">
+<span style="width:20px;height:20px;flex:none;margin-top:1px;border-radius:999px;background:var(--color-accent-2-600);color:#fff8ec;display:grid;place-items:center;font-size:11px;font-weight:700">{{ t.n }}</span>
+<span style="min-width:0">
+<span style="display:block;font-size:12.5px;font-weight:700;color:var(--color-accent-2-900)">{{ t.head }}</span>
+<span style="display:block;font-size:12px;line-height:1.55;color:var(--color-accent-2-800);margin-top:2px;text-wrap:pretty">{{ t.body }}</span>
+</span>
+</div>
+</sc-for>
+</div>
+<label style="display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding-top:13px;border-top:1px solid;border-top-color:rgba(122,138,94,.28);cursor:pointer">
+<input type="checkbox" checked="{{ termsChecked }}" onChange="{{ toggleTerms }}" style="margin-top:3px;width:17px;height:17px;flex:none;accent-color:var(--color-accent-2-600);cursor:pointer" />
+<span style="font-size:12.5px;line-height:1.5;color:var(--color-accent-2-900)">I have read and agree to the <strong>rental terms</strong> above.</span>
+</label>
+<p style="margin:13px 0 0;font-size:11.5px;line-height:1.5;color:var(--color-accent-2-800)">Questions? DM us at <a href="https://www.instagram.com/deuceandco.ph/" target="_blank" rel="noopener" style="color:var(--color-accent-2-900);font-weight:700">@deuceandco.ph</a> before booking.</p>
+</details>
+<sc-if value="{{ termsMissing }}">
+<p style="margin:6px 2px 0;font-size:11.5px;color:var(--color-accent-700)">Please tick the box to confirm you've read the rental terms.</p>
+</sc-if>
+<button type="button" onClick="{{ confirmBooking }}" style="width:100%;margin-top:12px;border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:16px;font-family:var(--font-heading);font-size:16px;cursor:pointer">Confirm booking</button>
 <sc-if value="{{ slotMissing }}">
 <div style="margin-top:12px;padding:12px 15px;border-radius:var(--radius-lg);background:var(--color-surface)">
 <p style="margin:0;font-size:12px;line-height:1.5;color:var(--color-accent-700);font-weight:600">Your court has no time slot yet.</p>
 <button type="button" onClick="{{ goShop }}" style="margin-top:9px;border:1px solid var(--color-accent);background:none;border-radius:999px;padding:8px 15px;font-size:12px;font-weight:600;cursor:pointer;color:var(--color-accent-700)">Choose a court time</button>
 </div>
 </sc-if>
-<p style="margin:12px 0 0;font-size:11.5px;line-height:1.55;color:rgba(32,30,29,.55)">Rentals of two days or more carry a ₱200 refundable deposit, returned when you bring the gear back, minus damage. Single-day rentals need no deposit. Bring a valid ID. Balls are yours to keep.</p>
 </div>
 </div>
 
@@ -492,7 +505,31 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 <div style="text-align:center">
 <div style="width:76px;height:76px;margin:0 auto;border-radius:999px;background:var(--color-accent-2-500);display:grid;place-items:center;font-size:34px;color:#fff;animation:pop .45s cubic-bezier(.2,1.4,.4,1) both">✓</div>
 <h1 style="margin:18px 0 8px;font-size:28px;letter-spacing:-.02em">Here's your order ticket.</h1>
-<p style="margin:0 0 14px;padding:15px 18px;border-radius:var(--radius-lg);background:var(--color-accent-100);border:1.5px solid;border-color:var(--color-accent);font-size:14px;line-height:1.55;color:var(--color-accent-800);text-wrap:pretty;text-align:left"><strong style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">Important</strong><strong>SCREENSHOT this ticket</strong> before you leave the page, then tap <strong>Send on Messenger</strong> or <strong>Send on Instagram</strong> below and attach it. We reply with your booking confirmation and the payment details.</p>
+</div>
+
+<div style="padding:20px;border-radius:var(--radius-lg);background:var(--color-accent-2-600);color:#fff8ec">
+<span style="display:inline-block;padding:5px 13px;border-radius:999px;background:rgba(255,248,236,.18);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase">Last step</span>
+<h2 style="margin:13px 0 6px;font-size:21px;color:#fff8ec">Send your order to us</h2>
+<p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;opacity:.85">Send us the ticket below and we reply within the hour during shop hours.</p>
+<div style="padding:14px 16px;border-radius:var(--radius-lg);background:#fff8ec;color:var(--color-accent-800);margin-bottom:16px">
+<span style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-accent-700)">Before you leave this page</span>
+<p style="margin:7px 0 0;font-size:13.5px;line-height:1.55;text-wrap:pretty"><strong>SCREENSHOT the ticket below</strong> and attach it to your DM. Don't rely on the paste alone — the screenshot is what we confirm your booking against.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:flex-start;gap:14px">
+<span style="width:34px;height:34px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.7);display:grid;place-items:center;font-family:var(--font-heading);font-size:15px">1</span>
+<span style="font-size:13.5px;line-height:1.5">Attach your <strong>screenshot</strong> — it carries your reference <strong>{{ bookingCode }}</strong></span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px">
+<span style="width:34px;height:34px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.7);display:grid;place-items:center;font-family:var(--font-heading);font-size:15px">2</span>
+<span style="font-size:13.5px;line-height:1.5">We reply with a <strong>confirmation order</strong> and the payment details via DM</span>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
+<a href="https://www.facebook.com/profile.php?id=61593264803515" target="_blank" rel="noopener" style="flex:1 1 160px;text-align:center;padding:14px 18px;border-radius:999px;background:#fff8ec;color:var(--color-accent-2-800);font-family:var(--font-heading);font-size:14.5px">Send on Messenger</a>
+<a href="https://www.instagram.com/deuceandco.ph/" target="_blank" rel="noopener" style="flex:1 1 160px;text-align:center;padding:14px 18px;border-radius:999px;border:1.5px solid rgba(255,248,236,.75);color:#fff8ec;font-family:var(--font-heading);font-size:14.5px">Send on Instagram</a>
+</div>
+<p style="margin:14px 0 0;font-size:12px;line-height:1.5;font-weight:600">{{ sendNote }}</p>
 </div>
 
 <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--color-surface)">
@@ -548,31 +585,6 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 </sc-if>
 </div>
 
-<div style="padding:20px;border-radius:var(--radius-lg);background:var(--color-accent-2-600);color:#fff8ec">
-<span style="display:inline-block;padding:5px 13px;border-radius:999px;background:rgba(255,248,236,.18);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase">Last step</span>
-<h2 style="margin:13px 0 6px;font-size:21px;color:#fff8ec">Send your order to us</h2>
-<p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;opacity:.85">Send us the ticket above and we reply within the hour during shop hours.</p>
-<div style="padding:14px 16px;border-radius:var(--radius-lg);background:#fff8ec;color:var(--color-accent-800);margin-bottom:16px">
-<span style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-accent-700)">Before you leave this page</span>
-<p style="margin:7px 0 0;font-size:13.5px;line-height:1.55;text-wrap:pretty"><strong>SCREENSHOT the ticket above</strong> and attach it to your DM. Don't rely on the paste alone — the screenshot is what we confirm your booking against.</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;align-items:flex-start;gap:14px">
-<span style="width:34px;height:34px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.7);display:grid;place-items:center;font-family:var(--font-heading);font-size:15px">1</span>
-<span style="font-size:13.5px;line-height:1.5">Attach your <strong>screenshot</strong> — it carries your reference <strong>{{ bookingCode }}</strong></span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:14px">
-<span style="width:34px;height:34px;flex:none;border-radius:999px;border:1.5px solid rgba(255,248,236,.7);display:grid;place-items:center;font-family:var(--font-heading);font-size:15px">2</span>
-<span style="font-size:13.5px;line-height:1.5">We reply with a <strong>confirmation order</strong> and the payment details for {{ bookedTotal }}</span>
-</div>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
-<a href="https://www.facebook.com/profile.php?id=61593264803515" target="_blank" rel="noopener" style="flex:1 1 160px;text-align:center;padding:14px 18px;border-radius:999px;background:#fff8ec;color:var(--color-accent-2-800);font-family:var(--font-heading);font-size:14.5px">Send on Messenger</a>
-<a href="https://www.instagram.com/deuceandco.ph/" target="_blank" rel="noopener" style="flex:1 1 160px;text-align:center;padding:14px 18px;border-radius:999px;border:1.5px solid rgba(255,248,236,.75);color:#fff8ec;font-family:var(--font-heading);font-size:14.5px">Send on Instagram</a>
-</div>
-<p style="margin:14px 0 0;font-size:12px;line-height:1.5;font-weight:600">{{ sendNote }}</p>
-</div>
-
 <button type="button" onClick="{{ goShop }}" style="border:none;border-radius:999px;background:var(--color-accent);color:var(--color-bg);padding:16px;font-family:var(--font-heading);font-size:16px;cursor:pointer">Back to the shop</button>
 </div>
 </sc-if>
@@ -604,9 +616,36 @@ Cart<sc-if value="{{ hasCart }}"><span style="margin-left:7px;display:inline-gri
 <span style="display:block;font-size:11px;letter-spacing:.14em;color:var(--color-accent-700);margin-top:6px">@DEUCEANDCO.PH</span>
 </span>
 </span>
-<span style="display:flex;gap:18px;font-size:12.5px;color:rgba(32,30,29,.55)">
-<a href="#">Rental terms</a><a href="#">Courts</a><a href="#">Contact</a>
+<span style="display:flex;flex-wrap:wrap;gap:34px">
+<span style="display:flex;flex-direction:column;gap:8px">
+<span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(32,30,29,.45);font-weight:700">Courts</span>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=South+City+Homes+Tennis+Club+Bi%C3%B1an+Laguna" target="_blank" rel="noopener" style="font-size:12.5px">Outdoor · Tennis Club ↗</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=South+City+Homes+Recreation+Center+Bi%C3%B1an+Laguna" target="_blank" rel="noopener" style="font-size:12.5px">Indoor · Recreation Center ↗</a>
 </span>
+<span style="display:flex;flex-direction:column;gap:8px">
+<span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(32,30,29,.45);font-weight:700">Contact</span>
+<a href="https://www.facebook.com/profile.php?id=61593264803515" target="_blank" rel="noopener" style="font-size:12.5px">Messenger ↗</a>
+<a href="https://www.instagram.com/deuceandco.ph/" target="_blank" rel="noopener" style="font-size:12.5px">Instagram ↗</a>
+<a href="mailto:deuceandco.ph@gmail.com" style="font-size:12.5px">deuceandco.ph@gmail.com</a>
+</span>
+</span>
+</div>
+
+<div style="max-width:1080px;margin:0 auto;padding:0 20px 34px">
+<details style="border-top:1px solid var(--color-divider);padding-top:18px">
+<summary style="cursor:pointer;font-family:var(--font-heading);font-size:15px;color:var(--color-text)">Rental terms</summary>
+<div style="display:flex;flex-direction:column;gap:11px;margin-top:14px;max-width:640px">
+<sc-for list="{{ terms }}" as="t" hint-placeholder-count="7">
+<div style="display:flex;gap:11px;align-items:flex-start">
+<span style="width:20px;height:20px;flex:none;margin-top:1px;border-radius:999px;background:var(--color-accent-2-600);color:#fff8ec;display:grid;place-items:center;font-size:11px;font-weight:700">{{ t.n }}</span>
+<span style="min-width:0">
+<span style="display:block;font-size:12.5px;font-weight:700">{{ t.head }}</span>
+<span style="display:block;font-size:12px;line-height:1.55;color:rgba(32,30,29,.6);margin-top:2px;text-wrap:pretty">{{ t.body }}</span>
+</span>
+</div>
+</sc-for>
+</div>
+</details>
 </div>
 </footer>
 
@@ -698,12 +737,12 @@ const RACKETS = [
 ].map(r => ({ ...r, cat:'rackets', rent:true, unit:'/ day', unitLabel:'Per day' }));
 
 const BALLS = [
-  { id:'trainer', brand:'Deuce&Co.', model:'Practice Balls · set of 30', price:100, img:'img/court-balls.jpg',
+  { id:'trainer', brand:'Deuce&Co.', model:'Practice Balls · set of 30', price:100, img:'img/balls-2025.jpg',
     specLine:'30 balls · practice grade · no basket',
     blurb:'Thirty mixed practice balls for baskets, drills and serve repetitions. Not match-fresh, and priced accordingly. Note: the tennis basket stand is not included — rent it separately if you need one.',
     good:['Drills and baskets','Coaching','Serve practice'], rating:4.4, nReviews:39, stock:14,
     specs:[{k:'Count',v:'30 balls'},{k:'Basket stand',v:'Not included'},{k:'Condition',v:'Practice grade'},{k:'Use',v:'Feeding & drills'}] },
-].map(b => ({ ...b, cat:'balls', rent:false, unit:'per set', unitLabel:'Per set of 30', level:null }));
+].map(b => ({ ...b, cat:'balls', rent:true, unit:'/ day', unitLabel:'Per day', level:null }));
 
 const TUBES = [
   { id:'prince-tube', brand:'Prince', model:'Ball Pickup Tube · with 15 balls', price:150, img:'img/tube-court.jpg',
@@ -837,31 +876,60 @@ const postOrder = payload => {
     body: JSON.stringify(payload) }).catch(() => {});
 };
 
+const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const TODAY = new Date();
+const dateAt = i => new Date(TODAY.getFullYear(), TODAY.getMonth(), TODAY.getDate() + i);
+const SINCE_MON = (TODAY.getDay() + 6) % 7;   // 0 = today is Monday
+const isoOf = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const labelOf = d => ({ dow: DOW[d.getDay()], num: String(d.getDate()), mon: MON[d.getMonth()] });
+const dayKeyAt = i => 'd' + isoOf(dateAt(i));
+
+// Legacy sheet rows predate the startIso column and only carry a label like
+// "Sat 19 Sep, 7:00am" — derive the date so their bookings still count.
+const isoFromLabel = label => {
+  if (!label) return '';
+  const m = String(label).match(/(\d{1,2})\s+([A-Za-z]{3})/);
+  if (!m) return '';
+  const mon = MON.findIndex(x => x.toLowerCase() === m[2].toLowerCase());
+  if (mon < 0) return '';
+  const day = Number(m[1]);
+  const now = TODAY.getTime();
+  let best = null, gap = Infinity;
+  [TODAY.getFullYear() - 1, TODAY.getFullYear(), TODAY.getFullYear() + 1].forEach(y => {
+    const d = new Date(y, mon, day);
+    const g = Math.abs(d.getTime() - now);
+    if (g < gap) { gap = g; best = d; }
+  });
+  return best ? isoOf(best) : '';
+};
+
 const SEED_ORDERS = [
   { code:'DC-4468', name:'Miggy Ramos', phone:'0917 402 1188', channel:'IG DM', placed:'today 7:12am',
-    venueId:'schc', startKey:'d24', days:3, hours:0, total:1780, status:'toconfirm', zoneId:'pickup', address:'',
+    venueId:'schc', startKey: dayKeyAt(1), startIso: isoOf(dateAt(1)), days:3, hours:0, total:1780, status:'toconfirm', zoneId:'pickup', address:'',
     items:[{ id:'vcore100', qty:1 }, { id:'trainer', qty:1 }] },
   { code:'DC-4469', name:'Coach Bern', phone:'0921 774 5502', channel:'FB Messenger', placed:'today 8:40am',
-    venueId:'schc', startKey:'d24', days:5, hours:2, lights:true, slot:18, total:4260, status:'awaiting', zoneId:'pickup', address:'',
+    venueId:'schc', startKey: dayKeyAt(2), startIso: isoOf(dateAt(2)), days:5, hours:2, lights:true, slot:18, total:4260, status:'awaiting', zoneId:'pickup', address:'',
     items:[{ id:'artengo', qty:1 }, { id:'prokennex-os', qty:1 }, { id:'prince-os', qty:1 }, { id:'hopper', qty:1 }, { id:'prince-tube', qty:1 }] },
   { code:'DC-4470', name:'Andrea Lim', phone:'0918 220 6641', channel:'IG DM', placed:'yesterday 6:05pm',
-    venueId:'indoor', startKey:'d25', days:2, hours:2, lights:false, slot:9, total:2380, status:'confirmed', zoneId:'binan', address:'8 Narra St., Brgy. San Antonio',
+    venueId:'indoor', startKey: dayKeyAt(4), startIso: isoOf(dateAt(4)), days:2, hours:2, lights:false, slot:9, total:2380, status:'confirmed', zoneId:'binan', address:'8 Narra St., Brgy. San Antonio',
     items:[{ id:'vcore100', qty:1 }, { id:'trainer', qty:1 }] },
   { code:'DC-4465', name:'Sandro Valdez', phone:'0917 881 3390', channel:'FB Messenger', placed:'21 Aug',
-    venueId:'schc', startKey:'d24', days:7, hours:0, total:2680, status:'out', zoneId:'pickup', address:'',
+    venueId:'schc', startKey: dayKeyAt(0), startIso: isoOf(dateAt(0)), days:7, hours:0, total:2680, status:'out', zoneId:'pickup', address:'',
     items:[{ id:'prostaff95', qty:1 }, { id:'trainer', qty:1 }] },
   { code:'DC-4466', name:'Patricia Nuñez', phone:'0995 118 2274', channel:'IG DM', placed:'20 Aug',
-    venueId:'indoor', startKey:'d24', days:2, hours:1, lights:true, slot:19, total:1240, status:'out', zoneId:'binan', address:'21 Acacia Ave., Brgy. Canlalay',
+    venueId:'indoor', startKey: dayKeyAt(6), startIso: isoOf(dateAt(6)), days:2, hours:1, lights:true, slot:19, total:1240, status:'out', zoneId:'binan', address:'21 Acacia Ave., Brgy. Canlalay',
     items:[{ id:'dunlop-bio', qty:1 }, { id:'prince-midplus', qty:1 }] },
 ];
 
-const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const DAYS = Array.from({ length: 35 }, (_, i) => {
-  const d = new Date(2026, 7, 24 + i);
-  return { key:'d' + (24 + i), idx:i, dow:DOW[d.getDay()], num:String(d.getDate()), mon:MON[d.getMonth()] };
+// Two-week panel starting today. Today itself is same-day and not bookable.
+const DAYS = Array.from({ length: 21 }, (_, i) => {
+  const off = i - SINCE_MON;
+  const d = dateAt(off);
+  return { key: dayKeyAt(off), iso: isoOf(d), idx: i, ...labelOf(d) };
 });
-const TODAY_IDX = 1;
+const TODAY_IDX = SINCE_MON;            // today's tile
+const FIRST_OPEN = SINCE_MON + 1;       // earliest bookable — tomorrow
 
 const LEVEL_TINT = {
   Beginner: ['var(--color-accent-2-100)', 'var(--color-accent-2-800)'],
@@ -878,8 +946,9 @@ const tagStyle = tag => {
 };
 
 const CATS = [
-  { key:'all', label:'Everything' }, { key:'rackets', label:'Rackets' },
+  { key:'rackets', label:'Rackets' },
   { key:'balls', label:'Tennis balls' }, { key:'tubes', label:'Ball tubes & hoppers' },
+  { key:'all', label:'Everything' },
 ];
 
 class Component extends DCLogic {
@@ -900,9 +969,9 @@ class Component extends DCLogic {
 
   state = {
     view:'shop', cat:'all', level:'All', productId:'vcore100', qty:1,
-    dateKey: DAYS[TODAY_IDX].key, days:3, courtId:'schc',
+    dateKey: DAYS[FIRST_OPEN].key, days:3, courtId:'schc',
     courtAdd:false, courtHours:2, slot:null, zoneId:'pickup', address:'', lights:false,
-    cart:[], sortAsc:true, name:'', phone:'', email:'', social:'', tried:false,
+    cart:[], sortAsc:true, name:'', phone:'', email:'', social:'', termsChecked:false, tried:false,
     orders: SEED_ORDERS, nextCode: readNextCode(), booked: null, zoomOpen: false,
     live: false, syncing: !!ORDERS_ENDPOINT,
   };
@@ -946,8 +1015,9 @@ class Component extends DCLogic {
 
     const cur = ALL.find(p => p.id === s.productId) || ALL[0];
     const date = DAYS.find(d => d.key === s.dateKey) || DAYS[0];
-    const endIdx = Math.min(DAYS.findIndex(d => d.key === s.dateKey) + s.days - 1, DAYS.length - 1);
-    const end = DAYS[endIdx];
+    const startDate = new Date(date.iso + 'T00:00:00');
+    const endDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + s.days - 1);
+    const end = labelOf(endDate);
     const weekly = weeklyOn && s.days >= 5;
     const rangeLabel = `${date.dow} ${date.num} → ${end.dow} ${end.num} ${end.mon}`;
 
@@ -965,7 +1035,7 @@ class Component extends DCLogic {
       stockLabel: p.stock <= 2 ? `${p.stock} left` : 'In stock',
       stars: stars(p.rating),
       periodLine: p.rent ? `Rented for ${rangeLabel}` : 'Yours to keep — no return',
-      onOpen: () => this.setState({ productId: p.id, view: 'detail', qty: 1 }),
+      onOpen: () => { window.scrollTo(0, 0); this.setState({ productId: p.id, view: 'detail', qty: 1 }); },
     });
 
     const inCat = ALL.filter(p => s.cat === 'all' || p.cat === s.cat)
@@ -976,14 +1046,17 @@ class Component extends DCLogic {
     const chipOn = 'flex:none;border:1px solid var(--color-accent);cursor:pointer;padding:10px 17px;border-radius:999px;font-size:12.5px;font-weight:600;background:var(--color-accent);color:var(--color-bg)';
     const catChips = CATS.map(c => ({ label: c.label, style: s.cat === c.key ? chipOn : chipBase,
       onPick: () => this.setState({ cat: c.key }) }));
-    const levelChips = ['All','Beginner','Intermediate','Advanced'].map(l => ({
+    const levelChips = ['Beginner','Intermediate','Advanced','All'].map(l => ({
       label: l === 'All' ? 'All levels' : l, style: s.level === l ? chipOn : chipBase,
       onPick: () => this.setState({ level: l }) }));
 
     const rackFleet = RACKETS.reduce((a, r) => a + (r.stock || 1), 0);
     const outUnits = {}, outNames = {};
     s.orders.filter(o => o.status !== 'returned').forEach(o => {
-      const from = DAYS.findIndex(d => d.key === o.startKey);
+      const iso = o.startIso ? String(o.startIso).slice(0, 10) : isoFromLabel(o.fromLabel);
+      const from = iso
+        ? DAYS.findIndex(d => d.iso === iso)
+        : DAYS.findIndex(d => d.key === o.startKey);
       if (from < 0) return;
       for (let i = 0; i < o.days; i++) {
         const k = from + i;
@@ -998,19 +1071,21 @@ class Component extends DCLogic {
 
     const selIdx = DAYS.findIndex(d => d.key === s.dateKey);
     const span = Array.from({ length: s.days }, (_, i) => selIdx + i);
-    const tileBase = 'border:1px solid;border-color:rgba(255,248,236,.22);background:rgba(33,30,27,.72);border-radius:9px;padding:5px 7px;cursor:pointer;text-align:left;color:#fff8ec;display:block';
+    const tileBase = 'border:1px solid;border-color:rgba(255,248,236,.22);background:rgba(33,30,27,.72);border-radius:11px;padding:7px 9px;cursor:pointer;text-align:left;color:#fff8ec;display:block';
 
     const calDays = DAYS.map(d => {
       const out = outUnits[d.idx] || 0;
       const full = out >= rackFleet;
-      const past = d.idx < TODAY_IDX;
+      const past = d.idx < FIRST_OPEN;
       const inSpan = span.includes(d.idx);
       const isStart = d.idx === selIdx;
       const tone = full ? 'rgba(255,248,236,.45)' : out ? 'var(--color-accent-400)' : 'var(--color-accent-2-400)';
       return { num: d.num,
         monTag: (d.idx === 0 || d.num === '1') ? d.mon : '',
-        outLabel: past ? 'past' : full ? 'fully booked' : out ? out + ' out' : 'all in',
-        title: past ? 'Past date'
+        outLabel: d.idx === TODAY_IDX ? 'today'
+          : past ? 'past' : full ? 'fully booked' : out ? out + ' out' : 'all in',
+        title: d.idx === TODAY_IDX ? 'Same-day rentals are not bookable online — DM us instead'
+          : past ? 'Past date'
           : (outNames[d.idx] || []).length
             ? 'Out on ' + d.dow + ' ' + d.num + ': ' + outNames[d.idx].join(', ')
             : 'Every racket available on ' + d.dow + ' ' + d.num,
@@ -1106,7 +1181,6 @@ class Component extends DCLogic {
         this.z.px = e.clientX; this.z.py = e.clientY; this.paintZoom(); },
       onZoomUp: () => { this.z.dragging = false; },
       calDays, calHeads: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
-      calTitle: 'Aug – Sep 2026 · ' + rackFleet + ' rackets in the fleet',
       dayOutHead: selDay.dow + ' ' + selDay.num + ' ' + selDay.mon,
       dayOutList: selOut.length ? selOut.join(' · ') : '',
       daysLabel, rangeLabel, hasWeekly: weekly,
@@ -1122,8 +1196,8 @@ class Component extends DCLogic {
       terms: [
         { n:'1', head:'Send your order by DM before you pay',
           body:'At checkout, screenshot your order ticket and send it to our Instagram or Facebook DM. Booking is confirmed once we reply with a confirmation order and the payment details.' },
-        { n:'2', head:'Each racket includes a case and 5 balls',
-          body:'Every racket rental goes out in its racket case or bag with five balls to play with, at no extra charge. Both come back with the frame — missing cases and balls are charged at replacement cost.' },
+        { n:'2', head:'Refund requests — specific conditions only',
+          body:'We consider refunds for defective or damaged equipment found on pickup, or when weather or a court closure prevents play. Send your request by DM with your booking reference — we review case by case.' },
         { n:'3', head:'Rental day runs 7:00am to 8:00pm',
           body:'Pick up from 7:00am on your start date and return by 8:00pm on the last day. Late returns are charged one extra day per day overdue.' },
         { n:'4', head:'₱200 refundable deposit on multi-day rentals',
@@ -1140,7 +1214,9 @@ class Component extends DCLogic {
       isRacket: cur.cat === 'rackets',
       includesLine: peso(cur.price) + ' includes the racket bag and 5 balls',
       hasSpecs: true,
-      specs: cur.specs,
+      specs: cur.cat === 'rackets'
+        ? [...cur.specs, { k:'Included', v:'Racket bag · 5 balls' }]
+        : cur.specs,
       specNote: cur.cat !== 'rackets'
         ? 'Checked and counted before every handover.'
         : cur.verified !== true
@@ -1227,6 +1303,9 @@ class Component extends DCLogic {
       setPhone: e => this.setState({ phone: e.target.value }),
       setEmail: e => this.setState({ email: e.target.value }),
       detailsMissing: s.tried && !detailsOk,
+      termsChecked: s.termsChecked,
+      termsMissing: s.tried && !s.termsChecked,
+      toggleTerms: () => this.setState(st => ({ termsChecked: !st.termsChecked })),
       cartLines: [
         ...(rentSub ? [{ k:`Rental · ${daysLabel}`, v:peso(rentSub) }] : []),
         ...(discount ? [{ k:'Weekly rate (−15%)', v:'−' + peso(discount) }] : []),
@@ -1239,7 +1318,7 @@ class Component extends DCLogic {
       ],
       cartTotal: peso(cartTotal),
       confirmBooking: () => {
-        if (!detailsOk || !slotOk) { this.setState({ tried: true }); return; }
+        if (!detailsOk || !slotOk || !s.termsChecked) { this.setState({ tried: true }); return; }
         this.setState(st => ({
         view: 'confirm', cart: [], qty: 1, nextCode: (writeNextCode(st.nextCode + 1), st.nextCode + 1), tried: false,
         booked: {
@@ -1272,7 +1351,7 @@ class Component extends DCLogic {
         },
         orders: [{ code: 'DC-' + st.nextCode, name: st.name || 'Guest booking',
           phone: st.phone || '—', channel:'Awaiting DM', placed:'just now',
-          venueId: st.courtId, startKey: st.dateKey, days: st.days,
+          venueId: st.courtId, startKey: st.dateKey, startIso: date.iso, days: st.days,
           hours: st.courtAdd ? st.courtHours : 0, lights: st.lights, slot: st.slot, total: cartTotal, status:'awaiting',
           zoneId: st.zoneId, address: st.address, email: st.email,
           items: st.cart.map(c => ({ id: c.id, qty: c.qty })) }, ...st.orders] }), () => {
@@ -1291,7 +1370,7 @@ class Component extends DCLogic {
       bookingCode: bk.code,
       bookedTotal: bk.total,
       bookedItems: bk.items || [],
-      sendNote: 'Both buttons open our page — tap Message to start the chat, then attach your screenshot of the ticket above.',
+      sendNote: 'Both buttons open our page — tap Message to start the chat, then attach your screenshot of the ticket below.',
       bookedDeposit: bk.deposit,
       confirmLines: [
         { k:'Playing at', v: bk.venueLine },
