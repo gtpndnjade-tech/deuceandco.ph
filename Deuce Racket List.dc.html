@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#2F5D3A"/><text x="26" y="115" font-family="Georgia,serif" font-size="44" fill="#F1ECE3">D&amp;C</text></svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  body { margin: 0; }
+  .mc-d { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: -.01em; }
+  .mc-b { font-family: 'Inter', sans-serif; }
+  .mc-meta { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .mc-tab:focus-visible { outline: 2px solid #C25B33; outline-offset: 2px; }
+  @media (max-width: 780px) {
+    .mc-list-grid { grid-template-columns: repeat(2,1fr) !important; }
+    .mc-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+</style>
+</helmet>
+
+<div class="mc-b" style="background:#F1ECE3;color:#141414">
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #141414">
+<a href="index.html#gear" class="mc-d" style="font-size:22px;color:#141414;text-decoration:none">DEUCE&amp;CO.PH</a>
+<span class="mc-meta" style="font-size:11px">BIÑAN · LAGUNA, PH</span>
+</header>
+
+<section style="max-width:1180px;margin:0 auto;padding:48px 24px 8px">
+<a href="index.html#gear" class="mc-meta" style="font-size:11px;color:#555;text-decoration:none">← BACK TO RENT THE GEAR</a>
+<span class="mc-meta" style="display:block;margin-top:14px;font-size:11px;color:#C25B33">{{ countAll }} FRAMES · 3 LEVELS</span>
+<h1 class="mc-d" style="margin:10px 0 0;font-size:clamp(32px,5vw,58px)">THE RACKETS.</h1>
+<button type="button" onClick="{{ startBeginner }}" class="mc-meta" style="display:inline-block;margin-top:10px;border:none;background:none;padding:0;cursor:pointer;font-size:10.5px;color:#555">BEGINNER? START HERE →</button>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:8px 24px 0">
+<div class="mc-tabs" style="display:flex;gap:0;border:2px solid #141414;margin-bottom:8px">
+<sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+<button type="button" class="mc-tab" onClick="{{ tb.onPick }}" aria-pressed="{{ tb.active }}" style="{{ tb.style }}">{{ tb.label }}</button>
+</sc-for>
+</div>
+</section>
+
+<sc-for list="{{ groups }}" as="grp" hint-placeholder-count="3">
+<section style="max-width:1180px;margin:0 auto;padding:28px 24px 56px">
+<div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px">
+<h2 class="mc-d" style="margin:0;font-size:clamp(24px,3.2vw,36px)">{{ grp.name }} · {{ grp.price }}</h2>
+<span class="mc-meta" style="font-size:10.5px;color:#555">{{ grp.tagline }}</span>
+</div>
+<p class="mc-b" style="margin:0 0 18px;font-size:13px;color:#555;max-width:64ch">{{ grp.intro }}</p>
+<div class="mc-list-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414">
+<sc-for list="{{ grp.items }}" as="r" hint-placeholder-count="4">
+<button type="button" onClick="{{ r.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
+<div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6e0d3">
+<img src="{{ r.img }}" alt="{{ r.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+<span class="mc-meta" style="position:absolute;top:8px;right:8px;font-size:9px;color:#F1ECE3;background:rgba(20,20,20,.55);padding:3px 7px">INQUIRE →</span>
+</div>
+<div style="padding:12px">
+<span class="mc-meta" style="font-size:9px;color:#2F5D3A">{{ grp.name }}</span>
+<span class="mc-d" style="display:block;font-size:15px;margin-top:5px;line-height:1.1">{{ r.name }}</span>
+<span class="mc-b" style="display:block;font-size:11.5px;margin-top:3px;color:#555">{{ grp.price }}</span>
+<span class="mc-b" style="display:block;font-size:11px;margin-top:5px;color:#555;line-height:1.4">{{ r.caption }}</span>
+</div>
+</button>
+</sc-for>
+</div>
+</section>
+</sc-for>
+
+<footer style="background:#141414;color:#F1ECE3;padding:26px 24px;border-top:2px solid #141414">
+<div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+<span class="mc-d" style="font-size:16px">DEUCE&amp;CO.PH</span>
+<span class="mc-meta" style="font-size:10.5px;color:rgba(241,236,227,.7)">SOUTH CITY HOMES · BIÑAN, LAGUNA · @DEUCEANDCO.PH</span>
+</div>
+</footer>
+
+<sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
+<div onClick="{{ stopClick }}" style="background:#F1ECE3;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
+<span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
+<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
+<a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#F1ECE3;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
+<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#F1ECE3;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
+<button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+
+const ALL_GROUPS = [
+  { key:'beginner', name:'BEGINNER', price:'₱180 / day', tagline:'Easy to start with', intro:'New to tennis, or just getting back into it — these frames are light, forgiving, and built to keep the ball in play.',
+    items: [
+      { img:'img/wilson-matchpoint.jpg', name:'Wilson Pro Star', caption:'Oversize head. Alloy frame. Blue grip.' },
+      { img:'img/prokennex-ki.jpg', name:'ProKennex Ki (white)', caption:'Light, comfort-focused frame.' },
+      { img:'img/prince-warrior.jpg', name:'Prince Oversize (blue/green)', caption:'Oversize head. Wide body. 27in.' },
+      { img:'img/artengo-tr160.jpg', name:'Artengo TR160 (black/mint)', caption:'Light graphite. ~102 sq in.' },
+    ] },
+  { key:'intermediate', name:'INTERMEDIATE', price:'₱200 / day', tagline:'More control & feel', intro:'Rallying with confidence, working on spin and shape — these frames give you a bit more control and pop.',
+    items: [
+      { img:'img/prokennex-graphpro.jpg', name:'ProKennex Graph Pro (classic)', caption:'Midsize head. Classic graphite feel.' },
+      { img:'img/dunlop-biomimetic.jpg', name:'Dunlop Biomimetic', caption:'~100 sq in. Aeroskin beam.' },
+      { img:'img/prince-graphite-pro.jpg', name:'Prince Graphite Pro (silver)', caption:'Oversize head. Overtop hoop.' },
+      { img:'img/prince-textreme.jpg', name:'Prince Midplus (green)', caption:'Midplus head. 27in graphite.' },
+      { img:'img/yonex-vcore-100.jpg', name:'Yonex VCORE 100', caption:'100 sq in. 300g. 16×19.' },
+    ] },
+  { key:'advanced', name:'ADVANCED', price:'₱240 / day', tagline:'Performance-oriented', intro:'Club regulars and players who want a real performance frame — heavier, denser, built for a full swing.',
+    items: [
+      { img:'img/wilson-promatrix.jpg', name:'Wilson Pro Matrix Graphite Ceramic', caption:'Midsize head. PWS. Classic era.' },
+      { img:'img/prince-classic.jpg', name:'Prince Graphite Oversize (classic)', caption:'Oversize head. Leather grip.' },
+      { img:'img/dunlop-tour.jpg', name:'Dunlop Midplus (black/orange)', caption:'Head-light. Control-first frame.' },
+      { img:'img/wilson-prostaff.jpg', name:'Wilson Pro Staff 95', caption:'95 sq in. Braided graphite.' },
+      { img:'img/yonex-vcore-pro.jpg', name:'Yonex VCORE PRO 97', caption:'97 sq in. 310g. 16×19.' },
+    ] },
+];
+
+class Component extends DCLogic {
+  state = { level: (new URLSearchParams(location.search).get('level')) || 'all', pickerOpen: false, pickerItem: '' };
+
+  renderVals() {
+    const s = this.state;
+    const counts = { all: ALL_GROUPS.reduce((a, g) => a + g.items.length, 0) };
+    ALL_GROUPS.forEach(g => { counts[g.key] = g.items.length; });
+
+    const tabDefs = [
+      { key:'all', label:'ALL · ' + counts.all },
+      { key:'beginner', label:'BEGINNER · ' + counts.beginner },
+      { key:'intermediate', label:'INTERMEDIATE · ' + counts.intermediate },
+      { key:'advanced', label:'ADVANCED · ' + counts.advanced },
+    ];
+    const tabs = tabDefs.map(t => ({
+      label: t.label, active: s.level === t.key,
+      style: 'flex:none;min-height:44px;padding:12px 18px;border:none;border-right:2px solid #141414;cursor:pointer;font-family:Inter,sans-serif;font-weight:600;letter-spacing:.08em;font-size:11.5px;text-transform:uppercase;background:'
+        + (s.level === t.key ? '#141414' : 'transparent') + ';color:' + (s.level === t.key ? '#F1ECE3' : '#141414'),
+      onPick: () => this.setState({ level: t.key }),
+    }));
+
+    const visible = ALL_GROUPS.filter(g => s.level === 'all' || s.level === g.key);
+    const groups = visible.map(g => ({
+      name: g.name, price: g.price, tagline: g.tagline, intro: g.intro,
+      items: g.items.map(r => ({ ...r, onInquire: () => this.setState({ pickerOpen: true, pickerItem: r.name + ' (' + g.name + ', ' + g.price + ')' }) })),
+    }));
+
+    return {
+      countAll: counts.all,
+      tabs, groups,
+      startBeginner: () => this.setState({ level: 'beginner' }),
+      pickerOpen: s.pickerOpen,
+      pickerItem: s.pickerItem,
+      pickerIgLink: igLink(s.pickerItem),
+      pickerFbLink: fbLink(s.pickerItem),
+      closePicker: () => this.setState({ pickerOpen: false }),
+      stopClick: e => e.stopPropagation(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
  */
 
 var HEADERS = [
-  'code', 'placed', 'status', 'name', 'phone', 'social', 'email',
+  'code', 'placed', 'status', 'name', 'phone', 'social', 'email', 'startIso',
   'items', 'total', 'fromLabel', 'untilLabel', 'venueName', 'slotLabel', 'handover',
   'startKey', 'days', 'venueId', 'hours', 'lights', 'slot', 'zoneId', 'address',
   'channel', 'itemsJson'
@@ -40,11 +40,36 @@ function doGet() {
     o.slot = o.slot === '' || o.slot === null ? null : Number(o.slot);
     o.lights = o.lights === true || o.lights === 'TRUE' || o.lights === 'true';
     try { o.items = JSON.parse(o.itemsJson || '[]'); } catch (e) { o.items = []; }
+    if (!o.startIso) o.startIso = isoFromLabel_(o.fromLabel);   // backfill legacy rows
     return o;
   });
   // newest first, matching the dashboard
   out.reverse();
   return json_(out);
+}
+
+/**
+ * Rows written before the startIso column existed only carry a readable label
+ * like "Sat 19 Sep, 7:00am". Derive an ISO date from it so the website's
+ * availability maths still resolves those bookings — no data deletion needed.
+ */
+function isoFromLabel_(label) {
+  if (!label) return '';
+  var MONTHS = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  var m = String(label).match(/(\d{1,2})\s+([A-Za-z]{3})/);
+  if (!m) return '';
+  var day = Number(m[1]);
+  var mon = MONTHS[m[2].toLowerCase()];
+  if (mon === undefined) return '';
+  // pick the year that puts the date closest to now — handles a Dec/Jan rollover
+  var now = new Date(), best = null, bestGap = Infinity;
+  [now.getFullYear() - 1, now.getFullYear(), now.getFullYear() + 1].forEach(function (y) {
+    var d = new Date(y, mon, day);
+    var gap = Math.abs(d.getTime() - now.getTime());
+    if (gap < bestGap) { bestGap = gap; best = d; }
+  });
+  if (!best) return '';
+  return best.getFullYear() + '-' + ('0' + (best.getMonth() + 1)).slice(-2) + '-' + ('0' + best.getDate()).slice(-2);
 }
 
 /** POST — the website creates a booking or updates a status */

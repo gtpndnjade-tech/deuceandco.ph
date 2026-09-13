@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#2F5D3A"/><text x="26" y="115" font-family="Georgia,serif" font-size="44" fill="#F1ECE3">D&amp;C</text></svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  body { margin: 0; }
+  .mc-d { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: -.01em; }
+  .mc-b { font-family: 'Inter', sans-serif; }
+  .mc-meta { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  @media (max-width: 780px) { .mc-og-grid { grid-template-columns: 1fr !important; } }
+</style>
+</helmet>
+
+<div class="mc-b" style="background:#EFE8DC;color:#141414">
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #141414">
+<a href="index.html#gear" class="mc-d" style="font-size:22px;color:#141414;text-decoration:none">DEUCE&amp;CO.PH</a>
+<span class="mc-meta" style="font-size:11px">BIÑAN · LAGUNA, PH</span>
+</header>
+
+<section style="max-width:1180px;margin:0 auto;padding:48px 24px 10px">
+<a href="index.html#gear" class="mc-meta" style="font-size:10.5px;color:#555;text-decoration:none">← BACK TO RENT THE GEAR</a>
+<span class="mc-meta" style="display:block;margin-top:14px;font-size:10.5px;color:#C25B33">GEAR &amp; EQUIPMENT · BIÑAN, LAGUNA, PH</span>
+<h1 class="mc-d" style="margin:10px 0 0;font-size:clamp(32px,5vw,58px)">BALLS. BASKETS.<br/>TUBES.</h1>
+<p class="mc-b" style="margin:14px 0 0;max-width:56ch;font-size:14px;line-height:1.6;color:#555">Everything else you need on court, rented by the day. Confirmed by DM, picked up courtside.</p>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:16px 24px 60px">
+<div class="mc-og-grid" style="display:grid;grid-template-columns:repeat(3,1fr);border:2px solid #141414">
+<sc-for list="{{ items }}" as="g" hint-placeholder-count="4">
+<button type="button" onClick="{{ g.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
+<div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#333">
+<img src="{{ g.img }}" alt="{{ g.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+<span class="mc-meta" style="position:absolute;top:10px;right:10px;font-size:8.5px;color:#EFE8DC;background:rgba(20,20,20,.55);padding:3px 6px">INQUIRE →</span>
+</div>
+<div style="padding:16px">
+<span class="mc-meta" style="font-size:9px;color:#2F5D3A">{{ g.tag }}</span>
+<span class="mc-d" style="display:block;font-size:18px;margin-top:6px">{{ g.name }}</span>
+<span class="mc-b" style="display:block;font-size:12.5px;margin-top:4px;color:#555">{{ g.price }}</span>
+<span class="mc-b" style="display:block;font-size:12px;margin-top:6px;color:#555;line-height:1.4">{{ g.caption }}</span>
+</div>
+</button>
+</sc-for>
+</div>
+<p class="mc-b" style="margin:16px 0 0;font-size:12.5px;color:#555;max-width:60ch">Renting a racket already? Add any of the above to the same DM — we’ll bundle it with your pickup, no separate trip.</p>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:8px 24px 40px">
+<span class="mc-meta" style="font-size:10px;color:#C25B33">TERMS</span>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;max-width:70ch">
+<span class="mc-b" style="font-size:12px;line-height:1.6;color:#333">Balls, tubes and baskets rent by the day, same as rackets. A ₱200 deposit applies when rented alongside a multi-day racket rental. Pickup at South City Homes.</span>
+</div>
+</section>
+
+<section style="background:#2F5D3A;color:#EFE8DC;padding:48px 24px;text-align:center">
+<h2 class="mc-d" style="margin:0;font-size:clamp(24px,3.6vw,38px)">NEED A RACKET TOO?</h2>
+<a href="Deuce Rent The Gear.dc.html" class="mc-d" style="display:inline-block;margin-top:18px;padding:15px 28px;background:#C25B33;color:#EFE8DC;font-size:14px;text-decoration:none">SEE THE RACKETS →</a>
+</section>
+
+<footer style="background:#141414;color:#EFE8DC;padding:26px 24px;border-top:2px solid #141414">
+<div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+<span class="mc-d" style="font-size:16px">DEUCE&amp;CO.PH</span>
+<span class="mc-meta" style="font-size:10px;color:rgba(241,236,227,.7)">BIÑAN · LAGUNA, PH · @deuceandco.ph · deuceandco.ph@gmail.com</span>
+</div>
+</footer>
+
+<sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
+<div onClick="{{ stopClick }}" style="background:#EFE8DC;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
+<span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
+<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
+<a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
+<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
+<button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+
+class Component extends DCLogic {
+  state = { pickerOpen: false, pickerItem: '' };
+  renderVals() {
+    const RAW = [
+      { img:'img/mc-balls-30.jpg', tag:'PRACTICE', name:'30 Balls', price:'₱70 / day', caption:'Enough for two hours of drills.', label:'30 practice balls (\u20b170/day)' },
+      { img:'img/mc-balls-50.jpg', tag:'PRACTICE', name:'50 Balls', price:'₱90 / day', caption:'Full session. Group drills or hopper feeding.', label:'50 practice balls (\u20b190/day)' },
+      { img:'img/mc-girl-basket.jpg', tag:'BASKET', name:'Tennis Basket', price:'₱120 / day', caption:'Wire pickup basket, holds 75+ balls.', label:'Tennis ball basket (\u20b1120/day)' },
+      { img:'img/mc-ball-tube.jpg', tag:'DRILLS', name:'Ball Tube + 15 Balls', price:'₱150 / day', caption:'Serving practice. Pressure tube.', label:'Ball Tube + 15 balls (\u20b1150/day)' },
+    ];
+    return {
+      items: RAW.map(g => ({ ...g, onInquire: () => this.setState({ pickerOpen: true, pickerItem: g.label }) })),
+      pickerOpen: this.state.pickerOpen,
+      pickerItem: this.state.pickerItem,
+      pickerIgLink: igLink(this.state.pickerItem),
+      pickerFbLink: fbLink(this.state.pickerItem),
+      closePicker: () => this.setState({ pickerOpen: false }),
+      stopClick: e => e.stopPropagation(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

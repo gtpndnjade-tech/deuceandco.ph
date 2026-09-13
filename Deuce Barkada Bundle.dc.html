@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#2F5D3A"/><text x="26" y="115" font-family="Georgia,serif" font-size="44" fill="#F1ECE3">D&amp;C</text></svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  body { margin: 0; }
+  .mc-d { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: -.01em; }
+  .mc-b { font-family: 'Inter', sans-serif; }
+  .mc-meta { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  @media (max-width: 780px) { .mc-bb-tiers, .mc-bb-steps { grid-template-columns: 1fr !important; } }
+</style>
+</helmet>
+
+<div class="mc-b" style="background:#EFE8DC;color:#141414">
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #141414">
+<a href="index.html#gear" class="mc-d" style="font-size:22px;color:#141414;text-decoration:none">DEUCE&amp;CO.PH</a>
+<span class="mc-meta" style="font-size:11px">BIÑAN · LAGUNA, PH</span>
+</header>
+
+<section style="max-width:1180px;margin:0 auto;padding:48px 24px 10px">
+<a href="index.html#gear" class="mc-meta" style="font-size:10.5px;color:#555;text-decoration:none">← BACK TO HOME</a>
+<span class="mc-meta" style="display:block;margin-top:14px;font-size:10.5px;color:#C25B33">BARKADA BUNDLE · BIÑAN, LAGUNA, PH</span>
+<h1 class="mc-d" style="margin:10px 0 0;font-size:clamp(32px,5.5vw,60px);line-height:1.0">BRING THE<br/>BARKADA.</h1>
+<p class="mc-b" style="margin:14px 0 0;max-width:56ch;font-size:14px;line-height:1.6;color:#555">4 or 6 beginner rackets, ₱150 per person. Court time and balls optional.</p>
+<a href="#tiers" class="mc-d" style="display:inline-block;margin-top:18px;padding:14px 24px;background:#C25B33;color:#EFE8DC;font-size:14px;text-decoration:none">SEE BUNDLE TIERS →</a>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:48px 24px 10px">
+<h2 class="mc-d" style="margin:0 0 16px;font-size:clamp(22px,3vw,32px)">WHAT'S INCLUDED</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414" class="mc-bb-tiers">
+<sc-for list="{{ included }}" as="inc" hint-placeholder-count="4">
+<div style="padding:18px;border-right:2px solid #141414">
+<span class="mc-meta" style="font-size:9px;color:#2F5D3A">{{ inc.tag }}</span>
+<span class="mc-d" style="display:block;font-size:15px;margin-top:8px;line-height:1.2">{{ inc.name }}</span>
+<span class="mc-b" style="display:block;font-size:11px;margin-top:6px;color:#555;line-height:1.4">{{ inc.desc }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="tiers" style="max-width:1180px;margin:0 auto;padding:56px 24px 10px">
+<h2 class="mc-d" style="margin:0 0 16px;font-size:clamp(24px,3.4vw,38px)">BUNDLE TIERS</h2>
+<div class="mc-bb-tiers" style="display:grid;grid-template-columns:repeat(2,1fr);border:2px solid #141414">
+<sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
+<button type="button" onClick="{{ t.onInquire }}" style="position:relative;background:{{ t.bg }};color:{{ t.fg }};text-decoration:none;padding:22px 22px 46px;display:flex;flex-direction:column;border:none;border-right:2px solid #141414;text-align:left;cursor:pointer;font:inherit">
+<span class="mc-meta" style="font-size:9px;color:{{ t.tagColor }}">{{ t.tag }}</span>
+<span class="mc-d" style="font-size:19px;margin-top:8px">{{ t.name }}</span>
+<span class="mc-d" style="font-size:26px;margin-top:10px">{{ t.price }}</span>
+<span class="mc-b" style="font-size:11px;margin-top:8px;opacity:.85;line-height:1.5">{{ t.desc }}</span>
+<span class="mc-d" style="position:absolute;right:18px;bottom:16px;font-size:10px">INQUIRE →</span>
+</button>
+</sc-for>
+</div>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:56px 24px 10px">
+<h2 class="mc-d" style="margin:0 0 18px;font-size:clamp(24px,3.4vw,38px)">HOW TO BOOK</h2>
+<div class="mc-bb-steps" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414">
+<sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+<div style="padding:20px;border-right:2px solid #141414;background:{{ st.bg }};color:{{ st.fg }}">
+<span class="mc-meta" style="font-size:10px;opacity:.75">{{ st.n }}</span>
+<span class="mc-d" style="display:block;font-size:16px;margin-top:10px;line-height:1.15">{{ st.label }}</span>
+<span class="mc-b" style="display:block;font-size:11.5px;margin-top:8px;line-height:1.5;opacity:.85">{{ st.sub }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:56px 24px 20px">
+<span class="mc-meta" style="font-size:10.5px;color:#C25B33">BUNDLE TERMS</span>
+<div style="display:flex;flex-direction:column;gap:14px;margin-top:16px;max-width:70ch">
+<sc-for list="{{ terms }}" as="t" hint-placeholder-count="4">
+<div style="display:flex;gap:14px;align-items:flex-start">
+<span class="mc-meta" style="font-size:10px;color:#2F5D3A;flex:none;padding-top:2px">{{ t.n }}</span>
+<span class="mc-b" style="font-size:12.5px;line-height:1.6;color:#333">{{ t.body }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background:#2F5D3A;color:#EFE8DC;padding:56px 24px;text-align:center">
+<h2 class="mc-d" style="margin:0;font-size:clamp(26px,4vw,44px)">GET THE GROUP TOGETHER.</h2>
+<p class="mc-b" style="margin:14px auto 0;max-width:48ch;font-size:13.5px;line-height:1.6;opacity:.9">Confirmed by DM. Picked up at the court. Split it however you like.</p>
+<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:inline-block;margin-top:20px;padding:16px 30px;background:#C25B33;color:#EFE8DC;font-size:15px;text-decoration:none">INQUIRE ABOUT A BUNDLE →</a>
+</section>
+
+<footer style="background:#141414;color:#EFE8DC;padding:26px 24px;border-top:2px solid #141414">
+<div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+<span class="mc-d" style="font-size:16px">DEUCE&amp;CO.PH</span>
+<span class="mc-meta" style="font-size:10px;color:rgba(241,236,227,.7)">BIÑAN · LAGUNA, PH · @deuceandco.ph · deuceandco.ph@gmail.com</span>
+</div>
+</footer>
+
+<sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
+<div onClick="{{ stopClick }}" style="background:#EFE8DC;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
+<span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
+<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
+<a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
+<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
+<button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to book: ' + item + '. Is it available?');
+const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to book: ' + item + '. Is it available?');
+
+class Component extends DCLogic {
+  state = { pickerOpen: false, pickerItem: '' };
+  renderVals() {
+    const RAW_TIERS = [
+      { tag:'BARKADA', name:'4 RACKETS', price:'₱600', desc:'₱150 per person. The standard barkada bundle.', bg:'#C25B33', fg:'#EFE8DC', tagColor:'#EFE8DC', label:'Barkada Bundle \u2014 4 beginner rackets (\u20b1600)' },
+        { tag:'FULL SESSION', name:'6 RACKETS', price:'₱900', desc:'₱150 per person. For the bigger group.', bg:'#2F5D3A', fg:'#EFE8DC', tagColor:'#C8E85C', label:'Barkada Bundle \u2014 6 beginner rackets (\u20b1900)' },
+    ];
+    return {
+      included: [
+        { tag:'RACKETS', name:'4 Beginner Rackets', desc:'Case and 5 balls with each frame.' },
+        { tag:'BALLS', name:'20 Balls Total', desc:'5 balls per racket, ready to rally.' },
+        { tag:'COURT TIME', name:'Optional', desc:'Add outdoor or indoor court time at South City Homes.' },
+        { tag:'BASKET', name:'Optional', desc:'Add a ball basket for warm-ups and drills.' },
+      ],
+      tiers: RAW_TIERS.map(t => ({ ...t, onInquire: () => this.setState({ pickerOpen: true, pickerItem: t.label }) })),
+      steps: [
+        { n:'01', label:'PICK YOUR TIER', sub:'4 rackets or 6 rackets.', bg:'#EFE8DC', fg:'#141414' },
+        { n:'02', label:'PICK YOUR DATE', sub:'Tell us when the barkada\u2019s playing.', bg:'#2F5D3A', fg:'#EFE8DC' },
+        { n:'03', label:'CONFIRM ON DM', sub:'We reply with confirmation and payment details.', bg:'#EFE8DC', fg:'#141414' },
+        { n:'04', label:'PICK UP AND PLAY', sub:'One pickup at South City Homes, gear for the whole group.', bg:'#2F5D3A', fg:'#EFE8DC' },
+      ],
+      terms: [
+        { n:'01', body:'Bundle pricing applies to same-day pickup and return only.' },
+        { n:'02', body:'Court time and baskets are quoted separately by DM and are not included in the bundle price.' },
+        { n:'03', body:'Split payment among the group however you like \u2014 we just need one confirmed total before pickup.' },
+        { n:'04', body:'Standard rental terms apply to each racket in the bundle.' },
+      ],
+      pickerOpen: this.state.pickerOpen,
+      pickerItem: this.state.pickerItem,
+      pickerIgLink: igLink(this.state.pickerItem),
+      pickerFbLink: fbLink(this.state.pickerItem),
+      closePicker: () => this.setState({ pickerOpen: false }),
+      stopClick: e => e.stopPropagation(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
