@@ -25,6 +25,8 @@
     .mc-court-grid { grid-template-columns: 1fr !important; }
     .mc-tgrid { grid-template-columns: 1fr !important; grid-template-rows: none !important; aspect-ratio: auto !important; }
     .mc-tgrid > * { grid-column: 1 !important; grid-row: auto !important; min-height: 64px; }
+    .mc-footnote-strip { display: none !important; }
+    .mc-mobile-deposit { display: block !important; }
   }
 </style>
 </helmet>
@@ -81,7 +83,7 @@
 <p class="mc-b" style="margin:0 0 20px;font-size:13px;color:#555">Every racket rental includes a case and 5 balls.</p>
 
 <div class="mc-tgrid" style="display:grid;grid-template-columns:1.05fr .95fr .95fr 1.15fr;grid-template-rows:56px;border:2px solid #141414;border-bottom:none">
-<a href="index.html#gear" class="mc-d" style="grid-column:1/3;display:flex;align-items:center;padding:0 16px;font-size:16px;color:#141414;text-decoration:none;border-right:2px solid #141414">DEUCE&amp;CO.PH</a>
+<a href="Deuce Modern Club - Warm B.dc.html#gear" class="mc-d" style="grid-column:1/3;display:flex;align-items:center;padding:0 16px;font-size:16px;color:#141414;text-decoration:none;border-right:2px solid #141414">DEUCE&amp;CO.PH</a>
 <div style="grid-column:3/5;display:flex;align-items:center;gap:16px;padding:0 16px">
 <a href="Deuce Rent The Gear.dc.html#terms" class="mc-meta" style="font-size:11px;color:#141414;text-decoration:none">RENTAL TERMS</a>
 </div>
@@ -135,10 +137,14 @@
 
 </div>
 
-<div class="mc-tgrid" style="display:grid;grid-template-columns:1.05fr .95fr .95fr 1.15fr;grid-template-rows:42px;border:2px solid #141414;border-top:none">
+<div class="mc-tgrid mc-footnote-strip" style="display:grid;grid-template-columns:1.05fr .95fr .95fr 1.15fr;grid-template-rows:42px;border:2px solid #141414;border-top:none">
 <a href="Deuce Racket List.dc.html?level=beginner" class="mc-d" style="grid-column:1/2;display:flex;align-items:center;padding:0 12px;font-size:10px;color:#141414;text-decoration:none;border-right:2px solid #141414">BEGINNER · ₱180/DAY →</a>
 <a href="Deuce Racket List.dc.html?level=intermediate" class="mc-d" style="grid-column:2/4;display:flex;align-items:center;padding:0 12px;font-size:10px;color:#141414;text-decoration:none;border-right:2px solid #141414">INTERMEDIATE · ₱200/DAY →</a>
 <a href="Deuce Racket List.dc.html?level=advanced" class="mc-d" style="grid-column:4/5;display:flex;align-items:center;padding:0 12px;font-size:10px;color:#141414;text-decoration:none">ADVANCED · ₱240/DAY →</a>
+</div>
+
+<div class="mc-mobile-deposit" style="display:none;border:2px solid #141414;border-top:none;padding:16px 12px">
+<span class="mc-meta" style="font-size:9px;color:#141414">A ₱200 DEPOSIT APPLIES TO RENTALS OF 2 DAYS OR MORE.</span>
 </div>
 
 </section>
@@ -158,7 +164,7 @@
 <span class="mc-meta" style="position:absolute;top:10px;right:10px;font-size:9.5px;color:#C25B33">INQUIRE →</span>
 <span class="mc-meta" style="font-size:10px;color:#C25B33">OUTDOOR</span>
 <span class="mc-d" style="display:block;font-size:22px;margin-top:8px">SOUTH CITY HOMES TENNIS CLUB</span>
-<span class="mc-b" style="display:block;font-size:12.5px;margin-top:8px;line-height:1.55;color:#555">₱200/hr daytime · ₱280/hr with lights</span>
+<span class="mc-b" style="display:block;font-size:12.5px;margin-top:8px;line-height:1.55;color:#555">₱180/hr daytime · ₱250/hr with lights</span>
 <span class="mc-b" style="display:block;font-size:11.5px;margin-top:auto;padding-top:8px;color:#555;font-style:italic">Open-air hardcourt. Daytime and lights.</span>
 </button>
 <button type="button" onClick="{{ onInquireIndoor }}" style="position:relative;flex:1;padding:22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;background:none;border:none;text-align:left;cursor:pointer;font:inherit">
@@ -267,7 +273,7 @@ class Component extends DCLogic {
     return {
       hs0: slideStyle(0), hs1: slideStyle(1), hs2: slideStyle(2), hs3: slideStyle(3), hs4: slideStyle(4),
       heroDots,
-      onInquireOutdoor: () => this.setState({ pickerOpen: true, pickerItem: 'Outdoor hardcourt time (\u20b1200/hr daytime, \u20b1280/hr with lights)' }),
+      onInquireOutdoor: () => this.setState({ pickerOpen: true, pickerItem: 'Outdoor hardcourt time (\u20b1180/hr daytime, \u20b1250/hr with lights)' }),
       onInquireIndoor: () => this.setState({ pickerOpen: true, pickerItem: 'Indoor Recreation Center court time (\u20b1280/hr daytime, \u20b1380/hr with lights)' }),
       pickerOpen: this.state.pickerOpen,
       pickerItem: this.state.pickerItem,
