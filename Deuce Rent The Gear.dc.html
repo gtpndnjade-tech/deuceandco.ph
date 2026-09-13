@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#2F5D3A"/><text x="26" y="115" font-family="Georgia,serif" font-size="44" fill="#F1ECE3">D&amp;C</text></svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  body { margin: 0; }
+  .mc-d { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: -.01em; }
+  .mc-b { font-family: 'Inter', sans-serif; }
+  .mc-meta { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  @media (max-width: 780px) {
+    .mc-levels { grid-template-columns: 1fr !important; }
+    .mc-racket-grid { grid-template-columns: repeat(2,1fr) !important; }
+    .mc-balls { grid-template-columns: 1fr !important; }
+    .mc-steps { grid-template-columns: 1fr !important; }
+    .mc-catlinks { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div class="mc-b" style="background:#EFE8DC;color:#141414">
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #141414">
+<a href="index.html#gear" class="mc-d" style="font-size:22px;color:#141414;text-decoration:none">DEUCE&amp;CO.PH</a>
+<span class="mc-meta" style="font-size:11px">BIÑAN · LAGUNA, PH</span>
+</header>
+
+<section style="max-width:1180px;margin:0 auto;padding:48px 24px 10px">
+<a href="index.html#gear" class="mc-meta" style="font-size:10.5px;color:#555;text-decoration:none">← BACK TO HOME</a>
+<span class="mc-meta" style="display:block;margin-top:14px;font-size:10.5px;color:#C25B33">RENT THE GEAR · BIÑAN, LAGUNA, PH</span>
+<h1 class="mc-d" style="margin:10px 0 0;font-size:clamp(32px,5vw,58px);line-height:1.02">EVERYTHING YOU<br/>NEED TO PLAY.</h1>
+<p class="mc-b" style="margin:14px 0 0;max-width:56ch;font-size:14px;line-height:1.6;color:#555">Rackets by level. Balls by the set. Court time at South City Homes. Confirmed by DM, picked up courtside.</p>
+<p class="mc-b" style="margin:8px 0 0;font-size:12.5px;color:#555">Every racket rental includes a case and 5 balls.</p>
+<a href="#levels" class="mc-d" style="display:inline-block;margin-top:18px;padding:14px 24px;background:#C25B33;color:#EFE8DC;font-size:14px;text-decoration:none">START YOUR RENTAL →</a>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:56px 24px 10px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+<h2 class="mc-d" style="margin:0;font-size:clamp(24px,3.4vw,38px)">ALL RENTAL GEAR</h2>
+<span class="mc-meta" style="font-size:10.5px;color:#C25B33">RACKETS · BALLS · BASKETS</span>
+</div>
+
+<div style="margin-top:26px">
+<h3 class="mc-d" style="margin:0;font-size:22px">BEGINNER</h3>
+<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱180 / day · 4 frames</span>
+<div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
+<sc-for list="{{ beginnerFrames }}" as="frame" hint-placeholder-count="4">
+<button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
+<div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6e0d3">
+<img src="{{ frame.img }}" alt="{{ frame.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+<span class="mc-meta" style="position:absolute;top:8px;right:8px;font-size:8.5px;color:#EFE8DC;background:rgba(20,20,20,.55);padding:3px 6px">INQUIRE →</span>
+</div>
+<div style="padding:12px">
+<span class="mc-meta" style="font-size:8.5px;color:#2F5D3A">BEGINNER</span>
+<span class="mc-d" style="display:block;font-size:14px;margin-top:5px;line-height:1.1">{{ frame.name }}</span>
+<span class="mc-b" style="display:block;font-size:11px;margin-top:3px;color:#555">₱180 / day</span>
+<span class="mc-b" style="display:block;font-size:10.5px;margin-top:5px;color:#555;line-height:1.4">{{ frame.caption }}</span>
+</div>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div style="margin-top:26px">
+<h3 class="mc-d" style="margin:0;font-size:22px">INTERMEDIATE</h3>
+<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱200 / day · 5 frames</span>
+<div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
+<sc-for list="{{ intermediateFrames }}" as="frame" hint-placeholder-count="5">
+<button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
+<div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6e0d3">
+<img src="{{ frame.img }}" alt="{{ frame.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+<span class="mc-meta" style="position:absolute;top:8px;right:8px;font-size:8.5px;color:#EFE8DC;background:rgba(20,20,20,.55);padding:3px 6px">INQUIRE →</span>
+</div>
+<div style="padding:12px">
+<span class="mc-meta" style="font-size:8.5px;color:#2F5D3A">INTERMEDIATE</span>
+<span class="mc-d" style="display:block;font-size:14px;margin-top:5px;line-height:1.1">{{ frame.name }}</span>
+<span class="mc-b" style="display:block;font-size:11px;margin-top:3px;color:#555">₱200 / day</span>
+<span class="mc-b" style="display:block;font-size:10.5px;margin-top:5px;color:#555;line-height:1.4">{{ frame.caption }}</span>
+</div>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div style="margin-top:26px">
+<h3 class="mc-d" style="margin:0;font-size:22px">ADVANCED</h3>
+<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱240 / day · 5 frames</span>
+<div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
+<sc-for list="{{ advancedFrames }}" as="frame" hint-placeholder-count="5">
+<button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
+<div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6e0d3">
+<img src="{{ frame.img }}" alt="{{ frame.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+<span class="mc-meta" style="position:absolute;top:8px;right:8px;font-size:8.5px;color:#EFE8DC;background:rgba(20,20,20,.55);padding:3px 6px">INQUIRE →</span>
+</div>
+<div style="padding:12px">
+<span class="mc-meta" style="font-size:8.5px;color:#2F5D3A">ADVANCED</span>
+<span class="mc-d" style="display:block;font-size:14px;margin-top:5px;line-height:1.1">{{ frame.name }}</span>
+<span class="mc-b" style="display:block;font-size:11px;margin-top:3px;color:#555">₱240 / day</span>
+<span class="mc-b" style="display:block;font-size:10.5px;margin-top:5px;color:#555;line-height:1.4">{{ frame.caption }}</span>
+</div>
+</button>
+</sc-for>
+</div>
+</div>
+
+</section>
+
+
+<section style="max-width:1180px;margin:0 auto;padding:56px 24px 10px">
+<h2 class="mc-d" style="margin:0 0 18px;font-size:clamp(24px,3.4vw,38px)">HOW TO RENT</h2>
+<div class="mc-steps" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414">
+<sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+<div style="padding:20px;border-right:2px solid #141414;background:{{ st.bg }};color:{{ st.fg }}">
+<span class="mc-meta" style="font-size:10px;opacity:.75">{{ st.n }}</span>
+<span class="mc-d" style="display:block;font-size:17px;margin-top:10px;line-height:1.15">{{ st.label }}</span>
+<span class="mc-b" style="display:block;font-size:11.5px;margin-top:8px;line-height:1.5;opacity:.85">{{ st.sub }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="terms" style="max-width:1180px;margin:0 auto;padding:56px 24px 20px">
+<h2 class="mc-d" style="margin:0 0 4px;font-size:clamp(24px,3.4vw,38px)">RENTAL TERMS</h2>
+<span class="mc-meta" style="font-size:10.5px;color:#C25B33">READ BEFORE YOU RENT</span>
+<div style="display:flex;flex-direction:column;gap:16px;margin-top:20px;max-width:74ch">
+<sc-for list="{{ terms }}" as="t" hint-placeholder-count="8">
+<div style="display:flex;gap:14px;align-items:flex-start">
+<span class="mc-meta" style="font-size:10px;color:#2F5D3A;flex:none;padding-top:2px">{{ t.n }}</span>
+<span class="mc-b" style="font-size:12.5px;line-height:1.6;color:#333">{{ t.body }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background:#2F5D3A;color:#EFE8DC;padding:56px 24px;text-align:center">
+<h2 class="mc-d" style="margin:0;font-size:clamp(26px,4vw,44px)">PICK A DATE. WE'LL HANDLE THE REST.</h2>
+<p class="mc-b" style="margin:14px auto 0;max-width:48ch;font-size:13.5px;line-height:1.6;opacity:.9">Confirmed by DM. Picked up at the court. No membership required.</p>
+<a href="index.html#rent" class="mc-d" style="display:inline-block;margin-top:20px;padding:16px 30px;background:#C25B33;color:#EFE8DC;font-size:15px;text-decoration:none">START YOUR RENTAL →</a>
+</section>
+
+<footer style="background:#141414;color:#EFE8DC;padding:26px 24px;border-top:2px solid #141414">
+<div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+<span class="mc-d" style="font-size:16px">DEUCE&amp;CO.PH</span>
+<span class="mc-meta" style="font-size:10px;color:rgba(241,236,227,.7)">BIÑAN · LAGUNA, PH · @deuceandco.ph · deuceandco.ph@gmail.com</span>
+</div>
+</footer>
+
+<sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
+<div onClick="{{ stopClick }}" style="background:#EFE8DC;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
+<span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
+<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
+<a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
+<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
+<button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+
+class Component extends DCLogic {
+  state = { pickerOpen: false, pickerItem: '' };
+  renderVals() {
+    const openPicker = item => () => this.setState({ pickerOpen: true, pickerItem: item });
+    const raw = [
+      { key:'beginner', name:'BEGINNER', price:'₱180 / day', items: [
+        { img:'img/wilson-matchpoint.jpg', name:'Wilson Pro Star', caption:'Oversize head. Alloy frame. Blue grip.' },
+        { img:'img/prokennex-ki.jpg', name:'ProKennex Ki (white)', caption:'Light, comfort-focused frame.' },
+        { img:'img/prince-warrior.jpg', name:'Prince Oversize (blue/green)', caption:'Oversize head. Wide body. 27in.' },
+        { img:'img/artengo-tr160.jpg', name:'Artengo TR160 (black/mint)', caption:'Light graphite. ~102 sq in.' },
+      ] },
+      { key:'intermediate', name:'INTERMEDIATE', price:'₱200 / day', items: [
+        { img:'img/prokennex-graphpro.jpg', name:'ProKennex Graph Pro (classic)', caption:'Midsize head. Classic graphite feel.' },
+        { img:'img/dunlop-biomimetic.jpg', name:'Dunlop Biomimetic', caption:'~100 sq in. Aeroskin beam.' },
+        { img:'img/prince-graphite-pro.jpg', name:'Prince Graphite Pro (silver)', caption:'Oversize head. Overtop hoop.' },
+        { img:'img/prince-textreme.jpg', name:'Prince Midplus (green)', caption:'Midplus head. 27in graphite.' },
+        { img:'img/yonex-vcore-100.jpg', name:'Yonex VCORE 100', caption:'100 sq in. 300g. 16×19.' },
+      ] },
+      { key:'advanced', name:'ADVANCED', price:'₱240 / day', items: [
+        { img:'img/wilson-promatrix.jpg', name:'Wilson Pro Matrix Graphite Ceramic', caption:'Midsize head. PWS. Classic era.' },
+        { img:'img/prince-classic.jpg', name:'Prince Graphite Oversize (classic)', caption:'Oversize head. Leather grip.' },
+        { img:'img/dunlop-tour.jpg', name:'Dunlop Midplus (black/orange)', caption:'Head-light. Control-first frame.' },
+        { img:'img/wilson-prostaff.jpg', name:'Wilson Pro Staff 95', caption:'95 sq in. Braided graphite.' },
+        { img:'img/yonex-vcore-pro.jpg', name:'Yonex VCORE PRO 97', caption:'97 sq in. 310g. 16×19.' },
+      ] },
+    ];
+
+    const groups = raw.map(g => ({ name: g.name, price: g.price,
+      items: g.items.map(r => ({ ...r, onInquire: openPicker(r.name + ' (' + g.name + ', ' + g.price + ')') })) }));
+    const byKey = k => groups.find((g,i) => raw[i].key === k).items;
+    const beginnerFrames = byKey('beginner');
+    const intermediateFrames = byKey('intermediate');
+    const advancedFrames = byKey('advanced');
+
+    return {
+      levels: [
+        { tag:'LEVEL 01', name:'BEGINNER', price:'₱180/day · 4 frames', desc:'Light, forgiving frames — easy to start with.', bg:'#2F5D3A', fg:'#EFE8DC', tagColor:'#C8E85C', link:'Deuce Racket List.dc.html?level=beginner' },
+        { tag:'LEVEL 02', name:'INTERMEDIATE', price:'₱200/day · 5 frames', desc:'More control & feel — for rallying with confidence.', bg:'#C25B33', fg:'#EFE8DC', tagColor:'#EFE8DC', link:'Deuce Racket List.dc.html?level=intermediate' },
+        { tag:'LEVEL 03', name:'ADVANCED', price:'₱240/day · 5 frames', desc:'Performance-oriented — heavier, denser frames.', bg:'#141414', fg:'#EFE8DC', tagColor:'#C8E85C', link:'Deuce Racket List.dc.html?level=advanced' },
+      ],
+      beginnerFrames,
+      intermediateFrames,
+      advancedFrames,
+      balls: [
+        { img:'img/mc-basket-player.jpg', tag:'PRACTICE', name:'30 Balls', price:'₱70 / day', caption:'Enough for two hours of drills.', link: igLink('30 practice balls (\u20b170/day)') },
+        { img:'img/mc-basket-player.jpg', tag:'PRACTICE', name:'50 Balls', price:'₱90 / day', caption:'Full session. Group drills or hopper feeding.', link: igLink('50 practice balls (\u20b190/day)') },
+        { img:'img/mc-ball-tube.jpg', tag:'DRILLS', name:'Ball Tube + 15 Balls', price:'₱150 / day', caption:'Serving practice. Pressure tube.', link: igLink('Ball Tube + 15 balls (\u20b1150/day)') },
+      ],
+      pickerOpen: this.state.pickerOpen,
+      pickerItem: this.state.pickerItem,
+      pickerIgLink: igLink(this.state.pickerItem),
+      pickerFbLink: fbLink(this.state.pickerItem),
+      closePicker: () => this.setState({ pickerOpen: false }),
+      stopClick: e => e.stopPropagation(),
+      steps: [
+        { n:'01', label:'PICK YOUR DATE AND GEAR', sub:'Choose a court date. Pick a racket by level.', bg:'#EFE8DC', fg:'#141414' },
+        { n:'02', label:'CONFIRM ON DM', sub:'Send your order. We reply with confirmation and payment details.', bg:'#2F5D3A', fg:'#EFE8DC' },
+        { n:'03', label:'PICK UP AND RALLY', sub:'Collect your gear courtside at South City Homes.', bg:'#EFE8DC', fg:'#141414' },
+        { n:'04', label:'RETURN', sub:'Bring it back. Deposit returned. See you next rally.', bg:'#2F5D3A', fg:'#EFE8DC' },
+      ],
+      terms: [
+        { n:'01', body:'Every racket rental includes a case and 5 balls.' },
+        { n:'02', body:'Rentals of 2 days or more carry a ₱200 refundable deposit, returned in full when the gear comes back complete.' },
+        { n:'03', body:'The rental day runs 7am to 8pm. Late returns are charged one extra day per day overdue.' },
+        { n:'04', body:'Refunds are considered for defective gear on pickup, or when weather or court closure prevents play — we look at these case by case.' },
+        { n:'05', body:'Normal string wear and grip sweat are on us. Cracked frames, snapped strings from misuse, and lost balls are charged at repair or replacement cost.' },
+        { n:'06', body:'Court rental is available at South City Homes, indoor or outdoor. Lights are charged at the higher hourly rate.' },
+        { n:'07', body:'Reschedule free up to 24 hours before your slot. Inside 24 hours, one day of rental is forfeited. No-shows are charged in full.' },
+        { n:'08', body:'Pickup at South City Homes is free. Delivery elsewhere in Biñan is quoted by DM. We don\u2019t serve Metro Manila yet.' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
