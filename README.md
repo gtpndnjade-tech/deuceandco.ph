@@ -6,9 +6,9 @@ A mobile-first rental site for Deuce&Co., a tennis racket, gear, and court renta
 
 - `index.html` — redirect shim; loads the homepage (`Deuce Modern Club - Warm B.dc.html`) and preserves the URL hash/query so deep links keep working.
 - `Deuce Modern Club - Warm B.dc.html` — the homepage: hero, "Rent the Gear" tile grid, "Where You'll Play" court section (with inline court-rental inquiry selector), "Club Notes" community section, testimonials, footer.
-- `rackets.html` — the full 16-frame racket catalogue with level filter tabs (All / Beginner / Intermediate / Advanced) and a per-frame rental inquiry picker.
-- `rent-the-gear.html` — editorial landing page: level guide, full racket grid by level, balls/baskets, how-to-rent steps, rental terms, closing CTA.
-- `gear.html` — balls, basket, and ball tube rentals, each with its own inquiry picker.
+- `Deuce Racket List.dc.html` — the full 16-frame racket catalogue with level filter tabs (All / Beginner / Intermediate / Advanced) and a per-frame rental inquiry picker.
+- `Deuce Rent The Gear.dc.html` — editorial landing page: level guide, full racket grid by level, balls/baskets, how-to-rent steps, rental terms, closing CTA.
+- `Deuce Other Gear.dc.html` — balls, basket, and ball tube rentals, each with its own inquiry picker.
 - `Deuce Barkada Bundle.dc.html` — the group rental promo page (4 or 6 beginner rackets).
 - `support.js` — runtime required by every `.dc.html` file. Do not remove or rename.
 - `img/` — all photography and product images referenced across the five pages.
