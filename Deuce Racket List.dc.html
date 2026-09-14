@@ -77,18 +77,48 @@
 <footer style="background:#141414;color:#F1ECE3;padding:26px 24px;border-top:2px solid #141414">
 <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
 <span class="mc-d" style="font-size:16px">DEUCE&amp;CO.PH</span>
-<span class="mc-meta" style="font-size:10.5px;color:rgba(241,236,227,.7)">SOUTH CITY HOMES · BIÑAN, LAGUNA · @DEUCEANDCO.PH</span>
+<span class="mc-meta" style="font-size:10.5px;color:rgba(241,236,227,.7)">SOUTH CITY HOMES · BIÑAN, LAGUNA · @DEUCEANDCO.PH · DEUCEANDCO.PH@GMAIL.COM</span>
 </div>
 </footer>
 
 <sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ false }}">
-<div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
-<div onClick="{{ stopClick }}" style="background:#F1ECE3;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
-<span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
-<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
-<a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#F1ECE3;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
-<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#F1ECE3;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
-<button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
+<div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px">
+<div onClick="{{ stopClick }}" style="background:#F1ECE3;border:2px solid #141414;max-width:380px;width:100%;padding:22px;max-height:90vh;overflow:auto">
+<span class="mc-meta" style="font-size:10px;color:#C25B33">RENT</span>
+<h3 class="mc-d" style="margin:6px 0 16px;font-size:17px;line-height:1.15">{{ pickerItem.name }} · {{ pickerItem.level }}</h3>
+
+<label class="mc-meta" style="display:block;font-size:9px;color:#555">PICKUP DATE</label>
+<select onChange="{{ pv.setDate }}" style="width:100%;margin-top:6px;margin-bottom:14px;padding:9px;border:2px solid #141414;background:#F1ECE3;font-family:Inter,sans-serif;font-size:12.5px">
+<sc-for list="{{ pv.days }}" as="d" hint-placeholder-count="14"><option value="{{ $index }}">{{ d }}</option></sc-for>
+</select>
+
+<label class="mc-meta" style="display:block;font-size:9px;color:#555">RENTAL DURATION</label>
+<select onChange="{{ pv.setDays }}" style="width:100%;margin-top:6px;margin-bottom:14px;padding:9px;border:2px solid #141414;background:#F1ECE3;font-family:Inter,sans-serif;font-size:12.5px">
+<option value="1">1 day</option>
+<option value="2">2 days</option>
+<option value="3">3 days</option>
+<option value="4">4+ days</option>
+</select>
+
+<label class="mc-meta" style="display:block;font-size:9px;color:#555">NUMBER OF RACKETS</label>
+<select onChange="{{ pv.setQty }}" style="width:100%;margin-top:6px;margin-bottom:2px;padding:9px;border:2px solid #141414;background:#F1ECE3;font-family:Inter,sans-serif;font-size:12.5px">
+<sc-for list="{{ pv.qtyOptions }}" as="qn" hint-placeholder-count="1"><option value="{{ qn }}">{{ qn }}</option></sc-for>
+</select>
+<span class="mc-meta" style="display:block;margin-bottom:14px;font-size:8.5px;color:#555">{{ pv.stock }} ON HAND FOR THIS FRAME</span>
+
+<div style="border-top:2px solid #141414;padding-top:12px;margin-bottom:6px">
+<span class="mc-meta" style="font-size:9px;color:#555">TOTAL</span>
+<span class="mc-d" style="display:block;font-size:24px">₱{{ pv.total }}</span>
+</div>
+<sc-if value="{{ pv.showDeposit }}" hint-placeholder-val="{{ false }}">
+<span class="mc-meta" style="display:block;margin-bottom:12px;font-size:9px;color:#C25B33">+ ₱200 REFUNDABLE DEPOSIT (2+ DAYS)</span>
+</sc-if>
+
+<p class="mc-b" style="border:2px solid #141414;padding:12px;font-size:11.5px;line-height:1.5;margin:0 0 14px">{{ pv.msg }}</p>
+
+<a href="{{ pv.fbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#2F5D3A;color:#F1ECE3;text-decoration:none;font-size:12.5px">SEND VIA MESSENGER →</a>
+<a href="{{ pv.igLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#C25B33;color:#F1ECE3;text-decoration:none;font-size:12.5px">SEND VIA INSTAGRAM →</a>
+<button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:10px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
 </div>
 </div>
 </sc-if>
@@ -114,7 +144,7 @@ const ALL_GROUPS = [
       { img:'img/dunlop-biomimetic.jpg', name:'Dunlop Biomimetic', caption:'~100 sq in. Aeroskin beam.' },
       { img:'img/prince-graphite-pro.jpg', name:'Prince Graphite Pro (silver)', caption:'Oversize head. Overtop hoop.' },
       { img:'img/prince-textreme.jpg', name:'Prince Midplus (green)', caption:'Midplus head. 27in graphite.' },
-      { img:'img/yonex-vcore-100.jpg', name:'Yonex VCORE 100', caption:'100 sq in. 300g. 16×19.' },
+      { img:'img/yonex-vcore-100.jpg', name:'Yonex VCORE 100', caption:'100 sq in. 300g. 16×19.', stock:2 },
     ] },
   { key:'advanced', name:'ADVANCED', price:'₱240 / day', tagline:'Performance-oriented', intro:'Club regulars and players who want a real performance frame — heavier, denser, built for a full swing.',
     items: [
@@ -122,17 +152,40 @@ const ALL_GROUPS = [
       { img:'img/prince-classic.jpg', name:'Prince Graphite Oversize (classic)', caption:'Oversize head. Leather grip.' },
       { img:'img/dunlop-tour.jpg', name:'Dunlop Midplus (black/orange)', caption:'Head-light. Control-first frame.' },
       { img:'img/wilson-prostaff.jpg', name:'Wilson Pro Staff 95', caption:'95 sq in. Braided graphite.' },
-      { img:'img/yonex-vcore-pro.jpg', name:'Yonex VCORE PRO 97', caption:'97 sq in. 310g. 16×19.' },
+      { img:'img/yonex-vcore-pro.jpg', name:'Yonex VCORE PRO 97', caption:'97 sq in. 310g. 16×19.', stock:2 },
     ] },
 ];
 
 class Component extends DCLogic {
-  state = { level: (new URLSearchParams(location.search).get('level')) || 'all', pickerOpen: false, pickerItem: '' };
+  state = { level: (new URLSearchParams(location.search).get('level')) || 'all', pickerOpen: false, pickerItem: null, days: 1, qty: 1, dateIdx: 0 };
+
+  next14Days() {
+    const days = []; const now = new Date();
+    for (let i = 0; i < 14; i++) { const d = new Date(now); d.setDate(now.getDate() + i); days.push(d.toLocaleDateString('en-US', { weekday:'short', day:'numeric', month:'short' })); }
+    return days;
+  }
+
+  pickerView() {
+    const s = this.state;
+    if (!s.pickerItem) return {};
+    const days = this.next14Days();
+    const stock = s.pickerItem.stock || 1;
+    const qtyOptions = Array.from({ length: stock }, (_, i) => i + 1);
+    const total = s.pickerItem.rate * s.days * s.qty;
+    const msg = `Hi DEUCE&CO.PH \u2014 I'd like to rent ${s.qty} ${s.pickerItem.level} racket${s.qty > 1 ? 's' : ''} for ${s.days} day(s), starting ${days[s.dateIdx]}. Total \u20b1${total}${s.days >= 2 ? ' + \u20b1200 deposit' : ''}. Is this available?`;
+    return {
+      days, total, msg, showDeposit: s.days >= 2, qtyOptions, stock,
+      setDate: e => this.setState({ dateIdx: Number(e.target.value) }),
+      setDays: e => this.setState({ days: Number(e.target.value) }),
+      setQty: e => this.setState({ qty: Number(e.target.value) }),
+      igLink: igLink(msg), fbLink: fbLink(msg),
+    };
+  }
 
   renderVals() {
     const s = this.state;
-    const counts = { all: ALL_GROUPS.reduce((a, g) => a + g.items.length, 0) };
-    ALL_GROUPS.forEach(g => { counts[g.key] = g.items.length; });
+    const counts = { all: ALL_GROUPS.reduce((a, g) => a + g.items.reduce((n, it) => n + (it.stock || 1), 0), 0) };
+    ALL_GROUPS.forEach(g => { counts[g.key] = g.items.reduce((n, it) => n + (it.stock || 1), 0); });
 
     const tabDefs = [
       { key:'all', label:'ALL · ' + counts.all },
@@ -150,7 +203,7 @@ class Component extends DCLogic {
     const visible = ALL_GROUPS.filter(g => s.level === 'all' || s.level === g.key);
     const groups = visible.map(g => ({
       name: g.name, price: g.price, tagline: g.tagline, intro: g.intro,
-      items: g.items.map(r => ({ ...r, onInquire: () => this.setState({ pickerOpen: true, pickerItem: r.name + ' (' + g.name + ', ' + g.price + ')' }) })),
+      items: g.items.map(r => ({ ...r, onInquire: () => this.setState({ pickerOpen: true, pickerItem: { name: r.name, level: g.name, rate: Number(g.price.replace(/\D/g,'')), stock: r.stock || 1 }, days: 1, qty: 1, dateIdx: 0 }) })),
     }));
 
     return {
@@ -158,9 +211,8 @@ class Component extends DCLogic {
       tabs, groups,
       startBeginner: () => this.setState({ level: 'beginner' }),
       pickerOpen: s.pickerOpen,
-      pickerItem: s.pickerItem,
-      pickerIgLink: igLink(s.pickerItem),
-      pickerFbLink: fbLink(s.pickerItem),
+      pickerItem: s.pickerItem || {},
+      pv: this.pickerView(),
       closePicker: () => this.setState({ pickerOpen: false }),
       stopClick: e => e.stopPropagation(),
     };

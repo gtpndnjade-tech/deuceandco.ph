@@ -73,7 +73,7 @@
 
 <div style="margin-top:26px">
 <h3 class="mc-d" style="margin:0;font-size:22px">INTERMEDIATE</h3>
-<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱200 / day · 5 frames</span>
+<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱200 / day · 6 frames</span>
 <div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
 <sc-for list="{{ intermediateFrames }}" as="frame" hint-placeholder-count="5">
 <button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
@@ -94,7 +94,7 @@
 
 <div style="margin-top:26px">
 <h3 class="mc-d" style="margin:0;font-size:22px">ADVANCED</h3>
-<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱240 / day · 5 frames</span>
+<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱240 / day · 6 frames</span>
 <div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
 <sc-for list="{{ advancedFrames }}" as="frame" hint-placeholder-count="5">
 <button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
@@ -211,8 +211,8 @@ class Component extends DCLogic {
     return {
       levels: [
         { tag:'LEVEL 01', name:'BEGINNER', price:'₱180/day · 4 frames', desc:'Light, forgiving frames — easy to start with.', bg:'#2F5D3A', fg:'#EFE8DC', tagColor:'#C8E85C', link:'Deuce Racket List.dc.html?level=beginner' },
-        { tag:'LEVEL 02', name:'INTERMEDIATE', price:'₱200/day · 5 frames', desc:'More control & feel — for rallying with confidence.', bg:'#C25B33', fg:'#EFE8DC', tagColor:'#EFE8DC', link:'Deuce Racket List.dc.html?level=intermediate' },
-        { tag:'LEVEL 03', name:'ADVANCED', price:'₱240/day · 5 frames', desc:'Performance-oriented — heavier, denser frames.', bg:'#141414', fg:'#EFE8DC', tagColor:'#C8E85C', link:'Deuce Racket List.dc.html?level=advanced' },
+        { tag:'LEVEL 02', name:'INTERMEDIATE', price:'₱200/day · 6 frames', desc:'More control & feel — for rallying with confidence.', bg:'#C25B33', fg:'#EFE8DC', tagColor:'#EFE8DC', link:'Deuce Racket List.dc.html?level=intermediate' },
+        { tag:'LEVEL 03', name:'ADVANCED', price:'₱240/day · 6 frames', desc:'Performance-oriented — heavier, denser frames.', bg:'#141414', fg:'#EFE8DC', tagColor:'#C8E85C', link:'Deuce Racket List.dc.html?level=advanced' },
       ],
       beginnerFrames,
       intermediateFrames,
