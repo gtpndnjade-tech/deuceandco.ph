@@ -93,7 +93,7 @@
 <section style="background:#2F5D3A;color:#EFE8DC;padding:56px 24px;text-align:center">
 <h2 class="mc-d" style="margin:0;font-size:clamp(26px,4vw,44px)">GET THE GROUP TOGETHER.</h2>
 <p class="mc-b" style="margin:14px auto 0;max-width:48ch;font-size:13.5px;line-height:1.6;opacity:.9">Confirmed by DM. Picked up at the court. Split it however you like.</p>
-<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:inline-block;margin-top:20px;padding:16px 30px;background:#C25B33;color:#EFE8DC;font-size:15px;text-decoration:none">INQUIRE ABOUT A BUNDLE →</a>
+<a href="#tiers" class="mc-d" style="display:inline-block;margin-top:20px;padding:16px 30px;background:#C25B33;color:#EFE8DC;font-size:15px;text-decoration:none">SEE BUNDLE TIERS →</a>
 </section>
 
 <footer style="background:#141414;color:#EFE8DC;padding:26px 24px;border-top:2px solid #141414">
@@ -107,7 +107,12 @@
 <div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
 <div onClick="{{ stopClick }}" style="background:#EFE8DC;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
 <span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
-<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
+<h3 class="mc-d" style="margin:8px 0 14px;font-size:18px;line-height:1.15">{{ pickerTier }}</h3>
+<label class="mc-meta" style="display:block;font-size:9px;color:#555">DATE</label>
+<select onChange="{{ setDate }}" style="width:100%;margin-top:6px;margin-bottom:16px;padding:9px;border:2px solid #141414;background:#EFE8DC;font-family:Inter,sans-serif;font-size:12.5px">
+<sc-for list="{{ days }}" as="d" hint-placeholder-count="14"><option value="{{ $index }}">{{ d }}</option></sc-for>
+</select>
+<p class="mc-b" style="border:2px solid #141414;padding:12px;font-size:11.5px;line-height:1.5;margin:0 0 14px">{{ pickerItem }}</p>
 <a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
 <a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
 <button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
@@ -119,16 +124,27 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to book: ' + item + '. Is it available?');
-const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to book: ' + item + '. Is it available?');
+const igLink = msg => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent(msg);
+const fbLink = msg => 'https://m.me/61593264803515?text=' + encodeURIComponent(msg);
 
 class Component extends DCLogic {
-  state = { pickerOpen: false, pickerItem: '' };
+  state = { pickerOpen: false, pickerTier: null, dateIdx: 0 };
+
+  next14Days() {
+    const days = []; const now = new Date();
+    for (let i = 0; i < 14; i++) { const d = new Date(now); d.setDate(now.getDate() + i); days.push(d.toLocaleDateString('en-US', { weekday:'long', day:'numeric', month:'short' })); }
+    return days;
+  }
+
   renderVals() {
     const RAW_TIERS = [
-      { tag:'BARKADA', name:'4 RACKETS', price:'₱600', desc:'₱150 per person. The standard barkada bundle.', bg:'#C25B33', fg:'#EFE8DC', tagColor:'#EFE8DC', label:'Barkada Bundle \u2014 4 beginner rackets (\u20b1600)' },
-        { tag:'FULL SESSION', name:'6 RACKETS', price:'₱900', desc:'₱150 per person. For the bigger group.', bg:'#2F5D3A', fg:'#EFE8DC', tagColor:'#C8E85C', label:'Barkada Bundle \u2014 6 beginner rackets (\u20b1900)' },
+      { tag:'BARKADA', name:'4 RACKETS', price:'₱600', desc:'₱150 per person. The standard barkada bundle.', bg:'#C25B33', fg:'#EFE8DC', tagColor:'#EFE8DC', rackets:4, total:600 },
+        { tag:'FULL SESSION', name:'6 RACKETS', price:'₱900', desc:'₱150 per person. For the bigger group.', bg:'#2F5D3A', fg:'#EFE8DC', tagColor:'#C8E85C', rackets:6, total:900 },
     ];
+    const days = this.next14Days();
+    const dateLabel = days[this.state.dateIdx];
+    const t = this.state.pickerTier;
+    const msg = t ? `Hi Deuce&Co. \u2014 I'd like to book the Barkada Bundle for ${t.rackets} rackets on ${dateLabel}. Total is \u20b1${t.total}. Is it available?` : '';
     return {
       included: [
         { tag:'RACKETS', name:'4 Beginner Rackets', desc:'Case and 5 balls with each frame.' },
@@ -136,7 +152,7 @@ class Component extends DCLogic {
         { tag:'COURT TIME', name:'Optional', desc:'Add outdoor or indoor court time at South City Homes.' },
         { tag:'BASKET', name:'Optional', desc:'Add a ball basket for warm-ups and drills.' },
       ],
-      tiers: RAW_TIERS.map(t => ({ ...t, onInquire: () => this.setState({ pickerOpen: true, pickerItem: t.label }) })),
+      tiers: RAW_TIERS.map(tr => ({ ...tr, onInquire: () => this.setState({ pickerOpen: true, pickerTier: tr, dateIdx: 0 }) })),
       steps: [
         { n:'01', label:'PICK YOUR TIER', sub:'4 rackets or 6 rackets.', bg:'#EFE8DC', fg:'#141414' },
         { n:'02', label:'PICK YOUR DATE', sub:'Tell us when the barkada\u2019s playing.', bg:'#2F5D3A', fg:'#EFE8DC' },
@@ -150,9 +166,12 @@ class Component extends DCLogic {
         { n:'04', body:'Standard rental terms apply to each racket in the bundle.' },
       ],
       pickerOpen: this.state.pickerOpen,
-      pickerItem: this.state.pickerItem,
-      pickerIgLink: igLink(this.state.pickerItem),
-      pickerFbLink: fbLink(this.state.pickerItem),
+      pickerTier: t ? `${t.name} — ${t.price}` : '',
+      pickerItem: msg,
+      days,
+      setDate: e => this.setState({ dateIdx: Number(e.target.value) }),
+      pickerIgLink: igLink(msg),
+      pickerFbLink: fbLink(msg),
       closePicker: () => this.setState({ pickerOpen: false }),
       stopClick: e => e.stopPropagation(),
     };

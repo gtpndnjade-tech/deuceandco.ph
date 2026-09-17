@@ -159,7 +159,7 @@
 <div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
 <div onClick="{{ stopClick }}" style="background:#EFE8DC;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
 <span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
-<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
+<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem.name }}</h3>
 <a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
 <a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
 <button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
@@ -171,13 +171,13 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
-const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+const igLink = msg => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent(msg);
+const fbLink = msg => 'https://m.me/61593264803515?text=' + encodeURIComponent(msg);
 
 class Component extends DCLogic {
-  state = { pickerOpen: false, pickerItem: '' };
+  state = { pickerOpen: false, pickerItem: null };
   renderVals() {
-    const openPicker = item => () => this.setState({ pickerOpen: true, pickerItem: item });
+    const openPicker = (name, rate) => () => this.setState({ pickerOpen: true, pickerItem: { name, rate } });
     const raw = [
       { key:'beginner', name:'BEGINNER', price:'₱180 / day', items: [
         { img:'img/wilson-matchpoint.jpg', name:'Wilson Pro Star', caption:'Oversize head. Alloy frame. Blue grip.' },
@@ -202,7 +202,7 @@ class Component extends DCLogic {
     ];
 
     const groups = raw.map(g => ({ name: g.name, price: g.price,
-      items: g.items.map(r => ({ ...r, onInquire: openPicker(r.name + ' (' + g.name + ', ' + g.price + ')') })) }));
+      items: g.items.map(r => ({ ...r, onInquire: openPicker(r.name, Number(g.price.replace(/\D/g,''))) })) }));
     const byKey = k => groups.find((g,i) => raw[i].key === k).items;
     const beginnerFrames = byKey('beginner');
     const intermediateFrames = byKey('intermediate');
@@ -218,14 +218,14 @@ class Component extends DCLogic {
       intermediateFrames,
       advancedFrames,
       balls: [
-        { img:'img/mc-basket-player.jpg', tag:'PRACTICE', name:'30 Balls', price:'₱70 / day', caption:'Enough for two hours of drills.', link: igLink('30 practice balls (\u20b170/day)') },
-        { img:'img/mc-basket-player.jpg', tag:'PRACTICE', name:'50 Balls', price:'₱90 / day', caption:'Full session. Group drills or hopper feeding.', link: igLink('50 practice balls (\u20b190/day)') },
-        { img:'img/mc-ball-tube.jpg', tag:'DRILLS', name:'Ball Tube + 15 Balls', price:'₱150 / day', caption:'Serving practice. Pressure tube.', link: igLink('Ball Tube + 15 balls (\u20b1150/day)') },
+        { img:'img/mc-basket-player.jpg', tag:'PRACTICE', name:'30 Balls', price:'₱70 / day', caption:'Enough for two hours of drills.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a 30-ball set. Total is \u20b170. Is it available?`) },
+        { img:'img/mc-basket-player.jpg', tag:'PRACTICE', name:'50 Balls', price:'₱90 / day', caption:'Full session. Group drills or hopper feeding.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a 50-ball set. Total is \u20b190. Is it available?`) },
+        { img:'img/mc-ball-tube.jpg', tag:'DRILLS', name:'Ball Tube + 15 Balls', price:'₱150 / day', caption:'Serving practice. Pressure tube.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a ball tube with 15 balls. Total is \u20b1150. Is it available?`) },
       ],
       pickerOpen: this.state.pickerOpen,
       pickerItem: this.state.pickerItem,
-      pickerIgLink: igLink(this.state.pickerItem),
-      pickerFbLink: fbLink(this.state.pickerItem),
+      pickerIgLink: igLink(this.state.pickerItem ? `Hi Deuce&Co. \u2014 I'd like to rent a ${this.state.pickerItem.name}. Total is \u20b1${this.state.pickerItem.rate}. Is it available?` : ''),
+      pickerFbLink: fbLink(this.state.pickerItem ? `Hi Deuce&Co. \u2014 I'd like to rent a ${this.state.pickerItem.name}. Total is \u20b1${this.state.pickerItem.rate}. Is it available?` : ''),
       closePicker: () => this.setState({ pickerOpen: false }),
       stopClick: e => e.stopPropagation(),
       steps: [
