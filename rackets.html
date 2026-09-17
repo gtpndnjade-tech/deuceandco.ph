@@ -21,7 +21,7 @@
   .mc-tab:focus-visible { outline: 2px solid #C25B33; outline-offset: 2px; }
   @media (max-width: 780px) {
     .mc-list-grid { grid-template-columns: repeat(2,1fr) !important; }
-    .mc-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .mc-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
   }
 </style>
 </helmet>
@@ -41,7 +41,7 @@
 </section>
 
 <section style="max-width:1180px;margin:0 auto;padding:8px 24px 0">
-<div class="mc-tabs" style="display:flex;gap:0;border:2px solid #141414;margin-bottom:8px">
+<div class="mc-tabs" style="display:inline-flex;gap:0;border:2px solid #141414;margin-bottom:8px;max-width:100%">
 <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
 <button type="button" class="mc-tab" onClick="{{ tb.onPick }}" aria-pressed="{{ tb.active }}" style="{{ tb.style }}">{{ tb.label }}</button>
 </sc-for>
@@ -114,7 +114,14 @@
 <span class="mc-meta" style="display:block;margin-bottom:12px;font-size:9px;color:#C25B33">+ ₱200 REFUNDABLE DEPOSIT (2+ DAYS)</span>
 </sc-if>
 
-<p class="mc-b" style="border:2px solid #141414;padding:12px;font-size:11.5px;line-height:1.5;margin:0 0 14px">{{ pv.msg }}</p>
+<p class="mc-b" style="border:2px solid #141414;padding:12px;font-size:11.5px;line-height:1.5;margin:0 0 10px">{{ pv.msg }}</p>
+<button type="button" onClick="{{ pv.copyMsg }}" class="mc-meta" style="display:block;margin:0 auto 16px;border:none;border-bottom:1px solid #141414;background:none;padding:0 0 2px;cursor:pointer;font-size:9.5px;color:#141414">{{ pv.copyLabel }}</button>
+<sc-if value="{{ pv.copyFailed }}" hint-placeholder-val="{{ false }}">
+<div style="margin:0 0 16px">
+<label class="mc-meta" style="display:block;margin-bottom:6px;font-size:8.5px;color:#555">PRESS CMD+C (MAC) OR CTRL+C (WINDOWS) TO COPY</label>
+<textarea readOnly value="{{ pv.dmMsg }}" onClick="{{ selectAllText }}" style="width:100%;height:70px;padding:10px;border:2px solid #141414;background:#F1ECE3;font-family:Inter,sans-serif;font-size:11px;resize:none"></textarea>
+</div>
+</sc-if>
 
 <a href="{{ pv.fbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#2F5D3A;color:#F1ECE3;text-decoration:none;font-size:12.5px">SEND VIA MESSENGER →</a>
 <a href="{{ pv.igLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#C25B33;color:#F1ECE3;text-decoration:none;font-size:12.5px">SEND VIA INSTAGRAM →</a>
@@ -127,8 +134,30 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
-const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+const igLink = msg => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent(msg);
+const fbLink = msg => 'https://m.me/61593264803515?text=' + encodeURIComponent(msg);
+
+function copyText(text, onOk, onFail) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(onOk).catch(() => execCommandCopy(text, onOk, onFail));
+      return;
+    }
+  } catch (e) {}
+  execCommandCopy(text, onOk, onFail);
+}
+function execCommandCopy(text, onOk, onFail) {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed'; ta.style.top = '-9999px'; ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    ok ? onOk() : onFail();
+  } catch (e) { onFail(); }
+}
 
 const ALL_GROUPS = [
   { key:'beginner', name:'BEGINNER', price:'₱180 / day', tagline:'Easy to start with', intro:'New to tennis, or just getting back into it — these frames are light, forgiving, and built to keep the ball in play.',
@@ -157,11 +186,11 @@ const ALL_GROUPS = [
 ];
 
 class Component extends DCLogic {
-  state = { level: (new URLSearchParams(location.search).get('level')) || 'all', pickerOpen: false, pickerItem: null, days: 1, qty: 1, dateIdx: 0 };
+  state = { level: (new URLSearchParams(location.search).get('level')) || 'all', pickerOpen: false, pickerItem: null, days: 1, qty: 1, dateIdx: 0, copied: false, copyFailed: false };
 
   next14Days() {
     const days = []; const now = new Date();
-    for (let i = 0; i < 14; i++) { const d = new Date(now); d.setDate(now.getDate() + i); days.push(d.toLocaleDateString('en-US', { weekday:'short', day:'numeric', month:'short' })); }
+    for (let i = 0; i < 14; i++) { const d = new Date(now); d.setDate(now.getDate() + i); days.push(d.toLocaleDateString('en-US', { weekday:'long', day:'numeric', month:'short' })); }
     return days;
   }
 
@@ -172,13 +201,21 @@ class Component extends DCLogic {
     const stock = s.pickerItem.stock || 1;
     const qtyOptions = Array.from({ length: stock }, (_, i) => i + 1);
     const total = s.pickerItem.rate * s.days * s.qty;
-    const msg = `Hi DEUCE&CO.PH \u2014 I'd like to rent ${s.qty} ${s.pickerItem.level} racket${s.qty > 1 ? 's' : ''} for ${s.days} day(s), starting ${days[s.dateIdx]}. Total \u20b1${total}${s.days >= 2 ? ' + \u20b1200 deposit' : ''}. Is this available?`;
+    const dayLabel = s.days === 1 ? '1 day' : `${s.days} days`;
+    const nameLabel = s.qty === 1 ? `a ${s.pickerItem.name}` : `${s.qty} ${s.pickerItem.name}s`;
+    const dmMsg = `Hi Deuce&Co. \u2014 I'd like to rent ${nameLabel} for ${dayLabel}, starting ${days[s.dateIdx]}. Total is \u20b1${total}${s.days >= 2 ? ' plus a \u20b1200 deposit' : ''}. Is it available?`;
+    const msg = dmMsg;
     return {
       days, total, msg, showDeposit: s.days >= 2, qtyOptions, stock,
       setDate: e => this.setState({ dateIdx: Number(e.target.value) }),
       setDays: e => this.setState({ days: Number(e.target.value) }),
       setQty: e => this.setState({ qty: Number(e.target.value) }),
-      igLink: igLink(msg), fbLink: fbLink(msg),
+      igLink: igLink(dmMsg), fbLink: fbLink(dmMsg),
+      copyMsg: () => copyText(dmMsg, () => this.setState({ copied: true, copyFailed: false }, () => setTimeout(() => this.setState({ copied: false }), 2000)), () => this.setState({ copyFailed: true })),
+      copyLabel: this.state.copied ? 'COPIED' : 'COPY MESSAGE →',
+      copyFailed: this.state.copyFailed,
+      dmMsg,
+      selectAllText: e => e.target.select(),
     };
   }
 
@@ -193,9 +230,9 @@ class Component extends DCLogic {
       { key:'intermediate', label:'INTERMEDIATE · ' + counts.intermediate },
       { key:'advanced', label:'ADVANCED · ' + counts.advanced },
     ];
-    const tabs = tabDefs.map(t => ({
+    const tabs = tabDefs.map((t, i) => ({
       label: t.label, active: s.level === t.key,
-      style: 'flex:none;min-height:44px;padding:12px 18px;border:none;border-right:2px solid #141414;cursor:pointer;font-family:Inter,sans-serif;font-weight:600;letter-spacing:.08em;font-size:11.5px;text-transform:uppercase;background:'
+      style: 'flex:none;min-height:44px;padding:12px 18px;border:none;' + (i < tabDefs.length - 1 ? 'border-right:2px solid #141414;' : '') + 'cursor:pointer;font-family:Inter,sans-serif;font-weight:600;letter-spacing:.08em;font-size:11.5px;text-transform:uppercase;background:'
         + (s.level === t.key ? '#141414' : 'transparent') + ';color:' + (s.level === t.key ? '#F1ECE3' : '#141414'),
       onPick: () => this.setState({ level: t.key }),
     }));

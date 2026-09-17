@@ -287,8 +287,8 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 const HERO_PHOTOS = ['img/mc-grip-ball.jpg', 'img/mc-hero-g.jpg', 'img/mc-hero-a.jpg', 'img/mc-hero-f.jpg', 'img/mc-hero-e.jpg'];
-const igLink = item => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
-const fbLink = item => 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co., I\u2019d like to rent: ' + item + '. Is it available?');
+const igLink = msg => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent(msg);
+const fbLink = msg => 'https://m.me/61593264803515?text=' + encodeURIComponent(msg);
 
 class Component extends DCLogic {
   state = { heroIdx: 0, pickerOpen: false, pickerItem: '', courtOpen: false, courtType: 'outdoor', courtDate: 0, courtTime: '6:00 AM', courtHours: 1, courtLights: false };
@@ -298,7 +298,7 @@ class Component extends DCLogic {
     const now = new Date();
     for (let i = 0; i < 14; i++) {
       const d = new Date(now); d.setDate(now.getDate() + i);
-      days.push(d.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' }));
+      days.push(d.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'short' }));
     }
     return days;
   }
@@ -309,9 +309,10 @@ class Component extends DCLogic {
     const rate = this.state.courtLights ? rates.lights : rates.day;
     const total = rate * this.state.courtHours;
     const dateLabel = days[this.state.courtDate];
-    const courtLabel = this.state.courtType === 'indoor' ? 'the indoor recreation center at South City Homes' : 'the outdoor shell court at South City Homes';
+    const courtLabel = this.state.courtType === 'indoor' ? 'the indoor recreation center' : 'the outdoor hardcourt';
     const hourLabel = this.state.courtHours === 1 ? '1 hour' : `${this.state.courtHours} hours`;
-    const msg = `Hi DEUCE&CO.PH \u2014 I'd like to reserve ${courtLabel} on ${dateLabel}, starting ${this.state.courtTime}, for ${hourLabel}, ${this.state.courtLights ? 'with lights' : 'daytime'}. Total \u20b1${total}. Is it available?`;
+    const timeLabel = this.state.courtTime.replace(':00 ', '').toLowerCase();
+    const msg = `Hi Deuce&Co. \u2014 I'd like to reserve ${courtLabel} on ${dateLabel}, starting ${timeLabel}, for ${hourLabel}${this.state.courtLights ? ', with lights' : ''}. Total is \u20b1${total}. Is it available?`;
     return {
       days, dateLabel, total, msg,
       isOutdoor: this.state.courtType === 'outdoor', isIndoor: this.state.courtType === 'indoor',
@@ -384,9 +385,9 @@ class Component extends DCLogic {
           link:'rackets.html?level=advanced' },
       ],
       balls: [
-        { tag:'PRACTICE', name:'30 Balls', price:'₱70 / day', caption:'Enough for two hours of drills.', link: igLink('30 practice balls (\u20b170/day)') },
-        { tag:'PRACTICE', name:'50 Balls', price:'₱90 / day', caption:'Full session. Group drills or hopper feeding.', link: igLink('50 practice balls (\u20b190/day)') },
-        { tag:'DRILLS', name:'Ball Tube + 15 Balls', price:'₱150 / day', caption:'Serving practice. Pressure tube.', link: igLink('Ball Tube + 15 balls (\u20b1150/day)') },
+        { tag:'PRACTICE', name:'30 Balls', price:'₱70 / day', caption:'Enough for two hours of drills.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a 30-ball set. Total is \u20b170. Is it available?`) },
+        { tag:'PRACTICE', name:'50 Balls', price:'₱90 / day', caption:'Full session. Group drills or hopper feeding.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a 50-ball set. Total is \u20b190. Is it available?`) },
+        { tag:'DRILLS', name:'Ball Tube + 15 Balls', price:'₱150 / day', caption:'Serving practice. Pressure tube.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a ball tube with 15 balls. Total is \u20b1150. Is it available?`) },
       ],
       testimonials: [
         { tag:'BARKADA NIGHT', quote:'Met with some friends I haven\u2019t talked to in years, played a couple rounds and it felt like I was just talking with them yesterday. Can\u2019t recommend the service enough. Rackets are also high quality and feel well maintained.', name:'— Keino, Biñan' },

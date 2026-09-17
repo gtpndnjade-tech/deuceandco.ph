@@ -1,20 +1,23 @@
-# Deuce&Co. Rental Site
+## Deuce&Co. — Racket Rental Site
 
-A mobile-first rental site for Deuce&Co., a tennis racket, gear, and court rental service based in South City Homes, Biñan, Laguna. Customers browse rackets by level, balls and baskets, and the Barkada Bundle group promo, then send a pre-filled DM (Messenger or Instagram) to book — every rental is confirmed personally, with no cart or automated checkout.
+A mobile-first rental site for Deuce&Co., a tennis racket rental and social tennis community in Biñan, Laguna. Customers browse rackets by level, tennis balls, baskets, and ball tubes, pick rental dates, and send a pre-filled inquiry via Instagram or Messenger DM — bookings are confirmed and paid for over DM, not through an on-site cart.
 
-## File structure
+### Files
 
-- `index.html` — the homepage: hero, "Rent the Gear" tile grid, "Where You'll Play" court section (with inline court-rental inquiry selector), "Club Notes" community section, testimonials, footer.
-- `rackets.html` — the full 16-frame racket catalogue with level filter tabs (All / Beginner / Intermediate / Advanced) and a per-frame rental inquiry picker. Accepts `?level=beginner`, `?level=intermediate`, or `?level=advanced` to pre-select a tab.
-- `rent-the-gear.html` — editorial landing page: level guide, full racket grid by level, balls/baskets, how-to-rent steps, rental terms, closing CTA.
-- `gear.html` — balls, basket, and ball tube rentals, each with its own inquiry picker.
-- `barkada-bundle.html` — the group rental promo page (4 or 6 beginner rackets).
-- `support.js` — runtime required by every page. Do not remove or rename.
-- `img/` — all photography and product images referenced across the five pages.
+| File | What it is |
+| --- | --- |
+| `index.html` | Homepage — hero, RENT THE GEAR grid, WHERE YOU'LL PLAY, testimonials. |
+| `rackets.html` | Full racket catalogue, filterable by level (`?level=beginner/intermediate/advanced`). |
+| `rent-the-gear.html` | Editorial rental page — levels, full catalogue, how-to-rent, terms. |
+| `gear.html` | Balls, baskets, and ball tube rentals. |
+| `barkada-bundle.html` | Group rental bundle page (4 or 6 rackets). |
+| `support.js` | Runtime that renders the site's template markup (`{{ }}` holes, `sc-for`/`sc-if` loops) — required by every page above. |
+| `img/` | All photography and product images referenced by the site. |
 
-## Deployment notes
+### Deploying
 
-- Static site — no build step. Push as-is to GitHub Pages (or any static host) with `index.html` at the root.
-- GitHub Pages: keep `.nojekyll` at the repo root (included in this export), or Jekyll will silently skip any folder starting with an underscore. If your repo already has a `.gitignore` and/or `CNAME`, keep your existing ones — they are not duplicated in this export.
-- All "Inquire"/"Rent"/"Book" actions open a pre-filled Messenger or Instagram DM (`m.me/61593264803515` and `ig.me/m/deuceandco.ph`) — no backend required for the booking flow itself.
-- Prices and inventory (16 frames: 4 Beginner, 6 Intermediate, 6 Advanced) are hardcoded in each page's script block — update them there if rates or stock change.
+Push all files in this folder to the repository root (GitHub Pages, branch `main`). Keep `.nojekyll` at the root — without it, Jekyll skips any `_`-prefixed folder. `CNAME` points the custom domain at GitHub Pages; keep it if the domain is already configured in your DNS.
+
+### Editing
+
+Each `.html` file contains a DC-style template — markup with `{{ field }}` holes rendered client-side by `support.js`, plus a `<script type="text/x-dc" data-dc-script>` block holding the page's data and logic. Edit the data arrays (rackets, prices, copy) directly in that script block.
