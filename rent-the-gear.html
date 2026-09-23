@@ -32,7 +32,10 @@
 
 <header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #141414">
 <a href="index.html#gear" class="mc-d" style="font-size:22px;color:#141414;text-decoration:none">DEUCE&amp;CO.PH</a>
+<div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:flex-end">
+<a href="#terms" onClick="{{ goTerms }}" class="mc-meta" style="font-size:11px;color:#141414;text-decoration:none;border-bottom:1px solid #141414;padding-bottom:1px">RENTAL TERMS</a>
 <span class="mc-meta" style="font-size:11px">BIÑAN · LAGUNA, PH</span>
+</div>
 </header>
 
 <section style="max-width:1180px;margin:0 auto;padding:48px 24px 10px">
@@ -41,78 +44,7 @@
 <h1 class="mc-d" style="margin:10px 0 0;font-size:clamp(32px,5vw,58px);line-height:1.02">EVERYTHING YOU<br/>NEED TO PLAY.</h1>
 <p class="mc-b" style="margin:14px 0 0;max-width:56ch;font-size:14px;line-height:1.6;color:#555">Rackets by level. Balls by the set. Court time at South City Homes. Confirmed by DM, picked up courtside.</p>
 <p class="mc-b" style="margin:8px 0 0;font-size:12.5px;color:#555">Every racket rental includes a case and 5 balls.</p>
-<a href="#levels" class="mc-d" style="display:inline-block;margin-top:18px;padding:14px 24px;background:#C25B33;color:#EFE8DC;font-size:14px;text-decoration:none">START YOUR RENTAL →</a>
-</section>
-
-<section style="max-width:1180px;margin:0 auto;padding:56px 24px 10px">
-<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px">
-<h2 class="mc-d" style="margin:0;font-size:clamp(24px,3.4vw,38px)">ALL RENTAL GEAR</h2>
-<span class="mc-meta" style="font-size:10.5px;color:#C25B33">RACKETS · BALLS · BASKETS</span>
-</div>
-
-<div style="margin-top:26px">
-<h3 class="mc-d" style="margin:0;font-size:22px">BEGINNER</h3>
-<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱180 / day · 4 frames</span>
-<div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
-<sc-for list="{{ beginnerFrames }}" as="frame" hint-placeholder-count="4">
-<button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
-<div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6e0d3">
-<img src="{{ frame.img }}" alt="{{ frame.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span class="mc-meta" style="position:absolute;top:8px;right:8px;font-size:8.5px;color:#EFE8DC;background:rgba(20,20,20,.55);padding:3px 6px">INQUIRE →</span>
-</div>
-<div style="padding:12px">
-<span class="mc-meta" style="font-size:8.5px;color:#2F5D3A">BEGINNER</span>
-<span class="mc-d" style="display:block;font-size:14px;margin-top:5px;line-height:1.1">{{ frame.name }}</span>
-<span class="mc-b" style="display:block;font-size:11px;margin-top:3px;color:#555">₱180 / day</span>
-<span class="mc-b" style="display:block;font-size:10.5px;margin-top:5px;color:#555;line-height:1.4">{{ frame.caption }}</span>
-</div>
-</button>
-</sc-for>
-</div>
-</div>
-
-<div style="margin-top:26px">
-<h3 class="mc-d" style="margin:0;font-size:22px">INTERMEDIATE</h3>
-<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱200 / day · 6 frames</span>
-<div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
-<sc-for list="{{ intermediateFrames }}" as="frame" hint-placeholder-count="5">
-<button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
-<div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6e0d3">
-<img src="{{ frame.img }}" alt="{{ frame.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span class="mc-meta" style="position:absolute;top:8px;right:8px;font-size:8.5px;color:#EFE8DC;background:rgba(20,20,20,.55);padding:3px 6px">INQUIRE →</span>
-</div>
-<div style="padding:12px">
-<span class="mc-meta" style="font-size:8.5px;color:#2F5D3A">INTERMEDIATE</span>
-<span class="mc-d" style="display:block;font-size:14px;margin-top:5px;line-height:1.1">{{ frame.name }}</span>
-<span class="mc-b" style="display:block;font-size:11px;margin-top:3px;color:#555">₱200 / day</span>
-<span class="mc-b" style="display:block;font-size:10.5px;margin-top:5px;color:#555;line-height:1.4">{{ frame.caption }}</span>
-</div>
-</button>
-</sc-for>
-</div>
-</div>
-
-<div style="margin-top:26px">
-<h3 class="mc-d" style="margin:0;font-size:22px">ADVANCED</h3>
-<span class="mc-meta" style="display:block;margin-top:4px;font-size:9px;color:#2F5D3A">₱240 / day · 6 frames</span>
-<div class="mc-racket-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414;margin-top:8px">
-<sc-for list="{{ advancedFrames }}" as="frame" hint-placeholder-count="5">
-<button type="button" onClick="{{ frame.onInquire }}" style="position:relative;border:none;border-right:2px solid #141414;border-bottom:2px solid #141414;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:none;padding:0;text-align:left;cursor:pointer;font:inherit">
-<div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#e6e0d3">
-<img src="{{ frame.img }}" alt="{{ frame.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span class="mc-meta" style="position:absolute;top:8px;right:8px;font-size:8.5px;color:#EFE8DC;background:rgba(20,20,20,.55);padding:3px 6px">INQUIRE →</span>
-</div>
-<div style="padding:12px">
-<span class="mc-meta" style="font-size:8.5px;color:#2F5D3A">ADVANCED</span>
-<span class="mc-d" style="display:block;font-size:14px;margin-top:5px;line-height:1.1">{{ frame.name }}</span>
-<span class="mc-b" style="display:block;font-size:11px;margin-top:3px;color:#555">₱240 / day</span>
-<span class="mc-b" style="display:block;font-size:10.5px;margin-top:5px;color:#555;line-height:1.4">{{ frame.caption }}</span>
-</div>
-</button>
-</sc-for>
-</div>
-</div>
-
+<a href="rackets.html" class="mc-d" style="display:inline-block;margin-top:18px;padding:14px 24px;background:#C25B33;color:#EFE8DC;font-size:14px;text-decoration:none">START YOUR RENTAL →</a>
 </section>
 
 
@@ -174,8 +106,28 @@
 const igLink = msg => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent(msg);
 const fbLink = msg => 'https://m.me/61593264803515?text=' + encodeURIComponent(msg);
 
+function jumpToHash() {
+  const id = decodeURIComponent((location.hash || '').slice(1));
+  if (!id) return;
+  let tries = 0;
+  const go = () => {
+    const el = document.getElementById(id);
+    if (el) { window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 8, behavior: 'auto' }); return; }
+    if (++tries < 40) setTimeout(go, 50);
+  };
+  go();
+}
+
 class Component extends DCLogic {
   state = { pickerOpen: false, pickerItem: null };
+  componentDidMount() {
+    if ('scrollRestoration' in history && location.hash) history.scrollRestoration = 'manual';
+    jumpToHash();
+    window.addEventListener('load', jumpToHash, { once: true });
+    this._onHash = () => jumpToHash();
+    window.addEventListener('hashchange', this._onHash);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this._onHash); }
   renderVals() {
     const openPicker = (name, rate) => () => this.setState({ pickerOpen: true, pickerItem: { name, rate } });
     const raw = [
@@ -227,6 +179,7 @@ class Component extends DCLogic {
       pickerIgLink: igLink(this.state.pickerItem ? `Hi Deuce&Co. \u2014 I'd like to rent a ${this.state.pickerItem.name}. Total is \u20b1${this.state.pickerItem.rate}. Is it available?` : ''),
       pickerFbLink: fbLink(this.state.pickerItem ? `Hi Deuce&Co. \u2014 I'd like to rent a ${this.state.pickerItem.name}. Total is \u20b1${this.state.pickerItem.rate}. Is it available?` : ''),
       closePicker: () => this.setState({ pickerOpen: false }),
+      goTerms: e => { e.preventDefault(); history.replaceState(null, '', '#terms'); jumpToHash(); },
       stopClick: e => e.stopPropagation(),
       steps: [
         { n:'01', label:'PICK YOUR DATE AND GEAR', sub:'Choose a court date. Pick a racket by level.', bg:'#EFE8DC', fg:'#141414' },
