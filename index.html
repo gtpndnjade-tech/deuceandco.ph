@@ -1,403 +1,1017 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<template id="__bundler_thumbnail">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#2F5D3A"/><text x="26" y="115" font-family="Georgia,serif" font-size="44" fill="#F1ECE3">D&amp;C</text></svg>
-</template>
+<title>Deuce&amp;Co.PH — Home</title>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=EB+Garamond:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; }
-  .mc-d { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: -.01em; }
-  .mc-b { font-family: 'Inter', sans-serif; }
-  .mc-meta { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-  @media (max-width: 780px) {
-    .mc-hero-h { font-size: 15vw !important; }
-    .mc-rent-grid { grid-template-columns: 1fr !important; }
-    .mc-gear-grid { grid-template-columns: 1fr !important; }
-    .mc-court-grid { grid-template-columns: 1fr !important; }
-    .mc-tgrid { grid-template-columns: 1fr !important; grid-template-rows: none !important; aspect-ratio: auto !important; }
-    .mc-tgrid > * { grid-column: 1 !important; grid-row: auto !important; min-height: 64px; }
-    .mc-footnote-strip { display: none !important; }
-    .mc-mobile-deposit { display: block !important; }
-  }
+body{margin:0;background:#EFE8DC;color:#111111;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{color:#C25B33}
+.d{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;font-weight:700;letter-spacing:-0.005em;line-height:0.92;margin:0}
+.m{font-family:Inter,sans-serif;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px}
+.serif{font-family:'EB Garamond',Georgia,serif}
+.wrap{max-width:1360px;margin:0 auto;padding-left:40px;padding-right:40px;box-sizing:border-box}
+.nav{font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px;text-decoration:none;padding:12px 0;border-bottom:2px solid transparent}
+.nav.on{border-bottom-color:currentColor}
+.cta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border:1px solid currentColor;text-decoration:none;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:16px;box-sizing:border-box}
+.cta:hover{background:#111111;color:#EFE8DC;border-color:#111111}
+.cta.light:hover{background:#EFE8DC;color:#111111;border-color:#EFE8DC}
+.link{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px;border-bottom:1px solid currentColor}
+.ph{position:relative;overflow:hidden}
+.phl{position:absolute;left:16px;bottom:14px;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-size:13px;font-weight:600;color:#EFE8DC;opacity:0.85}
+.bf{display:grid;grid-template-columns:min(1040px,calc(100% - 400px)) minmax(0,1fr);background:#1F4A3D;color:#EFE8DC;border-bottom:1px solid #111111}
+.bf .m{color:#EFE8DC}
+.bfPh{margin:0;aspect-ratio:2/3;background:#111111;overflow:hidden}
+.bfPh img{display:block;width:100%;height:100%;object-fit:cover}
+.bfCol{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;text-align:right;padding:28px max(56px,calc((100vw - 1440px)/2 + 56px)) 32px 24px;box-sizing:border-box}
+.bfH{font-size:48px;letter-spacing:0.01em;line-height:0.94;white-space:nowrap}
+.bfP{margin:24px 0 0 auto;max-width:28ch;font-size:17px;line-height:1.5}
+@media (max-width:900px){.bf{grid-template-columns:minmax(0,1fr)}.bfCol{padding:24px 16px 28px;gap:40px}}
+/* PAGE GROUND · one fixed flat-colour layer behind the homepage, set by the section crossing the viewport midpoint
+   (IntersectionObserver, rootMargin -50% 0 -50% 0). Cream sections are transparent and their type follows the ground;
+   clay, green and ink blocks keep their own grounds. Layer and type share one 800ms ease. */
+.pg{--ease:cubic-bezier(0.16,1,0.3,1);--gbg:#EFE8DC;--fg:#111111;--acc:#C25B33}
+.pg[data-ground="clay"]{--gbg:#C25B33;--fg:#EFE8DC;--acc:#111111}
+.pg[data-ground="green"]{--gbg:#1F4A3D;--fg:#EFE8DC;--acc:#EFE8DC}
+.pg[data-ground="ink"]{--gbg:#111111;--fg:#EFE8DC;--acc:#C25B33}
+.pgbg{position:fixed;inset:0;z-index:0;pointer-events:none;background-color:var(--gbg);transition:background-color 800ms var(--ease)}
+.pg > :not(.pgbg){position:relative;z-index:1}
+.cs{background:transparent;color:var(--fg);transition:color 800ms var(--ease)}
+.cs .acc{color:var(--acc);transition:color 800ms var(--ease)}
+.cs .ctaInv{background-color:var(--fg);color:var(--gbg);border-color:var(--fg);transition:background-color 800ms var(--ease),color 800ms var(--ease),border-color 800ms var(--ease)}
+.cs a:hover{color:inherit;text-decoration:underline;text-underline-offset:4px}
+.cs .ctaInv:hover{text-decoration:none;background-color:var(--fg);color:var(--gbg)}
+@media (prefers-reduced-motion:reduce){.pgbg,.cs,.cs .acc,.cs .ctaInv{transition:none}}
+/* ENTRANCES · once each, IntersectionObserver (rootMargin -20% 0 -20% 0: fires as a section's top crosses 80% of the viewport).
+   "fx-arm" (set by script only when motion is allowed and the section is still below that line) holds the start state;
+   "fx-on" plays it. Without script, or with reduced motion, neither class is ever set: final state, zero motion. */
+@keyframes fxFade{from{opacity:0}to{opacity:1}}
+@keyframes bfCurtain{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes bfHead{from{opacity:0;letter-spacing:0.06em}to{opacity:1;letter-spacing:0.01em}}
+@keyframes blDraw{from{stroke-dashoffset:var(--off)}to{stroke-dashoffset:0}}
+.bf.fx-arm .bfPh{clip-path:inset(100% 0 0 0)}
+.bf.fx-arm .bfCol,.bf.fx-arm .bfH,.bf.fx-arm .bfP{opacity:0}
+.bf.fx-on .bfPh{animation:bfCurtain 1200ms cubic-bezier(0.65,0,0.35,1) both}
+.bf.fx-on .bfCol{animation:fxFade 800ms cubic-bezier(0.16,1,0.3,1) both}
+.bf.fx-on .bfH{animation:bfHead 800ms cubic-bezier(0.16,1,0.3,1) both}
+.bf.fx-on .bfP{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) 400ms both}
+.bl.fx-arm .blHead,.bl.fx-arm .tile,.bl.fx-arm .tbody{opacity:0}
+.bl.fx-on .blHead{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) both}
+.bl.fx-on .tile{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) both}
+.bl.fx-on .tile:nth-child(2){animation-delay:120ms}
+.bl.fx-on .tile:nth-child(3){animation-delay:240ms}
+.bl.fx-on .tbody{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) 200ms both}
+.bl.fx-on .tile:nth-child(2) .tbody{animation-delay:320ms}
+.bl.fx-on .tile:nth-child(3) .tbody{animation-delay:440ms}
+/* RALLY NOTES · two tracks. Sessions: three square photos, 8px apart, label top-left on a corner scrim (mobile: first wide, then two).
+   Reviews: a sideways rail of text cards (380 / 320px) that snap to the content edge; the last card bleeds off the right
+   edge as the cue to scroll. Drag with the mouse, swipe or trackpad; no scrollbar, no arrows, no auto-scroll. */
+.rnTrack{margin-top:56px}
+.rnSubH{font-size:30px;line-height:1;margin:0 0 20px}
+.sessGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sess{position:relative;margin:0;aspect-ratio:1/1;overflow:hidden;background:#111111}
+.sess img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.sess::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(260px 80px at 0 0,rgba(17,17,17,0.66) 0%,rgba(17,17,17,0.5) 50%,rgba(17,17,17,0.16) 80%,rgba(17,17,17,0) 100%)}
+.sessTag{position:absolute;left:14px;top:12px;z-index:2;font-size:13px;color:#EFE8DC}
+.rvRail{--edge:max(40px,calc((100vw - 1360px) / 2 + 40px));display:flex;align-items:flex-start;gap:8px;overflow-x:auto;overflow-y:hidden;padding:0 var(--edge);scroll-padding-left:var(--edge);scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;outline:none}
+.rvRail::-webkit-scrollbar{display:none}
+.rvRail:focus-visible{outline:2px solid #C25B33;outline-offset:4px}
+.rvRail.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.rv{flex:0 0 380px;box-sizing:border-box;max-height:320px;padding:28px;display:flex;flex-direction:column;gap:16px;scroll-snap-align:start}
+.rvc{background:#EFE8DC;color:#111111;border:1px solid #111111}
+.rvk{background:#111111;color:#EFE8DC}
+.rvTag{font-size:13px}
+.rvQ{margin:0;font-family:Inter,sans-serif;font-size:16px;line-height:1.5}
+.rvBy{margin-top:auto;font-size:13px;opacity:0.7}
+.rvk .rvTag,.rvk .rvBy{color:#EFE8DC}
+@media (max-width:768px){.rnTrack{margin-top:40px}.sessGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.sess:first-child{grid-column:1 / -1;aspect-ratio:2/1}.rvRail{--edge:16px}.rv{flex-basis:320px;max-height:none}.sessTag{left:10px;top:9px;font-size:11px}}
+/* SESSION GALLERIES · each tile opens a full-screen ink modal. Photos load from img/barkada-night-0N/01.jpg, 02.jpg …
+   (probed in order until a file is missing, so dropping 13.jpg into a folder adds frame 13 with no code change). Row
+   scrolls sideways and snaps each frame to the centre; ×, Esc or a tap off the photos closes it. No transitions. */
+.sess{cursor:pointer;transition:opacity 200ms ease}
+.sess:hover,.sess:active{opacity:0.95}
+.sess:focus-visible{outline:2px solid #C25B33;outline-offset:3px}
+.sess::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;background:radial-gradient(240px 76px at 100% 100%,rgba(17,17,17,0.66) 0%,rgba(17,17,17,0.5) 50%,rgba(17,17,17,0.16) 80%,rgba(17,17,17,0) 100%)}
+.sessGo{position:absolute;right:14px;bottom:12px;z-index:2;font-size:13px;color:#EFE8DC;opacity:0}
+.sess:hover::after,.sess:hover .sessGo,.sess:focus-visible::after,.sess:focus-visible .sessGo{opacity:1}
+@media (hover:none){.sess::after,.sessGo{opacity:1}}
+@media (prefers-reduced-motion:reduce){.sess{transition:none}}
+.gal,.pg > .gal.gal{position:fixed;inset:0;z-index:400;background:#111111;color:#EFE8DC;display:grid;grid-template-rows:80px minmax(0,1fr) 60px;grid-template-columns:minmax(0,1fr);overscroll-behavior:contain}
+.galTop,.galFoot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 max(24px,calc((100vw - 1360px) / 2 + 40px))}
+.galTop{border-bottom:1px solid rgba(239,232,220,0.2)}
+.galFoot{border-top:1px solid rgba(239,232,220,0.2)}
+.gal .m{color:#EFE8DC}
+.galLab{font-size:14px}
+.galX{width:40px;height:40px;margin-right:-10px;padding:0;border:0;background:none;color:#EFE8DC;font:400 20px/1 Inter,sans-serif;cursor:pointer}
+.galX:focus-visible,.galRow:focus-visible{outline:2px solid #C25B33;outline-offset:-2px}
+.galStage{position:relative;min-height:0;min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.galMsg{margin:0;padding:0 24px;text-align:center;font-size:14px;line-height:1.6}
+.gal{--ph:calc(100svh - 200px)}
+.galRow{width:100%;display:flex;align-items:flex-start;gap:24px;overflow-x:auto;overflow-y:hidden;padding:0 50vw;box-sizing:border-box;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab;outline:none}
+.galRow::-webkit-scrollbar{display:none}
+.galRow.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.galFr{margin:0;flex:0 0 auto;scroll-snap-align:center}
+.galFr img{display:block;height:calc(var(--ph) - 28px);width:auto;max-width:calc(100vw - 64px);object-fit:contain;border:1px solid rgba(239,232,220,0.3);box-sizing:border-box;background:#1b1b1b}
+.galNum{display:block;margin-top:10px;font-size:12px;color:rgba(239,232,220,0.5) !important}
+@media (max-width:768px){.gal{--ph:calc(100svh - 240px)}.galRow{gap:16px}.galFr img{max-width:calc(100vw - 72px);height:auto;max-height:calc(var(--ph) - 28px)}.galLab{font-size:12px}}
+/* BY LEVEL tiles: the whole tile is the link (stretched from SEE … RACKETS), CTA sits left under the copy */
+.tile{position:relative;cursor:pointer}
+.tGo,.cs a.tGo:hover{text-decoration:none}
+.tGo{margin-top:auto;padding-top:24px;align-self:flex-start;min-height:0;padding-bottom:4px}
+.tGo::after{content:'';position:absolute;inset:0;z-index:2}
+.tile h4{transition:color 200ms ease}
+.tile:hover h4,.tile:focus-within h4{color:#C25B33}
+.tGo:focus-visible{outline:none}
+.tile:has(.tGo:focus-visible){outline:2px solid #C25B33;outline-offset:-2px}
+@media (prefers-reduced-motion:reduce){.tile h4{transition:none}}
+/* BY LEVEL BALLS · flat solid balls drawn after the Oslo Tennisklubb ball: an S seam from the upper-left edge to the right edge and a short arc across the lower right, both cut in the tile's ground, in the tile's accent with the seam in the tile's ground. Sizes
+   come from the well height (--wh): 30% / 24% / 20%. On entry each ball drops from 20% of the well above its spot and
+   bounces twice (60%, then 25% of the drop), landing at exactly 900ms. Once per load; reduced motion = final frame. */
+.well{--wh:240px;overflow:hidden}
+.balls{position:relative;flex:0 0 auto}
+.bb{position:absolute;display:block;width:var(--d);height:var(--d)}
+.bb svg{display:block;width:100%;height:100%;overflow:visible}
+.b1x{--d:calc(var(--wh) * 0.30);width:var(--d);height:var(--d)}
+.b1x .b1{left:0;top:0}
+.b2x{--d:calc(var(--wh) * 0.24);--o:calc(var(--d) * 0.71 + 11px);width:calc(var(--d) + var(--o));height:calc(var(--d) + var(--o))}
+.b2x .b1{left:0;top:0}
+.b2x .b2{left:var(--o);top:var(--o)}
+.b3x{--d:calc(var(--wh) * 0.20);--v:calc((var(--d) + 12px) * 0.866);width:calc(var(--d) * 2 + 12px);height:calc(var(--d) + var(--v))}
+.b3x .b1{left:calc((var(--d) + 12px) / 2);top:0}
+.b3x .b2{left:0;top:var(--v)}
+.b3x .b3{left:calc(var(--d) + 12px);top:var(--v)}
+@keyframes blBounce{
+0%{transform:translateY(var(--drop));animation-timing-function:cubic-bezier(0.4,0,1,1)}
+28.2%{transform:translateY(0);animation-timing-function:cubic-bezier(0,0,0.6,1)}
+50%{transform:translateY(calc(var(--drop) * 0.6));animation-timing-function:cubic-bezier(0.4,0,1,1)}
+71.8%{transform:translateY(0);animation-timing-function:cubic-bezier(0,0,0.6,1)}
+85.9%{transform:translateY(calc(var(--drop) * 0.25));animation-timing-function:cubic-bezier(0.4,0,1,1)}
+100%{transform:translateY(0)}}
+.bb{--drop:calc(var(--wh) * -0.2)}
+.bl.fx-arm .bb{transform:translateY(var(--drop))}
+.bl.fx-on .bb{animation:blBounce 900ms both;animation-delay:calc(var(--t0, 200ms) + var(--st, 0ms))}
+.bl .tile:nth-child(2) .bb{--t0:320ms}
+.bl .tile:nth-child(3) .bb{--t0:440ms}
+.b2x .b2{--st:150ms}
+.b3x .b2{--st:120ms}
+.b3x .b3{--st:240ms}
+@media (prefers-reduced-motion:reduce){
+.bf .bfPh,.bf .bfCol,.bf .bfH,.bf .bfP,.bl .blHead,.bl .tile,.bl .tbody{animation:none !important;opacity:1 !important;clip-path:none !important}
+.bl .bb{animation:none !important;transform:none !important}
+}
+.courts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:#111111}
+.court{position:relative;margin:0;aspect-ratio:3/2;overflow:hidden;background:#111111}
+.court img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+/* corner scrim for the label only: ink, top-left, gone by mid-frame */
+.court::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(var(--sw,600px) var(--sh,175px) at 0 0,rgba(17,17,17,0.82) 0%,rgba(17,17,17,0.78) 62%,rgba(17,17,17,0.46) 80%,rgba(17,17,17,0.14) 92%,rgba(17,17,17,0) 100%);pointer-events:none}
+.courtTag{position:absolute;left:20px;top:16px;right:20px;z-index:2;font-variant-caps:all-small-caps;letter-spacing:0.16em;font-weight:600;font-size:14px;line-height:1.2;color:#EFE8DC}
+.ctL{display:block}
+/* two-line label (kind / court name) wherever one line would not fit the tile */
+@media (max-width:1100px){.ctS{display:none}.ctN{display:block}.court{--sw:440px;--sh:185px}}
+@media (max-width:768px){.courts{grid-template-columns:minmax(0,1fr)}.court{--sw:400px;--sh:165px}.courtTag{left:16px;top:12px;right:16px;font-size:13px;letter-spacing:0.14em;line-height:1.2}}
+.court{color:#EFE8DC;text-decoration:none;cursor:pointer}
+.court:hover{color:#EFE8DC}
+.court:focus-visible{outline:2px solid #EFE8DC;outline-offset:-4px}
+.courtGo{display:block;margin-top:10px;letter-spacing:0.16em}
+.court:hover .courtGo{text-decoration:underline;text-underline-offset:4px}
+/* court selector: ink on cream, hard corners, 1px rules */
+.csel{background:#EFE8DC;color:#111111}
+.csel a:hover{color:#111111}
+.cselPanel{margin-top:28px;border-top:1px solid #111111;padding-top:28px}
+.cselGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px 32px}
+.cselTabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:28px}
+.cselTabs button{font:inherit;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px;min-height:52px;padding:10px 16px;border:1px solid #111111;border-radius:0;background:#EFE8DC;color:#111111;cursor:pointer;text-align:center;line-height:1.25}
+.cselTabs button + button{border-left:0}
+.cselTabs button.on{background:#111111;color:#EFE8DC}
+.cselTabs button:focus-visible{outline:2px solid #C25B33;outline-offset:2px}
+.cselField{display:flex;flex-direction:column;gap:10px;min-width:0}
+.cselLab{font-size:13px}
+.seg{display:flex;flex-wrap:wrap}
+.seg button,.cselBtn{font:inherit;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:14px;min-height:44px;padding:0 16px;border:1px solid #111111;border-radius:0;background:transparent;color:#111111;cursor:pointer;margin:0 -1px -1px 0;display:inline-flex;align-items:center;text-decoration:none;box-sizing:border-box}
+.seg button.on{background:#111111;color:#EFE8DC}
+.seg button:focus-visible,.cselBtn:focus-visible,.cselIn:focus-visible{outline:2px solid #C25B33;outline-offset:2px}
+.cselIn{font:inherit;font-size:16px;min-height:44px;padding:0 12px;border:1px solid #111111;border-radius:0;background:transparent;color:#111111;box-sizing:border-box;width:100%;max-width:280px}
+.cselTotal{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin-top:28px;padding-top:20px;border-top:1px solid #111111}
+.cselMsg{margin-top:10px;border:1px solid #111111;padding:18px 20px;font-size:17px;line-height:1.55;max-width:70ch}
+.cselActs{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.cselBtn{background:#111111;color:#EFE8DC;margin:0}
+.cselBtn:hover{background:#111111;color:#EFE8DC;text-decoration:underline;text-underline-offset:4px}
+/* HERO · load intro, once: photographs 0–1000ms, the number + metadata 400–1200ms. The two-era dissolve and the
+   subhead/CTA reveal keep their own timing (scroll on desktop, timed on mobile). */
+.hzNumW,.hzMetaW{position:absolute;inset:0;pointer-events:none}
+.hzMetaW{z-index:2}
+.hzMetaW a,.hzMetaW span{pointer-events:auto}
+@keyframes hzPhotoIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:no-preference){
+.hzBase,.hzTopImg{animation:hzPhotoIn 1000ms cubic-bezier(0.65,0,0.35,1) both}
+.hzNumW,.hzBot,.hzMetaW{animation:hzPhotoIn 800ms cubic-bezier(0.16,1,0.3,1) 400ms both}
+}
+/* SECTION ENTRANCES (same arm/on mechanism as BORROW FIRST and BY LEVEL) */
+@keyframes caseIn{from{opacity:0;transform:scale(0.98)}to{opacity:1;transform:none}}
+@keyframes riseClip{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+.fxCase.fx-arm,.fxCase.fx-arm .fxCaseH,.fxCase.fx-arm .fxCaseP{opacity:0}
+.fxCase.fx-on{animation:caseIn 700ms cubic-bezier(0.16,1,0.3,1) both}
+.fxCase.fx-on .fxCaseH{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) 200ms both}
+.fxCase.fx-on .fxCaseP{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) 500ms both}
+.fxHow.fx-arm .fxHead,.fxHow.fx-arm .step,.fxHow.fx-arm .fxTail{opacity:0}
+.fxHow.fx-on .fxHead{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) both}
+.fxHow.fx-on .step{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) both}
+.fxHow.fx-on .step:nth-child(2){animation-delay:100ms}.fxHow.fx-on .step:nth-child(3){animation-delay:200ms}.fxHow.fx-on .step:nth-child(4){animation-delay:300ms}
+.fxHow.fx-on .fxTail{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) 700ms both}
+.fxCourts.fx-arm .court{clip-path:inset(100% 0 0 0)}
+.fxCourts.fx-arm #court-select{opacity:0}
+.fxCourts.fx-on .court{animation:riseClip 1000ms cubic-bezier(0.65,0,0.35,1) both}
+.fxCourts.fx-on .court:nth-child(2){animation-delay:200ms}
+.fxCourts.fx-on #court-select{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) 800ms both}
+.fxNotes.fx-arm .fxHead,.fxNotes.fx-arm .rnTrack,.fxNotes.fx-arm .rvRail{opacity:0}
+.fxNotes.fx-on .fxHead{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) both}
+.fxNotes.fx-on .rnTrack,.fxNotes.fx-on .rvRail{animation:fxFade 700ms cubic-bezier(0.16,1,0.3,1) both}
+.fxNotes.fx-on .rnTrack + .rnTrack,.fxNotes.fx-on .rvRail{animation-delay:200ms}
+.fxStory.fx-arm .fxStoryPh{clip-path:inset(100% 0 0 0)}
+.fxStory.fx-arm .fxStoryPanel,.fxStory.fx-arm .fxStoryH,.fxStory.fx-arm .fxStoryC{opacity:0}
+.fxStory.fx-on .fxStoryPh{animation:riseClip 1200ms cubic-bezier(0.65,0,0.35,1) both}
+.fxStory.fx-on .fxStoryPanel{animation:fxFade 700ms cubic-bezier(0.16,1,0.3,1) 300ms both}
+.fxStory.fx-on .fxStoryH{animation:fxFade 700ms cubic-bezier(0.16,1,0.3,1) 600ms both}
+.fxStory.fx-on .fxStoryC{animation:fxFade 400ms cubic-bezier(0.16,1,0.3,1) 1000ms both}
+@media (prefers-reduced-motion:reduce){
+.fxCase,.fxCase *,.fxHow *,.fxCourts .court,.fxCourts #court-select,.fxNotes *,.fxStory *{animation:none !important;opacity:1 !important;clip-path:none !important;transform:none !important}
+}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.step{padding:24px 24px 28px;border-left:1px solid currentColor}
+.step:first-child{border-left:0;padding-left:0}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.tile{display:flex;flex-direction:column;min-height:480px;border-left:1px solid currentColor}
+.tile:first-child{border-left:0}
+.well{height:240px;display:flex;align-items:center;justify-content:center}
+.tbody{flex:1;display:flex;flex-direction:column;align-items:flex-start;padding:28px 28px 20px}
+.notes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:24px}
+.rn{text-decoration:none;display:flex;flex-direction:column;min-height:620px}
+.rn:hover{color:inherit}
+.rnbody{flex:1;display:flex;flex-direction:column;gap:12px;padding:20px 20px 16px}
+.rnread{margin-top:auto;align-self:flex-end;min-height:44px;display:inline-flex;align-items:flex-end;font-size:14px}
+.rn:hover .rnread{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:1100px){.notes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.blwm{position:absolute;left:50%;top:calc(50% + 40px);transform:translate(-50%,-50%);white-space:nowrap;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;line-height:0.8;font-size:clamp(150px,28vw,400px);color:inherit;opacity:0.07;pointer-events:none;user-select:none;z-index:0}
+p{margin:0}
+@media (max-width:900px){
+.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.step:nth-child(3){border-left:0;padding-left:0}
+.tiles{grid-template-columns:minmax(0,1fr)}
+.tile{border-left:0;border-top:1px solid currentColor;min-height:0}
+.tile:first-child{border-top:0}
+.well{height:200px;--wh:200px}
+.notes{grid-template-columns:minmax(0,1fr)}
+}
+/* HERO · two zones. --n = size of "1999" (Oswald: "1999" ≈ 2.05em wide, so 54vw ≈ 1.1× the frame, cropped both sides).
+   Ink metrics (Oswald 700): numerals span 0.833em; with line-height 1 their ink centre sits 0.5475em below the line box top,
+   ink reaches 0.4165em above the boundary and 0.4285em below it (the 9's bowl overshoots).
+   The "1" has a smaller side bearing than the last "9", so the line is nudged 0.016em right to crop both edges evenly.
+   Desktop budget at 1440×900: 74 header + 392 cream + 431 photo = 897. */
+.hz{--n:min(25vw,360px);--zt:calc(var(--n) * 0.4165 + 250px);--zb:calc(var(--n) * 0.4285 + 246px);--p:0;position:relative;overflow:hidden;background:#111111;color:#EFE8DC}
+/* era 2 (today): full-bleed behind both zones, graded a touch warmer so it dissolves out of the 1999 print without a colour jump */
+.hzBase{position:absolute;left:0;right:0;top:0;height:calc(var(--zt) + var(--zb));z-index:0}
+/* today: the racket salute (warm documentary grade baked into the file, no grain). Desktop: the 400px bottom zone lands on the raised grips and the faces; the racket heads are revealed when the 1999 print dissolves. */
+.hzImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 52%;display:block}
+@media (max-width:768px){.hzImg{object-position:50% 50%}}
+.hzTint{position:absolute;inset:0;background:rgba(17,17,17,0.24)}
+/* soft scrim, heaviest at the boundary where the end-state subhead sits; eased stops, no banding */
+.hzScrim{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(17,17,17,0.3) 0%,rgba(17,17,17,0.16) 18%,rgba(17,17,17,0.12) 30%,rgba(17,17,17,0.24) 40%,rgba(17,17,17,0.42) 47%,rgba(17,17,17,0.46) 53%,rgba(17,17,17,0.3) 62%,rgba(17,17,17,0.14) 76%,rgba(17,17,17,0.2) 100%)}
+/* era 1 (1999): Sikap Tennis Cup, archival treatment baked into the file, cropped on the swing */
+.hzTop{position:relative;height:var(--zt);overflow:hidden;z-index:1}
+.hzVintage{position:absolute;inset:0;background:#111111}
+.hzTopImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+/* a soft darkening at the very top of the print only, so the off-white metadata reads over the shirt */
+.hzVintage::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(17,17,17,0.5) 0%,rgba(17,17,17,0.42) 18%,rgba(17,17,17,0.2) 32%,rgba(17,17,17,0.06) 44%,rgba(17,17,17,0) 52%)}
+.hzBot{position:relative;height:var(--zb);overflow:hidden;z-index:1}
+.n99{position:absolute;left:50%;transform:translateX(calc(-50% + 0.016em));white-space:nowrap;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;font-size:var(--n);line-height:1;letter-spacing:0.01em;text-indent:0.01em;margin:0}
+.n99ink{top:calc(var(--zt) - 0.5475em);color:#111111}
+.n99paper{top:-0.5475em;color:#EFE8DC}
+.hzMeta{position:absolute;left:0;right:0;top:80px;text-align:center;font-size:12px;color:#EFE8DC;z-index:2}
+.hzEnd{position:absolute;left:0;right:0;top:calc(var(--zt) - 22px);z-index:2;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 32px;padding:0 16px;text-align:center}
+@media (max-width:1100px){.hzEnd{flex-direction:column;top:calc(var(--zt) - 52px)}}
+.hsub{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-0.01em;font-size:clamp(24px,2.6vw,38px);line-height:1.05;color:#EFE8DC;margin:0}
+.hcta{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-variant-caps:all-small-caps;letter-spacing:0.16em;font-weight:600;font-size:13px;color:#EFE8DC;border-bottom:1px solid #EFE8DC}
+.hcta:hover{color:#EFE8DC}
+/* TWO ERAS · desktop: driven by scroll over the first 300px (hero scrolls normally, never pinned).
+   --p (0→1) is set by a rAF-throttled scroll listener only where animation-timeline is unsupported; where it is supported, scroll-timeline animations below take over. */
+.hzVintage{opacity:calc(1 - var(--p))}
+.n99{opacity:max(calc(1 - 1.25 * var(--p)), calc(0.8333 - 0.8333 * var(--p)))}
+.m1{opacity:clamp(0, calc((0.7 - var(--p)) / 0.3), 1)}
+.m2{opacity:clamp(0, calc((var(--p) - 0.7) / 0.3), 1)}
+.hzEnd{opacity:clamp(0, calc((var(--p) - 0.6) / 0.4), 1)}
+@keyframes eraOut{from{opacity:1}to{opacity:0}}
+@keyframes numOut{0%{opacity:1}40%{opacity:0.5}100%{opacity:0}}
+@keyframes metaOut{0%,40%{opacity:1}70%,100%{opacity:0}}
+@keyframes metaIn{0%,70%{opacity:0}100%{opacity:1}}
+@keyframes endIn{0%,60%{opacity:0}100%{opacity:1}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@supports (animation-timeline: scroll()){
+@media (min-width:769px) and (prefers-reduced-motion:no-preference){
+.hzVintage{animation:eraOut linear both;animation-timeline:scroll(root block);animation-range:0px 300px}
+.n99{animation:numOut linear both;animation-timeline:scroll(root block);animation-range:0px 300px}
+.m1{animation:metaOut linear both;animation-timeline:scroll(root block);animation-range:0px 300px}
+.m2{animation:metaIn linear both;animation-timeline:scroll(root block);animation-range:0px 300px}
+.hzEnd{animation:endIn linear both;animation-timeline:scroll(root block);animation-range:0px 300px}
+}
+}
+/* reduced motion (desktop): today, immediately. Mobile is static either way. */
+@media (min-width:769px) and (prefers-reduced-motion:reduce){
+.hzVintage,.n99,.m1{opacity:0 !important;animation:none !important}
+.m2,.hzEnd,.hzAfter > *{opacity:1 !important;animation:none !important}
+}
+.tile h4{font-size:clamp(30px,2.8vw,40px) !important}
+@media (max-width:720px){.wrap{padding-left:16px;padding-right:16px}.hide-sm{display:none}.storytext{padding:56px 16px !important}}
+/* ≤768: no text on the photo. Order: metadata → "1999" (straddling) → photo → subhead + CTA on the cream below.
+   Number at 58vw: ink ≈1.13× the viewport, so the "1" and last "9" are cut at every phone width. Photo band height formula unchanged. */
+.hzAfter{display:none}
+@media (max-width:768px){
+.hz{--n:58vw;--zt:calc(var(--n) * 0.4165 + 74px);--zb:calc(var(--n) * 0.4285 + 168px)}
+.hzMeta{top:28px}
+.hzEnd{display:none}
+.hzAfter{position:relative;z-index:1;background:#EFE8DC;display:flex;flex-direction:column;align-items:center;gap:6px;padding:28px 16px 36px;text-align:center}
+.hzAfter .hsub{color:#111111}
+.hzAfter .hcta,.hzAfter .hcta:hover{color:#111111;border-bottom-color:#111111}
+}
+/* TWO ERAS · ≤768: TIMED, never scroll-driven (no scroll listener, no animation-timeline).
+   0–2.5s hold on 1999 (print on top, "1999" bridging the line) → 2.5–4.0s print + "1999" dissolve into today → 4.0–4.5s subhead + CTA fade in.
+   58vw: the numerals' ink is ≈1.13× the viewport, so the "1" and last "9" are cut at every phone width. "SINCE 1999" stays; the DEUCE&CO line is desktop-only. */
+@media (max-width:768px){
+.m2{display:none}
+.m1{opacity:1}
+}
+@media (max-width:768px) and (prefers-reduced-motion:no-preference){
+.hzVintage{animation:eraOut 1500ms ease-in-out 2500ms both}
+.n99{animation:fadeOut 1500ms ease-in-out 2500ms both}
+.hzAfter > *{animation:fadeIn 500ms ease-out 4000ms both}
+}
+/* ≤768 + reduced motion: the final frame, no animation */
+@media (max-width:768px) and (prefers-reduced-motion:reduce){
+.hzVintage,.n99{opacity:0 !important;animation:none !important}
+.hzAfter > *{opacity:1 !important;animation:none !important}
+}
+/* HEADER · wordmark + three teasers. Sweep: a solid block wipes in from the left, 300ms; the current page's item stays filled. */
+.hdrIn{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px 32px;padding-top:12px;padding-bottom:12px}
+.brand{text-decoration:none;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;color:inherit;justify-self:start}
+.brand:hover{color:inherit}
+.tzs{display:flex;gap:36px}
+.tz{position:relative;isolation:isolate;display:flex;flex-direction:column;gap:4px;padding:10px 14px;text-decoration:none;color:inherit}
+.tz:hover{color:inherit}
+.tz::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sweep);transform:scaleX(0);transform-origin:left center;transition:transform 300ms cubic-bezier(0.16,1,0.3,1)}
+.tz:hover::before,.tz:focus-visible::before,.tz.on::before{transform:scaleX(1)}
+.tzL{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:0.06em;line-height:1;transition:color 300ms cubic-bezier(0.16,1,0.3,1)}
+.tzS{font-family:Inter,sans-serif;font-variant-caps:all-small-caps;font-weight:600;font-size:11px;letter-spacing:0.14em;line-height:1.1;color:var(--sub);transition:color 300ms cubic-bezier(0.16,1,0.3,1)}
+.tz:hover .tzL,.tz:focus-visible .tzL,.tz.on .tzL{color:var(--onfg)}
+.tz:hover .tzS,.tz:focus-visible .tzS,.tz.on .tzS{color:var(--onsub)}
+.tz:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.tz::before,.tzL,.tzS{transition:none}}
+@media (max-width:1180px){.hdrIn{grid-template-columns:auto minmax(0,1fr)}.tzs{justify-self:end}.hdrEnd{display:none}}
+@media (max-width:760px){.hdrIn{grid-template-columns:minmax(0,1fr)}.tzs{justify-self:stretch;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 -8px}.tz{padding:8px}.tzL{font-size:15px;letter-spacing:0.04em}.tzS{font-size:9px;letter-spacing:0.1em}}
+/* BRAND · crest left of a two-line block: wordmark, then location beneath, both on the same left edge. */
+.brand{display:flex;align-items:center;gap:14px;flex-wrap:nowrap}
+.brandCr{display:block;flex:0 0 auto}
+.brandTx{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.brandTx .d{line-height:0.92}
+.brandTx .m{line-height:1}
+@media (max-width:760px){.brand{gap:12px}.brandCr{width:40px;height:40px}}
+/* RENT THE GEAR DROPDOWN · opens on hover (desktop) / tap / keyboard. Appears instantly: no fade, slide or scale. */
+header,.pg > header:not(.pgbg){position:relative;z-index:50}
+.tzDD{position:relative;display:flex}
+.tzP .tzL{display:flex;align-items:center;gap:6px}
+.tzChev{display:block;flex:0 0 auto;width:12px;height:12px;transition:transform 200ms cubic-bezier(0.16,1,0.3,1)}
+.tzDD.open .tzChev{transform:rotate(180deg)}
+.tzMenu{display:none;position:absolute;left:0;top:100%;min-width:max(100%,236px);box-sizing:border-box;background:#EFE8DC;border:1px solid #111111;z-index:60}
+.tzDD.open .tzMenu{display:block}
+.tzMi{display:block;padding:16px 18px 16px 16px;border-left:2px solid transparent;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:0.08em;line-height:1;text-align:left;color:#111111;text-decoration:none}
+.tzMi + .tzMi{border-top:1px solid #111111}
+.tzMi:hover,.tzMi:focus-visible{background:rgba(17,17,17,0.06);color:#111111}
+.tzMi:focus-visible{outline:2px solid #111111;outline-offset:-4px}
+.tzMi.on{border-left-color:#111111}
+.hbg{display:none}
+@media (hover:none){.tz:not(.on):hover::before{transform:scaleX(0)}.tz:not(.on):hover .tzL{color:inherit}.tz:not(.on):hover .tzS{color:var(--sub)}}
+@media (hover:hover) and (min-width:761px){.tzDD:hover .tzMenu{display:block}.tzDD:hover .tzChev{transform:rotate(180deg)}}
+@media (prefers-reduced-motion:reduce){.tzChev{transition:none}}
+/* MOBILE · hamburger. The three items stack in a panel under the header row; RENT THE GEAR expands on tap. */
+@media (max-width:760px){
+.hdrIn{grid-template-columns:minmax(0,1fr) auto}
+.hbg{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;padding:0;background:none;border:0;color:inherit;cursor:pointer}
+.hbg:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+.hbg .x{display:none}
+header.mOpen .hbg .x{display:block}
+header.mOpen .hbg .b{display:none}
+header .tzs{display:none;grid-column:1/-1;justify-self:stretch;flex-direction:column;margin:0 -16px;gap:0}
+header.mOpen .tzs{display:flex}
+header .tzs > .tz,header .tzDD{border-top:1px solid color-mix(in srgb,currentColor 30%,transparent)}
+header .tzDD{flex-direction:column}
+header .tzs .tz{padding:14px 16px;gap:5px}
+header .tzs .tzL{font-size:20px;letter-spacing:0.05em}
+header .tzs .tzS{font-size:11px;letter-spacing:0.14em}
+header .tzP .tzL{justify-content:flex-start}
+header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
+}
+/* FOOTER · four rows: lockup, contact, the club, copyright */
+.ftIn{max-width:1440px;margin:0 auto;padding:64px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px}
+.ftBrand{display:inline-flex;align-items:center;gap:16px;text-decoration:none;color:#EFE8DC;align-self:flex-start}
+.ftBrand:hover{color:#EFE8DC}
+.ftBrand svg{display:block;flex:0 0 auto}
+.ftCols{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:32px 96px}
+.ftLab{color:rgba(239,232,220,0.6);font-size:13px}
+.ftTxt{margin:8px 0 0;font-family:Inter,sans-serif;font-size:16px;line-height:1.5;color:#EFE8DC}
+.ftTxt a{color:#EFE8DC;text-decoration:none}
+.ftTxt a.ftLink{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.ftTxt a:hover{color:#EFE8DC;text-decoration:underline;text-underline-offset:4px}
+.ftBase{border-top:1px solid rgba(239,232,220,0.2);padding-top:20px}
+@media (max-width:768px){.ftIn{padding:40px 24px;gap:32px}.ftCols{grid-template-columns:minmax(0,1fr)}}
+/* HOMEPAGE HEADER · crest + wordmark + location on row 1, seven plain labels on row 2; active = 2px ink underline.
+   Kept to 93px at desktop so header + hero fit 1440×900. */
+.hHomeIn{display:flex;flex-direction:column;gap:4px;padding-top:10px;padding-bottom:4px}
+.hRow1{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hBrand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#111111}
+.hBrand:hover{color:#111111}
+.hBrand svg{display:block;flex:0 0 auto}
+.hRow1 .m{align-self:center;padding-top:4px}
+.hNavRow{display:flex;flex-wrap:wrap;gap:0 26px}
+.hNav{font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px;text-decoration:none;color:#111111;padding:8px 0 6px;border-bottom:2px solid transparent;line-height:1.2}
+.hNav:hover{color:#111111;border-bottom-color:rgba(17,17,17,0.35)}
+.hNav.on{border-bottom-color:#111111}
+.hNav:focus-visible{outline:2px solid #111111;outline-offset:2px}
+@media (max-width:760px){.hNavRow{gap:0 18px}.hNav{font-size:14px;padding:7px 0 5px}}
 </style>
 </helmet>
+<div class="pg" data-ground="{{ground}}" style="min-height:100vh">
+<div class="pgbg" aria-hidden="true"></div>
 
-<div class="mc-b" style="background:#EFE8DC;color:#141414">
-
-<header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #141414">
-<span class="mc-d" style="font-size:22px">DEUCE&amp;CO.PH</span>
-<span class="mc-meta" style="font-size:11px">BIÑAN · LAGUNA, PH</span>
+<header style="background:#EFE8DC;color:#111111;border-bottom:1px solid #111111;--sub:#C25B33;--sweep:#1F4A3D;--onfg:#EFE8DC;--onsub:#EFE8DC">
+<div class="wrap hdrIn">
+<a class="brand" href="index.html" aria-label="Deuce&amp;Co.PH, home"><svg class="brandCr" aria-hidden="true" focusable="false" viewBox="0 0 120 120" width="44" height="44" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M60.4 3.6C74.8 18.1 88.9 31.8 116.2 59.6" stroke-width="3.1"></path> <path d="M116.4 60.3C101.6 75.2 87.3 89.6 60.2 116.3" stroke-width="2.7"></path> <path d="M59.7 116.5C45.1 101.8 30.6 87.6 3.7 60.6" stroke-width="3.2"></path> <path d="M3.5 59.9C18.4 44.7 32.9 30.2 61.3 3.1" stroke-width="2.8"></path> <text x="60" y="36" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="700" font-size="14" letter-spacing="0.4">D&amp;C</text> <g transform="translate(60 66) rotate(-34)"> <path d="M0.3 -35.2C6.6 -35.0 9.8 -28.6 9.6 -22.4C9.3 -15.8 5.6 -10.6 0.2 -10.4C-5.6 -10.3 -9.5 -16.2 -9.4 -22.9C-9.2 -29.6 -5.2 -35.4 0.9 -35.1" stroke-width="2.2"></path> <path d="M-3.4 -33.1C-3.6 -26 -3.3 -18.6 -3.2 -12.3M3.6 -33.0C3.8 -26 3.4 -18.5 3.3 -12.2M-8.4 -27.4C-3 -27.7 3 -27.3 8.6 -27.6M-8.9 -20.3C-3 -20.1 3 -20.5 9.1 -20.2M-7.2 -14.6C-2.5 -14.8 2.5 -14.4 7.0 -14.7" stroke-width="1.3"></path> <path d="M-3.3 -10.8C-1.8 -7 -0.9 -4.6 -0.8 -1.4M3.4 -10.7C1.9 -7.1 0.9 -4.4 0.9 -1.3M-0.9 -1.2C-1.1 6 -0.8 13.4 -1.0 21.6M1.0 -1.2C1.2 6.2 0.9 13.6 1.1 21.5" stroke-width="2.1"></path> </g> <g transform="translate(60 66) rotate(34)"> <path d="M-0.4 -35.0C-6.4 -35.3 -9.7 -28.9 -9.5 -22.6C-9.4 -15.9 -5.4 -10.5 0.1 -10.5C5.8 -10.4 9.6 -16.4 9.5 -23.1C9.3 -29.8 5.4 -35.5 -1.0 -35.0" stroke-width="2.3"></path> <path d="M-3.5 -32.9C-3.3 -26 -3.6 -18.7 -3.4 -12.4M3.5 -33.2C3.3 -26.1 3.7 -18.6 3.4 -12.3M-8.6 -27.5C-3 -27.3 3 -27.7 8.4 -27.4M-9.0 -20.4C-3 -20.6 3 -20.2 9.0 -20.4M-7.1 -14.5C-2.5 -14.3 2.5 -14.7 7.2 -14.5" stroke-width="1.3"></path> <path d="M-3.4 -10.9C-1.9 -7.2 -1.0 -4.5 -0.9 -1.3M3.3 -10.8C1.8 -7.0 1.0 -4.6 0.8 -1.4M-1.0 -1.3C-0.8 6.1 -1.1 13.5 -0.9 21.4M0.9 -1.3C1.1 6.0 0.8 13.5 1.0 21.7" stroke-width="2.0"></path> </g> <text x="60" y="101" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="600" font-size="11" letter-spacing="0.8">2026</text> </svg><span class="brandTx"><span class="d" style="font-size:28px;letter-spacing:0.01em">DEUCE&amp;CO.PH</span><span class="m" style="font-size:13px">BIÑAN · LAGUNA, PH</span></span></a>
+<button class="hbg" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Menu"><svg class="b" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"></path></svg><svg class="x" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2"></path></svg></button>
+<nav aria-label="Main" class="tzs" id="siteNav">
+<div class="tzDD"><a class="tz tzP on" href="rent-the-gear.html" aria-haspopup="true" aria-expanded="false" aria-controls="rtgMenu"><span class="tzL">RENT THE GEAR<svg class="tzChev" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 4.25 6 8.25 10 4.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"></path></svg></span><span class="tzS">Frames, balls, courts.</span></a><div class="tzMenu" id="rtgMenu" role="menu" aria-label="Rent the gear"><a class="tzMi" role="menuitem" href="rackets.html">RACKETS</a><a class="tzMi" role="menuitem" href="gear.html">GEAR</a><a class="tzMi" role="menuitem" href="barkada-bundle.html">BARKADA BUNDLE</a></div></div>
+<a class="tz" href="coaching.html"><span class="tzL">COACHING</span><span class="tzS">Learn from a coach</span></a>
+<a class="tz" href="our-story.html"><span class="tzL">OUR STORY</span><span class="tzS">Since 1999</span></a>
+</nav>
+<span class="hdrEnd" aria-hidden="true"></span>
+</div>
 </header>
 
-<section style="position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden">
-<img src="img/mc-grip-ball.jpg" alt="Grip and racket detail courtside" style="{{ hs0 }}" />
-<img src="img/mc-hero-g.jpg" alt="Rackets raised at dusk" style="{{ hs1 }}" />
-<img src="img/mc-hero-a.jpg" alt="Racket circle at South City Homes" style="{{ hs2 }}" />
-<img src="img/mc-hero-f.jpg" alt="Playful dive for the ball, night session" style="{{ hs3 }}" />
-<img src="img/mc-hero-e.jpg" alt="Barkada at the net, night session" style="{{ hs4 }}" />
-<span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0) 0%,rgba(20,20,20,0) 58%,rgba(20,20,20,.88) 100%)"></span>
-<div style="position:relative;z-index:1;padding:0 24px 48px;max-width:980px">
-<span class="mc-meta" style="display:block;font-size:11px;color:#C8E85C;margin-bottom:10px">RENT · RALLY · RETURN</span>
-<h1 class="mc-d mc-hero-h" style="margin:0;color:#EFE8DC;font-size:clamp(34px,6.4vw,84px);line-height:.98">TENNIS FOR PEOPLE<br/>WHO JUST WANT<br/>TO PLAY.</h1>
-<p style="margin:12px 0 0;font-size:clamp(14px,1.6vw,17px);color:#EFE8DC;opacity:.9">Courtside racket rentals in Biñan. No membership, no equipment to buy — just show up.</p>
-<div style="margin-top:20px">
-<a href="#rent" class="mc-d" style="display:inline-block;padding:15px 26px;background:#C25B33;color:#EFE8DC;font-size:15px;text-decoration:none">START YOUR RENTAL →</a>
-<div style="margin-top:12px"><a href="#gear" class="mc-meta" style="font-size:10.5px;color:#EFE8DC;opacity:.85;text-decoration:none">SEE THE FULL RACKET LIST →</a></div>
+<!-- MODULE 1 · THE INVITATION -->
+<section class="hz" data-bg="#EFE8DC" style="--p:{{p}}" aria-label="Tennis for people who just want to play">
+<!-- era 2 · today: the night-court photo, full bleed behind both zones (one continuous image in the end state) -->
+<div class="hzBase">
+<img class="hzImg" src="assets/93e0839642f82de60a0a8ed86d928bcf.jpg" alt="A group of players at the net at South City Homes raising their rackets together, a kid in front beside a basket of balls, the floodlight pole behind them">
+<div class="hzTint"></div>
+<div class="hzScrim"></div>
+</div>
+<!-- zone 1 · era 1 · 1999: the Sikap photo dissolves away to reveal today underneath -->
+<div class="hzTop">
+<div class="hzVintage">
+<img class="hzTopImg" src="assets/b6b3c703b486e4ae66c96b233682fdf0.jpg" alt="Sikap Tennis Cup, 1999: a young player mid-forehand, trophy at the edge of the frame">
+</div>
+<div class="hzNumW"><div class="n99 n99ink" aria-hidden="true">1999</div></div>
+</div>
+<!-- zone 2 · today, with the off-white half of "1999" -->
+<div class="hzBot">
+<div class="n99 n99paper" aria-hidden="true">1999</div>
+</div>
+<div class="hzMetaW"><span class="m hzMeta m1">SINCE 1999 · BIÑAN, LAGUNA</span>
+<span class="m hzMeta m2">DEUCE&amp;CO.PH · BIÑAN, LAGUNA</span></div>
+<!-- end state (desktop): where the number was -->
+<div class="hzEnd">
+<h1 class="hsub">TENNIS FOR PEOPLE WHO JUST WANT TO PLAY</h1>
+<a class="hcta" href="rent-the-gear.html">START YOUR RENTAL →</a>
+</div>
+<!-- end state (≤768): on the cream below the photo, so no text sits on the floodlight -->
+<div class="hzAfter">
+<h1 class="hsub">TENNIS FOR PEOPLE WHO JUST WANT TO PLAY</h1>
+<a class="hcta" href="rent-the-gear.html">START YOUR RENTAL →</a>
+</div>
+</section>
+
+<!-- MODULE 2 · THE GEAR -->
+<!-- 2a · spread opener: photo left (uncropped 2:3), court-green type column right -->
+<section aria-label="Rent the gear" class="bf {{bfFx}}" data-bg="#1F4A3D">
+<figure class="bfPh"><img src="assets/42f0c757b36090677c13bc13d872ce67.jpg" alt="One arm in a lime sweatband holding fifteen rental rackets by their grips, the frames fanned out on a weathered ledge beside the court" loading="lazy"></figure>
+<div class="bfCol">
+<span class="m">RENT THE GEAR</span>
+<div>
+<h2 class="d bfH">BORROW FIRST.<br>BUY LATER.<br>MAYBE NEVER.</h2>
+<p class="bfP">Twenty-one frames, three levels. Try the game before you commit to a racket.</p>
+</div>
+<span class="m">DEUCE&amp;CO.PH</span>
+</div>
+</section>
+
+<!-- 2b · by level -->
+<section aria-label="By level" class="cs bl {{blFx}}" data-bg="#EFE8DC" style="position:relative;overflow:hidden;padding:96px 0 104px">
+<div aria-hidden="true" class="blwm">BY LEVEL</div>
+<div class="wrap" style="position:relative;z-index:1">
+<div class="blHead" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-bottom:18px">
+<h3 class="d" style="font-size:56px">BY LEVEL</h3>
+<span class="m">RENT THE GEAR · BIÑAN, LAGUNA</span>
+</div>
+<div class="tiles" style="border-top:1px solid currentColor;border-bottom:1px solid currentColor">
+
+<article class="tile">
+<div class="well" style="background:{{w1}}">
+<div class="balls b1x" role="img" aria-label="One tennis ball"><span class="bb b1"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50" fill="{{c1}}"></circle><path d="M4 23 C 20 13, 34 17, 44 33 C 54 49, 70 56, 84 50 C 92 46, 97 40, 102 33" fill="none" stroke="{{s1}}" stroke-width="4.6"></path><path d="M33 103 C 43 85, 57 74, 71 73.5 C 82 73, 89 78, 96 86" fill="none" stroke="{{s1}}" stroke-width="4.6"></path></svg></span></div>
+</div>
+<div class="tbody">
+<span class="m">LEVEL 01</span>
+<h4 class="d" style="font-size:52px;margin-top:10px">BEGINNER</h4>
+<p style="margin-top:14px;font-size:16px;font-weight:600">₱180 / day · 7 frames</p>
+<p style="margin-top:6px;font-size:16px;line-height:1.5">Easy to start with.</p>
+<a class="link tGo" href="rackets.html#beginner">SEE BEGINNER RACKETS →</a>
+</div>
+</article>
+
+<article class="tile">
+<div class="well" style="background:{{w2}}">
+<div class="balls b2x" role="img" aria-label="Two tennis balls on a diagonal"><span class="bb b1"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50" fill="{{c2}}"></circle><path d="M4 23 C 20 13, 34 17, 44 33 C 54 49, 70 56, 84 50 C 92 46, 97 40, 102 33" fill="none" stroke="{{s2}}" stroke-width="4.6"></path><path d="M33 103 C 43 85, 57 74, 71 73.5 C 82 73, 89 78, 96 86" fill="none" stroke="{{s2}}" stroke-width="4.6"></path></svg></span><span class="bb b2"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50" fill="{{c2}}"></circle><path d="M4 23 C 20 13, 34 17, 44 33 C 54 49, 70 56, 84 50 C 92 46, 97 40, 102 33" fill="none" stroke="{{s2}}" stroke-width="4.6"></path><path d="M33 103 C 43 85, 57 74, 71 73.5 C 82 73, 89 78, 96 86" fill="none" stroke="{{s2}}" stroke-width="4.6"></path></svg></span></div>
+</div>
+<div class="tbody">
+<span class="m">LEVEL 02</span>
+<h4 class="d" style="font-size:52px;margin-top:10px">INTERMEDIATE</h4>
+<p style="margin-top:14px;font-size:16px;font-weight:600">₱200 / day · 8 frames</p>
+<p style="margin-top:6px;font-size:16px;line-height:1.5">For rallying with confidence.</p>
+<a class="link tGo" href="rackets.html#intermediate">SEE INTERMEDIATE RACKETS →</a>
+</div>
+</article>
+
+<article class="tile">
+<div class="well" style="background:{{w3}}">
+<div class="balls b3x" role="img" aria-label="Three tennis balls in a tight triangle"><span class="bb b1"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50" fill="{{c3}}"></circle><path d="M4 23 C 20 13, 34 17, 44 33 C 54 49, 70 56, 84 50 C 92 46, 97 40, 102 33" fill="none" stroke="{{s3}}" stroke-width="4.6"></path><path d="M33 103 C 43 85, 57 74, 71 73.5 C 82 73, 89 78, 96 86" fill="none" stroke="{{s3}}" stroke-width="4.6"></path></svg></span><span class="bb b2"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50" fill="{{c3}}"></circle><path d="M4 23 C 20 13, 34 17, 44 33 C 54 49, 70 56, 84 50 C 92 46, 97 40, 102 33" fill="none" stroke="{{s3}}" stroke-width="4.6"></path><path d="M33 103 C 43 85, 57 74, 71 73.5 C 82 73, 89 78, 96 86" fill="none" stroke="{{s3}}" stroke-width="4.6"></path></svg></span><span class="bb b3"><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50" fill="{{c3}}"></circle><path d="M4 23 C 20 13, 34 17, 44 33 C 54 49, 70 56, 84 50 C 92 46, 97 40, 102 33" fill="none" stroke="{{s3}}" stroke-width="4.6"></path><path d="M33 103 C 43 85, 57 74, 71 73.5 C 82 73, 89 78, 96 86" fill="none" stroke="{{s3}}" stroke-width="4.6"></path></svg></span></div>
+</div>
+<div class="tbody">
+<span class="m">LEVEL 03</span>
+<h4 class="d" style="font-size:52px;margin-top:10px">ADVANCED</h4>
+<p style="margin-top:14px;font-size:16px;font-weight:600">₱240 / day · 6 frames</p>
+<p style="margin-top:6px;font-size:16px;line-height:1.5">Performance-oriented frames.</p>
+<a class="link tGo" href="rackets.html#advanced">SEE ADVANCED RACKETS →</a>
+</div>
+</article>
+
+</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;margin-top:20px">
+<span class="m" style="font-size:13px">PLAYING AS A GROUP OF 4 OR 6? BEGINNER RACKETS, ₱150 EACH.</span>
+<a class="link" href="barkada-bundle.html">BARKADA BUNDLE →</a>
 </div>
 </div>
 </section>
 
-<section id="rent" style="padding:60px 24px 10px;max-width:1180px;margin:0 auto">
-<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px">
-<h2 class="mc-d" style="margin:0;font-size:clamp(26px,3.6vw,42px)">RENT. RALLY. REPEAT.</h2>
-<span class="mc-meta" style="font-size:11px;color:#2F5D3A">EVERY RENTAL IS CONFIRMED BY DM</span>
+<!-- 2c · what's included -->
+<section aria-label="What's included" class="fxCase {{caseFx}}" data-bg="#C25B33" style="background:#C25B33;color:#111111;padding:88px 0 96px">
+<div class="wrap">
+<span class="m">WHAT’S INCLUDED</span>
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 48px;margin-top:20px">
+<h3 class="d fxCaseH" style="font-size:clamp(84px,15vw,236px);color:#EFE8DC;line-height:0.84">1 CASE<br>+ 5 BALLS.</h3>
+<div class="fxCaseP" style="max-width:300px;padding-bottom:12px;border-top:1px solid #111111;padding-top:18px">
+<p style="font-size:20px;line-height:1.45">Every rental includes a case and five balls.</p>
+<span class="m" style="display:block;margin-top:14px">NOTHING ELSE TO BRING →</span>
 </div>
-
-<div class="mc-rent-grid" style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #141414">
-<sc-for list="{{ rentSteps }}" as="st" hint-placeholder-count="4">
-<div style="padding:22px;border-right:2px solid #141414;background:{{ st.bg2 }};color:{{ st.fg }}">
-<span class="mc-meta" style="font-size:11px;opacity:.75">{{ st.n }}</span>
-<span class="mc-d" style="display:block;font-size:19px;margin-top:12px;line-height:1.15">{{ st.label }}</span>
-<span class="mc-b" style="display:block;font-size:12.5px;margin-top:8px;line-height:1.5;opacity:.85">{{ st.sub }}</span>
 </div>
-</sc-for>
 </div>
-
-<a href="#gear" class="mc-d" style="display:block;text-align:center;margin-top:2px;padding:18px;background:#C25B33;color:#EFE8DC;font-size:16px;text-decoration:none">SEE THE FULL RACKET LIST →</a>
 </section>
 
-<section id="gear" style="max-width:1180px;margin:0 auto;padding:64px 24px 10px">
-<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px">
-<h2 class="mc-d" style="margin:0;font-size:clamp(28px,3.8vw,46px)">RENT THE GEAR.</h2>
-<span class="mc-meta" style="font-size:11px;color:#C25B33">16 FRAMES · 3 LEVELS · BALLS BY THE SET</span>
+<!-- 2d · how to rent -->
+<section aria-label="How to rent" class="cs fxHow {{howFx}}" data-bg="#EFE8DC" style="padding:72px 0 88px">
+<div class="wrap">
+<div class="fxHead" style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;border-bottom:1px solid currentColor;padding-bottom:18px">
+<h3 class="d" style="font-size:44px">HOW TO RENT</h3>
+<span class="m">NO MEMBERSHIP · NO FORMS</span>
 </div>
-<p class="mc-b" style="margin:0 0 20px;font-size:13px;color:#555">Every racket rental includes a case and 5 balls.</p>
-<p class="mc-meta" style="margin:0 0 28px;font-size:9.5px;color:#141414">FREE PICKUP AT SOUTH CITY HOMES · DELIVERY AROUND BIÑAN QUOTED BY DM</p>
-
-<div class="mc-tgrid" style="display:grid;grid-template-columns:1.05fr .95fr .95fr 1.15fr;grid-template-rows:56px;border:2px solid #141414;border-bottom:none">
-<a href="index.html#gear" class="mc-d" style="grid-column:1/3;display:flex;align-items:center;padding:0 16px;font-size:16px;color:#141414;text-decoration:none;border-right:2px solid #141414">DEUCE&amp;CO.PH</a>
-<div style="grid-column:3/5;display:flex;align-items:center;gap:16px;padding:0 16px">
-<a href="rent-the-gear.html#terms" class="mc-meta" style="font-size:11px;color:#141414;text-decoration:none">RENTAL TERMS</a>
+<ol class="steps" style="list-style:none;margin:0;padding:0;border-bottom:1px solid currentColor">
+<li class="step"><span class="m acc">01</span><div class="d" style="font-size:34px;margin-top:12px">PICK YOUR DATE</div></li>
+<li class="step"><span class="m acc">02</span><div class="d" style="font-size:34px;margin-top:12px">CONFIRM ON DM</div></li>
+<li class="step"><span class="m acc">03</span><div class="d" style="font-size:34px;margin-top:12px">PICK UP &amp; PLAY</div></li>
+<li class="step"><span class="m acc">04</span><div class="d" style="font-size:34px;margin-top:12px">RETURN</div></li>
+</ol>
+<div class="fxTail" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;margin-top:28px">
+<p style="font-size:17px;line-height:1.5;max-width:46ch">Pickup at South City Homes. ₱200 refundable deposit for rentals of 2+ days.</p>
+<a class="cta ctaInv" href="rent-the-gear.html">START YOUR RENTAL →</a>
 </div>
 </div>
-
-<div class="mc-tgrid" style="display:grid;grid-template-columns:1.05fr .95fr .95fr 1.15fr;grid-template-rows:1fr 1fr;aspect-ratio:78/34;border:2px solid #141414;border-top:none;border-bottom:none">
-
-<a href="rackets.html" style="grid-column:1;grid-row:1 / span 2;position:relative;overflow:hidden;text-decoration:none;color:#EFE8DC;border-right:2px solid #141414;display:flex;flex-direction:column;justify-content:space-between;padding:16px">
-<img src="img/mc-racket-stack.jpg" alt="Stack of rental rackets held by hand" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:20% 40%" />
-<span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.55) 0%,rgba(20,20,20,.15) 45%,rgba(20,20,20,.75) 100%)"></span>
-<span class="mc-meta" style="position:relative;font-size:8px;color:#C8E85C">SEE FULL LIST →</span>
-<span class="mc-d" style="position:relative;font-size:clamp(18px,2vw,24px);line-height:1.05"><span style="display:block">RENT.</span><span style="display:block">RALLY.</span><span style="display:block">REPEAT.</span></span>
-</a>
-
-<a href="rackets.html?level=beginner" style="grid-column:2;grid-row:1;position:relative;overflow:hidden;background:#333;padding:14px;display:flex;flex-direction:column;text-decoration:none;color:#EFE8DC;border-right:2px solid #141414;border-bottom:2px solid #141414">
-<img src="img/mc-prince-green.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.62) 0%,rgba(20,20,20,.35) 40%,rgba(20,20,20,.82) 100%)"></span>
-<span class="mc-meta" style="position:relative;font-size:9px;color:#C8E85C">LEVEL 01</span>
-<span class="mc-d" style="position:relative;display:block;font-size:16px;margin-top:6px">BEGINNER</span>
-<span class="mc-b" style="position:relative;display:block;font-size:9.5px;margin-top:5px;opacity:1;text-shadow:0 1px 3px rgba(0,0,0,.6)">₱180 / day · 4 frames</span>
-<span class="mc-d" style="position:relative;margin-top:auto;font-size:9px">SEE FRAMES →</span>
-</a>
-
-<a href="rackets.html?level=intermediate" style="grid-column:3;grid-row:1;background:#C25B33;padding:14px;display:flex;flex-direction:column;text-decoration:none;color:#EFE8DC;border-right:2px solid #141414;border-bottom:2px solid #141414">
-<span class="mc-meta" style="font-size:9px;color:#EFE8DC">LEVEL 02</span>
-<span class="mc-d" style="display:block;font-size:16px;margin-top:6px">INTERMEDIATE</span>
-<span class="mc-b" style="display:block;font-size:9.5px;margin-top:5px;opacity:.85">₱200 / day · 6 frames</span>
-<span class="mc-d" style="margin-top:auto;font-size:9px">SEE FRAMES →</span>
-</a>
-
-<a href="rackets.html?level=advanced" style="grid-column:2;grid-row:2;background:#2F5D3A;padding:14px;display:flex;flex-direction:column;text-decoration:none;color:#EFE8DC;border-right:2px solid #141414">
-<span class="mc-meta" style="font-size:9px;color:#C8E85C">LEVEL 03</span>
-<span class="mc-d" style="display:block;font-size:16px;margin-top:6px">ADVANCED</span>
-<span class="mc-b" style="display:block;font-size:9.5px;margin-top:5px;opacity:.85">₱240 / day · 6 frames</span>
-<span class="mc-d" style="margin-top:auto;font-size:9px">SEE FRAMES →</span>
-</a>
-
-<a href="barkada-bundle.html" style="grid-column:3;grid-row:2;position:relative;overflow:hidden;background:#333;text-decoration:none;display:block;border-right:2px solid #141414">
-<img src="img/mc-ball-tube.jpg" alt="Tennis ball tube at the net" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.5) 0%,transparent 40%,rgba(20,20,20,.68) 100%)"></span>
-<span class="mc-meta" style="position:absolute;top:8px;left:8px;font-size:8px;color:#EFE8DC">BARKADA BUNDLE PROMO</span>
-<span class="mc-meta" style="position:absolute;right:8px;bottom:8px;font-size:8px;color:#EFE8DC">SEE PROMO →</span>
-</a>
-
-<a href="gear.html" style="grid-column:4;grid-row:1 / span 2;position:relative;overflow:hidden;background:#333;text-decoration:none;display:block">
-<img src="img/mc-girl-basket.jpg" alt="Player with tennis ball basket at night" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.45) 0%,transparent 28%,transparent 62%,rgba(20,20,20,.72) 100%)"></span>
-<span class="mc-meta" style="position:absolute;top:10px;left:10px;font-size:8px;color:#EFE8DC">GEAR &amp; EQUIPMENT</span>
-<span class="mc-meta" style="position:absolute;right:10px;bottom:10px;font-size:8px;color:#EFE8DC">SEE ALL →</span>
-</a>
-
-</div>
-
-<div class="mc-tgrid mc-footnote-strip" style="display:grid;grid-template-columns:1.05fr .95fr .95fr 1.15fr;grid-template-rows:42px;border:2px solid #141414;border-top:none">
-<a href="rackets.html?level=beginner" class="mc-d" style="grid-column:1/2;display:flex;align-items:center;padding:0 12px;font-size:10px;color:#141414;text-decoration:none;border-right:2px solid #141414">BEGINNER · ₱180/DAY →</a>
-<a href="rackets.html?level=intermediate" class="mc-d" style="grid-column:2/4;display:flex;align-items:center;padding:0 12px;font-size:10px;color:#141414;text-decoration:none;border-right:2px solid #141414">INTERMEDIATE · ₱200/DAY →</a>
-<a href="rackets.html?level=advanced" class="mc-d" style="grid-column:4/5;display:flex;align-items:center;padding:0 12px;font-size:10px;color:#141414;text-decoration:none">ADVANCED · ₱240/DAY →</a>
-</div>
-
-<div class="mc-mobile-deposit" style="display:none;border:2px solid #141414;border-top:none;padding:16px 12px">
-<span class="mc-meta" style="font-size:9px;color:#141414">A ₱200 DEPOSIT APPLIES TO RENTALS OF 2 DAYS OR MORE.</span>
-</div>
-
 </section>
 
-<section style="max-width:1180px;margin:0 auto;padding:64px 24px 10px">
-<h2 class="mc-d" style="margin:0;font-size:clamp(24px,3.2vw,38px)">WHERE YOU'LL PLAY</h2>
-<span class="mc-meta" style="display:block;margin-top:6px;font-size:10.5px;color:#2F5D3A">SOUTH CITY HOMES · BIÑAN, LAGUNA</span>
-<p class="mc-b" style="margin:14px 0 20px;font-size:12.5px;color:#141414">Courts at South City Homes. We'll check availability for you — <button type="button" onClick="{{ onInquireCourt }}" style="background:none;border:none;padding:0;font:inherit;color:#C25B33;text-decoration:underline;cursor:pointer">ask in the DM</button>.</p>
-<div class="mc-court-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-<div style="position:relative;min-height:280px;overflow:hidden;{{ indoorPhotoBorder }}">
-<img src="img/mc-scht-serve.jpg" alt="Indoor covered court at South City Homes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span aria-hidden="true" style="position:absolute;top:0;left:0;width:60%;height:50%;background:linear-gradient(135deg,rgba(20,20,20,.5),transparent)"></span>
-<span class="mc-meta" style="position:absolute;top:12px;left:12px;font-size:9px;color:#EFE8DC">INDOOR · COVERED COURT</span>
-<sc-if value="{{ courtView.isIndoor }}" hint-placeholder-val="{{ false }}"><span class="mc-meta" style="position:absolute;top:12px;right:12px;font-size:8px;color:#C25B33;background:#EFE8DC;padding:3px 6px">SELECTED</span></sc-if>
+<!-- MODULE 3 · THE COURTS · where you'll play: outdoor (day) | indoor (night), 50/50, full bleed -->
+<section aria-label="Where you'll play" class="fxCourts {{courtsFx}}" data-bg="#1F4A3D" style="background:#1F4A3D;color:#EFE8DC">
+<div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;padding-top:56px;padding-bottom:20px">
+<h3 class="d" style="font-size:44px">WHERE YOU’LL PLAY</h3>
+<span class="m">SOUTH CITY HOMES · BIÑAN, LAGUNA</span>
 </div>
-<div style="position:relative;min-height:280px;overflow:hidden;{{ outdoorPhotoBorder }}">
-<img src="img/mc-outdoor-court.jpg" alt="Outdoor shell court at South City Homes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span aria-hidden="true" style="position:absolute;top:0;left:0;width:60%;height:50%;background:linear-gradient(135deg,rgba(20,20,20,.5),transparent)"></span>
-<span class="mc-meta" style="position:absolute;top:12px;left:12px;font-size:9px;color:#EFE8DC">OUTDOOR · SHELL COURT</span>
-<sc-if value="{{ courtView.isOutdoor }}" hint-placeholder-val="{{ false }}"><span class="mc-meta" style="position:absolute;top:12px;right:12px;font-size:8px;color:#C25B33;background:#EFE8DC;padding:3px 6px">SELECTED</span></sc-if>
+<div class="courts">
+<a class="court" href="https://www.google.com/maps/place/South+City+Homes+Tennis+Club/@14.320693,121.075985,18.16z/data=!4m6!3m5!1s0x3397d7304e3b6199:0x2c137b7cc63ce1aa!8m2!3d14.3205084!4d121.0776481!16s%2Fg%2F11t3g_7mzl?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Outdoor, South City Homes Tennis Club: view on Google Maps (opens in a new tab)"><img src="assets/ee7b11bb3c419b3a8403ddd56201afb5.jpg" alt="The outdoor court at South City Homes in daylight: the net, a floodlight pole on the left, and the blue wall painted South City Homes Tennis Club under a cloudy sky" style="object-position:22% 60%" loading="lazy"><span class="courtTag"><span class="ctL"><span class="ctK">OUTDOOR</span><span class="ctS"> · </span><span class="ctN">SOUTH CITY HOMES TENNIS CLUB</span></span><span class="courtGo">VIEW MAPS →</span></span></a>
+<a class="court" href="https://www.google.com/maps/place/South+City+Homes+Recreation+Center/@14.3238242,121.06908,17z/data=!4m10!1m2!2m1!1sSouth+City+Homes+recreational+center!3m6!1s0x3397d7f22064cd75:0x10a24f387414439f!8m2!3d14.3238242!4d121.0738436!15sCiRTb3V0aCBDaXR5IEhvbWVzIHJlY3JlYXRpb25hbCBjZW50ZXKSAQ5zcG9ydHNfY29tcGxleOABAA!16s%2Fg%2F11l38pytgs?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Indoor, South City Homes Recreation Center: view on Google Maps (opens in a new tab)"><img src="assets/63e5167771b680f36467867fc848113c.jpg" alt="The indoor clay courts under the roof trusses, two nets, a COURT 1 sign and a large teal tennis ball painted on the back wall" style="object-position:50% 50%" loading="lazy"><span class="courtTag"><span class="ctL"><span class="ctK">INDOOR</span><span class="ctS"> · </span><span class="ctN">SOUTH CITY HOMES RECREATION CENTER</span></span><span class="courtGo">VIEW MAPS →</span></span></a>
 </div>
-</div>
-
+<div id="court-select" class="csel">
+<div class="wrap" style="padding-top:28px;padding-bottom:40px">
+<p style="font-size:19px;line-height:1.45;max-width:56ch">Courts at South City Homes. Select your date and we’ll confirm.</p>
+<p style="font-size:19px;line-height:1.45;max-width:56ch;margin-top:12px">Outside Biñan? Delivery is shouldered by the renter — we’ll <span style="color:#C25B33">quote it in the DM</span>.</p>
+<a class="link" href="#court-select" onClick="{{ tapCta }}" style="margin-top:36px">SELECT YOUR DATE →</a>
 <sc-if value="{{ courtOpen }}" hint-placeholder-val="{{ false }}">
-<div style="border:2px solid #141414;border-top:none;padding:22px 24px;background:#EFE8DC">
-<span class="mc-meta" style="font-size:10px;color:#C25B33">COURT RENTAL INQUIRY</span>
-
-<label class="mc-meta" style="display:block;margin-top:16px;font-size:9px;color:#555">COURT</label>
-<select onChange="{{ courtView.setCourt }}" style="width:100%;margin-top:6px;margin-bottom:14px;padding:9px;border:2px solid #141414;background:#EFE8DC;font-family:Inter,sans-serif;font-size:12.5px">
-<option value="outdoor" selected="{{ courtView.isOutdoor }}">OUTDOOR · SOUTH CITY HOMES SHELL COURT</option>
-<option value="indoor" selected="{{ courtView.isIndoor }}">INDOOR · SOUTH CITY HOMES RECREATION CENTER</option>
-</select>
-
-<label class="mc-meta" style="display:block;font-size:9px;color:#555">DATE</label>
-<select onChange="{{ courtView.setDate }}" style="width:100%;margin-top:6px;margin-bottom:14px;padding:9px;border:2px solid #141414;background:#EFE8DC;font-family:Inter,sans-serif;font-size:12.5px">
-<sc-for list="{{ courtView.days }}" as="d" hint-placeholder-count="14"><option value="{{ $index }}">{{ d }}</option></sc-for>
-</select>
-
-<label class="mc-meta" style="display:block;font-size:9px;color:#555">START TIME</label>
-<select onChange="{{ courtView.setTime }}" style="width:100%;margin-top:6px;margin-bottom:14px;padding:9px;border:2px solid #141414;background:#EFE8DC;font-family:Inter,sans-serif;font-size:12.5px">
-<sc-for list="{{ courtView.timeSlots }}" as="t" hint-placeholder-count="9"><option value="{{ t }}">{{ t }}</option></sc-for>
-</select>
-
-<label class="mc-meta" style="display:block;font-size:9px;color:#555">DURATION</label>
-<div style="display:flex;gap:8px;margin-top:6px;margin-bottom:14px">
-<button type="button" onClick="{{ courtView.setHours1 }}" class="mc-d" style="flex:1;padding:9px;border:2px solid #141414;background:{{ hours1Bg }};color:{{ hours1Fg }};font-size:12px">1 HR</button>
-<button type="button" onClick="{{ courtView.setHours2 }}" class="mc-d" style="flex:1;padding:9px;border:2px solid #141414;background:{{ hours2Bg }};color:{{ hours2Fg }};font-size:12px">2 HR</button>
-<button type="button" onClick="{{ courtView.setHours3 }}" class="mc-d" style="flex:1;padding:9px;border:2px solid #141414;background:{{ hours3Bg }};color:{{ hours3Fg }};font-size:12px">3 HR</button>
+<div class="cselPanel">
+<div class="cselTabs" role="tablist" aria-label="Court"><sc-for list="{{ courtOpts }}" as="o" hint-placeholder-count="2"><button type="button" role="tab" class="{{ o.cls }}" aria-selected="{{ o.on }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for></div>
+<div class="cselGrid">
+<div class="cselField"><label class="m cselLab" for="cs-date">DATE</label>
+<input id="cs-date" class="cselIn" type="date" min="{{ today }}" value="{{ date }}" onChange="{{ onDate }}"></div>
+<div class="cselField"><label class="m cselLab" for="cs-time">START TIME</label>
+<select id="cs-time" class="cselIn" value="{{ time }}" onChange="{{ onTime }}"><sc-for list="{{ times }}" as="t" hint-placeholder-count="6"><option value="{{ t }}">{{ t }}</option></sc-for></select></div>
+<div class="cselField"><span class="m cselLab">DURATION</span>
+<div class="seg" role="group" aria-label="Duration"><sc-for list="{{ hourOpts }}" as="o" hint-placeholder-count="3"><button type="button" class="{{ o.cls }}" aria-pressed="{{ o.on }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for></div></div>
+<div class="cselField"><span class="m cselLab">LIGHTING</span>
+<div class="seg" role="group" aria-label="Lighting"><sc-for list="{{ lightOpts }}" as="o" hint-placeholder-count="2"><button type="button" class="{{ o.cls }}" aria-pressed="{{ o.on }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for></div></div>
 </div>
-
-<label class="mc-meta" style="display:block;font-size:9px;color:#555">LIGHTING</label>
-<div style="display:flex;gap:8px;margin-top:6px;margin-bottom:16px">
-<button type="button" onClick="{{ setDayMode }}" class="mc-d" style="flex:1;padding:9px;border:2px solid #141414;background:{{ dayBg }};color:{{ dayFg }};font-size:12px">DAYTIME</button>
-<button type="button" onClick="{{ setLightsMode }}" class="mc-d" style="flex:1;padding:9px;border:2px solid #141414;background:{{ lightsBg }};color:{{ lightsFg }};font-size:12px">WITH LIGHTS</button>
+<div class="cselTotal"><span class="m">TOTAL</span><span class="d" style="font-size:44px">{{ totalLabel }}</span><span class="m" style="font-size:13px">{{ totalNote }}</span></div>
+<span class="m cselLab" style="display:block;margin-top:28px">YOUR MESSAGE</span>
+<p class="cselMsg" aria-live="polite">{{ message }}</p>
+<div class="cselActs">
+<button type="button" class="cselBtn" onClick="{{ copyMsg }}">{{ copyLabel }}</button>
+<a class="cselBtn" href="{{ fbHref }}" target="_blank" rel="noopener" onClick="{{ copyQuiet }}">SEND VIA MESSENGER →</a>
+<a class="cselBtn" href="https://ig.me/m/deuceandco.ph" target="_blank" rel="noopener" onClick="{{ copyQuiet }}">SEND VIA INSTAGRAM →</a>
 </div>
-
-<div style="border-top:2px solid #141414;padding-top:12px;margin-bottom:12px">
-<span class="mc-meta" style="font-size:9px;color:#555">TOTAL</span>
-<span class="mc-d" style="display:block;font-size:24px">₱{{ courtView.total }}</span>
-</div>
-
-<p class="mc-b" style="border:2px solid #141414;padding:12px;font-size:11.5px;line-height:1.5;margin:0 0 14px">{{ courtView.msg }}</p>
-
-<a href="{{ courtView.fbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#141414;color:#EFE8DC;text-decoration:none;font-size:12.5px">SEND VIA MESSENGER →</a>
-<a href="{{ courtView.igLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#141414;color:#EFE8DC;text-decoration:none;font-size:12.5px">SEND VIA INSTAGRAM →</a>
+<p style="margin-top:12px;font-size:14px;line-height:1.5">Messenger opens with your message filled in. Both buttons also copy it, so you can paste it if it doesn’t appear.</p>
 </div>
 </sc-if>
-</section>
-
-<section style="max-width:1180px;margin:0 auto;padding:64px 24px 80px">
-<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px">
-<h2 class="mc-d" style="margin:0;font-size:clamp(28px,3.8vw,46px)">CLUB NOTES</h2>
-<span class="mc-meta" style="font-size:11px;color:#2F5D3A">ISSUE 01</span>
-</div>
-<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;border:2px solid #141414">
-<div style="position:relative;grid-row:span 2;min-height:340px;overflow:hidden">
-<img src="img/mc-hero-c.jpg" alt="Grip and racket detail courtside" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(20,20,20,.82))"></span>
-<span class="mc-d" style="position:absolute;bottom:16px;left:16px;color:#EFE8DC;font-size:26px">FIRST RALLY</span>
-</div>
-<div style="border-left:2px solid #141414;border-bottom:2px solid #141414;background:#C25B33;color:#EFE8DC;padding:20px">
-<span class="mc-meta" style="font-size:10px">COURT NOTES · 02</span>
-<span class="mc-d" style="display:block;font-size:21px;margin-top:10px">BARKADA<br/>NIGHTS</span>
-</div>
-<div style="border-left:2px solid #141414;border-bottom:2px solid #141414;position:relative;overflow:hidden">
-<img src="img/mc-indoor-doubles.jpg" alt="Doubles session at the indoor court" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-<span style="position:absolute;inset:0;background:rgba(20,20,20,.3)"></span>
-<span class="mc-meta" style="position:absolute;bottom:12px;left:14px;color:#EFE8DC;font-size:10px">AFTER-WORK TENNIS</span>
-</div>
-<div style="grid-column:span 2;border-left:2px solid #141414;background:#2F5D3A;color:#EFE8DC;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-<span class="mc-d" style="font-size:22px">BEGINNER SESSIONS</span>
-<span class="mc-b" style="font-size:12.5px;color:rgba(241,236,227,.8);max-width:32ch">No experience needed. We supply the rackets — you supply the nerve.</span>
 </div>
 </div>
 </section>
 
-<section style="max-width:1180px;margin:0 auto;padding:0 24px 70px">
-<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px">
-<h2 class="mc-d" style="margin:0;font-size:clamp(28px,3.8vw,46px)">REAL PEOPLE. REAL RALLIES.</h2>
-<span class="mc-meta" style="font-size:11px;color:#2F5D3A">FROM THE COURT</span>
+<!-- MODULE 4 · THE COMMUNITY -->
+<section aria-label="Rally notes" class="cs fxNotes {{notesFx}}" data-bg="#EFE8DC" style="padding:104px 0 112px">
+<div class="wrap">
+<div class="fxHead" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;border-bottom:1px solid currentColor;padding-bottom:18px">
+<h2 class="d" style="font-size:clamp(56px,7vw,104px)">RALLY NOTES</h2>
+<span class="m">ISSUE 01 · BIÑAN, LAGUNA</span>
 </div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);border:2px solid #141414" class="mc-gear-grid">
-<sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
-<div style="border-right:2px solid #141414;padding:20px;display:flex;flex-direction:column;gap:12px;background:#E3DACB">
-<span class="mc-meta" style="font-size:10px;color:#C25B33">{{ t.tag }}</span>
-<span class="mc-b" style="font-size:13.5px;line-height:1.55">"{{ t.quote }}"</span>
-<span class="mc-meta" style="font-size:10px;color:#555">{{ t.name }}</span>
+<div class="rnTrack">
+<h3 class="d rnSubH">RECENT SESSIONS</h3>
+<div class="sessGrid"><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Barkada Night 01 gallery" onClick="{{ galOpen1 }}" onKeyDown="{{ galKey1 }}"><img src="assets/9c7b01f61e50817b59cb8525415298a7.jpg" alt="Barkada Night 01: friends laughing at the net on a lit court at night" loading="lazy"><span class="m sessTag">BARKADA NIGHT · 01</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Rally Session 01 gallery" onClick="{{ galOpen2 }}" onKeyDown="{{ galKey2 }}"><img src="assets/76c23e65caffa6995d577c1f19b397d7.jpg" alt="Rally Session 01: player smiling mid-dive for a wide forehand on the indoor clay court" loading="lazy"><span class="m sessTag">RALLY SESSION · 01</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Barkada Night 03 gallery" onClick="{{ galOpen3 }}" onKeyDown="{{ galKey3 }}"><img src="assets/8235bfdb4a4ff0687d345df50224bfb8.jpg" alt="Barkada Night 03: the group posing at the net under the lights" loading="lazy"><span class="m sessTag">BARKADA NIGHT · 03</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure></div>
 </div>
-</sc-for>
+<div class="rnTrack">
+<h3 class="d rnSubH">WHAT PLAYERS SAY</h3>
+</div>
+</div>
+<div class="rvRail" role="region" aria-label="Player reviews, scroll sideways" tabindex="0"><article class="rv rvc"><span class="m rvTag">REVIEW · 01</span><p class="rvQ">“Great tennis session with Deuce &amp; Co.! From beginner to advanced, they’ve got the perfect equipment for every level. The crew is super friendly and it’s a wonderful community to connect with new players. Definitely coming back for another round!</p><span class="m rvBy">CHRISTIA REA · BULACAN</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 02</span><p class="rvQ">“Been playing tennis for about 3 weeks now and I’m actually enjoying it so much! Still learning and getting the hang of it, but it’s been really fun so far. Also really thankful to deuceandco.ph for helping me get into tennis and making it easy for me to start. The racket and balls I rented were good too, so no complaints hehehehe.</p><span class="m rvBy">JOSHUA · CAVITE</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 03</span><p class="rvQ">“Met with some friends I haven’t talked to in years, played a couple rounds and it felt like I was just talking with them yesterday. Can’t recommend the service enough. Rackets are also high quality and feel well maintained.</p><span class="m rvBy">KEINO · BIÑAN</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 04</span><p class="rvQ">“Feels like no time passed after playing with highschool classmates after so many years, thankful to the owners for affordable and well maintained equipments. Also had fun playing with the owners for hours either rallying or scored games. Highly recommended especially for beginners like us!</p><span class="m rvBy">WAYNE · BIÑAN</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 05</span><p class="rvQ">“Thank you Deuce&amp;Co for the opportunity. Might be able to discover new skill for Tennis.</p><span class="m rvBy">DEXTER · QC</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 06</span><p class="rvQ">“I loveee deuceandco.ph!! They are truly a one-stop shop for tennis. It’s soo easy to rent a racket, book a court, and even learn how to play from the owners. So much passion for a business. More power!</p><span class="m rvBy">RICHEART · LAS PIÑAS</span></article></div>
+</section>
+
+<!-- MODULE 5 · THE STORY -->
+<section aria-label="Our story" class="fxStory {{storyFx}}" data-bg="#111111" style="background:#111111;color:#EFE8DC">
+<div style="display:flex;flex-wrap:wrap;align-items:stretch">
+<figure style="margin:0;flex:1 1 480px;display:flex;flex-direction:column">
+<div class="ph fxStoryPh" style="background:#111111;flex:1;min-height:620px"><img src="assets/a91dd8055e50374a9e9a82a49dc486b0.jpg" alt="Sikap Tennis Cup, 1999: the full print of him mid-forehand on court, from the family archive" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div>
+<figcaption class="serif" style="font-style:italic;font-size:18px;color:#EFE8DC;padding:14px 40px 0">From the family archive.</figcaption>
+</figure>
+<div class="storytext fxStoryPanel" style="flex:1 1 480px;padding:96px 40px 96px 64px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<span class="m" style="color:#EFE8DC">05 · OUR STORY · EST. 1999</span>
+<h2 class="d fxStoryH" style="font-size:clamp(52px,6.4vw,104px);margin-top:24px">A BALLBOY.<br>A CHAMPION.<br>A COACH.<br>COMING HOME.</h2>
+<p style="font-size:20px;line-height:1.5;margin-top:28px;color:#EFE8DC">The story behind Deuce&amp;Co. starts in 1999.</p>
+<div class="fxStoryC" style="margin-top:36px;display:flex;flex-wrap:wrap;gap:12px"><a class="cta light" href="coaching.html">MEET THE COACH →</a><a class="cta light" href="our-story.html">READ OUR STORY →</a></div>
+</div>
 </div>
 </section>
 
-<section style="background:#141414;color:#EFE8DC;padding:56px 24px;text-align:center">
-<h2 class="mc-d" style="margin:0;font-size:clamp(28px,4.2vw,48px)">READY TO PLAY?</h2>
-<a href="#rent" class="mc-d" style="display:inline-block;margin-top:20px;padding:16px 30px;background:#C25B33;color:#EFE8DC;font-size:15px;text-decoration:none">SEND YOUR DATE →</a>
-</section>
-
-<footer style="background:#141414;color:#EFE8DC;padding:30px 24px;border-top:2px solid #141414">
-<div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
-<span class="mc-d" style="font-size:18px">DEUCE&amp;CO.PH</span>
-<span class="mc-meta" style="font-size:10.5px;color:rgba(241,236,227,.7)">BIÑAN · LAGUNA, PH · @deuceandco.ph · deuceandco.ph@gmail.com</span>
+<footer data-bg="#111111" style="background:#111111;color:#EFE8DC">
+<div class="ftIn">
+<a class="ftBrand" href="index.html" aria-label="Deuce&amp;Co.PH, home"><svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" width="56" height="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M60.4 3.6C74.8 18.1 88.9 31.8 116.2 59.6" stroke-width="3.1"></path> <path d="M116.4 60.3C101.6 75.2 87.3 89.6 60.2 116.3" stroke-width="2.7"></path> <path d="M59.7 116.5C45.1 101.8 30.6 87.6 3.7 60.6" stroke-width="3.2"></path> <path d="M3.5 59.9C18.4 44.7 32.9 30.2 61.3 3.1" stroke-width="2.8"></path> <text x="60" y="36" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="700" font-size="14" letter-spacing="0.4">D&amp;C</text> <g transform="translate(60 66) rotate(-34)"> <path d="M0.3 -35.2C6.6 -35.0 9.8 -28.6 9.6 -22.4C9.3 -15.8 5.6 -10.6 0.2 -10.4C-5.6 -10.3 -9.5 -16.2 -9.4 -22.9C-9.2 -29.6 -5.2 -35.4 0.9 -35.1" stroke-width="2.2"></path> <path d="M-3.4 -33.1C-3.6 -26 -3.3 -18.6 -3.2 -12.3M3.6 -33.0C3.8 -26 3.4 -18.5 3.3 -12.2M-8.4 -27.4C-3 -27.7 3 -27.3 8.6 -27.6M-8.9 -20.3C-3 -20.1 3 -20.5 9.1 -20.2M-7.2 -14.6C-2.5 -14.8 2.5 -14.4 7.0 -14.7" stroke-width="1.3"></path> <path d="M-3.3 -10.8C-1.8 -7 -0.9 -4.6 -0.8 -1.4M3.4 -10.7C1.9 -7.1 0.9 -4.4 0.9 -1.3M-0.9 -1.2C-1.1 6 -0.8 13.4 -1.0 21.6M1.0 -1.2C1.2 6.2 0.9 13.6 1.1 21.5" stroke-width="2.1"></path> </g> <g transform="translate(60 66) rotate(34)"> <path d="M-0.4 -35.0C-6.4 -35.3 -9.7 -28.9 -9.5 -22.6C-9.4 -15.9 -5.4 -10.5 0.1 -10.5C5.8 -10.4 9.6 -16.4 9.5 -23.1C9.3 -29.8 5.4 -35.5 -1.0 -35.0" stroke-width="2.3"></path> <path d="M-3.5 -32.9C-3.3 -26 -3.6 -18.7 -3.4 -12.4M3.5 -33.2C3.3 -26.1 3.7 -18.6 3.4 -12.3M-8.6 -27.5C-3 -27.3 3 -27.7 8.4 -27.4M-9.0 -20.4C-3 -20.6 3 -20.2 9.0 -20.4M-7.1 -14.5C-2.5 -14.3 2.5 -14.7 7.2 -14.5" stroke-width="1.3"></path> <path d="M-3.4 -10.9C-1.9 -7.2 -1.0 -4.5 -0.9 -1.3M3.3 -10.8C1.8 -7.0 1.0 -4.6 0.8 -1.4M-1.0 -1.3C-0.8 6.1 -1.1 13.5 -0.9 21.4M0.9 -1.3C1.1 6.0 0.8 13.5 1.0 21.7" stroke-width="2.0"></path> </g> <text x="60" y="101" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="600" font-size="11" letter-spacing="0.8">2026</text> </svg><span class="d" style="font-size:28px;letter-spacing:0.01em">DEUCE&amp;CO.PH</span></a>
+<div class="ftCols">
+<div>
+<div class="m ftLab">VISIT</div>
+<p class="ftTxt">South City Homes, Biñan, Laguna, PH</p>
+<div class="m ftLab" style="margin-top:32px">MESSAGE</div>
+<p class="ftTxt"><a href="https://www.instagram.com/deuceandco.ph/">@deuceandco.ph</a> · <a href="https://www.facebook.com/profile.php?id=61593264803515" target="_blank" rel="noopener">Facebook</a> · <a href="mailto:deuceandcoph@gmail.com">deuceandcoph@gmail.com</a></p>
+</div>
+<div>
+<div class="m ftLab">THE CLUB</div>
+<p class="ftTxt"><a class="ftLink" href="rackets.html">Rackets</a> · <a class="ftLink" href="gear.html">Gear</a> · <a class="ftLink" href="barkada-bundle.html">Barkada Bundle</a></p>
+</div>
+</div>
+<div class="ftBase"><span class="m ftLab">© 2026 DEUCE&amp;CO.PH</span></div>
 </div>
 </footer>
-
-<sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ false }}">
-<div onClick="{{ closePicker }}" style="position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px">
-<div onClick="{{ stopClick }}" style="background:#EFE8DC;border:2px solid #141414;max-width:340px;width:100%;padding:24px">
-<span class="mc-meta" style="font-size:10px;color:#C25B33">INQUIRE ABOUT</span>
-<h3 class="mc-d" style="margin:8px 0 18px;font-size:18px;line-height:1.15">{{ pickerItem }}</h3>
-<a href="{{ pickerIgLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;margin-bottom:8px;background:#C25B33;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON INSTAGRAM →</a>
-<a href="{{ pickerFbLink }}" target="_blank" rel="noopener" class="mc-d" style="display:block;text-align:center;padding:13px;background:#2F5D3A;color:#EFE8DC;text-decoration:none;font-size:13px">MESSAGE ON MESSENGER →</a>
-<button type="button" onClick="{{ closePicker }}" class="mc-meta" style="display:block;width:100%;margin-top:12px;border:none;background:none;padding:8px;cursor:pointer;font-size:10px;color:#555">CANCEL</button>
+<sc-if value="{{ galOpen }}" hint-placeholder-val="{{ false }}">
+<div class="gal" role="dialog" aria-modal="true" aria-label="{{ galLabel }}">
+<div class="galTop"><span class="m galLab">{{ galLabel }}</span><button type="button" class="galX" aria-label="Close gallery" onClick="{{ galClose }}">×</button></div>
+<div class="galStage" onClick="{{ galBack }}">
+<sc-if value="{{ galLoading }}" hint-placeholder-val="{{ false }}"><p class="m galMsg">LOADING FRAMES…</p></sc-if>
+<sc-if value="{{ galEmpty }}" hint-placeholder-val="{{ false }}"><p class="m galMsg">No frames yet. Check back after the next session.</p></sc-if>
+<sc-if value="{{ galHas }}" hint-placeholder-val="{{ false }}">
+<div class="galRow" tabindex="0" aria-label="Photos, scroll sideways">
+<sc-for list="{{ galPhotos }}" as="f" hint-placeholder-count="4"><figure class="galFr"><img src="{{ f.src }}" loading="lazy" width="{{ f.w }}" height="{{ f.h }}" alt="{{ f.alt }}" draggable="false"><figcaption class="m galNum">{{ f.num }}</figcaption></figure></sc-for>
 </div>
+</sc-if>
+</div>
+<div class="galFoot"><span class="m">{{ galCount }}</span><span class="m">{{ galDate }}</span></div>
 </div>
 </sc-if>
 
 </div>
-
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{}">
-const HERO_PHOTOS = ['img/mc-grip-ball.jpg', 'img/mc-hero-g.jpg', 'img/mc-hero-a.jpg', 'img/mc-hero-f.jpg', 'img/mc-hero-e.jpg'];
-const igLink = msg => 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent(msg);
-const fbLink = msg => 'https://m.me/61593264803515?text=' + encodeURIComponent(msg);
-
+<script type="text/x-dc" data-dc-script data-props='{"galleryBase":{"editor":"text","default":"img/","section":"Rally notes"},"levelWells":{"editor":"enum","options":["color wells","plain off-white"],"default":"color wells","section":"By level"},"rateOutdoor":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"rateIndoor":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"rateLights":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"messengerUrl":{"editor":"text","default":"","section":"Court rates"},"$preview":{"width":1440,"height":7800}}'>
 class Component extends DCLogic {
-  state = { heroIdx: 0, pickerOpen: false, pickerItem: '', courtOpen: false, courtType: 'outdoor', courtDate: 0, courtTime: '6:00 AM', courtHours: 1, courtLights: false };
-
-  next14Days() {
-    const days = [];
-    const now = new Date();
-    for (let i = 0; i < 14; i++) {
-      const d = new Date(now); d.setDate(now.getDate() + i);
-      days.push(d.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'short' }));
-    }
-    return days;
+  // Hero two-era transition, desktop fallback only: browsers without CSS scroll timelines get --p from a
+  // passive, rAF-throttled scroll listener. Never on mobile (timed CSS there) and never with reduced motion.
+  // Header: RENT THE GEAR dropdown + mobile hamburger. Desktop hover is CSS; this adds tap, keyboard and the menu toggle.
+  _hdr() {
+    const hdr = document.querySelector('header');
+    const dd = hdr && hdr.querySelector('.tzDD');
+    if (!dd || dd._wired) return;
+    dd._wired = true;
+    const par = dd.querySelector('.tzP');
+    const items = Array.prototype.slice.call(dd.querySelectorAll('.tzMi'));
+    const hbg = hdr.querySelector('.hbg');
+    const mob = () => window.matchMedia('(max-width:760px)').matches;
+    const isOpen = () => dd.classList.contains('open');
+    const setOpen = (v) => { dd.classList.toggle('open', v); par.setAttribute('aria-expanded', v ? 'true' : 'false'); };
+    const setMenu = (v) => { hdr.classList.toggle('mOpen', v); if (hbg) hbg.setAttribute('aria-expanded', v ? 'true' : 'false'); if (!v) setOpen(false); };
+    let ptr = 'mouse';
+    par.addEventListener('pointerdown', (e) => { ptr = e.pointerType || 'mouse'; });
+    par.addEventListener('click', (e) => {
+      // Mobile menu: the parent is a toggle. Touch on wider screens: first tap opens, second follows the link.
+      if (mob()) { e.preventDefault(); setOpen(!isOpen()); return; }
+      if (ptr === 'touch' && !isOpen()) { e.preventDefault(); setOpen(true); }
+    });
+    dd.addEventListener('mouseenter', () => { if (!mob()) par.setAttribute('aria-expanded', 'true'); });
+    dd.addEventListener('mouseleave', () => { if (!mob()) setOpen(false); });
+    const focusItem = (i) => { const n = items.length; items[(i + n) % n].focus(); };
+    par.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); focusItem(0); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setOpen(true); focusItem(items.length - 1); }
+      else if (e.key === ' ') { e.preventDefault(); setOpen(!isOpen()); }
+      else if (e.key === 'Escape') { setOpen(false); }
+    });
+    items.forEach((it, i) => it.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); focusItem(i + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); focusItem(i - 1); }
+      else if (e.key === 'Home') { e.preventDefault(); focusItem(0); }
+      else if (e.key === 'End') { e.preventDefault(); focusItem(items.length - 1); }
+      else if (e.key === 'Escape') { e.preventDefault(); setOpen(false); par.focus(); }
+    }));
+    items.forEach((it) => it.addEventListener('click', () => { setOpen(false); setMenu(false); }));
+    dd.addEventListener('focusout', (e) => { if (!mob() && !dd.contains(e.relatedTarget)) setOpen(false); });
+    if (hbg) hbg.addEventListener('click', () => setMenu(!hdr.classList.contains('mOpen')));
+    document.addEventListener('pointerdown', (e) => {
+      if (!dd.contains(e.target) && !mob()) setOpen(false);
+      if (mob() && !hdr.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hdr.classList.contains('mOpen') && !dd.contains(document.activeElement)) { setMenu(false); hbg && hbg.focus(); } });
   }
-
-  courtView() {
-    const days = this.next14Days();
-    const rates = this.state.courtType === 'indoor' ? { day: 280, lights: 380 } : { day: 150, lights: 250 };
-    const rate = this.state.courtLights ? rates.lights : rates.day;
-    const total = rate * this.state.courtHours;
-    const dateLabel = days[this.state.courtDate];
-    const courtLabel = this.state.courtType === 'indoor' ? 'the indoor recreation center' : 'the outdoor hardcourt';
-    const hourLabel = this.state.courtHours === 1 ? '1 hour' : `${this.state.courtHours} hours`;
-    const timeLabel = this.state.courtTime.replace(':00 ', '').toLowerCase();
-    const msg = `Hi Deuce&Co. \u2014 I'd like to reserve ${courtLabel} on ${dateLabel}, starting ${timeLabel}, for ${hourLabel}${this.state.courtLights ? ', with lights' : ''}. Total is \u20b1${total}. Is it available?`;
-    return {
-      days, dateLabel, total, msg,
-      isOutdoor: this.state.courtType === 'outdoor', isIndoor: this.state.courtType === 'indoor',
-      setCourt: e => this.setState({ courtType: e.target.value }),
-      timeSlots: ['6:00 AM','7:00 AM','8:00 AM','9:00 AM','4:00 PM','5:00 PM','6:00 PM','7:00 PM','8:00 PM'],
-      setDate: e => this.setState({ courtDate: Number(e.target.value) }),
-      setTime: e => this.setState({ courtTime: e.target.value }),
-      setHours1: () => this.setState({ courtHours: 1 }),
-      setHours2: () => this.setState({ courtHours: 2 }),
-      setHours3: () => this.setState({ courtHours: 3 }),
-      igLink: 'https://ig.me/m/deuceandco.ph?text=' + encodeURIComponent(msg),
-      fbLink: 'https://m.me/61593264803515?text=' + encodeURIComponent(msg),
+  // SESSION GALLERY. Probes img/barkada-night-0N/01.jpg, 02.jpg … in order and stops at the first missing file.
+  _galOpen(n) {
+    const base = (this.props.galleryBase ?? 'img/').replace(/\/?$/, '/');
+    const dir = base + 'barkada-night-' + String(n).padStart(2, '0') + '/';
+    const token = (this._galTok = (this._galTok || 0) + 1);
+    this._galFrom = document.activeElement;
+    const tile = this._galFrom && this._galFrom.closest ? this._galFrom.closest('.sess') : null;
+    this._galAt = tile ? tile.getBoundingClientRect().top + window.scrollY + tile.offsetHeight / 2 : null;
+    this.setState({ gal: n, galList: null }, () => this._galPlace());
+    document.documentElement.style.overflow = 'hidden';
+    const out = [];
+    const next = (k) => {
+      const src = dir + String(k).padStart(2, '0') + '.jpg', im = new Image();
+      im.onload = () => { if (token !== this._galTok) return; out.push({ src, w: im.naturalWidth, h: im.naturalHeight }); if (k < 200) next(k + 1); else done(); };
+      im.onerror = () => { if (token === this._galTok) done(); };
+      im.src = src;
     };
+    // Fallback for the canvas preview, where the img/ folder isn't reachable: the same frames, bundled as assets.
+    const BN = {}; // live site: the gallery reads img/barkada-night-0N/ directly
+    const bundled = () => {
+      const ids = (BN[n] || '').split(' ').filter(Boolean);
+      if (!ids.length) return finish();
+      let left = ids.length; const res = new Array(ids.length);
+      ids.forEach((id, i) => { const src = 'assets/' + id + '.jpg', im = new Image();
+        const fin = (ok) => { if (token !== this._galTok) return; if (ok) res[i] = { src, w: im.naturalWidth, h: im.naturalHeight }; if (--left === 0) { res.forEach((r) => r && out.push(r)); finish(); } };
+        im.onload = () => fin(true); im.onerror = () => fin(false); im.src = src; });
+    };
+    const finish = () => this.setState({ galList: out.slice() }, () => { this._galPlace(); this._galWire(); });
+    const done = () => (out.length ? finish() : bundled());
+    next(1);
+    requestAnimationFrame(() => { const x = document.querySelector('.galX'); if (x) x.focus({ preventScroll: true }); });
   }
-
+  // On the design canvas the page is drawn at full height (the frame is ~7800px tall), so a fixed, full-viewport
+  // gallery would fill the whole page. There, open a screen-sized panel centred on the tapped tile instead.
+  _galPlace() {
+    const g = document.querySelector('.gal'); if (!g) return;
+    const vh = window.innerHeight, ph = document.documentElement.scrollHeight;
+    if (ph > vh * 1.2 || vh < 1400) { g.style.cssText = ''; return; } // a normal, scrollable browser window
+    const w = document.documentElement.clientWidth;
+    const h = w <= 768 ? Math.round(Math.min(w * 2.17, 900)) : 900;
+    const mid = this._galAt != null ? this._galAt : window.scrollY + h / 2;
+    const top = Math.max(0, Math.min(document.documentElement.scrollHeight - h, Math.round(mid - h / 2)));
+    g.style.cssText = 'position:absolute;top:' + top + 'px;bottom:auto;left:0;right:0;height:' + h + 'px;--ph:' + (h - (w <= 768 ? 240 : 200)) + 'px';
+  }
+  _galClose() {
+    this._galTok = (this._galTok || 0) + 1;
+    this.setState({ gal: null, galList: null });
+    document.documentElement.style.overflow = '';
+    if (this._galFrom && this._galFrom.focus) this._galFrom.focus({ preventScroll: true });
+  }
+  _galWire() {
+    const row = document.querySelector('.galRow'); if (!row || row._wired) return; row._wired = true;
+    let x0 = 0, s0 = 0, on = false;
+    let pid = null;
+    row.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; on = true; this._galMoved = false; x0 = e.clientX; s0 = row.scrollLeft; pid = e.pointerId; });
+    row.addEventListener('pointermove', (e) => { if (!on) return; const dx = e.clientX - x0; if (!this._galMoved && Math.abs(dx) > 4) { this._galMoved = true; row.classList.add('drag'); try { row.setPointerCapture(pid); } catch (err) {} } if (this._galMoved) row.scrollLeft = s0 - dx; });
+    const end = () => { if (!on) return; on = false; const l = row.scrollLeft; row.classList.remove('drag'); row.scrollLeft = l; };
+    row.addEventListener('pointerup', end); row.addEventListener('pointercancel', end);
+    row.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); const f = row.querySelector('.galFr'); row.scrollBy({ left: (e.key === 'ArrowRight' ? 1 : -1) * ((f ? f.offsetWidth : 400) + 24), behavior: 'auto' }); } });
+  }
+  _gal() {
+    const st = this.state || {}, n = st.gal;
+    const S = { 1: ['BARKADA NIGHT · 01 · SOUTH CITY HOMES', 'MON 24 AUG 2026'], 2: ['RALLY SESSION · 01 · SOUTH CITY HOMES', 'SUN 27 SEP 2026'], 3: ['BARKADA NIGHT · 03 · SOUTH CITY HOMES', 'FRI 9 OCT 2026'] };
+    const v = {};
+    [1, 2, 3].forEach((k) => { v['galOpen' + k] = () => this._galOpen(k); v['galKey' + k] = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this._galOpen(k); } }; });
+    if (!n) return Object.assign(v, { galOpen: false });
+    const list = st.galList, loading = !list, cnt = list ? list.length : 0;
+    return Object.assign(v, {
+      galOpen: true, galLabel: S[n][0], galDate: S[n][1], galLoading: loading, galEmpty: !loading && cnt === 0, galHas: cnt > 0,
+      galCount: loading ? '' : cnt + (cnt === 1 ? ' FRAME' : ' FRAMES'),
+      galPhotos: (list || []).map((f, i) => ({ src: f.src, w: String(f.w), h: String(f.h), num: 'FRAME ' + String(i + 1).padStart(2, '0'), alt: (n === 2 ? 'Rally Session 01' : 'Barkada Night ' + String(n).padStart(2, '0')) + ', frame ' + (i + 1) })),
+      galClose: () => this._galClose(),
+      galBack: (e) => { if (this._galMoved) { this._galMoved = false; return; } if (!e.target.closest('.galFr')) this._galClose(); }
+    });
+  }
   componentDidMount() {
-    this.heroTimer = setInterval(() => {
-      this.setState(s => ({ heroIdx: (s.heroIdx + 1) % HERO_PHOTOS.length }));
-    }, 4000);
-  }
-  componentWillUnmount() { clearInterval(this.heroTimer); }
-
-  renderVals() {
-    const idx = this.state.heroIdx;
-    const positions = ['center 30%','center 15%','center 50%','center 55%','center 62%'];
-    const filters = ['contrast(1.08) saturate(1.05)','grayscale(.25) contrast(1.05)','sepia(.12) contrast(1.05)','contrast(1.1) saturate(.95)','contrast(1.05) saturate(1.1)'];
-    const slideStyle = i => 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:' + positions[i] + ';filter:' + filters[i] + ';transition:opacity 1s ease;opacity:' + (i === idx ? '1' : '0');
-    const heroDots = HERO_PHOTOS.map((_, i) => ({
-      style: 'width:' + (i === idx ? '18px' : '7px') + ';height:7px;border-radius:999px;background:' + (i === idx ? '#C8E85C' : 'rgba(241,236,227,.45)') + ';transition:width .3s' }));
-    return {
-      hs0: slideStyle(0), hs1: slideStyle(1), hs2: slideStyle(2), hs3: slideStyle(3), hs4: slideStyle(4),
-      heroDots,
-      onInquireCourt: () => this.setState({ courtOpen: true }),
-      outdoorPhotoBorder: this.state.courtType === 'outdoor' ? 'outline:3px solid #C25B33;outline-offset:-3px' : '',
-      indoorPhotoBorder: this.state.courtType === 'indoor' ? 'outline:3px solid #C25B33;outline-offset:-3px' : '',
-      pickerOpen: this.state.pickerOpen,
-      pickerItem: this.state.pickerItem,
-      pickerIgLink: igLink(this.state.pickerItem),
-      pickerFbLink: fbLink(this.state.pickerItem),
-      closePicker: () => this.setState({ pickerOpen: false }),
-      stopClick: e => e.stopPropagation(),
-      courtOpen: this.state.courtOpen,
-      courtView: this.courtView(),
-      closeCourtPicker: () => this.setState({ courtOpen: false }),
-      setDayMode: () => this.setState({ courtLights: false }),
-      setLightsMode: () => this.setState({ courtLights: true }),
-      dayBg: !this.state.courtLights ? '#2F5D3A' : '#EFE8DC', dayFg: !this.state.courtLights ? '#EFE8DC' : '#141414',
-      lightsBg: this.state.courtLights ? '#2F5D3A' : '#EFE8DC', lightsFg: this.state.courtLights ? '#EFE8DC' : '#141414',
-      hours1Bg: this.state.courtHours === 1 ? '#2F5D3A' : '#EFE8DC', hours1Fg: this.state.courtHours === 1 ? '#EFE8DC' : '#141414',
-      hours2Bg: this.state.courtHours === 2 ? '#2F5D3A' : '#EFE8DC', hours2Fg: this.state.courtHours === 2 ? '#EFE8DC' : '#141414',
-      hours3Bg: this.state.courtHours === 3 ? '#2F5D3A' : '#EFE8DC', hours3Fg: this.state.courtHours === 3 ? '#EFE8DC' : '#141414',
-      rentSteps: [
-        { n:'01', label:'PICK YOUR DATE AND GEAR', sub:'Choose a court date. Pick a racket by level. Daytime or lights. Outdoor or indoor.', bg:'#EFE8DC', bg2:'#E3DACB', fg:'#141414' },
-        { n:'02', label:'CONFIRM ON DM', sub:'We confirm personally — no automated checkout. Send your order. We reply with confirmation and payment details.', bg:'#2F5D3A', bg2:'#2F5D3A', fg:'#EFE8DC' },
-        { n:'03', label:'PICK UP AND RALLY', sub:'Collect your gear courtside at South City Homes. Court time and racket, one pickup.', bg:'#EFE8DC', bg2:'#E3DACB', fg:'#141414' },
-        { n:'04', label:'RETURN', sub:'Bring it back. Deposit returned. See you next rally.', bg:'#2F5D3A', bg2:'#2F5D3A', fg:'#EFE8DC' },
-      ],
-      levels: [
-        { tag:'LEVEL 01', name:'BEGINNER', price:'₱180 / day', count:4, desc:'Easy to start with. Light, forgiving frames.', bg:'#EFE8DC', fg:'#EFE8DC', tagColor:'#C8E85C',
-          img:'img/mc-prince-green.jpg',
-          tileStyle:'grid-column:2;grid-row:1;position:relative;overflow:hidden;background:#333;padding:14px;display:flex;flex-direction:column;text-decoration:none;color:inherit;border-right:2px solid #141414;border-bottom:2px solid #141414',
-          link:'rackets.html?level=beginner' },
-        { tag:'LEVEL 02', name:'INTERMEDIATE', price:'₱200 / day', count:6, desc:'More control & feel. For rallying with confidence.', bg:'#C25B33', fg:'#EFE8DC', tagColor:'#EFE8DC',
-          img:null,
-          tileStyle:'grid-column:3;grid-row:1;background:#C25B33;padding:14px;display:flex;flex-direction:column;text-decoration:none;color:inherit;border-right:2px solid #141414;border-bottom:2px solid #141414',
-          link:'rackets.html?level=intermediate' },
-        { tag:'LEVEL 03', name:'ADVANCED', price:'₱240 / day', count:6, desc:'Performance-oriented. Heavier, denser frames.', bg:'#2F5D3A', fg:'#EFE8DC', tagColor:'#C8E85C',
-          img:null,
-          tileStyle:'grid-column:2;grid-row:2;background:#2F5D3A;padding:14px;display:flex;flex-direction:column;text-decoration:none;color:inherit;border-right:2px solid #141414',
-          link:'rackets.html?level=advanced' },
-      ],
-      balls: [
-        { tag:'PRACTICE', name:'30 Balls', price:'₱70 / day', caption:'Enough for two hours of drills.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a 30-ball set. Total is \u20b170. Is it available?`) },
-        { tag:'PRACTICE', name:'50 Balls', price:'₱90 / day', caption:'Full session. Group drills or hopper feeding.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a 50-ball set. Total is \u20b190. Is it available?`) },
-        { tag:'DRILLS', name:'Ball Tube + 15 Balls', price:'₱150 / day', caption:'Serving practice. Pressure tube.', link: igLink(`Hi Deuce&Co. \u2014 I'd like to rent a ball tube with 15 balls. Total is \u20b1150. Is it available?`) },
-      ],
-      testimonials: [
-        { tag:'BARKADA NIGHT', quote:'Met with some friends I haven\u2019t talked to in years, played a couple rounds and it felt like I was just talking with them yesterday. Can\u2019t recommend the service enough. Rackets are also high quality and feel well maintained.', name:'— Keino, Biñan' },
-        { tag:'FIRST TIMER', quote:'Been playing tennis for about 3 weeks now and I\u2019m actually enjoying it so much! Still learning and getting the hang of it, but it\u2019s been really fun so far. Also really thankful to deuceandco.ph for helping me get into tennis and making it easy for me to start. The racket and balls I rented were good too, so no complaints hehehehe', name:'— Joshua, Cavite' },
-        { tag:'TENNIS DATE', quote:'Thank you so muuuuch! So accommodating naman ng mga owners! See you!', name:'— Cath, Sta. Rosa' },
-      ],
+    this._hdr();
+    this._galEsc = (e) => { if (e.key === 'Escape' && (this.state || {}).gal) { e.preventDefault(); this._galClose(); } };
+    document.addEventListener('keydown', this._galEsc);
+    // Review rail: mouse drag scrolls it (touch and trackpad scroll natively); snapping resumes on release.
+    const rail = document.querySelector('.rvRail');
+    if (rail) {
+      let x0 = 0, s0 = 0, on = false, moved = false;
+      rail.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; on = true; moved = false; x0 = e.clientX; s0 = rail.scrollLeft; rail.setPointerCapture(e.pointerId); });
+      rail.addEventListener('pointermove', (e) => { if (!on) return; const dx = e.clientX - x0; if (Math.abs(dx) > 3) { moved = true; rail.classList.add('drag'); } rail.scrollLeft = s0 - dx; });
+      const end = () => { if (!on) return; on = false; const left = rail.scrollLeft; rail.classList.remove('drag'); rail.scrollLeft = left; };
+      rail.addEventListener('pointerup', end); rail.addEventListener('pointercancel', end);
+    }
+    this._ground();
+    this._fx();
+    const supports = typeof CSS !== 'undefined' && CSS.supports && CSS.supports('animation-timeline: scroll()');
+    const mq = (q) => window.matchMedia && window.matchMedia(q).matches;
+    if (supports || mq('(max-width: 768px)') || mq('(prefers-reduced-motion: reduce)')) return;
+    let frame = 0;
+    this._onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const p = Math.round(Math.min(1, Math.max(0, (window.scrollY || 0) / 300)) * 1000) / 1000;
+        if (p !== ((this.state && this.state.p) || 0)) this.setState({ p });
+      });
     };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  // Page ground: IntersectionObserver only (no scroll listener). A section "owns" the ground while it covers the
+  // viewport midpoint. Off with reduced motion (cream throughout), and when the page cannot scroll (canvas overview).
+  _ground() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const root = document.querySelector('.pg');
+    if (!root) return;
+    const names = { '#efe8dc': 'cream', '#c25b33': 'clay', '#1f4a3d': 'green', '#111111': 'ink' };
+    const nameOf = (el) => names[(el.getAttribute('data-bg') || '').toLowerCase()] || 'cream';
+    const set = (g) => { if (g !== ((this.state && this.state.ground) || 'cream')) this.setState({ ground: g }); };
+    // Drawn at full height on the canvas (nothing to scroll): stay cream rather than freeze on one colour.
+    const scrollable = () => root.getBoundingClientRect().height > window.innerHeight * 1.2;
+    const sections = Array.prototype.slice.call(root.querySelectorAll('[data-bg]'));
+    const sync = () => {
+      if (!scrollable()) return set('cream');
+      const mid = window.innerHeight / 2;
+      const hit = sections.find((el) => { const r = el.getBoundingClientRect(); return r.top <= mid && r.bottom > mid; });
+      if (hit) set(nameOf(hit));
+    };
+    const cb = (entries) => {
+      if (!scrollable()) return set('cream');
+      for (const e of entries) if (e.isIntersecting) set(nameOf(e.target));
+    };
+    // root: document, so the -50% margins apply inside the sandboxed preview frame too
+    // (with the implicit root, a cross-origin frame ignores rootMargin).
+    const opts = { rootMargin: '-50% 0px -50% 0px', threshold: 0 };
+    try { this._io = new IntersectionObserver(cb, Object.assign({ root: document }, opts)); }
+    catch (err) { this._io = new IntersectionObserver(cb, opts); }
+    sections.forEach((el) => this._io.observe(el));
+    // canvas ⇄ full-window view changes the frame size without remounting
+    this._onResize = () => sync();
+    window.addEventListener('resize', this._onResize);
+    sync();
+  }
+  // Entrances for BORROW FIRST and BY LEVEL. IntersectionObserver only; each plays once, never on scroll-up.
+  // Ball paths are measured once here, before anything is hidden. Pen order per ball (as authored): 8 outline
+  // segments, 4 seam segments, 2 edge arcs. Each stroke (outline / seam / arc / arc) gets its share of the ball's
+  // 600ms by length, eased with cubic-bezier(0.65,0,0.35,1) across the whole stroke, so the joins between
+  // segments do not stutter.
+  _fx() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const root = document.querySelector('.pg');
+    if (!root) return;
+    const bf = root.querySelector('.bf'), bl = root.querySelector('.bl');
+    if (!bf || !bl) return;
+    const targets = [['bf', bf], ['bl', bl], ['case', root.querySelector('.fxCase')], ['how', root.querySelector('.fxHow')], ['courts', root.querySelector('.fxCourts')], ['notes', root.querySelector('.fxNotes')], ['story', root.querySelector('.fxStory')]].filter((t) => t[1]);
+    const bez = (p1, p2) => { // x(t), y(t) of cubic-bezier(p1,0,p2,1)-style curve with y1=0,y2=1
+      const c = (a, b, t) => 3 * a * t * (1 - t) * (1 - t) + 3 * b * t * t * (1 - t) + t * t * t;
+      return (y) => { // time fraction at which eased progress == y
+        let lo = 0, hi = 1;
+        for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; if (c(0, 1, m) < y) lo = m; else hi = m; }
+        const tb = (lo + hi) / 2; return c(p1, p2, tb);
+      };
+    };
+    const inv = bez(0.65, 0.35);
+    const TILES_DONE = 240 + 600, START = TILES_DONE + 400, BALL = 600;
+    const fx = {}; targets.forEach(([k]) => { fx[k] = 'idle'; });
+    const put = (key, v) => { fx[key] = v; this.setState({ [key + 'Fx']: v }); };
+    const scrollable = () => root.getBoundingClientRect().height > window.innerHeight * 1.2;
+    const keyOf = (el) => (targets.find((t) => t[1] === el) || [])[0];
+    // Arm only what is still below the trigger line; anything already in view or passed stays put.
+    const arm = () => {
+      if (!scrollable()) return;
+      targets.forEach(([k, el]) => { if (fx[k] === 'idle' && el.getBoundingClientRect().top > window.innerHeight * 0.8) put(k, 'arm'); });
+    };
+    const cb = (entries) => {
+      if (!scrollable()) return;
+      entries.forEach((e) => { const k = keyOf(e.target); if (e.isIntersecting && fx[k] === 'arm') { put(k, 'on'); this._fxIo.unobserve(e.target); } });
+    };
+    const opts = { rootMargin: '-20% 0px -20% 0px', threshold: 0 };
+    try { this._fxIo = new IntersectionObserver(cb, Object.assign({ root: document }, opts)); }
+    catch (err) { this._fxIo = new IntersectionObserver(cb, opts); }
+    arm();
+    targets.forEach(([, el]) => this._fxIo.observe(el));
+    this._onFxResize = () => arm();
+    window.addEventListener('resize', this._onFxResize);
+  }
+  componentWillUnmount() {
+    if (this._galEsc) document.removeEventListener('keydown', this._galEsc);
+    document.documentElement.style.overflow = '';
+    clearTimeout(this._cpT);
+    if (this._fxIo) this._fxIo.disconnect();
+    if (this._onFxResize) window.removeEventListener('resize', this._onFxResize);
+    if (this._io) this._io.disconnect();
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+  // COURT SELECTOR. Rates come from the "Court rates" tweaks; 0 means not set, and the total reads "to be confirmed".
+  _court() {
+    const st = this.state || {};
+    const pad = (n) => String(n).padStart(2, '0');
+    const d0 = new Date(), today = d0.getFullYear() + '-' + pad(d0.getMonth() + 1) + '-' + pad(d0.getDate());
+    const times = [];
+    for (let h = 6; h <= 21; h++) times.push((h % 12 || 12) + ':00 ' + (h < 12 ? 'AM' : 'PM'));
+    const court = st.court || 'outdoor', hours = st.hours || 1, lights = !!st.lights, time = st.time || '6:00 PM', date = st.date || '';
+    const rates = { outdoor: +(this.props.rateOutdoor ?? 0) || 0, indoor: +(this.props.rateIndoor ?? 0) || 0 }, rl = +(this.props.rateLights ?? 0) || 0;
+    const known = rates[court] > 0 && (!lights || rl > 0);
+    const total = known ? hours * (rates[court] + (lights ? rl : 0)) : 0;
+    const fmt = (n) => n.toLocaleString('en-PH');
+    const names = { outdoor: 'outdoor hardcourt', indoor: 'indoor recreation center' };
+    let dateTxt = '[pick a date]';
+    if (date) { const [y, m, dd] = date.split('-').map(Number); dateTxt = new Date(y, m - 1, dd).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }); }
+    const message = 'Hi Deuce&Co. — I’d like to reserve the ' + names[court] + ' on ' + dateTxt + ', starting ' + time + ', for ' + hours + (hours === 1 ? ' hour' : ' hours') + ', ' + (lights ? 'with lights' : 'without lights') + '. ' + (known ? 'Total is ₱' + fmt(total) + '. ' : 'Total to be confirmed. ') + 'Is it available?';
+    const seg = (opts, cur, key) => opts.map(([v, label]) => ({ label, on: String(v === cur), cls: v === cur ? 'on' : '', pick: () => this.setState({ [key]: v }) }));
+    const copy = (quiet) => {
+      const done = () => { if (!quiet) { this.setState({ copied: true }); clearTimeout(this._cpT); this._cpT = setTimeout(() => this.setState({ copied: false }), 2400); } };
+      const fallback = () => { try { const ta = document.createElement('textarea'); ta.value = message; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); } catch (e) {} };
+      try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(message).then(done, fallback); else fallback(); } catch (e) { fallback(); }
+    };
+    const open = (c) => (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState(c ? { courtOpen: true, court: c } : { courtOpen: true }, () => {
+        const el = document.getElementById('court-select');
+        const rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (el) el.scrollIntoView({ behavior: rm ? 'auto' : 'smooth', block: 'start' });
+      });
+    };
+    const fb = (this.props.messengerUrl ?? '').trim();
+    return {
+      courtOpen: !!st.courtOpen, today, date, time, times,
+      courtOpts: seg([['outdoor', 'OUTDOOR HARDCOURT'], ['indoor', 'INDOOR RECREATION CENTER']], court, 'court'),
+      hourOpts: seg([[1, '1 HR'], [2, '2 HR'], [3, '3 HR']], hours, 'hours'),
+      lightOpts: seg([[false, 'DAYTIME'], [true, 'WITH LIGHTS']], lights, 'lights'),
+      onDate: (e) => this.setState({ date: e.target.value }),
+      onTime: (e) => this.setState({ time: e.target.value }),
+      totalLabel: known ? '₱' + fmt(total) : '₱ —',
+      totalNote: known ? hours + ' HR' + (lights ? ' · WITH LIGHTS' : '') : 'RATE TO BE CONFIRMED',
+      message, copyLabel: st.copied ? 'COPIED ✓' : 'COPY MESSAGE →',
+      copyMsg: () => copy(false), copyQuiet: () => copy(true),
+      fbHref: fb || ('https://m.me/61593264803515?text=' + encodeURIComponent(message)),
+      tapCta: open(null)
+    };
+  }
+  renderVals() {
+    const plain = (this.props.levelWells ?? 'color wells') === 'plain off-white';
+    const p = (this.state && this.state.p) || 0;
+    const ground = (this.state && this.state.ground) || 'cream';
+    const cls = (v) => (v === 'arm' ? 'fx-arm' : v === 'on' ? 'fx-on' : '');
+    const st0 = this.state || {};
+    const bfFx = cls(st0.bfFx), blFx = cls(st0.blFx), caseFx = cls(st0.caseFx), howFx = cls(st0.howFx), courtsFx = cls(st0.courtsFx), notesFx = cls(st0.notesFx), storyFx = cls(st0.storyFx);
+    return plain
+      ? { ...this._court(), ...this._gal(), p, ground, bfFx, blFx, caseFx, howFx, courtsFx, notesFx, storyFx, w1: 'transparent', c1: '#C8E85C', w2: 'transparent', c2: 'currentColor', w3: 'transparent', c3: '#C25B33', s1: 'var(--gbg, #EFE8DC)', s2: 'var(--gbg, #EFE8DC)', s3: 'var(--gbg, #EFE8DC)' }
+      : { ...this._court(), ...this._gal(), p, ground, bfFx, blFx, caseFx, howFx, courtsFx, notesFx, storyFx, w1: '#1F4A3D', c1: '#C8E85C', w2: '#C25B33', c2: '#EFE8DC', w3: '#111111', c3: '#C25B33', s1: '#1F4A3D', s2: '#C25B33', s3: '#111111' };
   }
 }
-
 </script>
 </body>
 </html>

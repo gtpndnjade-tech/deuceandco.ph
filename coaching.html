@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deuce&amp;Co.PH — Coaching</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=EB+Garamond:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EFE8DC;color:#111111;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{color:#C25B33}
+.d{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;font-weight:700;letter-spacing:-0.005em;line-height:0.92;margin:0}
+.m{font-family:Inter,sans-serif;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px}
+.serif{font-family:'EB Garamond',Georgia,serif}
+.wrap{max-width:1360px;margin:0 auto;padding-left:40px;padding-right:40px;box-sizing:border-box}
+.nav{font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px;text-decoration:none;padding:12px 0;border-bottom:2px solid transparent}
+.nav.on{border-bottom-color:currentColor}
+.cta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border:1px solid currentColor;text-decoration:none;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:16px;box-sizing:border-box}
+.cta:hover{background:#111111;color:#EFE8DC;border-color:#111111}
+.cta.light:hover{background:#EFE8DC;color:#111111;border-color:#EFE8DC}
+.ph{position:relative;overflow:hidden}
+.phl{position:absolute;left:14px;bottom:12px;right:14px;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-size:13px;font-weight:600;color:#EFE8DC;opacity:0.85}
+p{margin:0}
+@media (max-width:720px){.wrap{padding-left:16px;padding-right:16px}.recrow{grid-template-columns:minmax(0,1fr) !important;gap:6px !important}}
+/* HEADER · wordmark + three teasers. Sweep: a solid block wipes in from the left, 300ms; the current page's item stays filled. */
+.hdrIn{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px 32px;padding-top:12px;padding-bottom:12px}
+.brand{text-decoration:none;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;color:inherit;justify-self:start}
+.brand:hover{color:inherit}
+.tzs{display:flex;gap:36px}
+.tz{position:relative;isolation:isolate;display:flex;flex-direction:column;gap:4px;padding:10px 14px;text-decoration:none;color:inherit}
+.tz:hover{color:inherit}
+.tz::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sweep);transform:scaleX(0);transform-origin:left center;transition:transform 300ms cubic-bezier(0.16,1,0.3,1)}
+.tz:hover::before,.tz:focus-visible::before,.tz.on::before{transform:scaleX(1)}
+.tzL{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:0.06em;line-height:1;transition:color 300ms cubic-bezier(0.16,1,0.3,1)}
+.tzS{font-family:Inter,sans-serif;font-variant-caps:all-small-caps;font-weight:600;font-size:11px;letter-spacing:0.14em;line-height:1.1;color:var(--sub);transition:color 300ms cubic-bezier(0.16,1,0.3,1)}
+.tz:hover .tzL,.tz:focus-visible .tzL,.tz.on .tzL{color:var(--onfg)}
+.tz:hover .tzS,.tz:focus-visible .tzS,.tz.on .tzS{color:var(--onsub)}
+.tz:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.tz::before,.tzL,.tzS{transition:none}}
+@media (max-width:1180px){.hdrIn{grid-template-columns:auto minmax(0,1fr)}.tzs{justify-self:end}.hdrEnd{display:none}}
+@media (max-width:760px){.hdrIn{grid-template-columns:minmax(0,1fr)}.tzs{justify-self:stretch;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 -8px}.tz{padding:8px}.tzL{font-size:15px;letter-spacing:0.04em}.tzS{font-size:9px;letter-spacing:0.1em}}
+/* BRAND · crest left of a two-line block: wordmark, then location beneath, both on the same left edge. */
+.brand{display:flex;align-items:center;gap:14px;flex-wrap:nowrap}
+.brandCr{display:block;flex:0 0 auto}
+.brandTx{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.brandTx .d{line-height:0.92}
+.brandTx .m{line-height:1}
+@media (max-width:760px){.brand{gap:12px}.brandCr{width:40px;height:40px}}
+/* RENT THE GEAR DROPDOWN · opens on hover (desktop) / tap / keyboard. Appears instantly: no fade, slide or scale. */
+header{position:relative;z-index:50}
+.tzDD{position:relative;display:flex}
+.tzP .tzL{display:flex;align-items:center;gap:6px}
+.tzChev{display:block;flex:0 0 auto;width:12px;height:12px;transition:transform 200ms cubic-bezier(0.16,1,0.3,1)}
+.tzDD.open .tzChev{transform:rotate(180deg)}
+.tzMenu{display:none;position:absolute;left:0;top:100%;min-width:max(100%,236px);box-sizing:border-box;background:#EFE8DC;border:1px solid #111111;z-index:60}
+.tzDD.open .tzMenu{display:block}
+.tzMi{display:block;padding:16px 18px 16px 16px;border-left:2px solid transparent;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:0.08em;line-height:1;text-align:left;color:#111111;text-decoration:none}
+.tzMi + .tzMi{border-top:1px solid #111111}
+.tzMi:hover,.tzMi:focus-visible{background:rgba(17,17,17,0.06);color:#111111}
+.tzMi:focus-visible{outline:2px solid #111111;outline-offset:-4px}
+.tzMi.on{border-left-color:#111111}
+.hbg{display:none}
+@media (hover:none){.tz:not(.on):hover::before{transform:scaleX(0)}.tz:not(.on):hover .tzL{color:inherit}.tz:not(.on):hover .tzS{color:var(--sub)}}
+@media (hover:hover) and (min-width:761px){.tzDD:hover .tzMenu{display:block}.tzDD:hover .tzChev{transform:rotate(180deg)}}
+@media (prefers-reduced-motion:reduce){.tzChev{transition:none}}
+/* MOBILE · hamburger. The three items stack in a panel under the header row; RENT THE GEAR expands on tap. */
+@media (max-width:760px){
+.hdrIn{grid-template-columns:minmax(0,1fr) auto}
+.hbg{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;padding:0;background:none;border:0;color:inherit;cursor:pointer}
+.hbg:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+.hbg .x{display:none}
+header.mOpen .hbg .x{display:block}
+header.mOpen .hbg .b{display:none}
+header .tzs{display:none;grid-column:1/-1;justify-self:stretch;flex-direction:column;margin:0 -16px;gap:0}
+header.mOpen .tzs{display:flex}
+header .tzs > .tz,header .tzDD{border-top:1px solid color-mix(in srgb,currentColor 30%,transparent)}
+header .tzDD{flex-direction:column}
+header .tzs .tz{padding:14px 16px;gap:5px}
+header .tzs .tzL{font-size:20px;letter-spacing:0.05em}
+header .tzs .tzS{font-size:11px;letter-spacing:0.14em}
+header .tzP .tzL{justify-content:flex-start}
+header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
+}
+/* FOOTER · four rows: lockup, contact, the club, copyright */
+.ftIn{max-width:1440px;margin:0 auto;padding:64px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px}
+.ftBrand{display:inline-flex;align-items:center;gap:16px;text-decoration:none;color:#EFE8DC;align-self:flex-start}
+.ftBrand:hover{color:#EFE8DC}
+.ftBrand svg{display:block;flex:0 0 auto}
+.ftCols{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:32px 96px}
+.ftLab{color:rgba(239,232,220,0.6);font-size:13px}
+.ftTxt{margin:8px 0 0;font-family:Inter,sans-serif;font-size:16px;line-height:1.5;color:#EFE8DC}
+.ftTxt a{color:#EFE8DC;text-decoration:none}
+.ftTxt a.ftLink{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.ftTxt a:hover{color:#EFE8DC;text-decoration:underline;text-underline-offset:4px}
+.ftBase{border-top:1px solid rgba(239,232,220,0.2);padding-top:20px}
+@media (max-width:768px){.ftIn{padding:40px 24px;gap:32px}.ftCols{grid-template-columns:minmax(0,1fr)}}
+/* PTR credential: the mark always travels with the line; one 1px rule in PTR navy (sampled from the card) under it, nowhere else */
+.ptrCred{display:flex;align-items:center;gap:14px}
+.ptrCred img{display:block;height:auto;flex:0 0 auto}
+.ptrRule{display:block;width:72px;height:1px;background:#293A5E;margin-top:8px}
+/* ENTRANCES · every section reveals once as its top crosses 80% of the viewport (sections already on screen at load
+   play on load). Type fades 700ms, 100ms apart; photos rise in by clip-path over 1000ms. Opacity and clip only — nothing
+   moves. Without script or with reduced motion nothing is armed: the final state, zero motion. */
+@keyframes rvFade{from{opacity:0}to{opacity:1}}
+@keyframes rvClip{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+.rv-arm .rv-t{opacity:0}
+.rv-arm .rv-p{clip-path:inset(100% 0 0 0)}
+.rv-on .rv-t{animation:rvFade var(--rvt,700ms) cubic-bezier(0.16,1,0.3,1) var(--rvd,0ms) both}
+.rv-on .rv-p{animation:rvClip var(--rvt,1000ms) cubic-bezier(0.65,0,0.35,1) var(--rvd,0ms) both}
+@media (prefers-reduced-motion:reduce){.rv-arm .rv-t,.rv-arm .rv-p,.rv-on .rv-t,.rv-on .rv-p{animation:none !important;opacity:1 !important;clip-path:none !important}}
+/* COACHING HERO · right column: tight court photo (top ~60%), 1px ink rule, the PTR card as a straight document on cream (bottom ~40%) */
+.chR{display:grid;grid-template-rows:minmax(0,3fr) minmax(0,2fr);min-height:640px;background:#EFE8DC}
+.chPh{min-height:0;background:#111111;border-bottom:1px solid #111111}
+.chPh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.chPh::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(440px 130px at 0 0,rgba(17,17,17,0.72) 0%,rgba(17,17,17,0.6) 55%,rgba(17,17,17,0.25) 80%,rgba(17,17,17,0) 100%)}
+.chTag{position:absolute;left:20px;top:16px;right:20px;z-index:2;font-size:13px;color:#EFE8DC}
+.chCert{position:relative;min-height:0;margin:0;background:#EFE8DC;overflow:hidden}
+.chCert img{position:absolute;inset:0;margin:auto;display:block;width:auto;height:auto;max-width:calc(100% - 48px);max-height:calc(100% - 48px);border:1px solid #111111;box-sizing:border-box}
+@media (max-width:760px){.chR{display:flex;flex-direction:column;min-height:0}.chPh{aspect-ratio:1/1}.chCert{padding:16px}.chCert img{position:static;width:100%;max-width:100%;max-height:none}.chTag{left:16px;top:14px;font-size:12px}}
+/* EDITORIAL CARD · one format sitewide. Cream card, 1px ink frame, 32px inside (20px mobile); photo 4:3, full width;
+   then 24 · meta · 16 · headline · 12 · subhead · 32 · CTA, all on one centred axis. Hard corners, no shadow, no lift. */
+.ecard{background:#EFE8DC;color:#111111;border:1px solid #111111;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.ecPh{margin:0;width:100%;aspect-ratio:4/3;overflow:hidden;background:#111111;position:relative}
+.ecPh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ecPh.doc{background:transparent;display:flex;align-items:center;justify-content:center}
+.ecPh.doc img{position:static;width:auto;height:auto;max-width:100%;max-height:100%;border:1px solid #111111;box-sizing:border-box}
+.ecMeta{display:block;margin-top:24px;color:#111111}
+.ecH{margin-top:16px;font-size:44px;line-height:0.95;color:#111111}
+.ecSub{flex:1 0 auto;margin:12px 0 0;font-size:17px;line-height:1.5;max-width:42ch;color:#111111}
+.ecCta{display:inline-block;margin-top:32px;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:16px;color:#111111;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.ecCta:hover{color:#111111;text-decoration-thickness:2px}
+.ecCta:focus-visible{outline:2px solid #111111;outline-offset:4px}
+.ecPair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;align-items:stretch}
+@media (max-width:900px){.ecPair{grid-template-columns:minmax(0,1fr);gap:24px}}
+@media (max-width:760px){.ecard{padding:20px}.ecH{font-size:34px}.ecSub{font-size:16px}.ecSlot{padding-left:20px;padding-right:20px}}
+/* COACHING HERO · vertical film strip. One cream 35mm strip, holes running unbroken down both long edges, four 3:2 frames
+   (1px ink frame line), roll codes up the left margin, frame numbers under each frame. Desktop: it runs from the top of
+   the headline to the bottom of the second CTA; script sizes the frames to fit that height. Mobile: below the copy, full
+   column width, frames scaled with it. Straight, hard-edged, no shadow. */
+.heroG{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.filmBand{display:flex;justify-content:center;align-items:flex-start;padding:var(--ft,45px) 0 var(--fb,44px) 24px;box-sizing:border-box}
+.film{margin:0;background:#EFE8DC;color:#111111;height:var(--fh,auto)}
+.filmIn{display:flex;flex-direction:row;align-items:stretch;height:100%}
+.perf{flex:0 0 24px;width:24px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='20'%3E%3Crect x='6' y='6' width='12' height='8' fill='%23111111'/%3E%3C/svg%3E");background-repeat:repeat-y;background-position:0 4px}
+.fCode,.fNum{font-family:Inter,sans-serif;font-weight:600;font-size:10px;letter-spacing:0.16em;line-height:1;text-transform:uppercase;color:#111111}
+.fCode{display:flex;justify-content:space-between;writing-mode:vertical-rl;transform:rotate(180deg);flex-direction:row-reverse;padding:14px 4px;opacity:0.55}
+.fFrames{display:flex;flex-direction:column;justify-content:space-between;gap:8px;padding:14px 10px 10px 0;width:var(--fw,240px)}
+.fCell{min-width:0}
+.fFr{position:relative;aspect-ratio:3/2;overflow:hidden;background:#111111;border:1px solid #111111;box-sizing:border-box}
+.fFr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.fNum{display:block;padding:6px 0 0;white-space:nowrap}
+/* SOON badge, tilted strip, waitlist links */
+.soon{display:inline-block;margin-left:12px;padding:2px 4px;background:#C8E85C;color:#111111;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.02em;line-height:1.1;vertical-align:2px}
+.film{transform:rotate(-4deg);transform-origin:50% 50%}
+section:has(> .heroG){overflow-x:clip}
+.tileLink{color:inherit;text-decoration:none}
+.tileLink:hover{color:inherit;text-decoration:underline;text-underline-offset:4px}
+/* MOBILE (≤768) · the strip turns horizontal and scrolls inside its own box: holes along the top and bottom, roll code on
+   the top edge, END OF ROLL on the bottom, frames side by side snapping to the left edge. The first frame shows in full
+   and the next is cut at the right edge as the cue to swipe. No scrollbar, no auto-scroll; the page itself never moves sideways. */
+@media (max-width:768px){
+.heroG{grid-template-columns:minmax(0,1fr)}
+.filmBand{display:block;padding:0 0 32px;min-width:0;max-width:100%}
+.film{transform:none;width:100%;max-width:100%;height:auto;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x pan-y}
+.film::-webkit-scrollbar{display:none}
+.filmIn{display:flex;flex-direction:column;width:max-content;height:auto}
+.perf{flex:0 0 24px;width:auto;height:24px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='24'%3E%3Crect x='6' y='6' width='8' height='12' fill='%23111111'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:4px 0;order:0}
+.perf:last-child{order:4}
+.fCode{display:contents}
+.fCode span{display:block;padding:4px 14px 8px;opacity:0.55;writing-mode:horizontal-tb}
+.fCode span:first-child{order:1}
+.fCode span:last-child{order:3;padding:2px 14px 6px;align-self:flex-end}
+.fFrames{order:2;display:flex;flex-direction:row;justify-content:flex-start;gap:10px;padding:0 14px;width:auto}
+.fCell{flex:0 0 min(58vw,220px);scroll-snap-align:start;scroll-margin-left:14px}
+}
+</style>
+</helmet>
+<div class="rvRoot" style="min-height:100vh">
+
+<header style="background:#EFE8DC;color:#111111;border-bottom:1px solid #111111;--sub:#C25B33;--sweep:#1F4A3D;--onfg:#EFE8DC;--onsub:#EFE8DC">
+<div class="wrap hdrIn">
+<a class="brand" href="index.html" aria-label="Deuce&amp;Co.PH, home"><svg class="brandCr" aria-hidden="true" focusable="false" viewBox="0 0 120 120" width="44" height="44" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M60.4 3.6C74.8 18.1 88.9 31.8 116.2 59.6" stroke-width="3.1"></path> <path d="M116.4 60.3C101.6 75.2 87.3 89.6 60.2 116.3" stroke-width="2.7"></path> <path d="M59.7 116.5C45.1 101.8 30.6 87.6 3.7 60.6" stroke-width="3.2"></path> <path d="M3.5 59.9C18.4 44.7 32.9 30.2 61.3 3.1" stroke-width="2.8"></path> <text x="60" y="36" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="700" font-size="14" letter-spacing="0.4">D&amp;C</text> <g transform="translate(60 66) rotate(-34)"> <path d="M0.3 -35.2C6.6 -35.0 9.8 -28.6 9.6 -22.4C9.3 -15.8 5.6 -10.6 0.2 -10.4C-5.6 -10.3 -9.5 -16.2 -9.4 -22.9C-9.2 -29.6 -5.2 -35.4 0.9 -35.1" stroke-width="2.2"></path> <path d="M-3.4 -33.1C-3.6 -26 -3.3 -18.6 -3.2 -12.3M3.6 -33.0C3.8 -26 3.4 -18.5 3.3 -12.2M-8.4 -27.4C-3 -27.7 3 -27.3 8.6 -27.6M-8.9 -20.3C-3 -20.1 3 -20.5 9.1 -20.2M-7.2 -14.6C-2.5 -14.8 2.5 -14.4 7.0 -14.7" stroke-width="1.3"></path> <path d="M-3.3 -10.8C-1.8 -7 -0.9 -4.6 -0.8 -1.4M3.4 -10.7C1.9 -7.1 0.9 -4.4 0.9 -1.3M-0.9 -1.2C-1.1 6 -0.8 13.4 -1.0 21.6M1.0 -1.2C1.2 6.2 0.9 13.6 1.1 21.5" stroke-width="2.1"></path> </g> <g transform="translate(60 66) rotate(34)"> <path d="M-0.4 -35.0C-6.4 -35.3 -9.7 -28.9 -9.5 -22.6C-9.4 -15.9 -5.4 -10.5 0.1 -10.5C5.8 -10.4 9.6 -16.4 9.5 -23.1C9.3 -29.8 5.4 -35.5 -1.0 -35.0" stroke-width="2.3"></path> <path d="M-3.5 -32.9C-3.3 -26 -3.6 -18.7 -3.4 -12.4M3.5 -33.2C3.3 -26.1 3.7 -18.6 3.4 -12.3M-8.6 -27.5C-3 -27.3 3 -27.7 8.4 -27.4M-9.0 -20.4C-3 -20.6 3 -20.2 9.0 -20.4M-7.1 -14.5C-2.5 -14.3 2.5 -14.7 7.2 -14.5" stroke-width="1.3"></path> <path d="M-3.4 -10.9C-1.9 -7.2 -1.0 -4.5 -0.9 -1.3M3.3 -10.8C1.8 -7.0 1.0 -4.6 0.8 -1.4M-1.0 -1.3C-0.8 6.1 -1.1 13.5 -0.9 21.4M0.9 -1.3C1.1 6.0 0.8 13.5 1.0 21.7" stroke-width="2.0"></path> </g> <text x="60" y="101" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="600" font-size="11" letter-spacing="0.8">2026</text> </svg><span class="brandTx"><span class="d" style="font-size:28px;letter-spacing:0.01em">DEUCE&amp;CO.PH</span><span class="m" style="font-size:13px">BIÑAN · LAGUNA, PH</span></span></a>
+<button class="hbg" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Menu"><svg class="b" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"></path></svg><svg class="x" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2"></path></svg></button>
+<nav aria-label="Main" class="tzs" id="siteNav">
+<div class="tzDD"><a class="tz tzP" href="rent-the-gear.html" aria-haspopup="true" aria-expanded="false" aria-controls="rtgMenu"><span class="tzL">RENT THE GEAR<svg class="tzChev" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 4.25 6 8.25 10 4.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"></path></svg></span><span class="tzS">Frames, balls, courts.</span></a><div class="tzMenu" id="rtgMenu" role="menu" aria-label="Rent the gear"><a class="tzMi" role="menuitem" href="rackets.html">RACKETS</a><a class="tzMi" role="menuitem" href="gear.html">GEAR</a><a class="tzMi" role="menuitem" href="barkada-bundle.html">BARKADA BUNDLE</a></div></div>
+<a class="tz on" href="coaching.html" aria-current="page"><span class="tzL">COACHING</span><span class="tzS">Learn from a coach</span></a>
+<a class="tz" href="our-story.html"><span class="tzL">OUR STORY</span><span class="tzS">Since 1999</span></a>
+</nav>
+<span class="hdrEnd" aria-hidden="true"></span>
+</div>
+</header>
+
+<!-- HERO -->
+<section style="background:#1F4A3D;color:#EFE8DC">
+<div class="wrap heroG" style="padding-top:16px;padding-bottom:0">
+<div style="padding:8px 48px 44px 0;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+<span class="m" style="color:#EFE8DC">COACHING · BIÑAN · NEW</span>
+<div>
+<h1 class="d" style="font-size:clamp(52px,6.8vw,104px)">LEARN FROM A COACH WHO WAS RAISED BY THE SPORT.</h1>
+<p style="font-size:20px;line-height:1.55;margin-top:32px;max-width:36ch;color:#EFE8DC">PTR Certified Instructor. Sikap Cup Champion. Ball boy at Philippine Columbian. Coaching sessions for beginners and returning players, in Biñan.</p>
+<div class="ptrCred" style="margin-top:12px"><img src="assets/3ba522215db10933b19e13aa15fe53c1.png" width="44" style="width:44px" alt="PTR, Professional Tennis Registry"><div><span class="m" style="font-size:13px">PTR CERTIFIED INSTRUCTOR</span><span class="ptrRule" aria-hidden="true"></span></div></div>
+<p style="font-size:16px;line-height:1.55;margin-top:20px;color:#EFE8DC">Private lessons and group sessions. Biñan, Laguna.<span class="soon">SOON</span></p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:36px">
+<a class="cta" href="https://m.me/61593264803515?text=Hi%20Deuce%26Co.%20%E2%80%94%20Please%20add%20me%20to%20the%20coaching%20waitlist.%0AMy%20level%3A%0APreferred%20days%3A%20" target="_blank" rel="noopener" style="background:#C8E85C;color:#111111;border-color:#C8E85C">JOIN THE WAITLIST →</a>
+<a class="cta light" href="our-story.html">HIS STORY →</a>
+</div>
+</div>
+</div>
+<div class="filmBand">
+<figure class="film" aria-label="Film strip, frames 12 to 15: the coaching years in Hong Kong">
+<div class="filmIn">
+<div class="perf" aria-hidden="true"></div>
+<div class="fCode" aria-hidden="true"><span>ROLL 01 · DEUCE 400</span><span>END OF ROLL</span></div>
+<div class="fFrames"><div class="fCell"><div class="fFr"><img src="assets/265f919b3a86973c85f7f388b1d180eb.jpg" alt="The coach in a white track jacket and cap, feeding a ball on a Hong Kong hard court" loading="lazy"></div><span class="fNum">12<span aria-hidden="true"> ▸ </span>12A</span></div><div class="fCell"><div class="fFr"><img src="assets/0043dc78667fa984fc143584d7c54172.jpg" alt="Four players lined up at the net on a sunny outdoor court in Hong Kong, rackets in hand" loading="lazy"></div><span class="fNum">13<span aria-hidden="true"> ▸ </span>13A</span></div><div class="fCell"><div class="fFr"><img src="assets/ef9d48979edf00e8da0b573127cbafe6.jpg" alt="Old rackets laid out on a concrete court at night: a Prince Graphite Oversize in front, a Dunlop behind" loading="lazy"></div><span class="fNum">14<span aria-hidden="true"> ▸ </span>14A</span></div><div class="fCell"><div class="fFr"><img src="assets/e3eaf0946ef634b32710189914994307.jpg" alt="Training session: the coach bent to a young player, showing her the forehand, other juniors waiting behind" loading="lazy"></div><span class="fNum">15<span aria-hidden="true"> ▸ </span>15A</span></div></div>
+<div class="perf" aria-hidden="true"></div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- CANVAS MOMENT: credentials, type-led -->
+<section style="background:#EFE8DC;padding:120px 0">
+<div class="wrap">
+<span class="m" style="color:#1F4A3D">THE RECORD</span>
+<div style="margin-top:28px;border-top:1px solid #111111">
+<div class="recrow" style="display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr) minmax(0,auto);gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid #111111;flex-wrap:wrap">
+<span class="serif" style="font-size:30px;font-style:italic">1982</span>
+<span class="d" style="font-size:clamp(40px,6vw,92px)">BALL BOY</span>
+<span class="m">PHILIPPINE COLUMBIAN ASSOCIATION</span>
+</div>
+<div class="recrow" style="display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr) minmax(0,auto);gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid #111111">
+<span class="serif" style="font-size:30px;font-style:italic">1999</span>
+<span class="d" style="font-size:clamp(40px,6vw,92px);color:#C25B33">CHAMPION</span>
+<span class="m">SIKAP CUP · DIV. B · MEN’S SINGLES · HONG KONG</span>
+</div>
+<div class="recrow" style="display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr) minmax(0,auto);gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid #111111">
+<span class="serif" style="font-size:30px;font-style:italic">PTR</span>
+<span style="display:flex;align-items:center;gap:20px;flex-wrap:nowrap;min-width:0"><span class="d" style="font-size:clamp(40px,6vw,92px);min-width:0">CERTIFIED INSTRUCTOR</span><img src="assets/178a03207bdc18218c7d1a61a660945f.png" width="32" style="width:32px;height:auto;display:block" alt="PTR, Professional Tennis Registry"></span>
+<span><span class="m" style="display:block">PTR CERTIFIED INSTRUCTOR · #63152</span><span class="ptrRule" aria-hidden="true"></span></span>
+</div>
+<div class="recrow" style="display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr) minmax(0,auto);gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid #111111">
+<span class="serif" style="font-size:30px;font-style:italic">Now</span>
+<span class="d" style="font-size:clamp(40px,6vw,92px);color:#1F4A3D">COACH, BIÑAN</span>
+<span class="m">SOUTH CITY HOMES</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EDITORIAL CARDS · the certificate and the coach -->
+<section aria-label="The coach" style="background:#C25B33;padding:64px 0">
+<div class="wrap ecSlot"><div class="ecPair">
+<article class="ecard">
+<figure class="ecPh doc"><img src="assets/5b17479d546dcdfe2de0baabab1e1422.jpg" alt="Professional Tennis Registry card: Gatpandan Jaime, Certified Instructor #63152, expires December 31, 2011" width="1400" height="872" loading="lazy"></figure>
+<span class="m ecMeta">PTR CERTIFIED INSTRUCTOR · #63152.</span>
+<h3 class="d ecH">CERTIFIED IN HONG KONG.</h3>
+<p class="ecSub">Professional Tennis Registry. Expires December 2011.</p>
+<a class="ecCta" href="#sessions">SEE THE COACHING →</a>
+</article>
+<article class="ecard">
+<figure class="ecPh"><img src="assets/beb2ec7ccc44b83da709008ade0cba4f.jpg" alt="The coach low on a forehand on a blue hard court in Hong Kong" style="object-position:50% 55%" loading="lazy"></figure>
+<span class="m ecMeta">COACH · SINCE 1999.</span>
+<h3 class="d ecH">JAIME GATPANDAN.</h3>
+<p class="ecSub">PTR Certified Instructor. Ball boy at Philippine Columbian. Coach in Hong Kong.</p>
+<a class="ecCta" href="https://m.me/61593264803515?text=Hi%20Deuce%26Co.%20%E2%80%94%20Please%20add%20me%20to%20the%20coaching%20waitlist.%0AMy%20level%3A%0APreferred%20days%3A%20" target="_blank" rel="noopener">JOIN THE WAITLIST →</a>
+</article>
+</div></div>
+</section>
+
+<!-- SESSIONS -->
+<section id="sessions" style="background:#EFE8DC;padding:96px 0 120px">
+<div class="wrap">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;padding-bottom:22px;border-bottom:1px solid #111111">
+<h2 class="d" style="font-size:clamp(48px,6vw,88px)">SESSIONS</h2>
+<span class="m" style="color:#1F4A3D">RATES BY DM</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px;margin-top:8px">
+<article style="background:#1F4A3D;color:#EFE8DC;padding:36px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+<div><span class="m" style="color:#EFE8DC">01 · NEVER PLAYED</span><h3 class="d" style="font-size:52px;margin-top:18px">BEGINNER SESSIONS</h3></div>
+<div><p style="line-height:1.6;max-width:32ch">Grip, footwork, your first real rally. Rackets from the rental shelf if you don’t own one.</p><span class="m" style="display:block;margin-top:22px;padding-top:14px;border-top:1px solid rgba(239,232,220,0.35)"><a class="tileLink" href="https://m.me/61593264803515?text=Hi%20Deuce%26Co.%20%E2%80%94%20Please%20add%20me%20to%20the%20waitlist%20for%20Beginner%20Sessions.%0APreferred%20days%3A%20" target="_blank" rel="noopener">JOIN THE WAITLIST →</a></span></div>
+</article>
+<article style="background:#111111;color:#EFE8DC;padding:36px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+<div><span class="m" style="color:#EFE8DC">02 · ONE ON ONE</span><h3 class="d" style="font-size:52px;margin-top:18px">PRIVATE LESSONS</h3></div>
+<div><p style="line-height:1.6;max-width:32ch">For returning players shaking off the rust, or anyone who wants a coach’s full attention.</p><span class="m" style="display:block;margin-top:22px;padding-top:14px;border-top:1px solid rgba(239,232,220,0.35)"><a class="tileLink" href="https://m.me/61593264803515?text=Hi%20Deuce%26Co.%20%E2%80%94%20Please%20add%20me%20to%20the%20waitlist%20for%20Private%20Lessons.%0AMy%20level%3A%0APreferred%20days%3A%20" target="_blank" rel="noopener">JOIN THE WAITLIST →</a></span></div>
+</article>
+<article style="background:#C25B33;color:#111111;padding:36px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+<div><span class="m">03 · BRING FRIENDS</span><h3 class="d" style="font-size:52px;margin-top:18px">GROUP COACHING</h3></div>
+<div><p style="line-height:1.6;max-width:32ch">Drills, games and doubles for a small group. Pairs well with the Barkada Bundle.</p><span class="m" style="display:block;margin-top:22px;padding-top:14px;border-top:1px solid rgba(17,17,17,0.4)"><a class="tileLink" href="https://m.me/61593264803515?text=Hi%20Deuce%26Co.%20%E2%80%94%20Please%20add%20me%20to%20the%20waitlist%20for%20Group%20Coaching.%0ANumber%20of%20players%3A%0APreferred%20days%3A%20" target="_blank" rel="noopener">JOIN THE WAITLIST →</a></span></div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- THE HOMECOMING -->
+<section aria-label="The homecoming" style="background:#1F4A3D;color:#EFE8DC;padding:120px 0">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:center">
+<div>
+<span class="m" style="color:#EFE8DC">COACHING · BIÑAN · FULL PROGRAM</span>
+<h2 class="d" style="font-size:clamp(64px,9vw,136px);margin-top:16px">THE HOME&#8203;COMING.</h2>
+<p style="font-size:20px;line-height:1.55;max-width:36ch;margin-top:32px">After over a decade coaching in Hong Kong, he’s returning to Biñan. Beginner sessions, private lessons, and group coaching start this season.</p>
+<a class="cta light" href="https://m.me/61593264803515?text=Hi%20Deuce%26Co.%20%E2%80%94%20Please%20add%20me%20to%20the%20coaching%20waitlist.%0AMy%20level%3A%0APreferred%20days%3A%20" target="_blank" rel="noopener" style="margin-top:32px">JOIN THE WAITLIST →</a>
+</div>
+<figure style="margin:0">
+<svg aria-hidden="true" viewBox="0 0 520 300" style="width:100%;max-width:560px;display:block" fill="none" stroke="#EFE8DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M18 22 C 160 19, 360 24, 502 21 L 500 279 C 360 282, 150 277, 20 280 Z"></path>
+<path d="M60 23 L 61 279 M460 22 L 459 280"></path>
+<path d="M61 92 C 200 90, 330 94, 459 91 M61 210 C 190 212, 320 208, 459 211"></path>
+<path d="M260 92 L 261 210"></path>
+<path d="M258 18 C 262 100, 257 200, 261 284" stroke="#C25B33" stroke-width="3"></path>
+<path d="M250 18 L 266 17 M251 284 L 268 285" stroke="#C25B33" stroke-width="3"></path>
+<circle cx="372" cy="150" r="7" stroke="#EFE8DC"></circle>
+</svg>
+<figcaption class="serif" style="font-style:italic;font-size:20px;margin-top:20px;color:#EFE8DC">A court diagram, drawn the way he explains a point.</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- QUOTE + CTA -->
+<section style="background:#111111;color:#EFE8DC;padding:120px 0">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center">
+<div style="display:flex;gap:32px;align-items:flex-start">
+<svg aria-hidden="true" viewBox="0 0 120 240" style="width:72px;flex:0 0 auto" fill="none" stroke="#EFE8DC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M60 9 C 93 10, 107 41, 105 76 C 103 111, 84 133, 61 134 C 35 135, 14 112, 15 75 C 16 39, 31 8, 62 10"></path>
+<path d="M40 22 C 39 60, 40 100, 41 124 M60 12 C 59 60, 60 100, 61 132 M80 21 C 81 60, 80 100, 79 125 M22 52 C 50 51, 75 53, 99 51 M17 80 C 50 79, 75 81, 104 80 M24 108 C 50 107, 75 109, 97 108"></path>
+<path d="M45 128 C 52 148, 56 158, 56 172 M76 128 C 68 148, 64 158, 64 172"></path>
+<path d="M55 172 C 54 195, 55 215, 54 232 M65 172 C 66 195, 65 215, 66 232 M53 233 L 67 232"></path>
+</svg>
+<p class="serif" style="font-style:italic;font-size:clamp(30px,3.4vw,44px);line-height:1.2;max-width:22ch">“A way back to the court.” Now it’s yours too.</p>
+</div>
+<div>
+<p style="font-size:19px;line-height:1.6;max-width:38ch">Tell us your level, your preferred days and how many are playing. We’ll reply with a time, a court and a rate.</p>
+<a class="cta light" href="https://m.me/61593264803515?text=Hi%20Deuce%26Co.%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20coaching%20session.%0AMy%20level%3A%0APreferred%20days%3A%0ANumber%20of%20players%3A%20" target="_blank" rel="noopener" style="margin-top:32px">DM TO BOOK A SESSION →</a>
+</div>
+</div>
+</section>
+
+<footer style="background:#111111;color:#EFE8DC">
+<div class="ftIn">
+<a class="ftBrand" href="index.html" aria-label="Deuce&amp;Co.PH, home"><svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" width="56" height="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M60.4 3.6C74.8 18.1 88.9 31.8 116.2 59.6" stroke-width="3.1"></path> <path d="M116.4 60.3C101.6 75.2 87.3 89.6 60.2 116.3" stroke-width="2.7"></path> <path d="M59.7 116.5C45.1 101.8 30.6 87.6 3.7 60.6" stroke-width="3.2"></path> <path d="M3.5 59.9C18.4 44.7 32.9 30.2 61.3 3.1" stroke-width="2.8"></path> <text x="60" y="36" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="700" font-size="14" letter-spacing="0.4">D&amp;C</text> <g transform="translate(60 66) rotate(-34)"> <path d="M0.3 -35.2C6.6 -35.0 9.8 -28.6 9.6 -22.4C9.3 -15.8 5.6 -10.6 0.2 -10.4C-5.6 -10.3 -9.5 -16.2 -9.4 -22.9C-9.2 -29.6 -5.2 -35.4 0.9 -35.1" stroke-width="2.2"></path> <path d="M-3.4 -33.1C-3.6 -26 -3.3 -18.6 -3.2 -12.3M3.6 -33.0C3.8 -26 3.4 -18.5 3.3 -12.2M-8.4 -27.4C-3 -27.7 3 -27.3 8.6 -27.6M-8.9 -20.3C-3 -20.1 3 -20.5 9.1 -20.2M-7.2 -14.6C-2.5 -14.8 2.5 -14.4 7.0 -14.7" stroke-width="1.3"></path> <path d="M-3.3 -10.8C-1.8 -7 -0.9 -4.6 -0.8 -1.4M3.4 -10.7C1.9 -7.1 0.9 -4.4 0.9 -1.3M-0.9 -1.2C-1.1 6 -0.8 13.4 -1.0 21.6M1.0 -1.2C1.2 6.2 0.9 13.6 1.1 21.5" stroke-width="2.1"></path> </g> <g transform="translate(60 66) rotate(34)"> <path d="M-0.4 -35.0C-6.4 -35.3 -9.7 -28.9 -9.5 -22.6C-9.4 -15.9 -5.4 -10.5 0.1 -10.5C5.8 -10.4 9.6 -16.4 9.5 -23.1C9.3 -29.8 5.4 -35.5 -1.0 -35.0" stroke-width="2.3"></path> <path d="M-3.5 -32.9C-3.3 -26 -3.6 -18.7 -3.4 -12.4M3.5 -33.2C3.3 -26.1 3.7 -18.6 3.4 -12.3M-8.6 -27.5C-3 -27.3 3 -27.7 8.4 -27.4M-9.0 -20.4C-3 -20.6 3 -20.2 9.0 -20.4M-7.1 -14.5C-2.5 -14.3 2.5 -14.7 7.2 -14.5" stroke-width="1.3"></path> <path d="M-3.4 -10.9C-1.9 -7.2 -1.0 -4.5 -0.9 -1.3M3.3 -10.8C1.8 -7.0 1.0 -4.6 0.8 -1.4M-1.0 -1.3C-0.8 6.1 -1.1 13.5 -0.9 21.4M0.9 -1.3C1.1 6.0 0.8 13.5 1.0 21.7" stroke-width="2.0"></path> </g> <text x="60" y="101" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="600" font-size="11" letter-spacing="0.8">2026</text> </svg><span class="d" style="font-size:28px;letter-spacing:0.01em">DEUCE&amp;CO.PH</span></a>
+<div class="ftCols">
+<div>
+<div class="m ftLab">VISIT</div>
+<p class="ftTxt">South City Homes, Biñan, Laguna, PH</p>
+<div class="m ftLab" style="margin-top:32px">MESSAGE</div>
+<p class="ftTxt"><a href="https://www.instagram.com/deuceandco.ph/">@deuceandco.ph</a> · <a href="https://www.facebook.com/profile.php?id=61593264803515" target="_blank" rel="noopener">Facebook</a> · <a href="mailto:deuceandcoph@gmail.com">deuceandcoph@gmail.com</a></p>
+</div>
+<div>
+<div class="m ftLab">THE CLUB</div>
+<p class="ftTxt"><a class="ftLink" href="rackets.html">Rackets</a> · <a class="ftLink" href="gear.html">Gear</a> · <a class="ftLink" href="barkada-bundle.html">Barkada Bundle</a></p>
+</div>
+</div>
+<div class="ftBase"><span class="m ftLab">© 2026 DEUCE&amp;CO.PH</span></div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4960}}'>
+class Component extends DCLogic {
+  // Section entrances (IntersectionObserver only, once each). Photos: img/.ph wider than 120px; type: the outermost
+  // headings, paragraphs, labels and CTAs outside those photos, in reading order.
+  // Header: RENT THE GEAR dropdown + mobile hamburger. Desktop hover is CSS; this adds tap, keyboard and the menu toggle.
+  _hdr() {
+    const hdr = document.querySelector('header');
+    const dd = hdr && hdr.querySelector('.tzDD');
+    if (!dd || dd._wired) return;
+    dd._wired = true;
+    const par = dd.querySelector('.tzP');
+    const items = Array.prototype.slice.call(dd.querySelectorAll('.tzMi'));
+    const hbg = hdr.querySelector('.hbg');
+    const mob = () => window.matchMedia('(max-width:760px)').matches;
+    const isOpen = () => dd.classList.contains('open');
+    const setOpen = (v) => { dd.classList.toggle('open', v); par.setAttribute('aria-expanded', v ? 'true' : 'false'); };
+    const setMenu = (v) => { hdr.classList.toggle('mOpen', v); if (hbg) hbg.setAttribute('aria-expanded', v ? 'true' : 'false'); if (!v) setOpen(false); };
+    let ptr = 'mouse';
+    par.addEventListener('pointerdown', (e) => { ptr = e.pointerType || 'mouse'; });
+    par.addEventListener('click', (e) => {
+      // Mobile menu: the parent is a toggle. Touch on wider screens: first tap opens, second follows the link.
+      if (mob()) { e.preventDefault(); setOpen(!isOpen()); return; }
+      if (ptr === 'touch' && !isOpen()) { e.preventDefault(); setOpen(true); }
+    });
+    dd.addEventListener('mouseenter', () => { if (!mob()) par.setAttribute('aria-expanded', 'true'); });
+    dd.addEventListener('mouseleave', () => { if (!mob()) setOpen(false); });
+    const focusItem = (i) => { const n = items.length; items[(i + n) % n].focus(); };
+    par.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); focusItem(0); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setOpen(true); focusItem(items.length - 1); }
+      else if (e.key === ' ') { e.preventDefault(); setOpen(!isOpen()); }
+      else if (e.key === 'Escape') { setOpen(false); }
+    });
+    items.forEach((it, i) => it.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); focusItem(i + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); focusItem(i - 1); }
+      else if (e.key === 'Home') { e.preventDefault(); focusItem(0); }
+      else if (e.key === 'End') { e.preventDefault(); focusItem(items.length - 1); }
+      else if (e.key === 'Escape') { e.preventDefault(); setOpen(false); par.focus(); }
+    }));
+    items.forEach((it) => it.addEventListener('click', () => { setOpen(false); setMenu(false); }));
+    dd.addEventListener('focusout', (e) => { if (!mob() && !dd.contains(e.relatedTarget)) setOpen(false); });
+    if (hbg) hbg.addEventListener('click', () => setMenu(!hdr.classList.contains('mOpen')));
+    document.addEventListener('pointerdown', (e) => {
+      if (!dd.contains(e.target) && !mob()) setOpen(false);
+      if (mob() && !hdr.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hdr.classList.contains('mOpen') && !dd.contains(document.activeElement)) { setMenu(false); hbg && hbg.focus(); } });
+  }
+  // Film strip: on desktop, run it from the top of the headline to the bottom of the last CTA and size the four
+  // frames (3:2) to fill exactly that height. Mobile leaves it to CSS.
+  _film() {
+    const band = document.querySelector('.filmBand'); if (!band) return;
+    const grid = band.parentElement, film = band.querySelector('.film'), frames = band.querySelector('.fFrames');
+    const h1 = grid.querySelector('h1'), ctas = grid.querySelectorAll('.cta');
+    if (!h1 || !ctas.length || window.innerWidth <= 768) { band.style.display = ''; ['--ft','--fb','--fh','--fw'].forEach((k) => band.style.removeProperty(k)); return; }
+    band.style.display = 'none'; // measure the left column on its own, so the strip never sets the row height
+    const g = grid.firstElementChild.getBoundingClientRect(), top = h1.getBoundingClientRect().top - g.top; // the left column's box = the grid row
+    const bottom = Math.max(...Array.prototype.map.call(ctas, (c) => c.getBoundingClientRect().bottom)) - g.top;
+    const H = Math.round(bottom - top);
+    const gH = g.height;
+    band.style.display = '';
+    const num = band.querySelector('.fNum'), numH = num ? num.offsetHeight : 16;
+    const cs = getComputedStyle(frames), padV = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom), gap = parseFloat(cs.rowGap) || 8;
+    const n = frames.children.length, fh = Math.floor((H - padV - gap * (n - 1) - numH * n) / n);
+    band.style.setProperty('--ft', Math.round(top) + 'px');
+    band.style.setProperty('--fb', Math.round(gH - bottom) + 'px');
+    band.style.setProperty('--fh', H + 'px');
+    band.style.setProperty('--fw', Math.max(120, Math.floor(fh * 1.5)) + 'px');
+  }
+  componentDidMount() {
+    this._hdr();
+    this._film();
+    this._filmR = () => this._film();
+    window.addEventListener('resize', this._filmR);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this._film());
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const root = document.querySelector('.rvRoot');
+    if (!root) return;
+    const sections = Array.prototype.slice.call(root.querySelectorAll('section'));
+    const state = new Map();
+    const scrollable = () => root.getBoundingClientRect().height > window.innerHeight * 1.2;
+    const prep = (sec) => {
+      const photos = Array.prototype.slice.call(sec.querySelectorAll('img, .ph')).filter((el) => {
+        if (el.getBoundingClientRect().width < 120) return false;
+        for (let p = el.parentElement; p && p !== sec; p = p.parentElement) if (p.matches('img, .ph')) return false;
+        return true;
+      });
+      const inPhoto = (el) => photos.some((ph) => ph !== el && ph.contains(el));
+      const types = [];
+      sec.querySelectorAll('h1, h2, h3, h4, p, .m, .cta, .link, figcaption, li, .d, .ptrCred').forEach((el) => {
+        if (inPhoto(el) || photos.indexOf(el) >= 0) return;
+        if (types.some((t) => t.contains(el))) return;
+        types.push(el);
+      });
+      photos.forEach((el, i) => { el.classList.add('rv-p'); el.style.setProperty('--rvd', Math.min(i, 3) * 120 + 'ms'); });
+      types.forEach((el, i) => { el.classList.add('rv-t'); el.style.setProperty('--rvd', Math.min(i, 6) * 100 + 'ms'); });
+    };
+    const arm = (sec) => { prep(sec); sec.classList.add('rv-arm'); state.set(sec, 'arm'); };
+    const play = (sec) => { sec.classList.remove('rv-arm'); sec.classList.add('rv-on'); state.set(sec, 'on'); };
+    const cb = (entries) => {
+      if (!scrollable()) return;
+      entries.forEach((e) => { if (e.isIntersecting && state.get(e.target) === 'arm') { play(e.target); this._rvIo.unobserve(e.target); } });
+    };
+    const opts = { rootMargin: '-20% 0px -20% 0px', threshold: 0 };
+    try { this._rvIo = new IntersectionObserver(cb, Object.assign({ root: document }, opts)); }
+    catch (err) { this._rvIo = new IntersectionObserver(cb, opts); }
+    const setup = () => {
+      if (!scrollable()) return;
+      const vh = window.innerHeight;
+      sections.forEach((sec) => {
+        if (state.has(sec)) return;
+        const r = sec.getBoundingClientRect();
+        if (r.top > vh * 0.8) { arm(sec); this._rvIo.observe(sec); }
+        else if (r.bottom > 0 && !this._rvSetupDone) { arm(sec); requestAnimationFrame(() => play(sec)); }
+        else state.set(sec, 'static');
+      });
+      this._rvSetupDone = true;
+    };
+    setup();
+    this._rvResize = () => setup();
+    window.addEventListener('resize', this._rvResize);
+  }
+  componentWillUnmount() {
+    if (this._filmR) window.removeEventListener('resize', this._filmR);
+    if (this._rvIo) this._rvIo.disconnect();
+    if (this._rvResize) window.removeEventListener('resize', this._rvResize);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

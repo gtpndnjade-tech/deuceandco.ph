@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deuce&amp;Co.PH — Our Story</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=EB+Garamond:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EFE8DC;color:#111111;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{color:#C25B33}
+.d{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;font-weight:700;letter-spacing:-0.005em;line-height:0.92;margin:0}
+.m{font-family:Inter,sans-serif;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px}
+.serif{font-family:'EB Garamond',Georgia,serif}
+.wrap{max-width:1360px;margin:0 auto;padding-left:40px;padding-right:40px;box-sizing:border-box}
+.nav{font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:15px;text-decoration:none;padding:12px 0;border-bottom:2px solid transparent}
+.nav.on{border-bottom-color:currentColor}
+.cta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border:1px solid currentColor;text-decoration:none;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:16px;box-sizing:border-box}
+.cta:hover{background:#111111;color:#EFE8DC;border-color:#111111}
+.ph{position:relative;overflow:hidden}
+.phl{position:absolute;left:14px;bottom:12px;right:14px;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-size:13px;font-weight:600;color:#EFE8DC;opacity:0.85}
+.chap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:48px;align-items:start}
+.body{font-size:22px;line-height:1.55;max-width:34ch}
+p{margin:0}
+@media (max-width:860px){.chap{grid-template-columns:minmax(0,1fr);gap:24px}.body{font-size:19px}}
+.fam{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+@media (max-width:1100px){.fam{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.wrap{padding-left:16px;padding-right:16px}.fam{grid-template-columns:minmax(0,1fr);gap:40px}.cohero-meta{left:16px !important}.cohero-h{left:16px !important;right:16px !important;bottom:24px !important}}
+/* HEADER · wordmark + three teasers. Sweep: a solid block wipes in from the left, 300ms; the current page's item stays filled. */
+.hdrIn{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px 32px;padding-top:12px;padding-bottom:12px}
+.brand{text-decoration:none;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;color:inherit;justify-self:start}
+.brand:hover{color:inherit}
+.tzs{display:flex;gap:36px}
+.tz{position:relative;isolation:isolate;display:flex;flex-direction:column;gap:4px;padding:10px 14px;text-decoration:none;color:inherit}
+.tz:hover{color:inherit}
+.tz::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sweep);transform:scaleX(0);transform-origin:left center;transition:transform 300ms cubic-bezier(0.16,1,0.3,1)}
+.tz:hover::before,.tz:focus-visible::before,.tz.on::before{transform:scaleX(1)}
+.tzL{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:0.06em;line-height:1;transition:color 300ms cubic-bezier(0.16,1,0.3,1)}
+.tzS{font-family:Inter,sans-serif;font-variant-caps:all-small-caps;font-weight:600;font-size:11px;letter-spacing:0.14em;line-height:1.1;color:var(--sub);transition:color 300ms cubic-bezier(0.16,1,0.3,1)}
+.tz:hover .tzL,.tz:focus-visible .tzL,.tz.on .tzL{color:var(--onfg)}
+.tz:hover .tzS,.tz:focus-visible .tzS,.tz.on .tzS{color:var(--onsub)}
+.tz:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.tz::before,.tzL,.tzS{transition:none}}
+@media (max-width:1180px){.hdrIn{grid-template-columns:auto minmax(0,1fr)}.tzs{justify-self:end}.hdrEnd{display:none}}
+@media (max-width:760px){.hdrIn{grid-template-columns:minmax(0,1fr)}.tzs{justify-self:stretch;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 -8px}.tz{padding:8px}.tzL{font-size:15px;letter-spacing:0.04em}.tzS{font-size:9px;letter-spacing:0.1em}}
+/* BRAND · crest left of a two-line block: wordmark, then location beneath, both on the same left edge. */
+.brand{display:flex;align-items:center;gap:14px;flex-wrap:nowrap}
+.brandCr{display:block;flex:0 0 auto}
+.brandTx{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.brandTx .d{line-height:0.92}
+.brandTx .m{line-height:1}
+@media (max-width:760px){.brand{gap:12px}.brandCr{width:40px;height:40px}}
+/* RENT THE GEAR DROPDOWN · opens on hover (desktop) / tap / keyboard. Appears instantly: no fade, slide or scale. */
+header{position:relative;z-index:50}
+.tzDD{position:relative;display:flex}
+.tzP .tzL{display:flex;align-items:center;gap:6px}
+.tzChev{display:block;flex:0 0 auto;width:12px;height:12px;transition:transform 200ms cubic-bezier(0.16,1,0.3,1)}
+.tzDD.open .tzChev{transform:rotate(180deg)}
+.tzMenu{display:none;position:absolute;left:0;top:100%;min-width:max(100%,236px);box-sizing:border-box;background:#EFE8DC;border:1px solid #111111;z-index:60}
+.tzDD.open .tzMenu{display:block}
+.tzMi{display:block;padding:16px 18px 16px 16px;border-left:2px solid transparent;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:0.08em;line-height:1;text-align:left;color:#111111;text-decoration:none}
+.tzMi + .tzMi{border-top:1px solid #111111}
+.tzMi:hover,.tzMi:focus-visible{background:rgba(17,17,17,0.06);color:#111111}
+.tzMi:focus-visible{outline:2px solid #111111;outline-offset:-4px}
+.tzMi.on{border-left-color:#111111}
+.hbg{display:none}
+@media (hover:none){.tz:not(.on):hover::before{transform:scaleX(0)}.tz:not(.on):hover .tzL{color:inherit}.tz:not(.on):hover .tzS{color:var(--sub)}}
+@media (hover:hover) and (min-width:761px){.tzDD:hover .tzMenu{display:block}.tzDD:hover .tzChev{transform:rotate(180deg)}}
+@media (prefers-reduced-motion:reduce){.tzChev{transition:none}}
+/* MOBILE · hamburger. The three items stack in a panel under the header row; RENT THE GEAR expands on tap. */
+@media (max-width:760px){
+.hdrIn{grid-template-columns:minmax(0,1fr) auto}
+.hbg{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;padding:0;background:none;border:0;color:inherit;cursor:pointer}
+.hbg:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+.hbg .x{display:none}
+header.mOpen .hbg .x{display:block}
+header.mOpen .hbg .b{display:none}
+header .tzs{display:none;grid-column:1/-1;justify-self:stretch;flex-direction:column;margin:0 -16px;gap:0}
+header.mOpen .tzs{display:flex}
+header .tzs > .tz,header .tzDD{border-top:1px solid color-mix(in srgb,currentColor 30%,transparent)}
+header .tzDD{flex-direction:column}
+header .tzs .tz{padding:14px 16px;gap:5px}
+header .tzs .tzL{font-size:20px;letter-spacing:0.05em}
+header .tzs .tzS{font-size:11px;letter-spacing:0.14em}
+header .tzP .tzL{justify-content:flex-start}
+header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
+}
+/* FOOTER · four rows: lockup, contact, the club, copyright */
+.ftIn{max-width:1440px;margin:0 auto;padding:64px 48px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px}
+.ftBrand{display:inline-flex;align-items:center;gap:16px;text-decoration:none;color:#EFE8DC;align-self:flex-start}
+.ftBrand:hover{color:#EFE8DC}
+.ftBrand svg{display:block;flex:0 0 auto}
+.ftCols{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:32px 96px}
+.ftLab{color:rgba(239,232,220,0.6);font-size:13px}
+.ftTxt{margin:8px 0 0;font-family:Inter,sans-serif;font-size:16px;line-height:1.5;color:#EFE8DC}
+.ftTxt a{color:#EFE8DC;text-decoration:none}
+.ftTxt a.ftLink{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.ftTxt a:hover{color:#EFE8DC;text-decoration:underline;text-underline-offset:4px}
+.ftBase{border-top:1px solid rgba(239,232,220,0.2);padding-top:20px}
+@media (max-width:768px){.ftIn{padding:40px 24px;gap:32px}.ftCols{grid-template-columns:minmax(0,1fr)}}
+/* PTR credential: the mark always travels with the line; one 1px rule in PTR navy (sampled from the card) under it, nowhere else */
+.ptrCred{display:flex;align-items:center;gap:14px}
+.ptrCred img{display:block;height:auto;flex:0 0 auto}
+.ptrRule{display:block;width:72px;height:1px;background:#293A5E;margin-top:8px}
+/* ENTRANCES · every section reveals once as its top crosses 80% of the viewport (sections already on screen at load
+   play on load). Type fades 700ms, 100ms apart; photos rise in by clip-path over 1000ms. Opacity and clip only — nothing
+   moves. Without script or with reduced motion nothing is armed: the final state, zero motion. */
+@keyframes rvFade{from{opacity:0}to{opacity:1}}
+@keyframes rvClip{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+.rv-arm .rv-t{opacity:0}
+.rv-arm .rv-p{clip-path:inset(100% 0 0 0)}
+.rv-on .rv-t{animation:rvFade var(--rvt,700ms) cubic-bezier(0.16,1,0.3,1) var(--rvd,0ms) both}
+.rv-on .rv-p{animation:rvClip var(--rvt,1000ms) cubic-bezier(0.65,0,0.35,1) var(--rvd,0ms) both}
+@media (prefers-reduced-motion:reduce){.rv-arm .rv-t,.rv-arm .rv-p,.rv-on .rv-t,.rv-on .rv-p{animation:none !important;opacity:1 !important;clip-path:none !important}}
+/* CHAPTER 03 · "03" watermark: Oswald at ~680px, ink at 7%, the 0 bleeding off the left edge and the 3 off the right. */
+.c3{position:relative;overflow:hidden;padding-top:128px;padding-bottom:16px}
+.c3wm{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none;user-select:none;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:700;font-size:680px;line-height:0.82;color:rgba(17,17,17,0.07)}
+.c3wm span{display:block;margin:0 -0.17em}
+.c3in{position:relative;z-index:1}
+.c3card{margin:56px 0 0;max-width:400px;background:#EFE8DC}
+.c3card img{display:block;width:100%;height:auto;border:1px solid #111111;box-sizing:border-box}
+@media (max-width:860px){.c3{padding-top:96px}.c3wm{font-size:300px;top:46%}.c3card{margin-top:40px;max-width:none}}
+/* CHAPTER 02 · 1999 spread: the print runs from the body column to the right edge of the frame (~60% of the width at 1440).
+   Caption sits directly under it; the right label stops at the page margin so it never touches the screen edge. */
+.y99{overflow-x:clip}
+.y99fig{--gut:max(40px,calc((100vw - 1360px) / 2 + 40px));margin:48px calc(-1 * var(--gut)) 0 0}
+.y99fig img{box-sizing:border-box}
+.y99cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;margin:0;padding:12px var(--gut) 0 0}
+@media (max-width:860px){.y99fig{margin:40px 0 0}.y99cap{padding-right:0}}
+@media (max-width:480px){.y99cap{flex-wrap:nowrap;gap:12px}.y99cap .m{font-size:10.5px;letter-spacing:0.1em;white-space:nowrap}}
+/* EDITORIAL CARD · one format sitewide. Cream card, 1px ink frame, 32px inside (20px mobile); photo 4:3, full width;
+   then 24 · meta · 16 · headline · 12 · subhead · 32 · CTA, all on one centred axis. Hard corners, no shadow, no lift. */
+.ecard{background:#EFE8DC;color:#111111;border:1px solid #111111;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.ecPh{margin:0;width:100%;aspect-ratio:4/3;overflow:hidden;background:#111111;position:relative}
+.ecPh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ecPh.doc{background:transparent;display:flex;align-items:center;justify-content:center}
+.ecPh.doc img{position:static;width:auto;height:auto;max-width:100%;max-height:100%;border:1px solid #111111;box-sizing:border-box}
+.ecMeta{display:block;margin-top:24px;color:#111111}
+.ecH{margin-top:16px;font-size:44px;line-height:0.95;color:#111111}
+.ecSub{flex:1 0 auto;margin:12px 0 0;font-size:17px;line-height:1.5;max-width:42ch;color:#111111}
+.ecCta{display:inline-block;margin-top:32px;font-variant-caps:all-small-caps;letter-spacing:0.14em;font-weight:600;font-size:16px;color:#111111;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.ecCta:hover{color:#111111;text-decoration-thickness:2px}
+.ecCta:focus-visible{outline:2px solid #111111;outline-offset:4px}
+@media (max-width:760px){.ecard{padding:20px}.ecH{font-size:34px}.ecSub{font-size:16px}.ecSlot{padding-left:20px;padding-right:20px}}
+/* FILM STRIP · every photo on the page sits in the same 35mm language as the Coaching hero: a cream strip with sprocket
+   holes along the top and bottom, the photo in a 1px ink frame, a frame number underneath in tiny Inter. */
+.fs{background:#EFE8DC;color:#111111}
+.fsPerf{height:20px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect x='6' y='5' width='8' height='10' fill='%23111111'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:3px 0}
+.fsWin{padding:0 12px}
+.fsPh{border:1px solid #111111;box-sizing:border-box}
+.fsNum{display:block;padding:7px 0 3px;font-family:Inter,sans-serif;font-weight:600;font-size:10px;letter-spacing:0.16em;line-height:1;text-transform:uppercase;color:#111111;white-space:nowrap}
+.fsNums{display:flex;justify-content:space-between;gap:16px}
+.fsWide .fsWin{padding:0 16px}
+.fsSm .fsPerf{height:16px;background-size:16px 16px}
+.fsSm .fsWin{padding:0 8px}
+.fsSm .fsNum{font-size:9px;padding:6px 0 2px}
+.ecard .fs{width:100%}
+</style>
+</helmet>
+<div class="rvRoot" style="min-height:100vh">
+
+<header style="background:#EFE8DC;color:#111111;border-bottom:1px solid #111111;--sub:#C25B33;--sweep:#1F4A3D;--onfg:#EFE8DC;--onsub:#EFE8DC">
+<div class="wrap hdrIn">
+<a class="brand" href="index.html" aria-label="Deuce&amp;Co.PH, home"><svg class="brandCr" aria-hidden="true" focusable="false" viewBox="0 0 120 120" width="44" height="44" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M60.4 3.6C74.8 18.1 88.9 31.8 116.2 59.6" stroke-width="3.1"></path> <path d="M116.4 60.3C101.6 75.2 87.3 89.6 60.2 116.3" stroke-width="2.7"></path> <path d="M59.7 116.5C45.1 101.8 30.6 87.6 3.7 60.6" stroke-width="3.2"></path> <path d="M3.5 59.9C18.4 44.7 32.9 30.2 61.3 3.1" stroke-width="2.8"></path> <text x="60" y="36" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="700" font-size="14" letter-spacing="0.4">D&amp;C</text> <g transform="translate(60 66) rotate(-34)"> <path d="M0.3 -35.2C6.6 -35.0 9.8 -28.6 9.6 -22.4C9.3 -15.8 5.6 -10.6 0.2 -10.4C-5.6 -10.3 -9.5 -16.2 -9.4 -22.9C-9.2 -29.6 -5.2 -35.4 0.9 -35.1" stroke-width="2.2"></path> <path d="M-3.4 -33.1C-3.6 -26 -3.3 -18.6 -3.2 -12.3M3.6 -33.0C3.8 -26 3.4 -18.5 3.3 -12.2M-8.4 -27.4C-3 -27.7 3 -27.3 8.6 -27.6M-8.9 -20.3C-3 -20.1 3 -20.5 9.1 -20.2M-7.2 -14.6C-2.5 -14.8 2.5 -14.4 7.0 -14.7" stroke-width="1.3"></path> <path d="M-3.3 -10.8C-1.8 -7 -0.9 -4.6 -0.8 -1.4M3.4 -10.7C1.9 -7.1 0.9 -4.4 0.9 -1.3M-0.9 -1.2C-1.1 6 -0.8 13.4 -1.0 21.6M1.0 -1.2C1.2 6.2 0.9 13.6 1.1 21.5" stroke-width="2.1"></path> </g> <g transform="translate(60 66) rotate(34)"> <path d="M-0.4 -35.0C-6.4 -35.3 -9.7 -28.9 -9.5 -22.6C-9.4 -15.9 -5.4 -10.5 0.1 -10.5C5.8 -10.4 9.6 -16.4 9.5 -23.1C9.3 -29.8 5.4 -35.5 -1.0 -35.0" stroke-width="2.3"></path> <path d="M-3.5 -32.9C-3.3 -26 -3.6 -18.7 -3.4 -12.4M3.5 -33.2C3.3 -26.1 3.7 -18.6 3.4 -12.3M-8.6 -27.5C-3 -27.3 3 -27.7 8.4 -27.4M-9.0 -20.4C-3 -20.6 3 -20.2 9.0 -20.4M-7.1 -14.5C-2.5 -14.3 2.5 -14.7 7.2 -14.5" stroke-width="1.3"></path> <path d="M-3.4 -10.9C-1.9 -7.2 -1.0 -4.5 -0.9 -1.3M3.3 -10.8C1.8 -7.0 1.0 -4.6 0.8 -1.4M-1.0 -1.3C-0.8 6.1 -1.1 13.5 -0.9 21.4M0.9 -1.3C1.1 6.0 0.8 13.5 1.0 21.7" stroke-width="2.0"></path> </g> <text x="60" y="101" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="600" font-size="11" letter-spacing="0.8">2026</text> </svg><span class="brandTx"><span class="d" style="font-size:28px;letter-spacing:0.01em">DEUCE&amp;CO.PH</span><span class="m" style="font-size:13px">BIÑAN · LAGUNA, PH</span></span></a>
+<button class="hbg" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Menu"><svg class="b" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"></path></svg><svg class="x" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2"></path></svg></button>
+<nav aria-label="Main" class="tzs" id="siteNav">
+<div class="tzDD"><a class="tz tzP" href="rent-the-gear.html" aria-haspopup="true" aria-expanded="false" aria-controls="rtgMenu"><span class="tzL">RENT THE GEAR<svg class="tzChev" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 4.25 6 8.25 10 4.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"></path></svg></span><span class="tzS">Frames, balls, courts.</span></a><div class="tzMenu" id="rtgMenu" role="menu" aria-label="Rent the gear"><a class="tzMi" role="menuitem" href="rackets.html">RACKETS</a><a class="tzMi" role="menuitem" href="gear.html">GEAR</a><a class="tzMi" role="menuitem" href="barkada-bundle.html">BARKADA BUNDLE</a></div></div>
+<a class="tz" href="coaching.html"><span class="tzL">COACHING</span><span class="tzS">Learn from a coach</span></a>
+<a class="tz on" href="our-story.html" aria-current="page"><span class="tzL">OUR STORY</span><span class="tzS">Since 1999</span></a>
+</nav>
+<span class="hdrEnd" aria-hidden="true"></span>
+</div>
+</header>
+
+<!-- HERO: archival -->
+<section class="ph" style="background:#111111;color:#EFE8DC;min-height:820px;display:flex;flex-direction:column;justify-content:space-between">
+<img src="assets/b6b3c703b486e4ae66c96b233682fdf0.jpg" alt="Sikap Tennis Cup, 1999: a young player mid-forehand" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block">
+<div class="wrap" style="position:relative;width:100%;padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+<span class="m" style="background:rgba(17,17,17,0.4);padding:4px 8px">OUR STORY · EST. 1999</span>
+<span class="m" style="background:rgba(17,17,17,0.4);padding:4px 8px">ARCHIVAL SCAN · SIKAP TENNIS CUP</span>
+</div>
+<!-- the print stays visible; a flat, hard-edged band sits only behind the headline -->
+<div style="position:relative;width:100%;background:rgba(17,17,17,0.44);padding:36px 0 44px">
+<div class="wrap">
+<h1 class="d" style="font-size:clamp(64px,11vw,176px);max-width:10ch">THE SPORT THAT RAISED HIM.</h1>
+</div>
+</div>
+</section>
+
+<!-- 1982 -->
+<section id="ch01" style="background:#EFE8DC;padding:128px 0">
+<div class="wrap chap">
+<div>
+<span class="m" style="color:#1F4A3D">CHAPTER 01 · PLAZA DILAO, PACO, MANILA</span>
+<h2 class="d" style="font-size:clamp(96px,14vw,200px);margin-top:12px;color:#1F4A3D">1982.</h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+<p class="body" style="flex:1 1 340px">Plaza Dilao, Paco, Manila. He was a ball boy at the Philippine Columbian Association. Three months picking up balls, watching matches from the edge of a court he wasn’t yet allowed to play on. Tennis found him before he found it.</p>
+</div>
+</div>
+</section>
+
+<!-- 1999 · chapter headline on court green, then the editorial card -->
+<section id="ch02" style="background:#1F4A3D;color:#EFE8DC;padding:128px 0">
+<div class="wrap chap">
+<div>
+<span class="m" style="color:#EFE8DC">CHAPTER 02 · HONG KONG</span>
+<h2 class="d" style="font-size:clamp(96px,14vw,200px);margin-top:12px">1999.</h2>
+</div>
+<div>
+<p class="body" style="color:#EFE8DC">Seventeen years later, in Hong Kong, he won the Sikap Tennis Cup — Division B, Men’s Singles. Ball boy to champion. The court that raised him, finally his.</p>
+</div>
+</div>
+<div class="wrap ecSlot" style="margin-top:72px;display:flex;justify-content:center">
+<div style="width:min(100%,864px)">
+<article class="ecard">
+<div class="fs"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><figure class="ecPh fsPh"><img src="assets/a91dd8055e50374a9e9a82a49dc486b0.jpg" alt="Sikap Tennis Cup 1999, Division B Men's Single Champion: the player mid-forehand beside the trophy" style="object-position:42% 50%" loading="lazy"></figure><span class="fsNum">01<span aria-hidden="true"> ▸ </span>01A</span></div><div class="fsPerf" aria-hidden="true"></div></div>
+<span class="m ecMeta">1999.</span>
+<h3 class="d ecH">SIKAP TENNIS CUP</h3>
+<p class="ecSub">Division B · Men’s Singles.</p>
+</article>
+</div>
+</div>
+</section>
+
+<!-- THE COACHING YEARS → TODAY -->
+<section style="background:#EFE8DC;padding:0 0 128px">
+<div class="c3">
+<div class="c3wm" aria-hidden="true"><span>0</span><span>3</span></div>
+<div class="wrap chap c3in">
+<div>
+<span class="m" style="color:#111111">CHAPTER 03</span>
+<h2 class="d" style="font-size:clamp(56px,6.4vw,92px);margin-top:12px">THE COACHING YEARS.</h2>
+</div>
+<div>
+<div class="ptrCred"><img src="assets/178a03207bdc18218c7d1a61a660945f.png" width="40" style="width:40px" alt="PTR, Professional Tennis Registry"><div><span class="m" style="font-size:13px;color:#1F4A3D">PTR CERTIFIED INSTRUCTOR</span><span class="ptrRule" aria-hidden="true"></span></div></div>
+<p class="body" style="margin-top:28px">After his playing days, he became a PTR Certified Instructor. Years of teaching the game he grew up watching from the sideline. Tennis didn’t just give him a career. It gave him a life.</p>
+<figure class="c3card"><div class="fs"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><img class="fsPh" src="assets/5b17479d546dcdfe2de0baabab1e1422.jpg" width="1400" height="872" alt="Professional Tennis Registry card: Gatpandan Jaime, Certified Instructor #63152, expires December 31, 2011"><span class="fsNum">02<span aria-hidden="true"> ▸ </span>02A</span></div><div class="fsPerf" aria-hidden="true"></div></div></figure>
+</div>
+</div>
+</div>
+<!-- from certified coach to the playing years today -->
+<div class="wrap" style="margin-top:88px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:end;border-top:1px solid #111111;padding-top:40px">
+<div>
+<span class="m" style="color:#1F4A3D">AND STILL PLAYING</span>
+<p class="serif" style="font-style:italic;font-size:clamp(28px,3vw,40px);line-height:1.2;margin-top:16px;max-width:18ch">From certified coach to the playing years — he never left the court.</p>
+</div>
+<figure style="margin:0">
+<div class="fs"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><img class="fsPh" src="assets/f5e1b7f5d17fd5c48f214df65e1ea6a0.jpg" alt="Him on court today, low on a forehand, city towers behind the fence" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:55% 70%;display:block"><span class="fsNum">03<span aria-hidden="true"> ▸ </span>03A</span></div><div class="fsPerf" aria-hidden="true"></div></div>
+<figcaption style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid #111111;margin-top:12px;padding-top:10px"><span class="m">TODAY · HONG KONG</span><span class="m">STILL ON COURT</span></figcaption>
+</figure>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:1px solid #111111;margin-top:56px">
+<div style="padding:18px 18px 0 0"><span class="m">1982 · BALL BOY</span><p class="serif" style="font-size:22px;margin-top:6px">Philippine Columbian Association</p></div>
+<div style="padding:18px 18px 0;border-left:1px solid #111111"><span class="m">1999 · CHAMPION</span><p class="serif" style="font-size:22px;margin-top:6px">Sikap Cup, Div. B, Hong Kong</p></div>
+<div style="padding:18px 18px 0;border-left:1px solid #111111"><span class="m">PTR · INSTRUCTOR</span><p class="serif" style="font-size:22px;margin-top:6px">Certified, #63152</p></div>
+<div style="padding:18px 18px 0;border-left:1px solid #111111"><span class="m">TODAY · PLAYER</span><p class="serif" style="font-size:22px;margin-top:6px">Still on court</p></div>
+</div>
+</div>
+</section>
+
+<!-- THE HARD YEARS -->
+<section style="background:#111111;color:#EFE8DC;padding:128px 0">
+<div class="wrap chap">
+<div><span class="m" style="color:#EFE8DC">CHAPTER 04</span></div>
+<div>
+<h2 class="d" style="font-size:clamp(64px,9vw,136px)">THE HARD YEARS.</h2>
+<p class="body" style="margin-top:40px;color:#EFE8DC">Six weeks of radiotherapy. Three daughters. Three flights home to Hong Kong. Somewhere between the hospital visits and the quiet slow mornings, an idea was born. Not a business plan. A way back to the court.</p>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(239,232,220,0.35);margin-top:64px;max-width:720px">
+<div style="padding-top:18px"><div class="d" style="font-size:72px">6</div><span class="m" style="color:#EFE8DC">WEEKS</span></div>
+<div style="padding-top:18px;padding-left:18px;border-left:1px solid rgba(239,232,220,0.35)"><div class="d" style="font-size:72px">3</div><span class="m" style="color:#EFE8DC">DAUGHTERS</span></div>
+<div style="padding-top:18px;padding-left:18px;border-left:1px solid rgba(239,232,220,0.35)"><div class="d" style="font-size:72px">3</div><span class="m" style="color:#EFE8DC">FLIGHTS HOME</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- THE HOMECOMING -->
+<section style="background:#1F4A3D;color:#EFE8DC;padding:128px 0">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:end">
+<div>
+<span class="m" style="color:#EFE8DC">CHAPTER 05</span>
+<h2 class="d" style="font-size:clamp(64px,9vw,136px);margin-top:12px">THE HOME&#8203;COMING.</h2>
+<p class="body" style="margin-top:40px">He’s retiring from his day job. He’s coming home to Biñan. He’s picking up a racket for good — coaching the sport that raised him. Deuce&amp;Co. is how he does it.</p>
+<a class="cta" href="coaching.html" style="margin-top:40px">MEET THE COACH →</a>
+</div>
+<div>
+<svg aria-hidden="true" viewBox="0 0 520 300" style="width:100%;max-width:560px;display:block" fill="none" stroke="#EFE8DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M18 22 C 160 19, 360 24, 502 21 L 500 279 C 360 282, 150 277, 20 280 Z"></path>
+<path d="M60 23 L 61 279 M460 22 L 459 280"></path>
+<path d="M61 92 C 200 90, 330 94, 459 91 M61 210 C 190 212, 320 208, 459 211"></path>
+<path d="M260 92 L 261 210"></path>
+<path d="M258 18 C 262 100, 257 200, 261 284" stroke="#C25B33" stroke-width="3"></path>
+<path d="M250 18 L 266 17 M251 284 L 268 285" stroke="#C25B33" stroke-width="3"></path>
+<circle cx="372" cy="150" r="7" stroke="#EFE8DC"></circle>
+</svg>
+<p class="serif" style="font-style:italic;font-size:22px;margin-top:20px;color:#EFE8DC">A court diagram, drawn the way he explains a point.</p>
+</div>
+</div>
+</section>
+
+<!-- THE & CO. -->
+<section aria-label="The and Co." style="background:#EFE8DC;padding:0 0 128px">
+<!-- hero: the family archive photo, ~65% of the viewport, a slice of cream left below -->
+<div class="fs fsWide"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin">
+<div class="fsPh" style="position:relative;height:clamp(380px,65vh,720px);overflow:hidden;background:#111111">
+<img src="assets/436c0297645ec55c53f58f951c34705d.jpg" alt="Jaime Gatpandan coaching his daughters on a green court at night; a daughter in a pink shirt swings beside him" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 38%;display:block">
+<div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(17,17,17,0) 0%,rgba(17,17,17,0) 45%,rgba(17,17,17,0.06) 58%,rgba(17,17,17,0.16) 70%,rgba(17,17,17,0.28) 84%,rgba(17,17,17,0.4) 100%)"></div>
+<span class="m cohero-meta" style="position:absolute;left:40px;top:28px;color:#EFE8DC">THE &amp; CO.</span>
+<h2 class="d cohero-h" style="position:absolute;left:40px;right:40px;bottom:36px;font-size:clamp(32px,3.4vw,50px);line-height:1;color:#EFE8DC;max-width:22ch">The company is family.<br>This is where it started.</h2>
+</div>
+<div class="fsNums"><span class="fsNum">04<span aria-hidden="true"> ▸ </span>04A</span><span class="fsNum">05<span aria-hidden="true"> ▸ </span>05A</span></div></div><div class="fsPerf" aria-hidden="true"></div></div>
+<!-- the family -->
+<div class="wrap">
+<div class="fam" style="margin-top:72px">
+<article>
+<div class="fs fsSm"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><img class="fsPh" src="assets/e79b6f96dd213c82c5dcec8bc8afd49d.jpg" alt="Jaime Gatpandan on court in a white track jacket, holding rackets and tennis balls" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block"><span class="fsNum">06<span aria-hidden="true"> ▸ </span>06A</span></div><div class="fsPerf" aria-hidden="true"></div></div>
+<h3 class="d" style="font-size:30px;margin-top:18px;line-height:1">JAIME GATPANDAN</h3>
+<div class="m" style="color:#1F4A3D;margin-top:8px;font-size:13px">COACH</div>
+<p style="margin-top:10px;line-height:1.5;font-size:15px">Ball boy at Philippine Columbian. Champion in 1999. Coach today.</p>
+</article>
+<article>
+<div class="fs fsSm"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><img class="fsPh" src="assets/825d47324c561743a346ec97a0d1d066.jpg" alt="Dhorie mid-swing on a green court" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block"><span class="fsNum">07<span aria-hidden="true"> ▸ </span>07A</span></div><div class="fsPerf" aria-hidden="true"></div></div>
+<h3 class="d" style="font-size:30px;margin-top:18px;line-height:1">DHORIE</h3>
+<div class="m" style="color:#1F4A3D;margin-top:8px;font-size:13px">FAMILY</div>
+<p style="margin-top:10px;line-height:1.5;font-size:15px">Played alongside him. Held the family together. Raised strong, independent daughters.</p>
+</article>
+<article>
+<div class="fs fsSm"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><img class="fsPh" src="assets/91477b6ac50d961f56aca19d99bfec5a.jpg" alt="Jade as a girl on court, holding a racket and a ball" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block"><span class="fsNum">08<span aria-hidden="true"> ▸ </span>08A</span></div><div class="fsPerf" aria-hidden="true"></div></div>
+<h3 class="d" style="font-size:30px;margin-top:18px;line-height:1">JADE</h3>
+<div class="m" style="color:#1F4A3D;margin-top:8px;font-size:13px">FOUNDER</div>
+<p style="margin-top:10px;line-height:1.5;font-size:15px">Grew up without a tennis community. Built Deuce&amp;Co. between flights home.</p>
+</article>
+<article>
+<div class="fs fsSm"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><img class="fsPh" src="assets/a8d8ce42c0c23ba023aa158e6c9c5a88.jpg" alt="Jewell as a young girl with a racket, training" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block"><span class="fsNum">09<span aria-hidden="true"> ▸ </span>09A</span></div><div class="fsPerf" aria-hidden="true"></div></div>
+<h3 class="d" style="font-size:30px;margin-top:18px;line-height:1">JEWELL</h3>
+<div class="m" style="color:#1F4A3D;margin-top:8px;font-size:13px">ASSISTANT COACH</div>
+<p style="margin-top:10px;line-height:1.5;font-size:15px">Assistant to the coach. Multi-talented. Radiates the balance between learning and fun.</p>
+</article>
+<article>
+<div class="fs fsSm"><div class="fsPerf" aria-hidden="true"></div><div class="fsWin"><img class="fsPh" src="assets/fc63a8360a60ca5e6d35625cdeb8ba9b.jpg" alt="Pearl as a young girl in a ready stance" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block"><span class="fsNum">10<span aria-hidden="true"> ▸ </span>10A</span></div><div class="fsPerf" aria-hidden="true"></div></div>
+<h3 class="d" style="font-size:30px;margin-top:18px;line-height:1">PEARL</h3>
+<div class="m" style="color:#1F4A3D;margin-top:8px;font-size:13px">COMMUNITY</div>
+<p style="margin-top:10px;line-height:1.5;font-size:15px">Fell in love with tennis and found a community by showing up alone. Now building one for the next person who does.</p>
+</article>
+</div>
+</div>
+</section>
+
+<!-- DEUCE -->
+<section style="background:#C25B33;color:#111111;padding:128px 0">
+<div class="wrap chap">
+<div>
+<span class="m">CHAPTER 07 · 40–40</span>
+<div class="d" style="font-size:clamp(80px,12vw,180px);margin-top:12px;color:#EFE8DC">40<br>40</div>
+</div>
+<div>
+<h2 class="d" style="font-size:clamp(80px,12vw,200px);color:#EFE8DC">DEUCE.</h2>
+<p class="body" style="margin-top:40px">It’s the score when both players have won three points. Neither ahead. The next point is anyone’s. That’s where we are. The game is even. Come play.</p>
+</div>
+</div>
+</section>
+
+<!-- COME PLAY -->
+<section style="background:#EFE8DC;padding:128px 0 140px">
+<div class="wrap" style="text-align:left">
+<span class="m" style="color:#1F4A3D">CHAPTER 08</span>
+<h2 class="d" style="font-size:clamp(80px,13vw,200px);margin-top:12px">COME PLAY.</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;border-top:1px solid #111111;margin-top:40px;padding-top:32px">
+<p class="body">You don’t need a racket. You don’t need a membership. You just need a court date and someone to rally with.</p>
+<a class="cta" href="rent-the-gear.html" style="background:#C8E85C;border-color:#111111">START YOUR RENTAL →</a>
+</div>
+</div>
+</section>
+
+<footer style="background:#111111;color:#EFE8DC">
+<div class="ftIn">
+<a class="ftBrand" href="index.html" aria-label="Deuce&amp;Co.PH, home"><svg aria-hidden="true" focusable="false" viewBox="0 0 120 120" width="56" height="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M60.4 3.6C74.8 18.1 88.9 31.8 116.2 59.6" stroke-width="3.1"></path> <path d="M116.4 60.3C101.6 75.2 87.3 89.6 60.2 116.3" stroke-width="2.7"></path> <path d="M59.7 116.5C45.1 101.8 30.6 87.6 3.7 60.6" stroke-width="3.2"></path> <path d="M3.5 59.9C18.4 44.7 32.9 30.2 61.3 3.1" stroke-width="2.8"></path> <text x="60" y="36" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="700" font-size="14" letter-spacing="0.4">D&amp;C</text> <g transform="translate(60 66) rotate(-34)"> <path d="M0.3 -35.2C6.6 -35.0 9.8 -28.6 9.6 -22.4C9.3 -15.8 5.6 -10.6 0.2 -10.4C-5.6 -10.3 -9.5 -16.2 -9.4 -22.9C-9.2 -29.6 -5.2 -35.4 0.9 -35.1" stroke-width="2.2"></path> <path d="M-3.4 -33.1C-3.6 -26 -3.3 -18.6 -3.2 -12.3M3.6 -33.0C3.8 -26 3.4 -18.5 3.3 -12.2M-8.4 -27.4C-3 -27.7 3 -27.3 8.6 -27.6M-8.9 -20.3C-3 -20.1 3 -20.5 9.1 -20.2M-7.2 -14.6C-2.5 -14.8 2.5 -14.4 7.0 -14.7" stroke-width="1.3"></path> <path d="M-3.3 -10.8C-1.8 -7 -0.9 -4.6 -0.8 -1.4M3.4 -10.7C1.9 -7.1 0.9 -4.4 0.9 -1.3M-0.9 -1.2C-1.1 6 -0.8 13.4 -1.0 21.6M1.0 -1.2C1.2 6.2 0.9 13.6 1.1 21.5" stroke-width="2.1"></path> </g> <g transform="translate(60 66) rotate(34)"> <path d="M-0.4 -35.0C-6.4 -35.3 -9.7 -28.9 -9.5 -22.6C-9.4 -15.9 -5.4 -10.5 0.1 -10.5C5.8 -10.4 9.6 -16.4 9.5 -23.1C9.3 -29.8 5.4 -35.5 -1.0 -35.0" stroke-width="2.3"></path> <path d="M-3.5 -32.9C-3.3 -26 -3.6 -18.7 -3.4 -12.4M3.5 -33.2C3.3 -26.1 3.7 -18.6 3.4 -12.3M-8.6 -27.5C-3 -27.3 3 -27.7 8.4 -27.4M-9.0 -20.4C-3 -20.6 3 -20.2 9.0 -20.4M-7.1 -14.5C-2.5 -14.3 2.5 -14.7 7.2 -14.5" stroke-width="1.3"></path> <path d="M-3.4 -10.9C-1.9 -7.2 -1.0 -4.5 -0.9 -1.3M3.3 -10.8C1.8 -7.0 1.0 -4.6 0.8 -1.4M-1.0 -1.3C-0.8 6.1 -1.1 13.5 -0.9 21.4M0.9 -1.3C1.1 6.0 0.8 13.5 1.0 21.7" stroke-width="2.0"></path> </g> <text x="60" y="101" text-anchor="middle" fill="currentColor" stroke="none" font-family="Oswald, sans-serif" font-weight="600" font-size="11" letter-spacing="0.8">2026</text> </svg><span class="d" style="font-size:28px;letter-spacing:0.01em">DEUCE&amp;CO.PH</span></a>
+<div class="ftCols">
+<div>
+<div class="m ftLab">VISIT</div>
+<p class="ftTxt">South City Homes, Biñan, Laguna, PH</p>
+<div class="m ftLab" style="margin-top:32px">MESSAGE</div>
+<p class="ftTxt"><a href="https://www.instagram.com/deuceandco.ph/">@deuceandco.ph</a> · <a href="https://www.facebook.com/profile.php?id=61593264803515" target="_blank" rel="noopener">Facebook</a> · <a href="mailto:deuceandcoph@gmail.com">deuceandcoph@gmail.com</a></p>
+</div>
+<div>
+<div class="m ftLab">THE CLUB</div>
+<p class="ftTxt"><a class="ftLink" href="rackets.html">Rackets</a> · <a class="ftLink" href="gear.html">Gear</a> · <a class="ftLink" href="barkada-bundle.html">Barkada Bundle</a></p>
+</div>
+</div>
+<div class="ftBase"><span class="m ftLab">© 2026 DEUCE&amp;CO.PH</span></div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":9030}}'>
+class Component extends DCLogic {
+  // Section entrances (IntersectionObserver only, once each). Photos: img/.ph wider than 120px; type: the outermost
+  // headings, paragraphs, labels and CTAs outside those photos, in reading order.
+  // Header: RENT THE GEAR dropdown + mobile hamburger. Desktop hover is CSS; this adds tap, keyboard and the menu toggle.
+  _hdr() {
+    const hdr = document.querySelector('header');
+    const dd = hdr && hdr.querySelector('.tzDD');
+    if (!dd || dd._wired) return;
+    dd._wired = true;
+    const par = dd.querySelector('.tzP');
+    const items = Array.prototype.slice.call(dd.querySelectorAll('.tzMi'));
+    const hbg = hdr.querySelector('.hbg');
+    const mob = () => window.matchMedia('(max-width:760px)').matches;
+    const isOpen = () => dd.classList.contains('open');
+    const setOpen = (v) => { dd.classList.toggle('open', v); par.setAttribute('aria-expanded', v ? 'true' : 'false'); };
+    const setMenu = (v) => { hdr.classList.toggle('mOpen', v); if (hbg) hbg.setAttribute('aria-expanded', v ? 'true' : 'false'); if (!v) setOpen(false); };
+    let ptr = 'mouse';
+    par.addEventListener('pointerdown', (e) => { ptr = e.pointerType || 'mouse'; });
+    par.addEventListener('click', (e) => {
+      // Mobile menu: the parent is a toggle. Touch on wider screens: first tap opens, second follows the link.
+      if (mob()) { e.preventDefault(); setOpen(!isOpen()); return; }
+      if (ptr === 'touch' && !isOpen()) { e.preventDefault(); setOpen(true); }
+    });
+    dd.addEventListener('mouseenter', () => { if (!mob()) par.setAttribute('aria-expanded', 'true'); });
+    dd.addEventListener('mouseleave', () => { if (!mob()) setOpen(false); });
+    const focusItem = (i) => { const n = items.length; items[(i + n) % n].focus(); };
+    par.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); focusItem(0); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setOpen(true); focusItem(items.length - 1); }
+      else if (e.key === ' ') { e.preventDefault(); setOpen(!isOpen()); }
+      else if (e.key === 'Escape') { setOpen(false); }
+    });
+    items.forEach((it, i) => it.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); focusItem(i + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); focusItem(i - 1); }
+      else if (e.key === 'Home') { e.preventDefault(); focusItem(0); }
+      else if (e.key === 'End') { e.preventDefault(); focusItem(items.length - 1); }
+      else if (e.key === 'Escape') { e.preventDefault(); setOpen(false); par.focus(); }
+    }));
+    items.forEach((it) => it.addEventListener('click', () => { setOpen(false); setMenu(false); }));
+    dd.addEventListener('focusout', (e) => { if (!mob() && !dd.contains(e.relatedTarget)) setOpen(false); });
+    if (hbg) hbg.addEventListener('click', () => setMenu(!hdr.classList.contains('mOpen')));
+    document.addEventListener('pointerdown', (e) => {
+      if (!dd.contains(e.target) && !mob()) setOpen(false);
+      if (mob() && !hdr.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hdr.classList.contains('mOpen') && !dd.contains(document.activeElement)) { setMenu(false); hbg && hbg.focus(); } });
+  }
+  componentDidMount() {
+    this._hdr();
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const root = document.querySelector('.rvRoot');
+    if (!root) return;
+    const sections = Array.prototype.slice.call(root.querySelectorAll('section'));
+    const state = new Map();
+    const scrollable = () => root.getBoundingClientRect().height > window.innerHeight * 1.2;
+    const prep = (sec) => {
+      const photos = Array.prototype.slice.call(sec.querySelectorAll('img, .ph')).filter((el) => {
+        if (el.getBoundingClientRect().width < 120) return false;
+        for (let p = el.parentElement; p && p !== sec; p = p.parentElement) if (p.matches('img, .ph')) return false;
+        return true;
+      });
+      const inPhoto = (el) => photos.some((ph) => ph !== el && ph.contains(el));
+      const types = [];
+      sec.querySelectorAll('h1, h2, h3, h4, p, .m, .cta, .link, figcaption, li, .d, .ptrCred').forEach((el) => {
+        if (inPhoto(el) || photos.indexOf(el) >= 0) return;
+        if (types.some((t) => t.contains(el))) return;
+        types.push(el);
+      });
+      photos.forEach((el, i) => { el.classList.add('rv-p'); el.style.setProperty('--rvd', Math.min(i, 3) * 120 + 'ms'); });
+      types.forEach((el, i) => { el.classList.add('rv-t'); el.style.setProperty('--rvd', Math.min(i, 6) * 100 + 'ms'); });
+    };
+    const arm = (sec) => { prep(sec); sec.classList.add('rv-arm'); state.set(sec, 'arm'); };
+    const play = (sec) => { sec.classList.remove('rv-arm'); sec.classList.add('rv-on'); state.set(sec, 'on'); };
+    const cb = (entries) => {
+      if (!scrollable()) return;
+      entries.forEach((e) => { if (e.isIntersecting && state.get(e.target) === 'arm') { play(e.target); this._rvIo.unobserve(e.target); } });
+    };
+    const opts = { rootMargin: '-20% 0px -20% 0px', threshold: 0 };
+    try { this._rvIo = new IntersectionObserver(cb, Object.assign({ root: document }, opts)); }
+    catch (err) { this._rvIo = new IntersectionObserver(cb, opts); }
+    const setup = () => {
+      if (!scrollable()) return;
+      const vh = window.innerHeight;
+      sections.forEach((sec) => {
+        if (state.has(sec)) return;
+        const r = sec.getBoundingClientRect();
+        if (r.top > vh * 0.8) { arm(sec); this._rvIo.observe(sec); }
+        else if (r.bottom > 0 && !this._rvSetupDone) { arm(sec); requestAnimationFrame(() => play(sec)); }
+        else state.set(sec, 'static');
+      });
+      this._rvSetupDone = true;
+    };
+    setup();
+    this._rvResize = () => setup();
+    window.addEventListener('resize', this._rvResize);
+  }
+  componentWillUnmount() {
+    if (this._rvIo) this._rvIo.disconnect();
+    if (this._rvResize) window.removeEventListener('resize', this._rvResize);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
