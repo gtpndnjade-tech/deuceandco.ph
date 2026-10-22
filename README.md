@@ -13,6 +13,7 @@ Static website for deuceandcoph.com. No build step: every file in this folder is
 | `barkada-bundle.html` | Barkada Bundle |
 | `coaching.html` | Coaching |
 | `our-story.html` | Our Story |
+| `review.html` | AFTER THE RALLY. review form. Not linked from the menu yet: share the link (yourdomain/review.html) after sessions. |
 | `support.js` | The page runtime (bundles React). Every page needs it. Do not delete. |
 | `assets/` | All site photos and graphics |
 | `img/barkada-night-01…03/` | Photos for the RECENT SESSIONS galleries on the homepage (02 is shown as "Rally Session 01") |
@@ -58,6 +59,14 @@ Each RECENT SESSIONS tile reads its folder in order: `01.jpg`, `02.jpg`, `03.jpg
 - To add photos, export them as JPG (about 1800px on the long edge) and name them with the next numbers. Don't skip a number.
 - To remove one, delete it and renumber the photos after it down by one.
 - Tile covers are separate files: `assets/9c7b01f61e50817b59cb8525415298a7.jpg` (Barkada Night 01), `assets/76c23e65caffa6995d577c1f19b397d7.jpg` (Rally Session 01), `assets/8235bfdb4a4ff0687d345df50224bfb8.jpg` (Barkada Night 03). Replace a cover with a square photo of the same file name.
+
+## Reviews
+
+`review.html` is a native form, with no embed. When someone taps SEND IT, the answers are posted in the background to Formspree, which emails them to you. Nobody's email app opens.
+
+Reviews post to the Formspree form `https://formspree.io/f/mzeepyed`, which emails deuceandcoph@gmail.com. To point the form somewhere else, open `review.html`, find that address, replace it, then commit and push.
+
+That address only accepts form submissions. Opening it in a browser shows "Form should POST", which is normal. Formspree's free plan has a monthly submission limit, so check their pricing page if reviews pick up.
 
 ## Inquiries
 
