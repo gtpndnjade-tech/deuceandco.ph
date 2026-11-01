@@ -70,12 +70,12 @@ a{color:inherit}a:hover{color:#C25B33}
 .bl.fx-on .tbody{animation:fxFade 600ms cubic-bezier(0.16,1,0.3,1) 200ms both}
 .bl.fx-on .tile:nth-child(2) .tbody{animation-delay:320ms}
 .bl.fx-on .tile:nth-child(3) .tbody{animation-delay:440ms}
-/* RALLY NOTES · two tracks. Sessions: three square photos, 8px apart, label top-left on a corner scrim (mobile: first wide, then two).
+/* RALLY NOTES · two tracks. Sessions: four square photos (newest first), 8px apart, label top-left on a corner scrim (2×2 on mobile).
    Reviews: a sideways rail of text cards (380 / 320px) that snap to the content edge; the last card bleeds off the right
    edge as the cue to scroll. Drag with the mouse, swipe or trackpad; no scrollbar, no arrows, no auto-scroll. */
 .rnTrack{margin-top:56px}
 .rnSubH{font-size:30px;line-height:1;margin:0 0 20px}
-.sessGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sessGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .sess{position:relative;margin:0;aspect-ratio:1/1;overflow:hidden;background:#111111}
 .sess img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .sess::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(260px 80px at 0 0,rgba(17,17,17,0.66) 0%,rgba(17,17,17,0.5) 50%,rgba(17,17,17,0.16) 80%,rgba(17,17,17,0) 100%)}
@@ -84,14 +84,14 @@ a{color:inherit}a:hover{color:#C25B33}
 .rvRail::-webkit-scrollbar{display:none}
 .rvRail:focus-visible{outline:2px solid #C25B33;outline-offset:4px}
 .rvRail.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
-.rv{flex:0 0 380px;box-sizing:border-box;max-height:320px;padding:28px;display:flex;flex-direction:column;gap:16px;scroll-snap-align:start}
+.rv{flex:0 0 380px;box-sizing:border-box;padding:28px;display:flex;flex-direction:column;gap:16px;scroll-snap-align:start}
 .rvc{background:#EFE8DC;color:#111111;border:1px solid #111111}
 .rvk{background:#111111;color:#EFE8DC}
 .rvTag{font-size:13px}
 .rvQ{margin:0;font-family:Inter,sans-serif;font-size:16px;line-height:1.5}
 .rvBy{margin-top:auto;font-size:13px;opacity:0.7}
 .rvk .rvTag,.rvk .rvBy{color:#EFE8DC}
-@media (max-width:768px){.rnTrack{margin-top:40px}.sessGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.sess:first-child{grid-column:1 / -1;aspect-ratio:2/1}.rvRail{--edge:16px}.rv{flex-basis:320px;max-height:none}.sessTag{left:10px;top:9px;font-size:11px}}
+@media (max-width:768px){.rnTrack{margin-top:40px}.sessGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.rvRail{--edge:16px}.rv{flex-basis:320px;max-height:none}.sessTag{left:10px;top:9px;font-size:11px}}
 /* SESSION GALLERIES · each tile opens a full-screen ink modal. Photos load from img/barkada-night-0N/01.jpg, 02.jpg …
    (probed in order until a file is missing, so dropping 13.jpg into a folder adds frame 13 with no code change). Row
    scrolls sideways and snaps each frame to the centre; ×, Esc or a tap off the photos closes it. No transitions. */
@@ -551,7 +551,7 @@ header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
 <div class="tbody">
 <span class="m">LEVEL 03</span>
 <h4 class="d" style="font-size:52px;margin-top:10px">ADVANCED</h4>
-<p style="margin-top:14px;font-size:16px;font-weight:600">₱240 / day · 6 frames</p>
+<p style="margin-top:14px;font-size:16px;font-weight:600">₱240 / day · 7 frames</p>
 <p style="margin-top:6px;font-size:16px;line-height:1.5">Performance-oriented frames.</p>
 <a class="link tGo" href="rackets.html#advanced">SEE ADVANCED RACKETS →</a>
 </div>
@@ -651,13 +651,13 @@ header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
 </div>
 <div class="rnTrack">
 <h3 class="d rnSubH">RECENT SESSIONS</h3>
-<div class="sessGrid"><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Barkada Night 01 gallery" onClick="{{ galOpen1 }}" onKeyDown="{{ galKey1 }}"><img src="assets/9c7b01f61e50817b59cb8525415298a7.jpg" alt="Barkada Night 01: friends laughing at the net on a lit court at night" loading="lazy"><span class="m sessTag">BARKADA NIGHT · 01</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Rally Session 01 gallery" onClick="{{ galOpen2 }}" onKeyDown="{{ galKey2 }}"><img src="assets/76c23e65caffa6995d577c1f19b397d7.jpg" alt="Rally Session 01: player smiling mid-dive for a wide forehand on the indoor clay court" loading="lazy"><span class="m sessTag">RALLY SESSION · 01</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Barkada Night 03 gallery" onClick="{{ galOpen3 }}" onKeyDown="{{ galKey3 }}"><img src="assets/8235bfdb4a4ff0687d345df50224bfb8.jpg" alt="Barkada Night 03: the group posing at the net under the lights" loading="lazy"><span class="m sessTag">BARKADA NIGHT · 03</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure></div>
+<div class="sessGrid"><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Coaching Clinic 01 gallery" onClick="{{ galOpen4 }}" onKeyDown="{{ galKey4 }}"><img src="assets/c795cefd1afeeba3c23068e5865aa654.jpg" alt="Coaching Clinic 01: the coach with two players at the net, rackets in hand, under the floodlights" loading="lazy"><span class="m sessTag">COACHING CLINIC · 01</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Barkada Night 01 gallery" onClick="{{ galOpen1 }}" onKeyDown="{{ galKey1 }}"><img src="assets/9c7b01f61e50817b59cb8525415298a7.jpg" alt="Barkada Night 01: friends laughing at the net on a lit court at night" loading="lazy"><span class="m sessTag">BARKADA NIGHT · 01</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Rally Session 01 gallery" onClick="{{ galOpen2 }}" onKeyDown="{{ galKey2 }}"><img src="assets/76c23e65caffa6995d577c1f19b397d7.jpg" alt="Rally Session 01: player smiling mid-dive for a wide forehand on the indoor clay court" loading="lazy"><span class="m sessTag">RALLY SESSION · 01</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure><figure class="sess" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open the Barkada Night 03 gallery" onClick="{{ galOpen3 }}" onKeyDown="{{ galKey3 }}"><img src="assets/8235bfdb4a4ff0687d345df50224bfb8.jpg" alt="Barkada Night 03: the group posing at the net under the lights" loading="lazy"><span class="m sessTag">BARKADA NIGHT · 03</span><span class="m sessGo" aria-hidden="true">VIEW GALLERY →</span></figure></div>
 </div>
 <div class="rnTrack">
 <h3 class="d rnSubH">WHAT PLAYERS SAY</h3>
 </div>
 </div>
-<div class="rvRail" role="region" aria-label="Player reviews, scroll sideways" tabindex="0"><article class="rv rvc"><span class="m rvTag">REVIEW · 01</span><p class="rvQ">“Great tennis session with Deuce &amp; Co.! From beginner to advanced, they’ve got the perfect equipment for every level. The crew is super friendly and it’s a wonderful community to connect with new players. Definitely coming back for another round!</p><span class="m rvBy">CHRISTIA REA · BULACAN</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 02</span><p class="rvQ">“Been playing tennis for about 3 weeks now and I’m actually enjoying it so much! Still learning and getting the hang of it, but it’s been really fun so far. Also really thankful to deuceandco.ph for helping me get into tennis and making it easy for me to start. The racket and balls I rented were good too, so no complaints hehehehe.</p><span class="m rvBy">JOSHUA · CAVITE</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 03</span><p class="rvQ">“Met with some friends I haven’t talked to in years, played a couple rounds and it felt like I was just talking with them yesterday. Can’t recommend the service enough. Rackets are also high quality and feel well maintained.</p><span class="m rvBy">KEINO · BIÑAN</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 04</span><p class="rvQ">“Feels like no time passed after playing with highschool classmates after so many years, thankful to the owners for affordable and well maintained equipments. Also had fun playing with the owners for hours either rallying or scored games. Highly recommended especially for beginners like us!</p><span class="m rvBy">WAYNE · BIÑAN</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 05</span><p class="rvQ">“Thank you Deuce&amp;Co for the opportunity. Might be able to discover new skill for Tennis.</p><span class="m rvBy">DEXTER · QC</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 06</span><p class="rvQ">“I loveee deuceandco.ph!! They are truly a one-stop shop for tennis. It’s soo easy to rent a racket, book a court, and even learn how to play from the owners. So much passion for a business. More power!</p><span class="m rvBy">RICHEART · LAS PIÑAS</span></article></div>
+<div class="rvRail" role="region" aria-label="Player reviews, scroll sideways" tabindex="0"><article class="rv rvc"><span class="m rvTag">REVIEW · 01</span><p class="rvQ">“Great tennis session with Deuce &amp; Co.! From beginner to advanced, they’ve got the perfect equipment for every level. The crew is super friendly and it’s a wonderful community to connect with new players. Definitely coming back for another round!</p><span class="m rvBy">CHRISTIA REA · BULACAN</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 02</span><p class="rvQ">“Been playing tennis for about 3 weeks now and I’m actually enjoying it so much! Still learning and getting the hang of it, but it’s been really fun so far. Also really thankful to deuceandco.ph for helping me get into tennis and making it easy for me to start. The racket and balls I rented were good too, so no complaints hehehehe.</p><span class="m rvBy">JOSHUA · CAVITE</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 03</span><p class="rvQ">“Met with some friends I haven’t talked to in years, played a couple rounds and it felt like I was just talking with them yesterday. Can’t recommend the service enough. Rackets are also high quality and feel well maintained.</p><span class="m rvBy">KEINO · BIÑAN</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 04</span><p class="rvQ">“Feels like no time passed after playing with highschool classmates after so many years, thankful to the owners for affordable and well maintained equipments. Also had fun playing with the owners for hours either rallying or scored games. Highly recommended especially for beginners like us!</p><span class="m rvBy">WAYNE · BIÑAN</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 05</span><p class="rvQ">“Thank you Deuce&amp;Co for the opportunity. Might be able to discover new skill for Tennis.</p><span class="m rvBy">DEXTER · QC</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 06</span><p class="rvQ">“I loveee deuceandco.ph!! They are truly a one-stop shop for tennis. It’s soo easy to rent a racket, book a court, and even learn how to play from the owners. So much passion for a business. More power!</p><span class="m rvBy">RICHEART · LAS PIÑAS</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 07</span><p class="rvQ">“My tennis experience so far has been both fun and rewarding. I started by joining a one-day tennis clinic, where I learned the fundamentals of forehand and backhand strokes. Over the past few days, I’ve also participated in fun matches, which allowed me to apply what I learned, gain confidence, and experience the game in a more competitive yet enjoyable setting.</p><span class="m rvBy">@gggabb6</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 08</span><p class="rvQ">“Great for anyone who wants to start playing tennis. All the equipment you need is available, and I was able to rent tennis balls to practice my serves, which was really convenient. The community is also welcoming, especially if you’re looking for other people to play with. I highly recommend! &lt;3</p><span class="m rvBy">JANA · CARMONA</span></article><article class="rv rvc"><span class="m rvTag">REVIEW · 09</span><p class="rvQ">“you’re gonna love tennis after playing with Deuce&amp;Co. started with fun rallies, ended up wanting to play often, learn more about techniques &amp; equipment, and meet new people.</p><span class="m rvBy">SHAN · BIÑAN</span></article><article class="rv rvk"><span class="m rvTag">REVIEW · 10</span><p class="rvQ">“For now it’s perfect, can’t wait to come again</p><span class="m rvBy">ADRIEN · FRANCE</span></article></div>
 </section>
 
 <!-- MODULE 5 · THE STORY -->
@@ -712,7 +712,7 @@ header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"galleryBase":{"editor":"text","default":"img/","section":"Rally notes"},"levelWells":{"editor":"enum","options":["color wells","plain off-white"],"default":"color wells","section":"By level"},"rateOutdoor":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"rateIndoor":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"rateLights":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"messengerUrl":{"editor":"text","default":"","section":"Court rates"},"$preview":{"width":1440,"height":7800}}'>
+<script type="text/x-dc" data-dc-script data-props='{"galleryBase":{"editor":"text","default":"img/","section":"Rally notes"},"levelWells":{"editor":"enum","options":["color wells","plain off-white"],"default":"color wells","section":"By level"},"rateOutdoor":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"rateIndoor":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"rateLights":{"editor":"int","default":0,"min":0,"unit":"₱/hr","section":"Court rates"},"messengerUrl":{"editor":"text","default":"","section":"Court rates"},"$preview":{"width":1440,"height":7490}}'>
 class Component extends DCLogic {
   // Hero two-era transition, desktop fallback only: browsers without CSS scroll timelines get --p from a
   // passive, rAF-throttled scroll listener. Never on mobile (timed CSS there) and never with reduced motion.
@@ -764,7 +764,8 @@ class Component extends DCLogic {
   // SESSION GALLERY. Probes img/barkada-night-0N/01.jpg, 02.jpg … in order and stops at the first missing file.
   _galOpen(n) {
     const base = (this.props.galleryBase ?? 'img/').replace(/\/?$/, '/');
-    const dir = base + 'barkada-night-' + String(n).padStart(2, '0') + '/';
+    const DIRS = { 1: 'barkada-night-01', 2: 'barkada-night-02', 3: 'barkada-night-03', 4: 'coaching-clinic-01' };
+    const dir = base + (DIRS[n] || 'barkada-night-' + String(n).padStart(2, '0')) + '/';
     const token = (this._galTok = (this._galTok || 0) + 1);
     this._galFrom = document.activeElement;
     const tile = this._galFrom && this._galFrom.closest ? this._galFrom.closest('.sess') : null;
@@ -823,15 +824,15 @@ class Component extends DCLogic {
   }
   _gal() {
     const st = this.state || {}, n = st.gal;
-    const S = { 1: ['BARKADA NIGHT · 01 · SOUTH CITY HOMES', 'MON 24 AUG 2026'], 2: ['RALLY SESSION · 01 · SOUTH CITY HOMES', 'SUN 27 SEP 2026'], 3: ['BARKADA NIGHT · 03 · SOUTH CITY HOMES', 'FRI 9 OCT 2026'] };
+    const S = { 1: ['BARKADA NIGHT · 01 · SOUTH CITY HOMES', 'MON 24 AUG 2026'], 2: ['RALLY SESSION · 01 · SOUTH CITY HOMES', 'SUN 27 SEP 2026'], 3: ['BARKADA NIGHT · 03 · SOUTH CITY HOMES', 'FRI 9 OCT 2026'], 4: ['COACHING CLINIC · 01 · SOUTH CITY HOMES', 'TUE 27 – WED 28 OCT 2026'] };
     const v = {};
-    [1, 2, 3].forEach((k) => { v['galOpen' + k] = () => this._galOpen(k); v['galKey' + k] = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this._galOpen(k); } }; });
+    [1, 2, 3, 4].forEach((k) => { v['galOpen' + k] = () => this._galOpen(k); v['galKey' + k] = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this._galOpen(k); } }; });
     if (!n) return Object.assign(v, { galOpen: false });
     const list = st.galList, loading = !list, cnt = list ? list.length : 0;
     return Object.assign(v, {
       galOpen: true, galLabel: S[n][0], galDate: S[n][1], galLoading: loading, galEmpty: !loading && cnt === 0, galHas: cnt > 0,
       galCount: loading ? '' : cnt + (cnt === 1 ? ' FRAME' : ' FRAMES'),
-      galPhotos: (list || []).map((f, i) => ({ src: f.src, w: String(f.w), h: String(f.h), num: 'FRAME ' + String(i + 1).padStart(2, '0'), alt: (n === 2 ? 'Rally Session 01' : 'Barkada Night ' + String(n).padStart(2, '0')) + ', frame ' + (i + 1) })),
+      galPhotos: (list || []).map((f, i) => ({ src: f.src, w: String(f.w), h: String(f.h), num: 'FRAME ' + String(i + 1).padStart(2, '0'), alt: (n === 2 ? 'Rally Session 01' : n === 4 ? 'Coaching Clinic 01' : 'Barkada Night ' + String(n).padStart(2, '0')) + ', frame ' + (i + 1) })),
       galClose: () => this._galClose(),
       galBack: (e) => { if (this._galMoved) { this._galMoved = false; return; } if (!e.target.closest('.galFr')) this._galClose(); }
     });
