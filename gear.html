@@ -177,7 +177,7 @@ header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
 <section style="padding:104px 0">
 <div class="wrap">
 <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;border-bottom:1px solid #111111;padding-bottom:18px">
-<h2 class="d" style="font-size:56px">ON THE SHELF</h2>
+<h2 class="d" style="font-size:56px">PICK A PACKAGE</h2>
 <svg aria-hidden="true" viewBox="0 0 320 90" style="width:240px;max-width:60%" fill="none" stroke="#111111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 <path d="M8 84 L 9 14 M312 84 L 311 13"></path>
 <path d="M9 16 C 100 19, 220 13, 311 15" stroke-width="3"></path>
@@ -187,7 +187,7 @@ header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
 </svg>
 </div>
 <div class="gGrid">
-<sc-for list="{{ gear }}" as="g" hint-placeholder-count="5">
+<sc-for list="{{ gear }}" as="g" hint-placeholder-count="6">
 <article>
 <div class="ph phTap" style="background:#111111;aspect-ratio:4/5" role="button" tabindex="0" aria-label="{{ g.aria }}" onClick="{{ g.open }}" onKeyDown="{{ g.key }}"><img src="{{ g.img }}" alt="{{ g.alt }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"><sc-if value="{{ g.priced }}" hint-placeholder-val="{{ true }}"><span class="inqTag" aria-hidden="true">INQUIRE NOW →</span></sc-if></div>
 <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid #111111;margin-top:14px;padding-top:10px;min-height:22px"><span class="m">{{ g.code }}</span><sc-if value="{{ g.soon }}" hint-placeholder-val="{{ false }}"><span class="soon">SOON</span></sc-if><sc-if value="{{ g.priced }}" hint-placeholder-val="{{ true }}"><span class="m" style="color:#C25B33">{{ g.priceLabel }}</span></sc-if></div>
@@ -204,7 +204,7 @@ header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
 <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
 <p class="serif" style="font-style:italic;font-size:clamp(30px,3.4vw,46px);line-height:1.18;max-width:20ch">“Renting a racket already? Add it to the same DM — no separate trip.”</p>
 <div style="border-top:1px solid #111111">
-<div style="display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #111111"><span class="m">RENTAL PERIOD</span><span>By the day</span></div>
+<div style="display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #111111"><span class="m">RENTAL PERIOD</span><span style="text-align:right">By the day. Ball machine by the hour.</span></div>
 <div style="display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #111111"><span class="m">DEPOSIT</span><span style="text-align:right">₱200 with multi-day racket rentals</span></div>
 <div style="display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #111111"><span class="m">PICKUP</span><span style="text-align:right">South City Homes, Biñan</span></div>
 <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
@@ -245,7 +245,7 @@ header .tzMenu{position:static;min-width:0;margin:0 16px 14px}
 <select id="m-date" class="mIn" value="{{ mDate }}" onChange="{{ mOnDate }}"><sc-for list="{{ mDates }}" as="d" hint-placeholder-count="14"><option value="{{ d.v }}">{{ d.label }}</option></sc-for></select></div>
 <div class="mField"><span class="m mLab">DURATION</span>
 <div class="mSeg" role="group" aria-label="Duration"><sc-for list="{{ mDurOpts }}" as="o" hint-placeholder-count="4"><button type="button" class="{{ o.cls }}" aria-pressed="{{ o.on }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for></div>
-<sc-if value="{{ mCustomOn }}" hint-placeholder-val="{{ false }}"><input class="mIn" type="number" min="1" max="30" inputmode="numeric" aria-label="Number of days" value="{{ mCustom }}" onInput="{{ mOnCustom }}" style="max-width:120px"></sc-if></div>
+<sc-if value="{{ mCustomOn }}" hint-placeholder-val="{{ false }}"><input class="mIn" type="number" min="1" max="{{ mCustomMax }}" inputmode="numeric" aria-label="{{ mCustomAria }}" value="{{ mCustom }}" onInput="{{ mOnCustom }}" style="max-width:120px"></sc-if></div>
 </div>
 <div class="mTotal"><span class="m mLab">TOTAL</span><span class="d mTotalN">{{ mTotal }}</span><span class="m mNote">{{ mTotalNote }}</span></div>
 <p class="mMsg" aria-live="polite">{{ mMessage }}</p>
@@ -310,21 +310,22 @@ class Component extends DCLogic {
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hdr.classList.contains('mOpen') && !dd.contains(document.activeElement)) { setMenu(false); hbg && hbg.focus(); } });
   }
-  // GEAR TILES. Tapping a photo opens the inquiry modal; the ball machine opens a pre-filled "notify me" DM instead.
+  // GEAR PACKAGES. Tapping a photo opens the inquiry modal. Items rent by the day; the ball machine by the hour (unit: 'hour').
   _gear() {
     const items = [
-      { code: 'G·01 · BALLS', name: 'BALLS, BY THE SET', rate: 70, cap: '30 practice balls. Enough for two hours of drills.', what: 'a 30-ball set', img: 'assets/7bae85203933bf9a5bc6fcd350bbb8ec.jpg', alt: 'A crate of yellow tennis balls on a grass court' },
-      { code: 'G·02 · BASKET', name: 'BALL BASKET', rate: 90, cap: '50 practice balls in a wire basket. For feeding drills and serve practice.', what: 'a ball basket', img: 'assets/dfb0f32831e08cabb8df8692db612146.jpg', alt: 'A wire ball basket on legs, full of tennis balls, on court' },
-      { code: 'G·03 · CART', name: 'BALL CART', rate: 140, cap: '50 practice balls in a folding cart. Rolls courtside on four wheels.', what: 'a ball cart', img: 'assets/07157f97f5b02ab6f8642fb26944b43c.jpg', alt: 'A folding aluminium ball cart with a black bag, on a clay-coloured court' },
-      { code: 'G·04 · MACHINE', name: 'BALL MACHINE', rate: 0, soon: true, cap: 'Feeds balls on its own. For solo drills.', img: 'assets/bd05be79a89dd53161b60642360e2793.jpg', alt: 'A black tennis ball machine' },
-      { code: 'G·05 · TUBE', name: 'BALL TUBE', rate: 120, cap: 'Comes with 15 balls. Pick up without bending. Your back will thank you.', what: 'a ball tube with 15 balls', img: 'assets/13539d5e2ad9d7c59021c6bf8d450984.jpg', alt: 'A clear Prince ball tube full of tennis balls, leaning on the net' }
+      { code: 'G·01 · BASKET', name: 'BALL BASKET WITH BALLS', rate: 90, cap: 'A wire basket with 80 practice balls. For feeding drills and serve practice.', what: 'the Ball Basket with Balls package', img: 'assets/dfb0f32831e08cabb8df8692db612146.jpg', alt: 'A wire ball basket on legs, full of tennis balls, on court' },
+      { code: 'G·02 · BASKET + TUBE', name: 'BALL BASKET WITH BALLS AND TUBE', rate: 150, cap: 'The basket and 80 balls, plus a ball tube so you can pick up without bending.', what: 'the Ball Basket with Balls and Tube package', img: 'assets/37daaecaf7098ac5b6384b3ca1588d2b.jpg', alt: 'A wire ball basket full of tennis balls beside a clear ball tube' },
+      { code: 'G·03 · CART', name: 'BALL CART WITH TENNIS BALLS', rate: 200, cap: 'A folding cart with 80 practice balls. Rolls courtside on four wheels.', what: 'the Ball Cart with Tennis Balls package', img: 'assets/07157f97f5b02ab6f8642fb26944b43c.jpg', alt: 'A folding aluminium ball cart with a black bag, on a clay-coloured court' },
+      { code: 'G·04 · CART + TUBE', name: 'BALL CART WITH BALLS AND TUBE', rate: 250, cap: 'The cart and 80 balls, plus a ball tube for pickup. The full setup for drills.', what: 'the Ball Cart with Balls and Tube package', img: 'assets/8151139d4722d68df748be036199e3a2.jpg', alt: 'A folding ball cart beside a clear ball tube full of tennis balls' },
+      { code: 'G·05 · MACHINE', name: 'BALL MACHINE', rate: 500, unit: 'hour', cap: 'Feeds balls on its own for solo drills. Balls included.', what: 'the ball machine (balls included)', img: 'assets/bd05be79a89dd53161b60642360e2793.jpg', alt: 'A black tennis ball machine' },
+      { code: 'G·06 · TUBE', name: 'BALL TUBE', rate: 80, cap: 'Pick up balls without bending. Your back will thank you.', what: 'a ball tube', img: 'assets/13539d5e2ad9d7c59021c6bf8d450984.jpg', alt: 'A clear Prince ball tube full of tennis balls, leaning on the net' }
     ];
     const notify = 'https://m.me/61593264803515?text=' + encodeURIComponent('Hi Deuce&Co. — Please notify me when the ball machine is available for rent.');
-    const go = (x) => () => { if (x.soon) { window.open(notify, '_blank', 'noopener'); return; } this._inqOpen({ title: x.name, rate: x.rate, what: x.what }); };
+    const go = (x) => () => { if (x.soon) { window.open(notify, '_blank', 'noopener'); return; } this._inqOpen({ title: x.name, rate: x.rate, what: x.what, unit: x.unit || 'day' }); };
     return {
       gear: items.map((x) => ({
-        ...x, priced: !x.soon, priceLabel: x.soon ? '' : '₱' + x.rate + ' / DAY',
-        aria: x.soon ? x.name + ', coming soon. Message us to be notified' : 'Inquire about ' + x.name + ', ₱' + x.rate + ' a day',
+        ...x, priced: !x.soon, priceLabel: x.soon ? '' : '₱' + x.rate + (x.unit === 'hour' ? ' / HOUR' : ' / DAY'),
+        aria: x.soon ? x.name + ', coming soon. Message us to be notified' : 'Inquire about ' + x.name + ', ₱' + x.rate + (x.unit === 'hour' ? ' an hour' : ' a day'),
         open: go(x), key: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(x)(); } }
       }))
     };
@@ -350,10 +351,11 @@ class Component extends DCLogic {
     const days = [], d0 = new Date(); d0.setHours(0, 0, 0, 0);
     for (let k = 0; k < 14; k++) { const d = new Date(d0); d.setDate(d0.getDate() + k); days.push(d); }
     const di = Math.min(Math.max(+(st.mDate || 0), 0), 13), day = days[di];
-    const dur = st.mDur || 1, custom = Math.max(1, Math.min(30, parseInt(st.mCustom, 10) || 1));
+    const hr = it.unit === 'hour', one = hr ? 'hour' : 'day', many = hr ? 'hours' : 'days';
+    const dur = st.mDur || 1, custom = Math.max(1, Math.min(hr ? 12 : 30, parseInt(st.mCustom, 10) || 1));
     const n = dur === 'other' ? custom : dur, total = it.rate * n;
     const when = day.toLocaleDateString('en-US', { weekday: 'long' }) + ', ' + day.toLocaleDateString('en-US', { month: 'short' }) + ' ' + day.getDate();
-    const message = 'Hi Deuce&Co. — I’d like to rent ' + it.what + ' for ' + n + (n === 1 ? ' day' : ' days') + ', starting ' + when + '. Total is ₱' + fmt(total) + '. Is it available?';
+    const message = 'Hi Deuce&Co. — I’d like to rent ' + it.what + ' for ' + n + ' ' + (n === 1 ? one : many) + (hr ? ' on ' : ', starting ') + when + '. Total is ₱' + fmt(total) + '. Is it available?';
     const enc = encodeURIComponent(message);
     // Copy: clipboard API first, inside the click; execCommand next; a selectable textarea last.
     const execCopy = () => { try { const ta = document.createElement('textarea'); ta.value = message; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, message.length); const ok = document.execCommand('copy'); ta.remove(); return ok; } catch (e) { return false; } };
@@ -364,12 +366,12 @@ class Component extends DCLogic {
       if (execCopy()) done(); else showRaw();
     };
     return {
-      mOpen: true, mTitle: it.title + ' · ₱' + it.rate + ' / DAY',
+      mOpen: true, mTitle: it.title + ' · ₱' + it.rate + (hr ? ' / HOUR' : ' / DAY'),
       mDate: String(di), mDates: days.map((d, k) => ({ v: String(k), label: d.toLocaleDateString('en-GB', { weekday: 'short' }) + ' ' + d.getDate() + ' ' + d.toLocaleDateString('en-GB', { month: 'short' }) })),
       mOnDate: (e) => this.setState({ mDate: e.target.value }),
-      mDurOpts: [[1, '1 DAY'], [2, '2 DAYS'], [3, '3 DAYS'], ['other', 'OTHER']].map(([v, label]) => ({ label, on: String(v === dur), cls: v === dur ? 'on' : '', pick: () => this.setState({ mDur: v }) })),
-      mCustomOn: dur === 'other', mCustom: String(custom), mOnCustom: (e) => this.setState({ mCustom: e.target.value }),
-      mTotal: '₱' + fmt(total), mTotalNote: '₱' + it.rate + ' × ' + n + (n === 1 ? ' DAY' : ' DAYS'),
+      mDurOpts: (hr ? [[1, '1 HOUR'], [2, '2 HOURS'], [3, '3 HOURS'], ['other', 'OTHER']] : [[1, '1 DAY'], [2, '2 DAYS'], [3, '3 DAYS'], ['other', 'OTHER']]).map(([v, label]) => ({ label, on: String(v === dur), cls: v === dur ? 'on' : '', pick: () => this.setState({ mDur: v }) })),
+      mCustomOn: dur === 'other', mCustomMax: hr ? '12' : '30', mCustomAria: hr ? 'Number of hours' : 'Number of days', mCustom: String(custom), mOnCustom: (e) => this.setState({ mCustom: e.target.value }),
+      mTotal: '₱' + fmt(total), mTotalNote: '₱' + it.rate + ' × ' + n + ' ' + (n === 1 ? one : many).toUpperCase(),
       mMessage: message, mRaw: !!st.mRaw, mCopyLabel: st.mCopied ? 'COPIED' : 'COPY MESSAGE →',
       mCopy: () => copy(false), mCopyQuiet: () => copy(true),
       mClose: () => this._inqClose(), mBackdrop: (e) => { if (e.target === e.currentTarget) this._inqClose(); },

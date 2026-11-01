@@ -16,7 +16,7 @@ Static website for deuceandcoph.com. No build step: every file in this folder is
 | `review.html` | AFTER THE RALLY. review form. Not linked from the menu yet: share the link (yourdomain/review.html) after sessions. |
 | `support.js` | The page runtime (bundles React). Every page needs it. Do not delete. |
 | `assets/` | All site photos and graphics |
-| `img/barkada-night-01…03/` | Photos for the RECENT SESSIONS galleries on the homepage (02 is shown as "Rally Session 01") |
+| `img/barkada-night-01…03/`, `img/coaching-clinic-01/` | Photos for the four RECENT SESSIONS galleries on the homepage (barkada-night-02 is shown as "Rally Session 01") |
 | `.nojekyll` | Tells GitHub Pages to serve the files untouched. Keep it. |
 
 The only outside file the pages load is Google Fonts (Oswald, Inter, EB Garamond). Without internet the site still works, just in fallback fonts.
@@ -58,7 +58,7 @@ Each RECENT SESSIONS tile reads its folder in order: `01.jpg`, `02.jpg`, `03.jpg
 
 - To add photos, export them as JPG (about 1800px on the long edge) and name them with the next numbers. Don't skip a number.
 - To remove one, delete it and renumber the photos after it down by one.
-- Tile covers are separate files: `assets/9c7b01f61e50817b59cb8525415298a7.jpg` (Barkada Night 01), `assets/76c23e65caffa6995d577c1f19b397d7.jpg` (Rally Session 01), `assets/8235bfdb4a4ff0687d345df50224bfb8.jpg` (Barkada Night 03). Replace a cover with a square photo of the same file name.
+- Tile covers are separate files: `assets/9c7b01f61e50817b59cb8525415298a7.jpg` (Barkada Night 01), `assets/76c23e65caffa6995d577c1f19b397d7.jpg` (Rally Session 01), `assets/8235bfdb4a4ff0687d345df50224bfb8.jpg` (Barkada Night 03), `assets/c795cefd1afeeba3c23068e5865aa654.jpg` (Coaching Clinic 01). Replace a cover with a square photo of the same file name.
 
 ## Reviews
 

@@ -178,6 +178,24 @@ section:has(> .heroG){overflow-x:clip}
 .fFrames{order:2;display:flex;flex-direction:row;justify-content:flex-start;gap:10px;padding:0 14px;width:auto}
 .fCell{flex:0 0 min(58vw,220px);scroll-snap-align:start;scroll-margin-left:14px}
 }
+/* CLINIC 01 · ink film strip on the off-white ground: cream sprockets top and bottom, frames aligned to the content column */
+.clHead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 24px;flex-wrap:wrap;border-bottom:1px solid #111111;padding-bottom:18px}
+.clFilm{--edge:max(40px,calc((100vw - 1360px) / 2 + 40px));margin:48px 0 0;background:#111111;color:#EFE8DC}
+.clPerf{height:22px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='22'%3E%3Crect x='7' y='5' width='10' height='12' fill='%23EFE8DC'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:4px 0}
+.clCode{display:flex;justify-content:space-between;gap:16px;padding:2px var(--edge) 10px;font-family:Inter,sans-serif;font-weight:600;font-size:10px;letter-spacing:0.16em;line-height:1;text-transform:uppercase;color:rgba(239,232,220,0.62)}
+.clRow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:0 var(--edge)}
+.clCell{min-width:0}
+.clFr{position:relative;aspect-ratio:3/2;overflow:hidden;background:#1b1b1b;border:1px solid rgba(239,232,220,0.28);box-sizing:border-box}
+.clFr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.clNum{display:block;padding:9px 0 8px;font-family:Inter,sans-serif;font-weight:600;font-size:10px;letter-spacing:0.16em;line-height:1;text-transform:uppercase;color:#EFE8DC;white-space:nowrap}
+.clTxt{margin:40px 0 0;font-family:Inter,sans-serif;font-size:18px;line-height:1.6;color:#111111;max-width:46ch}
+@media (max-width:768px){
+.clFilm{--edge:16px;margin-top:36px}
+.clRow{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:16px;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.clRow::-webkit-scrollbar{display:none}
+.clCell{flex:0 0 78vw;scroll-snap-align:start}
+.clTxt{margin-top:32px}
+}
 </style>
 </helmet>
 <div class="rvRoot" style="min-height:100vh">
@@ -297,6 +315,25 @@ section:has(> .heroG){overflow-x:clip}
 </div>
 </section>
 
+<!-- CLINIC 01 · completed: ink film strip with sprockets, four documentary frames -->
+<section id="clinic-01" aria-labelledby="clinic-01-t" style="background:#EFE8DC;color:#111111;padding:96px 0 120px;border-top:1px solid #111111">
+<div class="wrap">
+<div class="clHead">
+<div><span class="m" style="color:#C25B33">COACHING · CLINIC 01</span><h2 id="clinic-01-t" class="d" style="font-size:clamp(48px,6vw,88px);margin-top:14px">THE FIRST CLINIC. COMPLETED.</h2></div>
+<span class="m">DAY 1 + DAY 2 · SOUTH CITY HOMES</span>
+</div>
+</div>
+<figure class="clFilm" aria-label="Film strip, frames 01 to 04: two days of Clinic 01">
+<div class="clPerf" aria-hidden="true"></div>
+<div class="clCode" aria-hidden="true"><span>CLINIC 01 · DEUCE 400</span><span>27–28 OCT 2026</span></div>
+<div class="clRow"><div class="clCell"><div class="clFr"><img src="assets/d7852aa0de17349a529fa39bed7ba7b8.jpg" alt="Day 1 at dusk: the coach talks grip with three players at the net" loading="lazy"></div><span class="clNum">01<span aria-hidden="true"> ▸ </span>01A</span></div><div class="clCell"><div class="clFr"><img src="assets/ab8992ad954d4515f72fc765eb68742f.jpg" alt="Day 1 under the floodlights: players shadow-swinging across the court beside a ball cart" loading="lazy"></div><span class="clNum">02<span aria-hidden="true"> ▸ </span>02A</span></div><div class="clCell"><div class="clFr"><img src="assets/d35bdd52e87528ddd886573ee2ec45df.jpg" alt="Day 2 drills at night, practice balls scattered across the court" loading="lazy"></div><span class="clNum">03<span aria-hidden="true"> ▸ </span>03A</span></div><div class="clCell"><div class="clFr"><img src="assets/21e8c574ae2ecf1a456cf4fde9679c33.jpg" alt="The Day 2 group lined up at the net with their rackets" loading="lazy"></div><span class="clNum">04<span aria-hidden="true"> ▸ </span>04A</span></div></div>
+<div class="clPerf" aria-hidden="true"></div>
+</figure>
+<div class="wrap">
+<p class="clTxt">Two days on court. Beginners finding their swing, returning players shaking off the rust. The first of many.</p>
+</div>
+</section>
+
 <!-- THE HOMECOMING -->
 <section aria-label="The homecoming" style="background:#1F4A3D;color:#EFE8DC;padding:120px 0">
 <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:center">
@@ -361,7 +398,7 @@ section:has(> .heroG){overflow-x:clip}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4960}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5970}}'>
 class Component extends DCLogic {
   // Section entrances (IntersectionObserver only, once each). Photos: img/.ph wider than 120px; type: the outermost
   // headings, paragraphs, labels and CTAs outside those photos, in reading order.
